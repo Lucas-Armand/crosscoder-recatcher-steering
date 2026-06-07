@@ -30,7 +30,7 @@ pip install -U pip
 pip install -r requirements.txt
 ```
 
-If you need gated models, log in with your own token on the server. Do not commit tokens.
+If you need gated models, log in with your own token on the server.
 
 ```bash
 hf auth login
