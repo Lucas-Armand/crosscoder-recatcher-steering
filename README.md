@@ -24,8 +24,6 @@ docs/
 ## Setup on a new server
 
 ```bash
-unzip recatcher_crosscoder_repro.zip
-cd recatcher_crosscoder_repro
 python -m venv .venv
 source .venv/bin/activate
 pip install -U pip
