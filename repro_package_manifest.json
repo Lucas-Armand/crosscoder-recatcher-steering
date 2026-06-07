@@ -1,0 +1,16 @@
+{
+  "package": "recatcher_crosscoder_repro",
+  "created_for": "portable reproducibility of ReCatcher/CrossCoder experiments",
+  "contains_generated_outputs": false,
+  "contains_credentials": false,
+  "main_scripts": [
+    "run_recatcher_benchmarks.py",
+    "run_with_bucket_sync.sh",
+    "tools/export_generated_scripts_to_zips.py",
+    "tools/reprocess_outputs_minimal.py",
+    "tools/evaluate_humaneval_local.py",
+    "tools/prepare_bigcodebench_chunks.py",
+    "tools/summarize_bigcodebench_logs.py"
+  ],
+  "key_fix": "DeepSeek-family tokenizers are loaded through PreTrainedTokenizerFast and validated with a code whitespace round-trip before generation."
+}

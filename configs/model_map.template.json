@@ -1,0 +1,8 @@
+{
+  "deepseek_base": "deepseek-ai/deepseek-coder-6.7b-base",
+  "deepseek_finetuned": "JetBrains/deepseek-coder-6.7B-kexer",
+  "deepseek_merged": "ori-ai-fabric/ds-trinity-7b-v1",
+  "codellama_base": "meta-llama/CodeLlama-7b-hf",
+  "codellama_finetuned": "JetBrains/CodeLlama-7B-Kexer",
+  "codellama_merged": "DevQuasar-5/coma-7B-v0.1"
+}

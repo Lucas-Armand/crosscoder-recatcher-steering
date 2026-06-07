@@ -1,0 +1,16 @@
+torch
+transformers>=4.38
+accelerate
+bitsandbytes
+sentencepiece
+tiktoken
+tokenizers
+datasets
+tqdm
+numpy
+pandas
+scipy
+scikit-learn
+# Optional evaluators:
+# evalplus
+# bigcodebench
