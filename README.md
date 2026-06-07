@@ -8,7 +8,7 @@ It includes the latest tokenizer fix for DeepSeek-family models discovered durin
 
 ```text
 run_recatcher_benchmarks.py        # main generation + activation script, tokenizer guard included
-run_with_bucket_sync.sh            # optional local/GCS runner, no bucket hard-coded
+run_with_bucket_sync.sh            # optional local/GCS runner
 tools/export_generated_scripts_to_zips.py
 tools/reprocess_outputs_minimal.py
 tools/evaluate_humaneval_local.py
