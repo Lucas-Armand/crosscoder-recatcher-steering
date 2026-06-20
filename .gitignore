@@ -1,0 +1,41 @@
+# local env / notebooks
+.venv/
+.ipynb_checkpoints/
+__pycache__/
+Untitled.ipynb
+
+# experiment outputs
+recatcher_crosscoder_humaneval/
+external_outputs/
+logs_*/
+output/
+data/
+path/
+test_src/
+latin_files/
+
+# logs
+*.log
+Output.txt
+*.out
+
+# generated data / scratch files
+*.csv
+*.db
+*.sqlite
+*.sqlite3
+*.json
+*.txt
+
+# archives / compressed files
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+
+# temp / editor junk
+~
+*.tmp
+*.bak
+*.swp
+.DS_Store
