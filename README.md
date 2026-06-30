@@ -193,3 +193,331 @@ python tools/summarize_bigcodebench_logs.py \
 - The previous DeepSeek run should be considered contaminated if it used the whitespace-breaking tokenizer route.
 - CodeLlama had a separate parse issue: a common 3-space indentation artifact. The minimal repair script handles that deterministically.
 - Store raw outputs and repaired outputs separately. Keep labels such as `raw_correct` and `parse_fixed_correct` distinct.
+
+
+---
+
+# CrossCoder ReCatcher Steering
+
+This repository contains scripts for generating, post-processing, evaluating, and inspecting ReCatcher/CrossCoder code-generation benchmark runs.
+
+The main validated artifact from the current reproduction pipeline is:
+
+```text
+gs://data-intelligence-bucket/tests/recatcher_crosscoder_humaneval/crosscoder_final_dataset_v1_postprocessed_minimal_v3
+```
+
+This processed dataset was created from the raw generation run:
+
+```text
+gs://data-intelligence-bucket/tests/recatcher_crosscoder_humaneval/crosscoder_final_dataset_v1
+```
+
+---
+
+## Repository structure
+
+Important files:
+
+```text
+run_recatcher_benchmarks.py
+    Main generation script for running models on HumanEval+/BigCodeBench and saving results/activations.
+
+scripts/run_postprocess_and_eval_from_scratch_v3.sh
+    Validated pipeline for creating an evaluation-ready copy, running evaluations, and uploading results.
+
+tools/inspect_eval_examples.py
+    Utility for inspecting examples that passed or failed evaluation.
+
+tools/export_generated_scripts_to_zips.py
+    Helper used by the post-processing pipeline.
+
+tools/reprocess_outputs_minimal.py
+    Minimal mechanical post-processing for generated code.
+
+tools/evaluate_humaneval_local.py
+    Local HumanEval+ evaluation helper.
+```
+
+---
+
+## Evaluation-ready post-processing and evaluation pipeline
+
+The validated script is:
+
+```bash
+scripts/run_postprocess_and_eval_from_scratch_v3.sh
+```
+
+It creates a clean evaluation-ready dataset from a raw generation run.
+
+The pipeline:
+
+1. Reads raw generation files from the source experiment.
+2. Creates a new processed/evaluation-ready destination.
+3. Preserves the original raw outputs under `raw_results/`.
+4. Applies minimal mechanical post-processing to generated code.
+5. Saves processed outputs under `results/`, `results_repaired/`, and `samples_for_external_eval/`.
+6. Copies activation tensors unchanged under `selected_layer_activations/`.
+7. Runs HumanEval+ evaluation.
+8. Runs BigCodeBench evaluation using `bigcodebench==0.1.5`.
+9. Writes a summary report to `reports/model_benchmark_summary.csv`.
+
+The intended methodology is conservative: the original generations and activations are preserved. For execution-based evaluation, the pipeline creates an evaluation-ready copy of the generated code using minimal formatting repairs, such as removing markdown fences, normalizing line breaks, and fixing mechanical indentation artifacts. These changes are not applied to the activation tensors.
+
+---
+
+## Environment setup
+
+HumanEval+ environment:
+
+```bash
+python -m venv ~/venvs/recatcher_humaneval
+source ~/venvs/recatcher_humaneval/bin/activate
+pip install -U pip
+pip install datasets evalplus pytest tqdm
+deactivate
+```
+
+BigCodeBench environment:
+
+```bash
+python -m venv ~/venvs/bigcodebench015
+source ~/venvs/bigcodebench015/bin/activate
+pip install -U pip
+pip install "bigcodebench==0.1.5"
+deactivate
+```
+
+The BigCodeBench pipeline is pinned to:
+
+```text
+bigcodebench==0.1.5
+```
+
+The BigCodeBench evaluator is run with:
+
+```bash
+python -m bigcodebench.evaluate   --subset complete   --samples <samples.jsonl>   --parallel 16   --no-gt
+```
+
+The runner only accepts a BigCodeBench score if the log contains a real metric line beginning with:
+
+```text
+pass@1:
+```
+
+This avoids false positives from helper messages or monitoring text.
+
+---
+
+## Running the validated v3 pipeline
+
+Full validated run:
+
+```bash
+SRC_EXP="crosscoder_final_dataset_v1" DST_EXP="crosscoder_final_dataset_v1_postprocessed_minimal_v3" MODELS_STR="codellama_base codellama_finetuned codellama_merged deepseek_base deepseek_finetuned deepseek_merged" BENCHES_STR="humanevalplus bigcodebench" COPY_ACTIVATIONS=1 HUMANEVAL_VENV="$HOME/venvs/recatcher_humaneval" BIGCODEBENCH_VENV="$HOME/venvs/bigcodebench015" BIGCODEBENCH_PARALLEL=16 GRACE_AFTER_SCORE_SECONDS=20 HARD_TIMEOUT_SECONDS=1800 ./scripts/run_postprocess_and_eval_from_scratch_v3.sh
+```
+
+Small smoke test:
+
+```bash
+MODELS_STR="codellama_base" BENCHES_STR="humanevalplus bigcodebench" DST_EXP="crosscoder_final_dataset_v1_postprocessed_minimal_v3_test_codellama_base" COPY_ACTIVATIONS=0 ./scripts/run_postprocess_and_eval_from_scratch_v3.sh
+```
+
+---
+
+## Output structure
+
+The processed dataset has this structure:
+
+```text
+<destination>/
+  POSTPROCESS_MANIFEST.txt
+
+  raw_results/
+    Original raw generation outputs.
+
+  results/
+    Processed/evaluation-ready result files using the standard result filenames.
+
+  results_repaired/
+    Detailed repaired result files.
+
+  samples_for_external_eval/
+    Sample files passed to external evaluators.
+
+  selected_layer_activations/
+    Activation tensors copied unchanged from the source run.
+
+  eval/
+    humanevalplus/
+      HumanEval+ evaluation logs and JSONL files.
+
+    bigcodebench015/
+      BigCodeBench logs and evaluation result JSON files.
+
+  reports/
+    repair summaries
+    model_benchmark_summary.csv
+```
+
+---
+
+## Validated v3 results
+
+The validated v3 run produced the following scores.
+
+| Benchmark | Model | pass@1 |
+|---|---:|---:|
+| HumanEval+ | codellama_base | 0.3171 |
+| HumanEval+ | codellama_finetuned | 0.0000 |
+| HumanEval+ | codellama_merged | 0.1037 |
+| HumanEval+ | deepseek_base | 0.3780 |
+| HumanEval+ | deepseek_finetuned | 0.6037 |
+| HumanEval+ | deepseek_merged | 0.7439 |
+| BigCodeBench | codellama_base | 0.272 |
+| BigCodeBench | codellama_finetuned | 0.002 |
+| BigCodeBench | codellama_merged | 0.023 |
+| BigCodeBench | deepseek_base | 0.232 |
+| BigCodeBench | deepseek_finetuned | 0.304 |
+| BigCodeBench | deepseek_merged | 0.401 |
+
+The processed files were validated to contain:
+
+```text
+HumanEval+: 164 samples per model
+BigCodeBench: 1140 samples per model
+```
+
+---
+
+## Validation checks
+
+Check the summary:
+
+```bash
+gsutil cat   gs://data-intelligence-bucket/tests/recatcher_crosscoder_humaneval/crosscoder_final_dataset_v1_postprocessed_minimal_v3/reports/model_benchmark_summary.csv
+```
+
+Check processed result counts:
+
+```bash
+for f in $(gsutil ls gs://data-intelligence-bucket/tests/recatcher_crosscoder_humaneval/crosscoder_final_dataset_v1_postprocessed_minimal_v3/results/*.jsonl | sort); do
+  echo -n "$f "
+  gsutil cat "$f" | wc -l
+done
+```
+
+Expected counts:
+
+```text
+HumanEval+: 164 rows per model
+BigCodeBench: 1140 rows per model
+```
+
+Check real BigCodeBench scores:
+
+```bash
+for f in $(gsutil ls gs://data-intelligence-bucket/tests/recatcher_crosscoder_humaneval/crosscoder_final_dataset_v1_postprocessed_minimal_v3/eval/bigcodebench015/*full_eval_nogt.log | sort); do
+  echo "=== $f ==="
+  gsutil cat "$f" | grep -E '^pass@1:[[:space:]]*[0-9]+(\.[0-9]+)?[[:space:]]*$' || echo "NO SCORE"
+done
+```
+
+Check activation copy counts:
+
+```bash
+gsutil ls -r gs://data-intelligence-bucket/tests/recatcher_crosscoder_humaneval/crosscoder_final_dataset_v1_postprocessed_minimal_v3/selected_layer_activations/**/*.npz | wc -l
+```
+
+---
+
+## Inspecting evaluated examples
+
+Use the inspection script to print examples that passed and failed evaluation:
+
+```bash
+python tools/inspect_eval_examples.py   --root /tmp/crosscoder_postprocess_and_eval_v3/out   --benchmark all   --models "deepseek_merged"   --limit 5   --max-chars 5000
+```
+
+To inspect all models:
+
+```bash
+python tools/inspect_eval_examples.py   --root /tmp/crosscoder_postprocess_and_eval_v3/out   --benchmark all   --models "codellama_base codellama_finetuned codellama_merged deepseek_base deepseek_finetuned deepseek_merged"   --limit 5   --max-chars 5000   > inspect_all_models_examples.txt
+```
+
+Inspection outputs are local artifacts and should not be committed.
+
+---
+
+## Notes on post-processing
+
+The current v3 post-processing is intentionally conservative.
+
+It is designed to:
+
+```text
+- preserve the raw outputs;
+- preserve activation tensors unchanged;
+- avoid semantic repair;
+- avoid inventing code;
+- make outputs evaluation-ready through minimal mechanical cleanup.
+```
+
+Manual inspection showed that some model outputs still contain natural-language explanations, Kotlin fragments, TODOs, or extra example/test code. These are treated as model outputs, not silently repaired away. This makes the v3 dataset more conservative and easier to audit.
+
+If a more aggressive cleanup is needed, create a new destination version, such as:
+
+```text
+crosscoder_final_dataset_v1_postprocessed_minimal_v4
+```
+
+and rerun the evaluations.
+
+---
+
+## Git hygiene
+
+Do not commit local benchmark outputs, logs, caches, archives, databases, or inspection dumps.
+
+Recommended `.gitignore` entries include:
+
+```gitignore
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+*.log
+*.zip
+*.db
+*.sqlite
+*.sqlite3
+*.tar
+*.tar.gz
+*.tgz
+*.jsonl
+*.npz
+
+local_scratch/
+recatcher_crosscoder_humaneval/
+external_outputs/
+official_recatcher_artifacts/
+downloaded_files/
+downloads/
+unzipped_files/
+data_processed/
+destination/
+output/
+processed/
+test_src/
+test_dest/
+logs_*/
+
+inspect_*_examples.txt
+```
+
+Commit only the reproducible scripts and documentation.
+
+
+
