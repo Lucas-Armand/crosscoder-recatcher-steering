@@ -39,3 +39,12 @@ Output.txt
 *.bak
 *.swp
 .DS_Store
+
+# CrossCoder local artifacts
+runs/
+*.pt
+*.npz
+
+# Temporary script backups
+*.bak
+*.bak_*
