@@ -1,0 +1,414 @@
+{
+  "release_id": "paper_v1",
+  "blocking_status": "PASS",
+  "checks": [
+    {
+      "gate": "postprocessing",
+      "name": "postprocess manifest",
+      "status": "PASS",
+      "detail": "gs://data-intelligence-bucket/tests/recatcher_crosscoder_humaneval/crosscoder_final_dataset_v1_postprocessed_minimal_v3/POSTPROCESS_MANIFEST.txt"
+    },
+    {
+      "gate": "generation",
+      "name": "humanevalplus__deepseek_base task coverage",
+      "status": "PASS",
+      "detail": "rows=164, unique=164, expected=164"
+    },
+    {
+      "gate": "generation",
+      "name": "humanevalplus__deepseek_base metadata contract",
+      "status": "PASS",
+      "detail": "ok"
+    },
+    {
+      "gate": "postprocessing",
+      "name": "humanevalplus__deepseek_base repair lineage",
+      "status": "PASS",
+      "detail": "rows=164, changed=0, errors=[]"
+    },
+    {
+      "gate": "evaluation",
+      "name": "humanevalplus__deepseek_base HumanEval+ evidence",
+      "status": "PASS",
+      "detail": "rows=164, correct=62, explicit_status=True"
+    },
+    {
+      "gate": "generation",
+      "name": "humanevalplus__deepseek_finetuned task coverage",
+      "status": "PASS",
+      "detail": "rows=164, unique=164, expected=164"
+    },
+    {
+      "gate": "generation",
+      "name": "humanevalplus__deepseek_finetuned metadata contract",
+      "status": "PASS",
+      "detail": "ok"
+    },
+    {
+      "gate": "postprocessing",
+      "name": "humanevalplus__deepseek_finetuned repair lineage",
+      "status": "PASS",
+      "detail": "rows=164, changed=0, errors=[]"
+    },
+    {
+      "gate": "evaluation",
+      "name": "humanevalplus__deepseek_finetuned HumanEval+ evidence",
+      "status": "PASS",
+      "detail": "rows=164, correct=99, explicit_status=True"
+    },
+    {
+      "gate": "generation",
+      "name": "humanevalplus__deepseek_merged task coverage",
+      "status": "PASS",
+      "detail": "rows=164, unique=164, expected=164"
+    },
+    {
+      "gate": "generation",
+      "name": "humanevalplus__deepseek_merged metadata contract",
+      "status": "PASS",
+      "detail": "ok"
+    },
+    {
+      "gate": "postprocessing",
+      "name": "humanevalplus__deepseek_merged repair lineage",
+      "status": "PASS",
+      "detail": "rows=164, changed=0, errors=[]"
+    },
+    {
+      "gate": "evaluation",
+      "name": "humanevalplus__deepseek_merged HumanEval+ evidence",
+      "status": "PASS",
+      "detail": "rows=164, correct=122, explicit_status=True"
+    },
+    {
+      "gate": "generation",
+      "name": "humanevalplus__codellama_base task coverage",
+      "status": "PASS",
+      "detail": "rows=164, unique=164, expected=164"
+    },
+    {
+      "gate": "generation",
+      "name": "humanevalplus__codellama_base metadata contract",
+      "status": "PASS",
+      "detail": "ok"
+    },
+    {
+      "gate": "postprocessing",
+      "name": "humanevalplus__codellama_base repair lineage",
+      "status": "PASS",
+      "detail": "rows=164, changed=118, errors=[]"
+    },
+    {
+      "gate": "evaluation",
+      "name": "humanevalplus__codellama_base HumanEval+ evidence",
+      "status": "PASS",
+      "detail": "rows=164, correct=52, explicit_status=True"
+    },
+    {
+      "gate": "generation",
+      "name": "humanevalplus__codellama_finetuned task coverage",
+      "status": "PASS",
+      "detail": "rows=164, unique=164, expected=164"
+    },
+    {
+      "gate": "generation",
+      "name": "humanevalplus__codellama_finetuned metadata contract",
+      "status": "PASS",
+      "detail": "ok"
+    },
+    {
+      "gate": "postprocessing",
+      "name": "humanevalplus__codellama_finetuned repair lineage",
+      "status": "PASS",
+      "detail": "rows=164, changed=1, errors=[]"
+    },
+    {
+      "gate": "evaluation",
+      "name": "humanevalplus__codellama_finetuned HumanEval+ evidence",
+      "status": "PASS",
+      "detail": "rows=164, correct=0, explicit_status=True"
+    },
+    {
+      "gate": "generation",
+      "name": "humanevalplus__codellama_merged task coverage",
+      "status": "PASS",
+      "detail": "rows=164, unique=164, expected=164"
+    },
+    {
+      "gate": "generation",
+      "name": "humanevalplus__codellama_merged metadata contract",
+      "status": "PASS",
+      "detail": "ok"
+    },
+    {
+      "gate": "postprocessing",
+      "name": "humanevalplus__codellama_merged repair lineage",
+      "status": "PASS",
+      "detail": "rows=164, changed=139, errors=[]"
+    },
+    {
+      "gate": "evaluation",
+      "name": "humanevalplus__codellama_merged HumanEval+ evidence",
+      "status": "PASS",
+      "detail": "rows=164, correct=17, explicit_status=True"
+    },
+    {
+      "gate": "generation",
+      "name": "bigcodebench__deepseek_base task coverage",
+      "status": "PASS",
+      "detail": "rows=1140, unique=1140, expected=1140"
+    },
+    {
+      "gate": "generation",
+      "name": "bigcodebench__deepseek_base metadata contract",
+      "status": "PASS",
+      "detail": "ok"
+    },
+    {
+      "gate": "postprocessing",
+      "name": "bigcodebench__deepseek_base repair lineage",
+      "status": "PASS",
+      "detail": "rows=1140, changed=0, errors=[]"
+    },
+    {
+      "gate": "evaluation",
+      "name": "bigcodebench__deepseek_base BigCodeBench evidence",
+      "status": "PASS",
+      "detail": "exitcode=0, pass@1=0.232, version_recorded=False"
+    },
+    {
+      "gate": "generation",
+      "name": "bigcodebench__deepseek_finetuned task coverage",
+      "status": "PASS",
+      "detail": "rows=1140, unique=1140, expected=1140"
+    },
+    {
+      "gate": "generation",
+      "name": "bigcodebench__deepseek_finetuned metadata contract",
+      "status": "PASS",
+      "detail": "ok"
+    },
+    {
+      "gate": "postprocessing",
+      "name": "bigcodebench__deepseek_finetuned repair lineage",
+      "status": "PASS",
+      "detail": "rows=1140, changed=0, errors=[]"
+    },
+    {
+      "gate": "evaluation",
+      "name": "bigcodebench__deepseek_finetuned BigCodeBench evidence",
+      "status": "PASS",
+      "detail": "exitcode=0, pass@1=0.304, version_recorded=False"
+    },
+    {
+      "gate": "generation",
+      "name": "bigcodebench__deepseek_merged task coverage",
+      "status": "PASS",
+      "detail": "rows=1140, unique=1140, expected=1140"
+    },
+    {
+      "gate": "generation",
+      "name": "bigcodebench__deepseek_merged metadata contract",
+      "status": "PASS",
+      "detail": "ok"
+    },
+    {
+      "gate": "postprocessing",
+      "name": "bigcodebench__deepseek_merged repair lineage",
+      "status": "PASS",
+      "detail": "rows=1140, changed=0, errors=[]"
+    },
+    {
+      "gate": "evaluation",
+      "name": "bigcodebench__deepseek_merged BigCodeBench evidence",
+      "status": "PASS",
+      "detail": "exitcode=0, pass@1=0.401, version_recorded=False"
+    },
+    {
+      "gate": "generation",
+      "name": "bigcodebench__codellama_base task coverage",
+      "status": "PASS",
+      "detail": "rows=1140, unique=1140, expected=1140"
+    },
+    {
+      "gate": "generation",
+      "name": "bigcodebench__codellama_base metadata contract",
+      "status": "PASS",
+      "detail": "ok"
+    },
+    {
+      "gate": "postprocessing",
+      "name": "bigcodebench__codellama_base repair lineage",
+      "status": "PASS",
+      "detail": "rows=1140, changed=635, errors=[]"
+    },
+    {
+      "gate": "evaluation",
+      "name": "bigcodebench__codellama_base BigCodeBench evidence",
+      "status": "PASS",
+      "detail": "exitcode=0, pass@1=0.272, version_recorded=False"
+    },
+    {
+      "gate": "generation",
+      "name": "bigcodebench__codellama_finetuned task coverage",
+      "status": "PASS",
+      "detail": "rows=1140, unique=1140, expected=1140"
+    },
+    {
+      "gate": "generation",
+      "name": "bigcodebench__codellama_finetuned metadata contract",
+      "status": "PASS",
+      "detail": "ok"
+    },
+    {
+      "gate": "postprocessing",
+      "name": "bigcodebench__codellama_finetuned repair lineage",
+      "status": "PASS",
+      "detail": "rows=1140, changed=8, errors=[]"
+    },
+    {
+      "gate": "evaluation",
+      "name": "bigcodebench__codellama_finetuned BigCodeBench evidence",
+      "status": "PASS",
+      "detail": "exitcode=0, pass@1=0.002, version_recorded=False"
+    },
+    {
+      "gate": "generation",
+      "name": "bigcodebench__codellama_merged task coverage",
+      "status": "PASS",
+      "detail": "rows=1140, unique=1140, expected=1140"
+    },
+    {
+      "gate": "generation",
+      "name": "bigcodebench__codellama_merged metadata contract",
+      "status": "PASS",
+      "detail": "ok"
+    },
+    {
+      "gate": "postprocessing",
+      "name": "bigcodebench__codellama_merged repair lineage",
+      "status": "PASS",
+      "detail": "rows=1140, changed=747, errors=[]"
+    },
+    {
+      "gate": "evaluation",
+      "name": "bigcodebench__codellama_merged BigCodeBench evidence",
+      "status": "PASS",
+      "detail": "exitcode=0, pass@1=0.023, version_recorded=False"
+    },
+    {
+      "gate": "generation",
+      "name": "sampling parameter provenance",
+      "status": "PASS",
+      "detail": "archived experiment configs match"
+    },
+    {
+      "gate": "evaluation",
+      "name": "BigCodeBench version provenance",
+      "status": "WARN",
+      "detail": "The v3 launcher enforced bigcodebench==0.1.5 before evaluation, but that version line was not copied into the per-model evaluator logs."
+    },
+    {
+      "gate": "activations",
+      "name": "humanevalplus/deepseek_base",
+      "status": "PASS",
+      "detail": "present=164, expected=164, declared_omissions=[]"
+    },
+    {
+      "gate": "activations",
+      "name": "humanevalplus/deepseek_finetuned",
+      "status": "PASS",
+      "detail": "present=164, expected=164, declared_omissions=[]"
+    },
+    {
+      "gate": "activations",
+      "name": "humanevalplus/deepseek_merged",
+      "status": "PASS",
+      "detail": "present=164, expected=164, declared_omissions=[]"
+    },
+    {
+      "gate": "activations",
+      "name": "humanevalplus/codellama_base",
+      "status": "PASS",
+      "detail": "present=164, expected=164, declared_omissions=[]"
+    },
+    {
+      "gate": "activations",
+      "name": "humanevalplus/codellama_finetuned",
+      "status": "PASS",
+      "detail": "present=164, expected=164, declared_omissions=[]"
+    },
+    {
+      "gate": "activations",
+      "name": "humanevalplus/codellama_merged",
+      "status": "PASS",
+      "detail": "present=164, expected=164, declared_omissions=[]"
+    },
+    {
+      "gate": "activations",
+      "name": "bigcodebench/deepseek_base",
+      "status": "PASS",
+      "detail": "present=1139, expected=1139, declared_omissions=[764]"
+    },
+    {
+      "gate": "activations",
+      "name": "bigcodebench/deepseek_finetuned",
+      "status": "PASS",
+      "detail": "present=1139, expected=1139, declared_omissions=[764]"
+    },
+    {
+      "gate": "activations",
+      "name": "bigcodebench/deepseek_merged",
+      "status": "PASS",
+      "detail": "present=1139, expected=1139, declared_omissions=[764]"
+    },
+    {
+      "gate": "activations",
+      "name": "bigcodebench/codellama_base",
+      "status": "PASS",
+      "detail": "present=1140, expected=1140, declared_omissions=[]"
+    },
+    {
+      "gate": "activations",
+      "name": "bigcodebench/codellama_finetuned",
+      "status": "PASS",
+      "detail": "present=1140, expected=1140, declared_omissions=[]"
+    },
+    {
+      "gate": "activations",
+      "name": "bigcodebench/codellama_merged",
+      "status": "PASS",
+      "detail": "present=1140, expected=1140, declared_omissions=[]"
+    },
+    {
+      "gate": "activations",
+      "name": "payload conversion evidence",
+      "status": "PASS",
+      "detail": "summary={'converted_and_validated': 7809, 'preexisting_revalidated': 12, 'declared_failures': 3}, expected_total=7824; 12 pre-existing task-0 payloads are covered by the supplemental revalidation report"
+    },
+    {
+      "gate": "crosscoders",
+      "name": "deepseek_base_finetuned_layer16",
+      "status": "PASS",
+      "detail": "exitcode=0, final=True, final_uri=gs://data-intelligence-bucket/tests/recatcher_crosscoder_humaneval/releases/paper_v1/artifacts/crosscoders/deepseek_base_finetuned_layer16/final.pt, final_step=20000, pair=True, config_errors=[], finite_metrics=True"
+    },
+    {
+      "gate": "crosscoders",
+      "name": "deepseek_base_merged_layer16",
+      "status": "PASS",
+      "detail": "exitcode=0, final=True, final_uri=gs://data-intelligence-bucket/tests/recatcher_crosscoder_humaneval/crosscoder_training_v1/deepseek_base_vs_deepseek_merged_layer16_lat16384_steps20000/final.pt, final_step=20000, pair=True, config_errors=[], finite_metrics=True"
+    },
+    {
+      "gate": "crosscoders",
+      "name": "codellama_base_finetuned_layer16",
+      "status": "PASS",
+      "detail": "exitcode=0, final=True, final_uri=gs://data-intelligence-bucket/tests/recatcher_crosscoder_humaneval/crosscoder_codellama_base_finetuned_layer16_float32_v1/codellama_base_vs_codellama_finetuned_layer16_lat16384_steps20000/final.pt, final_step=20000, pair=True, config_errors=[], finite_metrics=True"
+    },
+    {
+      "gate": "crosscoders",
+      "name": "codellama_base_merged_layer16",
+      "status": "PASS",
+      "detail": "exitcode=0, final=True, final_uri=gs://data-intelligence-bucket/tests/recatcher_crosscoder_humaneval/crosscoder_codellama_base_merged_layer16_float32_v1/codellama_base_vs_codellama_merged_layer16_lat16384_steps20000/final.pt, final_step=20000, pair=True, config_errors=[], finite_metrics=True"
+    }
+  ]
+}

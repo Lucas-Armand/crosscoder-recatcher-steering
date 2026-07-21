@@ -1,0 +1,3 @@
+# Install benchmark evaluators in separate isolated environments.
+evalplus
+bigcodebench==0.1.5

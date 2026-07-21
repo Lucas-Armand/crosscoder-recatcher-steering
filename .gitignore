@@ -24,8 +24,16 @@ Output.txt
 *.db
 *.sqlite
 *.sqlite3
-*.json
 *.txt
+!requirements*.txt
+
+# JSON is frequently a source-controlled configuration or manifest. Ignore
+# only known generated locations instead of every JSON file in the repository.
+/*.json
+runs/
+reports/*.json
+!reports/paper_v1_validation.json
+!reports/paper_v1_activation_task0_validation.json
 
 # archives / compressed files
 *.zip
@@ -41,10 +49,14 @@ Output.txt
 .DS_Store
 
 # CrossCoder local artifacts
-runs/
 *.pt
 *.npz
 
 # Temporary script backups
 *.bak
 *.bak_*
+
+# Local credentials and machine-specific configuration
+.env
+.env.local
+configs/model_map.local.json
