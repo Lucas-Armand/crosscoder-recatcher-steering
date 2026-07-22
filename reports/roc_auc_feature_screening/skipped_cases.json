@@ -1,51 +1,9 @@
 [
   {
-    "case_id": "deepseek_base_merged_layer16__b_deepseek_merged__humanevalplus__layer16__evaluated_tokens",
-    "crosscoder_run": "deepseek_base_merged_layer16",
-    "model": "deepseek_merged",
-    "benchmark": "humanevalplus",
-    "reason": "ValueError: labels contain only one class"
-  },
-  {
     "case_id": "codellama_base_finetuned_layer16__b_codellama_finetuned__humanevalplus__layer16__evaluated_tokens",
     "crosscoder_run": "codellama_base_finetuned_layer16",
     "model": "codellama_finetuned",
     "benchmark": "humanevalplus",
     "reason": "ValueError: labels contain only one class"
-  },
-  {
-    "case_id": "codellama_base_finetuned_layer16__b_codellama_finetuned__bigcodebench__layer16__evaluated_tokens",
-    "crosscoder_run": "codellama_base_finetuned_layer16",
-    "model": "codellama_finetuned",
-    "benchmark": "bigcodebench",
-    "reason": "ValueError: labels contain only one class"
-  },
-  {
-    "case_id": "codellama_base_merged_layer16__a_codellama_base__humanevalplus__layer16__evaluated_tokens",
-    "crosscoder_run": "codellama_base_merged_layer16",
-    "model": "codellama_base",
-    "benchmark": "humanevalplus",
-    "reason": "FileNotFoundError: No activation files for humanevalplus/codellama_merged in declared roots: [\"No activation files found for model='codellama_merged' under /tmp/crosscoder_deepseek_activations/humanevalplus\", \"No activation files found for model='codellama_merged' under /tmp/crosscoder_codellama_canonical_full/selected_layer_activations/humanevalplus\"]"
-  },
-  {
-    "case_id": "codellama_base_merged_layer16__b_codellama_merged__humanevalplus__layer16__evaluated_tokens",
-    "crosscoder_run": "codellama_base_merged_layer16",
-    "model": "codellama_merged",
-    "benchmark": "humanevalplus",
-    "reason": "FileNotFoundError: No activation files for humanevalplus/codellama_merged in declared roots: [\"No activation files found for model='codellama_merged' under /tmp/crosscoder_deepseek_activations/humanevalplus\", \"No activation files found for model='codellama_merged' under /tmp/crosscoder_codellama_canonical_full/selected_layer_activations/humanevalplus\"]"
-  },
-  {
-    "case_id": "codellama_base_merged_layer16__a_codellama_base__bigcodebench__layer16__evaluated_tokens",
-    "crosscoder_run": "codellama_base_merged_layer16",
-    "model": "codellama_base",
-    "benchmark": "bigcodebench",
-    "reason": "FileNotFoundError: No activation files for bigcodebench/codellama_merged in declared roots: [\"No activation files found for model='codellama_merged' under /tmp/crosscoder_deepseek_activations/bigcodebench\", \"No activation files found for model='codellama_merged' under /tmp/crosscoder_codellama_canonical_full/selected_layer_activations/bigcodebench\"]"
-  },
-  {
-    "case_id": "codellama_base_merged_layer16__b_codellama_merged__bigcodebench__layer16__evaluated_tokens",
-    "crosscoder_run": "codellama_base_merged_layer16",
-    "model": "codellama_merged",
-    "benchmark": "bigcodebench",
-    "reason": "FileNotFoundError: No activation files for bigcodebench/codellama_merged in declared roots: [\"No activation files found for model='codellama_merged' under /tmp/crosscoder_deepseek_activations/bigcodebench\", \"No activation files found for model='codellama_merged' under /tmp/crosscoder_codellama_canonical_full/selected_layer_activations/bigcodebench\"]"
   }
 ]

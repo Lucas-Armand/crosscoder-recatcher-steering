@@ -99,11 +99,22 @@ def permutation_statistics(
     max_effect = np.empty(permutations)
     ranked_path = work_dir / "ranked_null.float32"
     ranked = np.memmap(ranked_path, mode="w+", dtype=np.float32, shape=(permutations, p))
-    for b in range(permutations):
-        perm_auc = auc_from_ranks(ranks, rng.permutation(labels))
-        null_sum += perm_auc; null_sumsq += perm_auc * perm_auc
-        max_effect[b] = np.max(np.abs(perm_auc - 0.5))
-        ranked[b] = np.sort(perm_auc).astype(np.float32)
+    n_failure = int(labels.sum())
+    n_pass = len(labels) - n_failure
+    rank_offset = n_failure * (n_failure + 1) / 2.0
+    denominator = n_failure * n_pass
+    batch_size = 32
+    for start in range(0, permutations, batch_size):
+        stop = min(start + batch_size, permutations)
+        permuted = np.stack(
+            [rng.permutation(labels) for _ in range(stop - start)]
+        ).astype(np.float32, copy=False)
+        rank_sums = permuted @ ranks
+        perm_auc = (rank_sums - rank_offset) / denominator
+        null_sum += perm_auc.sum(axis=0, dtype=np.float64)
+        null_sumsq += np.square(perm_auc).sum(axis=0, dtype=np.float64)
+        max_effect[start:stop] = np.max(np.abs(perm_auc - 0.5), axis=1)
+        ranked[start:stop] = np.sort(perm_auc, axis=1).astype(np.float32)
     ranked.flush()
     null_mean = null_sum / permutations
     null_sd = np.sqrt(np.maximum(0, null_sumsq / permutations - null_mean**2))

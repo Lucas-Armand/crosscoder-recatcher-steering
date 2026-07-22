@@ -11,7 +11,11 @@ import torch
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 
 from crosscoder_common import derive_legacy_evaluated_token_mask, load_evaluated_token_mask
-from run_roc_auc_feature_screening import auc_from_ranks, rank_columns
+from run_roc_auc_feature_screening import (
+    auc_from_ranks,
+    permutation_statistics,
+    rank_columns,
+)
 
 
 def test_auc_is_tie_aware_and_failure_is_positive():
@@ -19,6 +23,22 @@ def test_auc_is_tie_aware_and_failure_is_positive():
     labels = np.array([0, 0, 1, 1], dtype=np.int8)
     auc = auc_from_ranks(rank_columns(values), labels)
     assert auc[0] == pytest.approx(0.875)
+
+
+def test_batched_permutations_match_scalar_reference(tmp_path):
+    values = np.array(
+        [[0, 3], [1, 2], [1, 1], [2, 0]], dtype=np.float32
+    )
+    labels = np.array([0, 0, 1, 1], dtype=np.int8)
+    ranks = rank_columns(values)
+    observed = auc_from_ranks(ranks, labels)
+    actual = permutation_statistics(ranks, labels, observed, 7, 123, tmp_path)
+    rng = np.random.default_rng(123)
+    null = np.stack(
+        [auc_from_ranks(ranks, rng.permutation(labels)) for _ in range(7)]
+    )
+    np.testing.assert_allclose(actual[0], null.mean(axis=0), atol=1e-7)
+    np.testing.assert_allclose(actual[1], null.std(axis=0), atol=1e-7)
 
 
 def test_legacy_activation_without_exact_mask_is_rejected(tmp_path):

@@ -76,14 +76,16 @@ Smoke mode uses 200 permutations and at most 24 solutions per case. Full mode us
 
 ## Legacy reconstruction validation
 
-A paper-v1 smoke run was executed after adding reconstruction. With the DeepSeek
-and CodeLlama base-vs-finetuned activation roots already materialized on the lab
-server, 9 cases produced complete feature tables and ranked-envelope figures. All
-included legacy solutions passed full stored-ID equality. The report records
-solutions excluded because the historical last-N cross-model pairing left no
-evaluated-token overlap, as well as retained non-prefix fenced blocks. Cases with a
-single label class in the 24-solution smoke sample remain correctly undefined; the
-full run does not impose that sample cap.
+A full paper-v1 run was executed with all materialized activations, 5,000
+permutations, and seed 42. Fifteen cases produced complete feature tables and
+ranked-envelope figures. The only undefined case is CodeLlama fine-tuned on
+HumanEval+, because all 164 evaluated solutions failed and ROC-AUC requires both
+classes. All included legacy solutions passed full stored-ID equality.
+
+The report records solutions excluded because the historical last-N cross-model
+pairing left no evaluated-token overlap, empty generated selections, or a declared
+missing activation. It also reports retained non-prefix fenced blocks. These are
+analysis-population limitations rather than silently imputed observations.
 
 ## Assumptions and limitations
 
