@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import difflib
 import re
 from dataclasses import dataclass
 from pathlib import Path
@@ -166,6 +167,89 @@ def load_evaluated_token_mask(path: Path, expected_rows: int) -> np.ndarray:
     if not mask.any():
         raise ValueError(f"{path}: evaluated_token_mask selects zero tokens")
     return mask
+
+
+def derive_legacy_evaluated_token_mask(
+    path: Path,
+    expected_rows: int,
+    raw_row: dict[str, Any],
+    repaired_row: dict[str, Any],
+    tokenizer: Any,
+) -> tuple[np.ndarray, dict[str, Any]]:
+    """Exactly reconstruct a legacy mask, guarded by stored-ID equality.
+
+    The original full text is tokenized, never the cleaned candidate. The
+    reconstruction is accepted only if every resulting token ID equals the stored
+    IDs. Literal matching then maps retained generated characters onto those proven
+    token offsets.
+    """
+    with np.load(path, allow_pickle=False) as archive:
+        stored_ids = np.asarray(archive["input_ids"], dtype=np.int64)
+    prompt = str(raw_row["prompt"])
+    completion = str(raw_row.get("raw_completion", raw_row.get("completion", "")))
+    full_text = prompt.rstrip() + "\n" + completion.rstrip() + "\n"
+    encoded = tokenizer(
+        full_text,
+        truncation=True,
+        max_length=len(stored_ids),
+        return_offsets_mapping=True,
+    )
+    rebuilt_ids = np.asarray(encoded["input_ids"], dtype=np.int64)
+    offsets = np.asarray(encoded["offset_mapping"], dtype=np.int64)
+    if rebuilt_ids.shape != stored_ids.shape or not np.array_equal(rebuilt_ids, stored_ids):
+        mismatch = int(np.flatnonzero(rebuilt_ids != stored_ids)[0]) if rebuilt_ids.shape == stored_ids.shape and np.any(rebuilt_ids != stored_ids) else None
+        raise ValueError(
+            f"{path}: exact legacy alignment failed stored-ID equality: "
+            f"stored={stored_ids.shape}, rebuilt={rebuilt_ids.shape}, first_mismatch={mismatch}"
+        )
+    if expected_rows > len(stored_ids):
+        raise ValueError(f"{path}: activation rows exceed stored token IDs")
+
+    candidate = str(repaired_row["candidate_code_original"])
+    prompt_prefix = prompt.rstrip() + "\n"
+    candidate_generated = candidate[len(prompt_prefix):] if candidate.startswith(prompt_prefix) else candidate
+    candidate_generated = candidate_generated.rstrip()
+    if not candidate_generated:
+        raise ValueError(f"{path}: evaluated candidate contains no generated text")
+
+    matcher = difflib.SequenceMatcher(
+        a=completion, b=candidate_generated, autojunk=False
+    )
+    blocks = [block for block in matcher.get_matching_blocks() if block.size]
+    matched_candidate_chars = sum(block.size for block in blocks)
+    coverage = matched_candidate_chars / len(candidate_generated)
+    if coverage < 0.999999:
+        raise ValueError(
+            f"{path}: evaluated generated text is not a literal selection from raw "
+            f"completion (character coverage={coverage:.6f})"
+        )
+
+    generated_start = len(prompt.rstrip() + "\n")
+    retained_spans = [
+        (generated_start + block.a, generated_start + block.a + block.size)
+        for block in blocks
+    ]
+    saved_offsets = offsets[-expected_rows:]
+    mask = np.asarray(
+        [
+            end > begin and any(end > lo and begin < hi for lo, hi in retained_spans)
+            for begin, end in saved_offsets
+        ],
+        dtype=np.bool_,
+    )
+    if not mask.any():
+        raise ValueError(f"{path}: reconstructed legacy mask selects zero tokens")
+
+    nonempty = candidate_generated.rstrip()
+    prefix_literal = completion.startswith(nonempty)
+    return mask, {
+        "alignment_source": "legacy_stored_id_verified_literal_spans",
+        "stored_id_equality": True,
+        "matched_character_coverage": coverage,
+        "literal_prefix": prefix_literal,
+        "retained_span_count": len(retained_spans),
+        "evaluated_tokens": int(mask.sum()),
+    }
 
 
 def load_checkpoint_encoder(

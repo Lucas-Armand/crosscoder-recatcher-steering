@@ -14,6 +14,7 @@ import numpy as np
 
 from crosscoder_common import (
     compute_latent_summary,
+    derive_legacy_evaluated_token_mask,
     index_activation_files,
     load_checkpoint_encoder,
     load_evaluated_token_mask,
@@ -21,6 +22,7 @@ from crosscoder_common import (
     normalize_benchmark,
     normalize_task_id,
 )
+from audit_evaluation_pipeline import Source, jsonl
 
 
 def rank_columns(values: np.ndarray) -> np.ndarray:
@@ -121,7 +123,9 @@ def write_csv(
     if not rows:
         path.write_text(",".join(fieldnames or []) + "\n", encoding="utf-8"); return
     with path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(rows[0]))
+        writer = csv.DictWriter(
+            handle, fieldnames=list(rows[0]), lineterminator="\n"
+        )
         writer.writeheader(); writer.writerows(rows)
 
 
@@ -149,9 +153,16 @@ def plot_case(path: Path, observed: np.ndarray, lower: np.ndarray, upper: np.nda
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser()
     p.add_argument("--manifest", type=Path, default=Path("manifests/paper_v1.json"))
-    p.add_argument("--activation-root", type=Path, required=True)
+    p.add_argument(
+        "--activation-root", type=Path, action="append", required=True,
+        help="Canonical activation root; repeat for materialized roots split by model family.",
+    )
     p.add_argument("--checkpoint-root", type=Path, required=True)
     p.add_argument("--labels-csv", type=Path, required=True)
+    p.add_argument(
+        "--dataset",
+        help="Raw/repaired dataset root used for exact legacy mask reconstruction.",
+    )
     p.add_argument("--output-root", type=Path, default=Path("reports/roc_auc_feature_screening"))
     p.add_argument("--permutations", type=int, default=5000)
     p.add_argument("--smoke-test", action="store_true", help="Use 200 permutations and at most 24 examples per case")
@@ -160,11 +171,43 @@ def parse_args() -> argparse.Namespace:
     return p.parse_args()
 
 
+def load_historical_tokenizer(model_name: str):
+    """Mirror the tokenizer construction used by run_recatcher_benchmarks.py."""
+    from transformers import AutoTokenizer, PreTrainedTokenizerFast
+    if "deepseek" in model_name.lower() or "ds-trinity" in model_name.lower():
+        return PreTrainedTokenizerFast.from_pretrained(
+            model_name,
+            trust_remote_code=True,
+            bos_token="<｜begin▁of▁sentence｜>",
+            eos_token="<｜end▁of▁sentence｜>",
+            pad_token="<｜end▁of▁sentence｜>",
+            local_files_only=True,
+        )
+    return AutoTokenizer.from_pretrained(
+        model_name, trust_remote_code=True, use_fast=True, local_files_only=True
+    )
+
+
+def discover_activation_index(roots: list[Path], benchmark: str, model: str):
+    errors = []
+    for root in roots:
+        try:
+            return index_activation_files(root / benchmark, model)
+        except FileNotFoundError as exc:
+            errors.append(str(exc))
+    raise FileNotFoundError(
+        f"No activation files for {benchmark}/{model} in declared roots: {errors}"
+    )
+
+
 def main() -> int:
     args = parse_args(); manifest = json.loads(args.manifest.read_text())
     B = 200 if args.smoke_test else args.permutations
     labels = read_labels(args.labels_csv); output = args.output_root; output.mkdir(parents=True, exist_ok=True)
     summaries: list[dict[str, Any]] = []; candidates: list[dict[str, Any]] = []; skipped: list[dict[str, Any]] = []
+    source = Source(args.dataset) if args.dataset else None
+    result_cache: dict[tuple[str, str], tuple[dict[str, Any], dict[str, Any]]] = {}
+    tokenizer_cache: dict[str, Any] = {}
     layer = int(str(manifest["crosscoder_contract"]["layer"]).split("_")[-1])
     for cc in manifest["crosscoders"]:
         checkpoint = args.checkpoint_root / cc["id"] / "final.pt"
@@ -175,28 +218,70 @@ def main() -> int:
                 case_dir = output / case_id
                 try:
                     if not checkpoint.exists(): raise FileNotFoundError(f"checkpoint not found: {checkpoint}")
-                    index_a = index_activation_files(args.activation_root / benchmark, cc["model_a"])
-                    index_b = index_activation_files(args.activation_root / benchmark, cc["model_b"])
+                    index_a = discover_activation_index(args.activation_root, benchmark, cc["model_a"])
+                    index_b = discover_activation_index(args.activation_root, benchmark, cc["model_b"])
                     wanted = {k: v for k, v in labels.items() if k[0] == target and k[1] == benchmark}
                     if not wanted: raise ValueError("no labels for model/benchmark")
                     weight, bias, _ = load_checkpoint_encoder(checkpoint)
                     rows = []; ys = []; negatives = 0; latent_values = 0; minimum = math.inf
+                    legacy_masks = 0; nonprefix_masks = 0; solution_skips = []
+                    if source is not None:
+                        cache_key = (benchmark, target)
+                        if cache_key not in result_cache:
+                            stem = f"{benchmark}__{target}"
+                            raw_rows = jsonl(source.read(f"raw_results/{stem}_results.jsonl"))
+                            repaired_rows = jsonl(source.read(f"results/{stem}_results.jsonl"))
+                            raw_by_task = {normalize_task_id(r["task_id"]): r for r in raw_rows}
+                            repaired_by_task = {normalize_task_id(r["task_id"]): r for r in repaired_rows}
+                            if len(raw_by_task) != len(raw_rows) or len(repaired_by_task) != len(repaired_rows):
+                                raise ValueError("duplicate raw or repaired task IDs")
+                            if set(raw_by_task) != set(repaired_by_task):
+                                raise ValueError("raw/repaired task IDs differ")
+                            result_cache[cache_key] = (raw_by_task, repaired_by_task)
+                        if target not in tokenizer_cache:
+                            tokenizer_cache[target] = load_historical_tokenizer(manifest["models"][target])
                     label_keys = sorted(wanted, key=lambda k: (int(k[2]), k[3]))
                     if args.smoke_test: label_keys = label_keys[:24]
                     for label_key in label_keys:
-                        _, _, task_id, gen = label_key
-                        matches = [k for k in index_a if str(k.task_idx) == task_id and k.gen_idx == gen]
-                        if len(matches) != 1: raise ValueError(f"activation task mismatch for {label_key}: matches={len(matches)}")
-                        key = matches[0]
-                        if key not in index_b: raise ValueError(f"paired activation missing for {key}")
-                        a = load_layer(index_a[key], layer); b = load_layer(index_b[key], layer)
-                        target_array = a if side == "a" else b
-                        mask = load_evaluated_token_mask(index_a[key] if side == "a" else index_b[key], len(target_array))
-                        n = min(len(a), len(b)); summary = compute_latent_summary(
-                            a, b, weight, bias, "max", args.device, token_mask=mask[-n:]
-                        )
-                        minimum = min(minimum, float(summary.min())); negatives += int((summary < -1e-8).sum()); latent_values += summary.size
-                        rows.append(summary); ys.append(wanted[label_key])
+                        try:
+                            _, _, task_id, gen = label_key
+                            matches = [k for k in index_a if str(k.task_idx) == task_id and k.gen_idx == gen]
+                            if len(matches) != 1: raise ValueError(f"activation task mismatch: matches={len(matches)}")
+                            key = matches[0]
+                            if key not in index_b: raise ValueError(f"paired activation missing for {key}")
+                            a = load_layer(index_a[key], layer); b = load_layer(index_b[key], layer)
+                            target_array = a if side == "a" else b
+                            target_path = index_a[key] if side == "a" else index_b[key]
+                            used_legacy = False
+                            was_nonprefix = False
+                            try:
+                                mask = load_evaluated_token_mask(target_path, len(target_array))
+                            except KeyError:
+                                if source is None:
+                                    raise
+                                raw_by_task, repaired_by_task = result_cache[(benchmark, target)]
+                                if task_id not in raw_by_task:
+                                    raise KeyError(f"missing raw/repaired row for task {task_id}")
+                                mask, provenance = derive_legacy_evaluated_token_mask(
+                                    target_path, len(target_array), raw_by_task[task_id],
+                                    repaired_by_task[task_id], tokenizer_cache[target],
+                                )
+                                used_legacy = True
+                                was_nonprefix = not provenance["literal_prefix"]
+                            n = min(len(a), len(b)); summary = compute_latent_summary(
+                                a, b, weight, bias, "max", args.device, token_mask=mask[-n:]
+                            )
+                            legacy_masks += int(used_legacy)
+                            nonprefix_masks += int(was_nonprefix)
+                            minimum = min(minimum, float(summary.min())); negatives += int((summary < -1e-8).sum()); latent_values += summary.size
+                            rows.append(summary); ys.append(wanted[label_key])
+                        except Exception as exc:
+                            solution_skips.append({
+                                "label_key": repr(label_key),
+                                "reason": f"{type(exc).__name__}: {exc}",
+                            })
+                    if not rows:
+                        raise ValueError(f"no aligned solutions; first errors={solution_skips[:3]}")
                     X = np.stack(rows); y = np.asarray(ys, dtype=np.int8)
                     if len(np.unique(y)) != 2: raise ValueError("labels contain only one class")
                     ranks = rank_columns(X); observed = auc_from_ranks(ranks, y)
@@ -231,13 +316,16 @@ def main() -> int:
                                       "model": target, "benchmark": benchmark, "layer": layer, "token_scope": "evaluated_tokens", "n_solutions": len(y),
                                       "n_failures": int(y.sum()), "failure_prevalence": float(y.mean()), "permutations": B, "seed": args.seed,
                                       "minimum_latent_activation": minimum, "fraction_below_minus_1e_8": negatives / latent_values,
+                                      "legacy_masks_reconstructed": legacy_masks, "nonprefix_legacy_masks": nonprefix_masks,
+                                      "skipped_solutions": len(solution_skips),
+                                      "skipped_solution_reasons": json.dumps(solution_skips, ensure_ascii=False),
                                       "degenerate_features": int((~valid).sum()), "lowest_features": "; ".join(f"{r['feature_id']} ({r['observed_roc_auc']:.4f})" for r in ranked_table[:5]),
                                       "highest_features": "; ".join(f"{r['feature_id']} ({r['observed_roc_auc']:.4f})" for r in ranked_table[-5:])})
                 except Exception as exc:
                     skipped.append({"case_id": case_id, "crosscoder_run": cc["id"], "model": target, "benchmark": benchmark, "reason": f"{type(exc).__name__}: {exc}"})
     write_csv(
         output / "all_cases_summary.csv", summaries,
-        ["case_id", "crosscoder_run", "model_pair", "model_side", "model", "benchmark", "layer", "token_scope", "n_solutions", "n_failures", "failure_prevalence", "permutations", "seed", "minimum_latent_activation", "fraction_below_minus_1e_8", "degenerate_features", "lowest_features", "highest_features"],
+        ["case_id", "crosscoder_run", "model_pair", "model_side", "model", "benchmark", "layer", "token_scope", "n_solutions", "n_failures", "failure_prevalence", "permutations", "seed", "minimum_latent_activation", "fraction_below_minus_1e_8", "legacy_masks_reconstructed", "nonprefix_legacy_masks", "skipped_solutions", "skipped_solution_reasons", "degenerate_features", "lowest_features", "highest_features"],
     )
     write_csv(
         output / "top_feature_candidates.csv", candidates,
@@ -246,7 +334,7 @@ def main() -> int:
     lines = ["# ROC-AUC feature screening", "", f"Permutation count: **{B}**; seed: **{args.seed}**.", "", "## Analyzed cases", ""]
     for s in summaries:
         rel = s["case_id"]
-        lines += [f"### `{rel}`", "", f"n={s['n_solutions']}; failure prevalence={s['failure_prevalence']:.3f}; degenerate features={s['degenerate_features']}.", "",
+        lines += [f"### `{rel}`", "", f"n={s['n_solutions']}; failure prevalence={s['failure_prevalence']:.3f}; degenerate features={s['degenerate_features']}; skipped solutions={s['skipped_solutions']}; reconstructed legacy masks={s['legacy_masks_reconstructed']}; non-prefix masks={s['nonprefix_legacy_masks']}.", "",
                   f"Lowest five: {s['lowest_features']}", "", f"Highest five: {s['highest_features']}", "",
                   f"[Figure]({rel}/ranked_roc_auc_permutation_envelope.png) · [Feature table]({rel}/feature_statistics.csv)", ""]
     lines += ["## Skipped cases", ""] + [f"- `{s['case_id']}` — {s['reason']}" for s in skipped]

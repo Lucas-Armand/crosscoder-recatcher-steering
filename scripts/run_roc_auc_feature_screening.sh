@@ -5,6 +5,7 @@ MODE="${1:-full}"
 ACTIVATION_ROOT="${ACTIVATION_ROOT:?Set ACTIVATION_ROOT to canonical activation root}"
 CHECKPOINT_ROOT="${CHECKPOINT_ROOT:?Set CHECKPOINT_ROOT to materialized paper-v1 checkpoints}"
 LABELS_CSV="${LABELS_CSV:-reports/paper_v1_evaluation_labels.csv}"
+DATASET="${DATASET:-gs://data-intelligence-bucket/tests/recatcher_crosscoder_humaneval/crosscoder_final_dataset_v1_postprocessed_minimal_v3}"
 OUTPUT_ROOT="${OUTPUT_ROOT:-reports/roc_auc_feature_screening}"
 SEED="${SEED:-42}"
 
@@ -13,6 +14,7 @@ args=(
   --activation-root "$ACTIVATION_ROOT"
   --checkpoint-root "$CHECKPOINT_ROOT"
   --labels-csv "$LABELS_CSV"
+  --dataset "$DATASET"
   --output-root "$OUTPUT_ROOT"
   --seed "$SEED"
 )

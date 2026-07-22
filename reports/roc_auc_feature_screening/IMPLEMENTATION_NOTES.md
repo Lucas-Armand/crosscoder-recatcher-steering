@@ -20,18 +20,21 @@
 
 ## Exact-alignment finding for existing paper-v1 data
 
-Exact alignment is **not possible** for the existing canonical paper-v1
-activations. The legacy NPZ files contain token IDs and layer rows but no token
-character offsets or capture-time evaluated-token mask. Activation capture also
-tokenized `prompt.rstrip() + "\n" + completion`, while calculating its prompt
-boundary by tokenizing the unmodified prompt separately. Retokenizing the repaired
-code cannot prove that its token positions match the stored forward pass. This is
-especially material for fenced/truncated generations and CodeLlama rows changed by
-postprocessing.
+Exact alignment can be reconstructed for a legacy example without activation
+recapture when a strict stored-ID check succeeds. The runner rebuilds the exact
+historical forward-pass string (`prompt.rstrip() + "\n" +
+raw_completion.rstrip() + "\n"`), loads the tokenizer through the same family-
+specific path used during generation, requests offsets, and requires the rebuilt
+token IDs to be identical to every stored token ID. It never tokenizes cleaned code
+and assumes that positions are unchanged.
 
-Consequently, the strict runner does not fabricate an approximate prefix. It skips
-each legacy case with a precise `missing evaluated_token_mask` or related alignment
-reason and records it in `index.md` and `skipped_cases.json`.
+The original claim that all postprocessed outputs preserve a single raw-generation
+prefix was too broad. Most do, but the historical `strip_markdown_fences` selects
+the largest fenced block. Some CodeLlama fine-tuned generations therefore retain a
+later literal block rather than the initial code body. The reconstruction supports
+this exactly by matching retained literal spans, records `literal_prefix=false`,
+and reports the number of non-prefix examples per case. It rejects any example
+whose retained generated text is not covered literally or whose stored IDs differ.
 
 ## Forward-compatible alignment contract
 
@@ -70,6 +73,17 @@ nonnegative. Every case still reports its observed minimum and fraction below
 
 Smoke mode uses 200 permutations and at most 24 solutions per case. Full mode uses
 5,000 permutations by default. Seeds are case-local and reproducible.
+
+## Legacy reconstruction validation
+
+A paper-v1 smoke run was executed after adding reconstruction. With the DeepSeek
+and CodeLlama base-vs-finetuned activation roots already materialized on the lab
+server, 9 cases produced complete feature tables and ranked-envelope figures. All
+included legacy solutions passed full stored-ID equality. The report records
+solutions excluded because the historical last-N cross-model pairing left no
+evaluated-token overlap, as well as retained non-prefix fenced blocks. Cases with a
+single label class in the 24-solution smoke sample remain correctly undefined; the
+full run does not impose that sample cap.
 
 ## Assumptions and limitations
 

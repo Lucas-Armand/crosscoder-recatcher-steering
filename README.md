@@ -70,8 +70,9 @@ CHECKPOINT_ROOT=/path/to/crosscoder/checkpoints \
 scripts/run_roc_auc_feature_screening.sh full
 ```
 
-The legacy paper-v1 activation files predate the exact evaluated-token alignment
-metadata and are rejected rather than approximately aligned. See
+Legacy paper-v1 masks are reconstructed only when retokenizing the exact historical
+forward-pass text reproduces every stored token ID; otherwise the example is
+rejected. New captures store the mask directly. See
 [`reports/roc_auc_feature_screening/IMPLEMENTATION_NOTES.md`](reports/roc_auc_feature_screening/IMPLEMENTATION_NOTES.md).
 
 ## Validate the checkpoint

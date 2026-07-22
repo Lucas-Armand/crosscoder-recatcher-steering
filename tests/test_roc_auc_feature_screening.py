@@ -10,7 +10,7 @@ import torch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 
-from crosscoder_common import load_evaluated_token_mask
+from crosscoder_common import derive_legacy_evaluated_token_mask, load_evaluated_token_mask
 from run_roc_auc_feature_screening import auc_from_ranks, rank_columns
 
 
@@ -39,6 +39,45 @@ def test_mask_must_align_with_activation_rows(tmp_path):
     )
     with pytest.raises(ValueError, match="does not match activation rows"):
         load_evaluated_token_mask(path, 3)
+
+
+class CharacterTokenizer:
+    def __call__(self, text, **kwargs):
+        limit = kwargs.get("max_length", len(text))
+        text = text[:limit]
+        return {
+            "input_ids": [ord(char) for char in text],
+            "offset_mapping": [(i, i + 1) for i in range(len(text))],
+        }
+
+
+def test_legacy_mask_is_derived_only_from_id_verified_raw_text(tmp_path):
+    prompt = "def f():\n"
+    completion = "    return 1\nEXPLANATION"
+    full = prompt.rstrip() + "\n" + completion.rstrip() + "\n"
+    path = tmp_path / "legacy.npz"
+    np.savez(path, input_ids=np.array([ord(c) for c in full]))
+    rows = len(completion.rstrip() + "\n")
+    mask, provenance = derive_legacy_evaluated_token_mask(
+        path,
+        rows,
+        {"prompt": prompt, "raw_completion": completion},
+        {"candidate_code_original": prompt.rstrip() + "\n    return 1\n"},
+        CharacterTokenizer(),
+    )
+    assert mask.sum() == len("    return 1")
+    assert provenance["stored_id_equality"] is True
+    assert provenance["literal_prefix"] is True
+
+
+def test_legacy_mask_rejects_token_id_mismatch(tmp_path):
+    path = tmp_path / "legacy.npz"
+    np.savez(path, input_ids=np.array([999]))
+    with pytest.raises(ValueError, match="stored-ID equality"):
+        derive_legacy_evaluated_token_mask(
+            path, 1, {"prompt": "", "raw_completion": "x"},
+            {"candidate_code_original": "x"}, CharacterTokenizer(),
+        )
 
 
 def test_end_to_end_smoke_outputs(tmp_path):
