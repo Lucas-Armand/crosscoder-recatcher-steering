@@ -1,0 +1,203 @@
+{
+  "status": "PASS",
+  "failures": [],
+  "summary": [
+    {
+      "benchmark": "humanevalplus",
+      "model": "deepseek_base",
+      "evaluated": 164,
+      "passed": 62,
+      "pass_rate": 37.80487804878049,
+      "failed": 102,
+      "fail_rate": 62.19512195121951,
+      "indeterminate": 0,
+      "indeterminate_rate": 0.0,
+      "changed": 0,
+      "status_counts": {
+        "pass": 62,
+        "fail": 102
+      }
+    },
+    {
+      "benchmark": "humanevalplus",
+      "model": "deepseek_finetuned",
+      "evaluated": 164,
+      "passed": 99,
+      "pass_rate": 60.36585365853659,
+      "failed": 65,
+      "fail_rate": 39.63414634146341,
+      "indeterminate": 0,
+      "indeterminate_rate": 0.0,
+      "changed": 0,
+      "status_counts": {
+        "pass": 99,
+        "fail": 65
+      }
+    },
+    {
+      "benchmark": "humanevalplus",
+      "model": "deepseek_merged",
+      "evaluated": 164,
+      "passed": 122,
+      "pass_rate": 74.39024390243902,
+      "failed": 42,
+      "fail_rate": 25.609756097560975,
+      "indeterminate": 0,
+      "indeterminate_rate": 0.0,
+      "changed": 0,
+      "status_counts": {
+        "pass": 122,
+        "fail": 42
+      }
+    },
+    {
+      "benchmark": "humanevalplus",
+      "model": "codellama_base",
+      "evaluated": 164,
+      "passed": 52,
+      "pass_rate": 31.70731707317073,
+      "failed": 112,
+      "fail_rate": 68.29268292682927,
+      "indeterminate": 0,
+      "indeterminate_rate": 0.0,
+      "changed": 118,
+      "status_counts": {
+        "pass": 52,
+        "fail": 112
+      }
+    },
+    {
+      "benchmark": "humanevalplus",
+      "model": "codellama_finetuned",
+      "evaluated": 164,
+      "passed": 0,
+      "pass_rate": 0.0,
+      "failed": 164,
+      "fail_rate": 100.0,
+      "indeterminate": 0,
+      "indeterminate_rate": 0.0,
+      "changed": 1,
+      "status_counts": {
+        "fail": 164
+      }
+    },
+    {
+      "benchmark": "humanevalplus",
+      "model": "codellama_merged",
+      "evaluated": 164,
+      "passed": 17,
+      "pass_rate": 10.365853658536585,
+      "failed": 147,
+      "fail_rate": 89.63414634146342,
+      "indeterminate": 0,
+      "indeterminate_rate": 0.0,
+      "changed": 139,
+      "status_counts": {
+        "fail": 147,
+        "pass": 17
+      }
+    },
+    {
+      "benchmark": "bigcodebench",
+      "model": "deepseek_base",
+      "evaluated": 1140,
+      "passed": 264,
+      "pass_rate": 23.157894736842106,
+      "failed": 874,
+      "fail_rate": 76.66666666666667,
+      "indeterminate": 2,
+      "indeterminate_rate": 0.17543859649122806,
+      "changed": 0,
+      "status_counts": {
+        "fail": 874,
+        "pass": 264,
+        "timeout": 2
+      }
+    },
+    {
+      "benchmark": "bigcodebench",
+      "model": "deepseek_finetuned",
+      "evaluated": 1140,
+      "passed": 346,
+      "pass_rate": 30.350877192982455,
+      "failed": 792,
+      "fail_rate": 69.47368421052632,
+      "indeterminate": 2,
+      "indeterminate_rate": 0.17543859649122806,
+      "changed": 0,
+      "status_counts": {
+        "fail": 792,
+        "pass": 346,
+        "timeout": 2
+      }
+    },
+    {
+      "benchmark": "bigcodebench",
+      "model": "deepseek_merged",
+      "evaluated": 1140,
+      "passed": 457,
+      "pass_rate": 40.08771929824562,
+      "failed": 677,
+      "fail_rate": 59.3859649122807,
+      "indeterminate": 6,
+      "indeterminate_rate": 0.5263157894736842,
+      "changed": 0,
+      "status_counts": {
+        "fail": 677,
+        "pass": 457,
+        "timeout": 6
+      }
+    },
+    {
+      "benchmark": "bigcodebench",
+      "model": "codellama_base",
+      "evaluated": 1140,
+      "passed": 310,
+      "pass_rate": 27.19298245614035,
+      "failed": 827,
+      "fail_rate": 72.54385964912281,
+      "indeterminate": 3,
+      "indeterminate_rate": 0.2631578947368421,
+      "changed": 635,
+      "status_counts": {
+        "fail": 827,
+        "pass": 310,
+        "timeout": 3
+      }
+    },
+    {
+      "benchmark": "bigcodebench",
+      "model": "codellama_finetuned",
+      "evaluated": 1140,
+      "passed": 2,
+      "pass_rate": 0.17543859649122806,
+      "failed": 1137,
+      "fail_rate": 99.73684210526316,
+      "indeterminate": 1,
+      "indeterminate_rate": 0.08771929824561403,
+      "changed": 8,
+      "status_counts": {
+        "fail": 1137,
+        "pass": 2,
+        "timeout": 1
+      }
+    },
+    {
+      "benchmark": "bigcodebench",
+      "model": "codellama_merged",
+      "evaluated": 1140,
+      "passed": 26,
+      "pass_rate": 2.280701754385965,
+      "failed": 1113,
+      "fail_rate": 97.63157894736842,
+      "indeterminate": 1,
+      "indeterminate_rate": 0.08771929824561403,
+      "changed": 747,
+      "status_counts": {
+        "fail": 1113,
+        "pass": 26,
+        "timeout": 1
+      }
+    }
+  ]
+}

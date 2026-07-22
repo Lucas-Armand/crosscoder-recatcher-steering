@@ -25,6 +25,33 @@ The machine-readable release definition is
 including known limitations, is in
 [`docs/CURRENT_STATUS.md`](docs/CURRENT_STATUS.md).
 
+## Evaluated results
+
+The table below is recomputed from evaluator artifacts rather than copied from
+the original summary. Timeouts remain separate from functional failures; the
+audit found no missing task verdicts.
+
+| Benchmark | Model | Evaluated | Pass | Pass % | Fail | Fail % | Timeout | Timeout % | Changed by post-processing |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| HumanEval+ | DeepSeek base | 164 | 62 | 37.80% | 102 | 62.20% | 0 | 0.00% | 0 |
+| HumanEval+ | DeepSeek fine-tuned | 164 | 99 | 60.37% | 65 | 39.63% | 0 | 0.00% | 0 |
+| HumanEval+ | DeepSeek merged | 164 | 122 | 74.39% | 42 | 25.61% | 0 | 0.00% | 0 |
+| HumanEval+ | CodeLlama base | 164 | 52 | 31.71% | 112 | 68.29% | 0 | 0.00% | 118 |
+| HumanEval+ | CodeLlama fine-tuned | 164 | 0 | 0.00% | 164 | 100.00% | 0 | 0.00% | 1 |
+| HumanEval+ | CodeLlama merged | 164 | 17 | 10.37% | 147 | 89.63% | 0 | 0.00% | 139 |
+| BigCodeBench | DeepSeek base | 1,140 | 264 | 23.16% | 874 | 76.67% | 2 | 0.18% | 0 |
+| BigCodeBench | DeepSeek fine-tuned | 1,140 | 346 | 30.35% | 792 | 69.47% | 2 | 0.18% | 0 |
+| BigCodeBench | DeepSeek merged | 1,140 | 457 | 40.09% | 677 | 59.39% | 6 | 0.53% | 0 |
+| BigCodeBench | CodeLlama base | 1,140 | 310 | 27.19% | 827 | 72.54% | 3 | 0.26% | 635 |
+| BigCodeBench | CodeLlama fine-tuned | 1,140 | 2 | 0.18% | 1,137 | 99.74% | 1 | 0.09% | 8 |
+| BigCodeBench | CodeLlama merged | 1,140 | 26 | 2.28% | 1,113 | 97.63% | 1 | 0.09% | 747 |
+
+The complete machine-readable audit is
+[`reports/paper_v1_evaluation_audit.json`](reports/paper_v1_evaluation_audit.json).
+Traceable pass/fail examples showing network completion, pre-repair code,
+post-repair code, and evaluator verdict are in
+[`reports/paper_v1_evaluation_samples.md`](reports/paper_v1_evaluation_samples.md).
+
 ## Validate the checkpoint
 
 On a machine with authenticated `gcloud` access:
@@ -45,6 +72,11 @@ The command is read-only. It validates:
 5. canonical activation coverage, including declared exceptions;
 6. final checkpoints, exit codes, metrics, and hyperparameter parity for the
    four canonical CrossCoders.
+
+To evaluate future steering or ablation generations through the same pipeline,
+follow [`docs/STEERING_EVALUATION.md`](docs/STEERING_EVALUATION.md). The
+normalizer deliberately overwrites stale baseline `candidate_code` and
+correctness fields before post-processing.
 
 The validator exits non-zero when an undeclared discrepancy is found. It does
 not execute generated code; evaluator re-execution is a separate, sandboxed

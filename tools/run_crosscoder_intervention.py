@@ -17,6 +17,7 @@ Important control behavior:
 from __future__ import annotations
 
 import argparse
+import ast
 import json
 import math
 import time
@@ -617,11 +618,26 @@ def main() -> None:
             completion_ids,
             skip_special_tokens=True,
         )
+        candidate_code = prompt + completion
+        try:
+            ast.parse(candidate_code)
+            syntax_ok = True
+            syntax_error = None
+        except SyntaxError as exc:
+            syntax_ok = False
+            syntax_error = f"{type(exc).__name__}: {exc}"
 
         output_row = dict(row)
         output_row.update(
             {
                 "completion": completion,
+                "prompt": prompt,
+                "raw_completion": completion,
+                "candidate_code": candidate_code,
+                "syntax_ok": syntax_ok,
+                "syntax_error": syntax_error,
+                "correct": None,
+                "error": None,
                 "feature_id": args.feature_id,
                 "alpha": args.alpha,
                 "target_side": args.target_side,

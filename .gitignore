@@ -34,6 +34,8 @@ runs/
 reports/*.json
 !reports/paper_v1_validation.json
 !reports/paper_v1_activation_task0_validation.json
+!reports/paper_v1_evaluation_audit.json
+!reports/paper_v1_evaluation_samples.json
 
 # archives / compressed files
 *.zip

@@ -35,6 +35,12 @@ process is necessary but not sufficient evidence that every row represents a
 model outcome; the release validator also checks task coverage, lineage, and
 repair metadata.
 
+A second row-level audit joins all 12 raw result files to their repaired records
+and evaluator verdicts. It found no missing task verdicts and no raw-to-repair
+candidate mismatch. Recomputed rates and deterministic pass/fail samples are
+stored under `reports/paper_v1_evaluation_*`. BigCodeBench timeouts are reported
+separately from functional failures.
+
 CodeLlama required many deterministic whitespace repairs. This is a material
 analysis choice, not a cosmetic implementation detail. The paper must report
 raw-compilation and repaired-evaluation results separately. See
@@ -80,6 +86,8 @@ checked instead of inferred from directory names.
 Feature relevance screening and causal interventions are ongoing. Existing
 results identify promising DeepSeek features, but they are exploratory and are
 not prerequisites for declaring the generation-to-CrossCoder checkpoint valid.
+Future steering outputs can enter the same normalization, post-processing, and
+evaluator path described in `STEERING_EVALUATION.md`.
 
 ## Release blockers and cautions
 
