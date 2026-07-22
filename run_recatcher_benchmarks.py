@@ -33,6 +33,7 @@ from __future__ import annotations
 
 import argparse
 import ast
+import difflib
 import datetime
 import gc
 import json
@@ -752,6 +753,7 @@ def capture_activations(
     tokenizer,
     full_text: str,
     prompt: str,
+    evaluated_candidate: str,
     args: argparse.Namespace,
 ) -> Optional[Dict[str, Any]]:
     if args.no_activations:
@@ -763,7 +765,10 @@ def capture_activations(
             return_tensors="pt",
             truncation=True,
             max_length=args.max_length_for_activations,
+            return_offsets_mapping=True,
         ).to(model.device)
+
+        offsets = encoded_full.pop("offset_mapping")[0].detach().cpu().numpy()
 
         encoded_full = {
             k: v.to(model.device)
@@ -785,6 +790,18 @@ def capture_activations(
         input_ids = encoded_full["input_ids"][0].detach().cpu().numpy()
         seq_len = int(input_ids.shape[0])
         start_pos = 0 if args.save_prompt_tokens else min(prompt_len, seq_len)
+        generated_char_start = len(prompt.rstrip() + "\n")
+        retained_spans = []
+        matcher = difflib.SequenceMatcher(a=full_text, b=evaluated_candidate, autojunk=False)
+        for block in matcher.get_matching_blocks():
+            lo = max(block.a, generated_char_start)
+            hi = block.a + block.size
+            if hi > lo:
+                retained_spans.append((lo, hi))
+        evaluated_token_mask = np.asarray([
+            end > begin and any(end > lo and begin < hi for lo, hi in retained_spans)
+            for begin, end in offsets
+        ], dtype=np.bool_)
         layer_ids = get_selected_layer_ids(len(hidden_states), args)
 
         layer_arrays = {}
@@ -803,7 +820,10 @@ def capture_activations(
 
         result = {
             "layer_arrays": layer_arrays,
-            "input_ids": input_ids,
+            "input_ids": input_ids[start_pos:],
+            "token_char_spans": offsets[start_pos:].astype(np.int64, copy=False),
+            "evaluated_token_mask": evaluated_token_mask[start_pos:],
+            "evaluated_generated_char_spans": np.asarray(retained_spans, dtype=np.int64).reshape(-1, 2),
             "prompt_len": prompt_len,
             "start_pos": start_pos,
             "seq_len": seq_len,
@@ -821,7 +841,13 @@ def capture_activations(
 
 def save_activation_file(path: Path, activation_output: Dict[str, Any], fmt: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    arrays = {"input_ids": activation_output["input_ids"], **activation_output["layer_arrays"]}
+    arrays = {
+        "input_ids": activation_output["input_ids"],
+        "token_char_spans": activation_output["token_char_spans"],
+        "evaluated_token_mask": activation_output["evaluated_token_mask"],
+        "evaluated_generated_char_spans": activation_output["evaluated_generated_char_spans"],
+        **activation_output["layer_arrays"],
+    }
 
     tmp_path = path.with_suffix(path.suffix + ".tmp")
     if fmt == "npz":
@@ -943,7 +969,9 @@ def run_one_model_on_benchmark(
                 activation_path = model_activation_dir / f"{run_id}__{task_safe}.npz"
 
                 activation_forward_start = time.perf_counter()
-                activation_output = capture_activations(model, tokenizer, full_text, prompt, args)
+                activation_output = capture_activations(
+                    model, tokenizer, full_text, prompt, candidate_code, args
+                )
                 activation_forward_seconds = time.perf_counter() - activation_forward_start
 
                 activation_save_start = time.perf_counter()

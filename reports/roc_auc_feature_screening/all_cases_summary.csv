@@ -1,0 +1,1 @@
+case_id,crosscoder_run,model_pair,model_side,model,benchmark,layer,token_scope,n_solutions,n_failures,failure_prevalence,permutations,seed,minimum_latent_activation,fraction_below_minus_1e_8,degenerate_features,lowest_features,highest_features

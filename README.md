@@ -52,6 +52,28 @@ Traceable pass/fail examples showing network completion, pre-repair code,
 post-repair code, and evaluator verdict are in
 [`reports/paper_v1_evaluation_samples.md`](reports/paper_v1_evaluation_samples.md).
 
+## ROC-AUC feature screening
+
+The strict feature screen discovers cases from the paper manifest, uses failure as
+the positive class, aggregates each CrossCoder latent by its maximum over exactly
+the generated tokens submitted to evaluation, and produces max-statistic
+permutation evidence plus ranked-envelope plots.
+
+```bash
+ACTIVATION_ROOT=/path/to/canonical/selected_layer_activations \
+CHECKPOINT_ROOT=/path/to/crosscoder/checkpoints \
+scripts/run_roc_auc_feature_screening.sh smoke
+
+# Full analysis: 5,000 permutations by default.
+ACTIVATION_ROOT=/path/to/canonical/selected_layer_activations \
+CHECKPOINT_ROOT=/path/to/crosscoder/checkpoints \
+scripts/run_roc_auc_feature_screening.sh full
+```
+
+The legacy paper-v1 activation files predate the exact evaluated-token alignment
+metadata and are rejected rather than approximately aligned. See
+[`reports/roc_auc_feature_screening/IMPLEMENTATION_NOTES.md`](reports/roc_auc_feature_screening/IMPLEMENTATION_NOTES.md).
+
 ## Validate the checkpoint
 
 On a machine with authenticated `gcloud` access:

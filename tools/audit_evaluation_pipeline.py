@@ -177,6 +177,7 @@ def main() -> int:
     source = Source(args.dataset)
     summaries: list[dict[str, Any]] = []
     samples: list[dict[str, Any]] = []
+    screening_labels: list[dict[str, Any]] = []
     failures: list[str] = []
 
     for benchmark in BENCHMARKS:
@@ -254,6 +255,16 @@ def main() -> int:
                 }
             )
             samples.extend(choose_samples(audited))
+            screening_labels.extend(
+                {
+                    "model": row["model"],
+                    "benchmark": row["benchmark"],
+                    "task_id": row["task_id"],
+                    "generation_idx": 0,
+                    "label": int(row["verdict"] != "pass"),
+                }
+                for row in audited
+            )
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
     (args.output_dir / "paper_v1_evaluation_audit.json").write_text(
@@ -273,6 +284,15 @@ def main() -> int:
     (args.output_dir / "paper_v1_evaluation_summary.md").write_text(
         render_summary(summaries) + "\n", encoding="utf-8"
     )
+    with (args.output_dir / "paper_v1_evaluation_labels.csv").open(
+        "w", encoding="utf-8", newline=""
+    ) as handle:
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=["model", "benchmark", "task_id", "generation_idx", "label"],
+        )
+        writer.writeheader()
+        writer.writerows(screening_labels)
 
     print(render_summary(summaries))
     if failures:

@@ -1,0 +1,30 @@
+# ROC-AUC feature screening
+
+Permutation count: **200**; seed: **42**.
+
+## Analyzed cases
+
+## Skipped cases
+
+- `deepseek_base_finetuned_layer16__a_deepseek_base__humanevalplus__layer16__evaluated_tokens` — KeyError: '/tmp/crosscoder_canonical_checks_float32/humanevalplus/deepseek_base/deepseek_base__humanevalplus__task_0000__gen_00__HumanEval_0.npz: missing evaluated_token_mask; exact evaluated-token alignment cannot be reconstructed from legacy activations'
+- `deepseek_base_finetuned_layer16__b_deepseek_finetuned__humanevalplus__layer16__evaluated_tokens` — KeyError: '/tmp/crosscoder_canonical_checks_float32/humanevalplus/deepseek_finetuned/deepseek_finetuned__humanevalplus__task_0000__gen_00__HumanEval_0.npz: missing evaluated_token_mask; exact evaluated-token alignment cannot be reconstructed from legacy activations'
+- `deepseek_base_finetuned_layer16__a_deepseek_base__bigcodebench__layer16__evaluated_tokens` — KeyError: '/tmp/crosscoder_canonical_checks_float32/bigcodebench/deepseek_base/deepseek_base__bigcodebench__task_0000__gen_00__BigCodeBench_0.npz: missing evaluated_token_mask; exact evaluated-token alignment cannot be reconstructed from legacy activations'
+- `deepseek_base_finetuned_layer16__b_deepseek_finetuned__bigcodebench__layer16__evaluated_tokens` — KeyError: '/tmp/crosscoder_canonical_checks_float32/bigcodebench/deepseek_finetuned/deepseek_finetuned__bigcodebench__task_0000__gen_00__BigCodeBench_0.npz: missing evaluated_token_mask; exact evaluated-token alignment cannot be reconstructed from legacy activations'
+- `deepseek_base_merged_layer16__a_deepseek_base__humanevalplus__layer16__evaluated_tokens` — KeyError: '/tmp/crosscoder_canonical_checks_float32/humanevalplus/deepseek_base/deepseek_base__humanevalplus__task_0000__gen_00__HumanEval_0.npz: missing evaluated_token_mask; exact evaluated-token alignment cannot be reconstructed from legacy activations'
+- `deepseek_base_merged_layer16__b_deepseek_merged__humanevalplus__layer16__evaluated_tokens` — KeyError: '/tmp/crosscoder_canonical_checks_float32/humanevalplus/deepseek_merged/deepseek_merged__humanevalplus__task_0000__gen_00__HumanEval_0.npz: missing evaluated_token_mask; exact evaluated-token alignment cannot be reconstructed from legacy activations'
+- `deepseek_base_merged_layer16__a_deepseek_base__bigcodebench__layer16__evaluated_tokens` — KeyError: '/tmp/crosscoder_canonical_checks_float32/bigcodebench/deepseek_base/deepseek_base__bigcodebench__task_0000__gen_00__BigCodeBench_0.npz: missing evaluated_token_mask; exact evaluated-token alignment cannot be reconstructed from legacy activations'
+- `deepseek_base_merged_layer16__b_deepseek_merged__bigcodebench__layer16__evaluated_tokens` — KeyError: '/tmp/crosscoder_canonical_checks_float32/bigcodebench/deepseek_merged/deepseek_merged__bigcodebench__task_0000__gen_00__BigCodeBench_0.npz: missing evaluated_token_mask; exact evaluated-token alignment cannot be reconstructed from legacy activations'
+- `codellama_base_finetuned_layer16__a_codellama_base__humanevalplus__layer16__evaluated_tokens` — KeyError: '/tmp/crosscoder_canonical_checks_float32/humanevalplus/codellama_base/codellama_base__humanevalplus__task_0000__gen_00__HumanEval_0.npz: missing evaluated_token_mask; exact evaluated-token alignment cannot be reconstructed from legacy activations'
+- `codellama_base_finetuned_layer16__b_codellama_finetuned__humanevalplus__layer16__evaluated_tokens` — KeyError: '/tmp/crosscoder_canonical_checks_float32/humanevalplus/codellama_finetuned/codellama_finetuned__humanevalplus__task_0000__gen_00__HumanEval_0.npz: missing evaluated_token_mask; exact evaluated-token alignment cannot be reconstructed from legacy activations'
+- `codellama_base_finetuned_layer16__a_codellama_base__bigcodebench__layer16__evaluated_tokens` — KeyError: '/tmp/crosscoder_canonical_checks_float32/bigcodebench/codellama_base/codellama_base__bigcodebench__task_0000__gen_00__BigCodeBench_0.npz: missing evaluated_token_mask; exact evaluated-token alignment cannot be reconstructed from legacy activations'
+- `codellama_base_finetuned_layer16__b_codellama_finetuned__bigcodebench__layer16__evaluated_tokens` — KeyError: '/tmp/crosscoder_canonical_checks_float32/bigcodebench/codellama_finetuned/codellama_finetuned__bigcodebench__task_0000__gen_00__BigCodeBench_0.npz: missing evaluated_token_mask; exact evaluated-token alignment cannot be reconstructed from legacy activations'
+- `codellama_base_merged_layer16__a_codellama_base__humanevalplus__layer16__evaluated_tokens` — KeyError: '/tmp/crosscoder_canonical_checks_float32/humanevalplus/codellama_base/codellama_base__humanevalplus__task_0000__gen_00__HumanEval_0.npz: missing evaluated_token_mask; exact evaluated-token alignment cannot be reconstructed from legacy activations'
+- `codellama_base_merged_layer16__b_codellama_merged__humanevalplus__layer16__evaluated_tokens` — KeyError: '/tmp/crosscoder_canonical_checks_float32/humanevalplus/codellama_merged/codellama_merged__humanevalplus__task_0000__gen_00__HumanEval_0.npz: missing evaluated_token_mask; exact evaluated-token alignment cannot be reconstructed from legacy activations'
+- `codellama_base_merged_layer16__a_codellama_base__bigcodebench__layer16__evaluated_tokens` — KeyError: '/tmp/crosscoder_canonical_checks_float32/bigcodebench/codellama_base/codellama_base__bigcodebench__task_0000__gen_00__BigCodeBench_0.npz: missing evaluated_token_mask; exact evaluated-token alignment cannot be reconstructed from legacy activations'
+- `codellama_base_merged_layer16__b_codellama_merged__bigcodebench__layer16__evaluated_tokens` — KeyError: '/tmp/crosscoder_canonical_checks_float32/bigcodebench/codellama_merged/codellama_merged__bigcodebench__task_0000__gen_00__BigCodeBench_0.npz: missing evaluated_token_mask; exact evaluated-token alignment cannot be reconstructed from legacy activations'
+
+## Warnings
+
+Legacy activations without capture-time `evaluated_token_mask` and `token_char_spans` are deliberately skipped; exact alignment is not inferred by retokenizing cleaned code.
+
+The ranked 95% envelope is exploratory; use `p_maxT` as the multiple-testing-aware evidence.

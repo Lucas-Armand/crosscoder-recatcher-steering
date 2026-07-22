@@ -21,6 +21,9 @@ Output.txt
 
 # generated data / scratch files
 *.csv
+!reports/paper_v1_evaluation_labels.csv
+!reports/roc_auc_feature_screening/*.csv
+!reports/roc_auc_feature_screening/**/*.csv
 *.db
 *.sqlite
 *.sqlite3

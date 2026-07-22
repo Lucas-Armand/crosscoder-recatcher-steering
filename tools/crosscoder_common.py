@@ -146,6 +146,28 @@ def load_layer(path: Path, layer: int) -> np.ndarray:
     return array
 
 
+def load_evaluated_token_mask(path: Path, expected_rows: int) -> np.ndarray:
+    """Load the exact, capture-time mask for generated tokens sent to evaluation."""
+    with np.load(path, allow_pickle=False) as archive:
+        if "evaluated_token_mask" not in archive:
+            raise KeyError(
+                f"{path}: missing evaluated_token_mask; exact evaluated-token alignment "
+                "cannot be reconstructed from legacy activations"
+            )
+        mask = np.asarray(archive["evaluated_token_mask"], dtype=np.bool_)
+        if "token_char_spans" not in archive:
+            raise KeyError(f"{path}: missing token_char_spans alignment provenance")
+        spans = np.asarray(archive["token_char_spans"])
+    if mask.shape != (expected_rows,) or spans.shape != (expected_rows, 2):
+        raise ValueError(
+            f"{path}: alignment metadata does not match activation rows: "
+            f"mask={mask.shape}, spans={spans.shape}, rows={expected_rows}"
+        )
+    if not mask.any():
+        raise ValueError(f"{path}: evaluated_token_mask selects zero tokens")
+    return mask
+
+
 def load_checkpoint_encoder(
     checkpoint_path: Path,
 ) -> tuple[np.ndarray, np.ndarray, dict[str, Any]]:
@@ -200,6 +222,7 @@ def compute_latent_summary(
     encoder_bias: np.ndarray,
     aggregation: str,
     device: str,
+    token_mask: np.ndarray | None = None,
 ) -> np.ndarray:
     if activation_a.ndim != 2 or activation_b.ndim != 2:
         raise ValueError("Both activations must be 2D")
@@ -215,6 +238,15 @@ def compute_latent_summary(
     paired = np.concatenate(
         [activation_a[-token_count:], activation_b[-token_count:]], axis=1
     ).astype(np.float32, copy=False)
+    if token_mask is not None:
+        mask = np.asarray(token_mask, dtype=np.bool_)
+        if mask.shape != (token_count,):
+            raise ValueError(
+                f"Token mask shape {mask.shape} does not match paired rows {token_count}"
+            )
+        paired = paired[mask]
+        if paired.shape[0] == 0:
+            raise ValueError("Token mask selects zero paired token positions")
 
     if paired.shape[1] != encoder_weight.shape[1]:
         raise ValueError(

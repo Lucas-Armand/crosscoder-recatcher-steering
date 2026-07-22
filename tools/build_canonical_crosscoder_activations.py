@@ -20,6 +20,11 @@ import numpy as np
 
 LAYERS = ("layer_08", "layer_16", "layer_24")
 REQUIRED_KEYS = {"input_ids", *LAYERS}
+ALIGNMENT_KEYS = (
+    "token_char_spans",
+    "evaluated_token_mask",
+    "evaluated_generated_char_spans",
+)
 EXPECTED_HIDDEN_SIZE = 4096
 
 DEFAULT_BENCHMARKS = ("humanevalplus", "bigcodebench")
@@ -165,6 +170,9 @@ def convert_file(source: Path, destination: Path) -> tuple[str, int, int]:
         output: dict[str, np.ndarray] = {
             "input_ids": input_ids,
         }
+        for key in ALIGNMENT_KEYS:
+            if key in data.files:
+                output[key] = np.asarray(data[key])
 
         source_dtypes: list[str] = []
         row_counts: list[int] = []
@@ -246,6 +254,15 @@ def validate_canonical_file(path: Path) -> None:
             raise ValueError(
                 f"Invalid input_ids shape: {input_ids.shape}"
             )
+
+        if "evaluated_token_mask" in data.files:
+            mask = data["evaluated_token_mask"]
+            if mask.ndim != 1 or len(mask) != len(input_ids):
+                raise ValueError("evaluated_token_mask must align one-to-one with input_ids")
+        if "token_char_spans" in data.files:
+            spans = data["token_char_spans"]
+            if spans.shape != (len(input_ids), 2):
+                raise ValueError("token_char_spans must have shape [tokens, 2]")
 
         row_counts: list[int] = []
 

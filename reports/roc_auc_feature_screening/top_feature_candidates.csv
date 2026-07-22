@@ -1,0 +1,1 @@
+case_id,feature_id,observed_roc_auc,signed_auc_effect,absolute_auc_effect,null_mean,null_sd,p_maxT,activation_count,activation_proportion,outside_lower_ranked_envelope,outside_upper_ranked_envelope,direction
