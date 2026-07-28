@@ -414,14 +414,19 @@ def main() -> None:
                 f"vocabulary size {reference_vocab}"
             )
 
-        generated = input_ids_cpu.to(target_device)
-        prompt_len = generated.shape[1]
+        # Keep the authoritative token sequence on CPU. Some model/hook
+        # combinations may reuse GPU input storage asynchronously; carrying the
+        # sequence itself across decoding steps on a model device can therefore
+        # corrupt later input IDs. Each forward receives a fresh device copy.
+        generated_cpu = input_ids_cpu.clone()
+        prompt_len = generated_cpu.shape[1]
         start = time.perf_counter()
         hook_debug_printed = False
 
         for _step in range(args.max_new_tokens):
+            target_ids = generated_cpu.to(target_device)
             target_mask = torch.ones_like(
-                generated,
+                target_ids,
                 device=target_device,
             )
 
@@ -430,7 +435,7 @@ def main() -> None:
                 # no hook, no CrossCoder computation.
                 with torch.inference_mode():
                     out = target_model(
-                        input_ids=generated,
+                        input_ids=target_ids,
                         attention_mask=target_mask,
                         use_cache=False,
                         return_dict=True,
@@ -441,7 +446,7 @@ def main() -> None:
                 assert encoder_bias is not None
                 assert decoder_direction is not None
 
-                ref_ids = generated.to(reference_device)
+                ref_ids = generated_cpu.to(reference_device)
                 ref_mask = torch.ones_like(
                     ref_ids,
                     device=reference_device,
@@ -572,7 +577,7 @@ def main() -> None:
                 try:
                     with torch.inference_mode():
                         out = target_model(
-                            input_ids=generated,
+                            input_ids=target_ids,
                             attention_mask=target_mask,
                             use_cache=False,
                             return_dict=True,
@@ -586,23 +591,27 @@ def main() -> None:
                 args.top_p,
             )
 
-            next_token_id = int(next_token.item())
-            if next_token_id >= target_vocab:
+            next_token_cpu = next_token.detach().to(
+                device="cpu",
+                dtype=torch.long,
+            )
+            next_token_id = int(next_token_cpu.item())
+            if not 0 <= next_token_id < target_vocab:
                 raise RuntimeError(
                     f"Target generated invalid token ID "
                     f"{next_token_id} for vocab {target_vocab}"
                 )
             if (
                 reference_vocab is not None
-                and next_token_id >= reference_vocab
+                and not 0 <= next_token_id < reference_vocab
             ):
                 raise RuntimeError(
                     f"Target generated token ID {next_token_id} "
                     f"outside reference vocab {reference_vocab}"
                 )
 
-            generated = torch.cat(
-                [generated, next_token],
+            generated_cpu = torch.cat(
+                [generated_cpu, next_token_cpu],
                 dim=1,
             )
 
@@ -613,7 +622,7 @@ def main() -> None:
                 break
 
         elapsed = time.perf_counter() - start
-        completion_ids = generated[0, prompt_len:]
+        completion_ids = generated_cpu[0, prompt_len:]
         completion = tokenizer.decode(
             completion_ids,
             skip_special_tokens=True,

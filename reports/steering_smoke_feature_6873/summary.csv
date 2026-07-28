@@ -1,0 +1,4 @@
+alpha,n,passed,pass_rate,compile_ok_original,compile_ok_repaired,fail_to_pass,pass_to_fail,pass_to_pass,fail_to_fail,net_paired_improvement,raw_completions_changed_vs_alpha0
+-1,20,1,0.05,2,2,0,6,1,13,-6,18
+0,20,7,0.35,9,9,0,0,7,13,0,0
+1,20,1,0.05,2,2,0,6,1,13,-6,18

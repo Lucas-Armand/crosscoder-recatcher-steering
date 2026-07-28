@@ -112,6 +112,13 @@ follow [`docs/STEERING_EVALUATION.md`](docs/STEERING_EVALUATION.md). The
 normalizer deliberately overwrites stale baseline `candidate_code` and
 correctness fields before post-processing.
 
+The first PR-AUC-guided steering smoke tested DeepSeek-base feature 6873 on 20
+HumanEval tasks. Both `alpha=-1` and `alpha=+1` reduced compilation and pass
+rates sharply, showing that magnitude 1 is outside the useful local regime
+rather than confirming the predicted direction. See the paired transitions,
+post-processing audit, runner correction, and next calibration recommendation
+in [`reports/steering_smoke_feature_6873/index.md`](reports/steering_smoke_feature_6873/index.md).
+
 The validator exits non-zero when an undeclared discrepancy is found. It does
 not execute generated code; evaluator re-execution is a separate, sandboxed
 validation stage described in
