@@ -14,7 +14,18 @@ tasks), one generation per task:
 Together these outputs support eight paper comparison cells: two families,
 base-vs-fine-tuned and base-vs-merged, on two benchmarks. The canonical
 post-processed dataset is
-`crosscoder_final_dataset_v1_postprocessed_minimal_v3`.
+`crosscoder_final_dataset_v1_postprocessed_extraction_v4`.
+
+Extraction v4 corrects two verified sources of false-negative evaluation labels:
+selection of the largest fenced block instead of a leading Python continuation,
+and truncation before required helper definitions. The previous v3 dataset is
+retained as immutable historical evidence.
+
+All 12 model/benchmark datasets were re-evaluated. Exact evaluated-token masks
+were reconstructed for all 7,821 available activation artifacts; the three
+absent masks correspond to the declared missing BigCodeBench task 764 activation
+for the three DeepSeek models. ROC-AUC screening has intentionally not been
+rerun because its analysis design is under revision.
 
 The recorded generation contract is one sampled generation, at most 512 new
 tokens, temperature 0.2, top-p 0.95, and deterministic per-task seeds. The

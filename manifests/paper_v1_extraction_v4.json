@@ -1,0 +1,113 @@
+{
+  "release_id": "paper_v1_extraction_v4",
+  "status": "validated_with_documented_warnings",
+  "scope": "generation-through-crosscoder-training",
+  "bucket_base": "gs://data-intelligence-bucket/tests/recatcher_crosscoder_humaneval",
+  "dataset_prefix": "crosscoder_final_dataset_v1_postprocessed_extraction_v4",
+  "activation_prefix": "crosscoder_activations_canonical_float32_v1",
+  "benchmarks": {
+    "humanevalplus": {"expected_tasks": 164},
+    "bigcodebench": {"expected_tasks": 1140}
+  },
+  "models": {
+    "deepseek_base": "deepseek-ai/deepseek-coder-6.7b-base",
+    "deepseek_finetuned": "JetBrains/deepseek-coder-6.7B-kexer",
+    "deepseek_merged": "ori-ai-fabric/ds-trinity-7b-v1",
+    "codellama_base": "meta-llama/CodeLlama-7b-hf",
+    "codellama_finetuned": "JetBrains/CodeLlama-7B-Kexer",
+    "codellama_merged": "DevQuasar-5/coma-7B-v0.1"
+  },
+  "generation_contract": {
+    "num_generations_per_task": 1,
+    "max_new_tokens": 512,
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "seed_formula": "1000 + task_idx * 100 + gen_idx",
+    "required_activation_layer": 16
+  },
+  "extraction_contract": {
+    "version": "extraction_v4",
+    "test_outcome_independent": true,
+    "preserve_valid_historical_candidate": true,
+    "prefer_leading_literal_python": true,
+    "largest_fence_selection": false,
+    "preserve_referenced_helpers": true,
+    "materialized_mask_prefix": "evaluated_token_masks"
+  },
+  "generation_config_evidence": [
+    "gs://data-intelligence-bucket/tests/recatcher_crosscoder_humaneval/full_table_6models_2benchmarks_layers_8_16_24_max512/metadata/experiment_config.json",
+    "gs://data-intelligence-bucket/tests/recatcher_crosscoder_humaneval/deepseek_rerun_1gen_max512/metadata/experiment_config.json"
+  ],
+  "allowed_repairs": [
+    "visible_newline_marker",
+    "visible_tab_marker",
+    "visible_space_marker",
+    "strip_whole_markdown_fence",
+    "three_space_indent_to_four"
+  ],
+  "activation_exceptions": [
+    {
+      "benchmark": "bigcodebench",
+      "models": ["deepseek_base", "deepseek_finetuned", "deepseek_merged"],
+      "task_idx": 764,
+      "reason": "The source activation is absent for this BigCodeBench task; downstream training used skip-errors and the omission must remain explicit."
+    }
+  ],
+  "activation_conversion_evidence": {
+    "uri": "gs://data-intelligence-bucket/tests/recatcher_crosscoder_humaneval/releases/paper_v1/evidence/canonical_activations_float32_v1.log",
+    "sha256": "d23d5710c86af9e060f857ac5997c1be1d5038b49622260f80bd31ae43ba9c5a",
+    "converted_and_validated": 7809,
+    "preexisting_revalidated": 12,
+    "declared_failures": 3
+  },
+  "crosscoders": [
+    {
+      "id": "deepseek_base_finetuned_layer16",
+      "family": "deepseek",
+      "model_a": "deepseek_base",
+      "model_b": "deepseek_finetuned",
+      "prefix": "crosscoder_training_v1/deepseek_base_vs_deepseek_finetuned_layer16_lat16384_steps20000",
+      "final_checkpoint_uri": "gs://data-intelligence-bucket/tests/recatcher_crosscoder_humaneval/releases/paper_v1/artifacts/crosscoders/deepseek_base_finetuned_layer16/final.pt",
+      "final_checkpoint_sha256": "fc341c9c2cefa45e3b86ea1731ed8778114ed2e86980579f2163f95a78c56a99"
+    },
+    {
+      "id": "deepseek_base_merged_layer16",
+      "family": "deepseek",
+      "model_a": "deepseek_base",
+      "model_b": "deepseek_merged",
+      "prefix": "crosscoder_training_v1/deepseek_base_vs_deepseek_merged_layer16_lat16384_steps20000"
+    },
+    {
+      "id": "codellama_base_finetuned_layer16",
+      "family": "codellama",
+      "model_a": "codellama_base",
+      "model_b": "codellama_finetuned",
+      "prefix": "crosscoder_codellama_base_finetuned_layer16_float32_v1/codellama_base_vs_codellama_finetuned_layer16_lat16384_steps20000"
+    },
+    {
+      "id": "codellama_base_merged_layer16",
+      "family": "codellama",
+      "model_a": "codellama_base",
+      "model_b": "codellama_merged",
+      "prefix": "crosscoder_codellama_base_merged_layer16_float32_v1/codellama_base_vs_codellama_merged_layer16_lat16384_steps20000"
+    }
+  ],
+  "crosscoder_contract": {
+    "layer": "layer_16",
+    "latent_dim": 16384,
+    "batch_size": 2048,
+    "tokens_per_pair": 128,
+    "steps": 20000,
+    "lr": 0.0001,
+    "l1_coef": 0.001,
+    "weight_decay": 0.0,
+    "seed": 42,
+    "val_frac": 0.02,
+    "eval_every": 500,
+    "save_every": 2000,
+    "dtype": "float32",
+    "pairing_mode": "same_position",
+    "normalize_loss": true,
+    "decoder_unit_norm": true
+  }
+}

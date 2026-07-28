@@ -27,6 +27,8 @@ from dataclasses import dataclass, asdict
 from pathlib import Path
 from typing import Optional
 
+from code_extraction import extract_python_candidate
+
 
 @dataclass
 class RepairRow:
@@ -47,6 +49,15 @@ class RepairRow:
     repaired_len: int
     candidate_code_original: str
     candidate_code_repaired: str
+    raw_completion: str = ""
+    prompt: str = ""
+    entry_point: Optional[str] = None
+    extraction_strategy: str = "legacy_zip_candidate"
+    extraction_language: str = "unknown"
+    extraction_generated_spans: list = None
+    extraction_generated_text: str = ""
+    extraction_candidate_count: int = 1
+    extraction_ambiguous: bool = False
 
 
 def infer_benchmark_model(zip_path: Path):
@@ -226,21 +237,83 @@ def process_zip(zip_path: Path, out_dir: Path, enable_glued_fix: bool):
     return rows, repaired_jsonl
 
 
+def process_raw_jsonl(path: Path, out_dir: Path, enable_glued_fix: bool):
+    stem = path.name.removesuffix("_results.jsonl")
+    benchmark, model_label = stem.split("__", 1)
+    repaired_dir = out_dir / "results_repaired"
+    samples_dir = out_dir / "samples_for_external_eval"
+    repaired_dir.mkdir(parents=True, exist_ok=True)
+    samples_dir.mkdir(parents=True, exist_ok=True)
+    repaired_jsonl = repaired_dir / f"{stem}_repaired.jsonl"
+    samples_path = samples_dir / f"{stem}_samples.jsonl"
+    rows = []
+    with path.open(encoding="utf-8") as source, repaired_jsonl.open("w") as jf, samples_path.open("w") as sf:
+        for line in source:
+            if not line.strip():
+                continue
+            raw = json.loads(line)
+            extraction = extract_python_candidate(
+                str(raw["prompt"]), str(raw.get("raw_completion", "")),
+                raw.get("entry_point"), raw.get("candidate_code"),
+            )
+            code = extraction.code
+            ok0, err0 = compile_check(code)
+            fixed, rules = minimal_repair(code, enable_glued_fix=enable_glued_fix)
+            ok1, err1 = compile_check(fixed)
+            row = RepairRow(
+                benchmark=benchmark, model_label=model_label,
+                task_idx=int(raw["task_idx"]), task_id=str(raw["task_id"]),
+                source_zip="", source_file=str(path),
+                compile_ok_original=ok0, compile_error_original=err0,
+                compile_ok_repaired=ok1, compile_error_repaired=err1,
+                changed=(fixed != code), rules_applied=rules,
+                suspicious_repair=False, original_len=len(code), repaired_len=len(fixed),
+                candidate_code_original=code, candidate_code_repaired=fixed,
+                raw_completion=str(raw.get("raw_completion", "")),
+                prompt=str(raw["prompt"]), entry_point=raw.get("entry_point"),
+                extraction_strategy=extraction.strategy,
+                extraction_language=extraction.language,
+                extraction_generated_spans=[list(span) for span in extraction.generated_spans],
+                extraction_generated_text=extraction.generated_text,
+                extraction_candidate_count=extraction.candidate_count,
+                extraction_ambiguous=extraction.ambiguous,
+            )
+            data = asdict(row)
+            jf.write(json.dumps(data, ensure_ascii=False) + "\n")
+            sf.write(json.dumps({
+                "task_id": row.task_id, "completion": fixed, "solution": fixed,
+                "model_label": model_label, "benchmark": benchmark,
+                "extraction_strategy": extraction.strategy,
+                "extraction_generated_spans": data["extraction_generated_spans"],
+            }, ensure_ascii=False) + "\n")
+            rows.append(row)
+    return rows, repaired_jsonl
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('--zip-dir', required=True, help='Directory with benchmark__model.zip files exported from raw results.')
+    ap.add_argument('--zip-dir', help='Legacy mode: directory with benchmark__model.zip files.')
+    ap.add_argument('--raw-results-dir', help='Preferred v4 mode: extract directly from prompt + raw_completion JSONL.')
     ap.add_argument('--output-dir', required=True)
     ap.add_argument('--enable-glued-fix', action='store_true', help='Exploratory only; not recommended for final metrics.')
     args = ap.parse_args()
 
-    zip_dir = Path(args.zip_dir)
+    if bool(args.zip_dir) == bool(args.raw_results_dir):
+        ap.error("provide exactly one of --zip-dir or --raw-results-dir")
+    zip_dir = Path(args.zip_dir) if args.zip_dir else None
     out_dir = Path(args.output_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     all_rows = []
-    for z in sorted(zip_dir.glob('*.zip')):
-        rows, out = process_zip(z, out_dir, args.enable_glued_fix)
-        all_rows.extend(rows)
-        print('processed', z.name, '->', out, 'rows=', len(rows))
+    if args.raw_results_dir:
+        for path in sorted(Path(args.raw_results_dir).glob('*_results.jsonl')):
+            rows, out = process_raw_jsonl(path, out_dir, args.enable_glued_fix)
+            all_rows.extend(rows)
+            print('processed', path.name, '->', out, 'rows=', len(rows))
+    else:
+        for z in sorted(zip_dir.glob('*.zip')):
+            rows, out = process_zip(z, out_dir, args.enable_glued_fix)
+            all_rows.extend(rows)
+            print('processed', z.name, '->', out, 'rows=', len(rows))
 
     summary_path = out_dir / 'repair_summary.csv'
     with summary_path.open('w', newline='') as f:

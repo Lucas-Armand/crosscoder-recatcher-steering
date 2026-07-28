@@ -212,23 +212,37 @@ def derive_legacy_evaluated_token_mask(
     if not candidate_generated:
         raise ValueError(f"{path}: evaluated candidate contains no generated text")
 
-    matcher = difflib.SequenceMatcher(
-        a=completion, b=candidate_generated, autojunk=False
-    )
-    blocks = [block for block in matcher.get_matching_blocks() if block.size]
-    matched_candidate_chars = sum(block.size for block in blocks)
-    coverage = matched_candidate_chars / len(candidate_generated)
-    if coverage < 0.999999:
-        raise ValueError(
-            f"{path}: evaluated generated text is not a literal selection from raw "
-            f"completion (character coverage={coverage:.6f})"
-        )
-
     generated_start = len(prompt.rstrip() + "\n")
-    retained_spans = [
-        (generated_start + block.a, generated_start + block.a + block.size)
-        for block in blocks
-    ]
+    explicit_spans = repaired_row.get("extraction_generated_spans")
+    if explicit_spans is not None:
+        raw_spans = [(int(lo), int(hi)) for lo, hi in explicit_spans]
+        if not raw_spans or any(lo < 0 or hi <= lo or hi > len(completion) for lo, hi in raw_spans):
+            raise ValueError(f"{path}: invalid extraction_generated_spans={raw_spans}")
+        literal = "".join(completion[lo:hi] for lo, hi in raw_spans).rstrip()
+        if literal != str(repaired_row.get("extraction_generated_text", literal)).rstrip():
+            raise ValueError(f"{path}: explicit extraction spans do not reproduce generated text")
+        retained_spans = [
+            (generated_start + lo, generated_start + hi) for lo, hi in raw_spans
+        ]
+        coverage = 1.0
+        alignment_source = "stored_id_verified_explicit_extraction_spans"
+    else:
+        matcher = difflib.SequenceMatcher(
+            a=completion, b=candidate_generated, autojunk=False
+        )
+        blocks = [block for block in matcher.get_matching_blocks() if block.size]
+        matched_candidate_chars = sum(block.size for block in blocks)
+        coverage = matched_candidate_chars / len(candidate_generated)
+        if coverage < 0.999999:
+            raise ValueError(
+                f"{path}: evaluated generated text is not a literal selection from raw "
+                f"completion (character coverage={coverage:.6f})"
+            )
+        retained_spans = [
+            (generated_start + block.a, generated_start + block.a + block.size)
+            for block in blocks
+        ]
+        alignment_source = "legacy_stored_id_verified_literal_spans"
     saved_offsets = offsets[-expected_rows:]
     mask = np.asarray(
         [
@@ -243,7 +257,7 @@ def derive_legacy_evaluated_token_mask(
     nonempty = candidate_generated.rstrip()
     prefix_literal = completion.startswith(nonempty)
     return mask, {
-        "alignment_source": "legacy_stored_id_verified_literal_spans",
+        "alignment_source": alignment_source,
         "stored_id_equality": True,
         "matched_character_coverage": coverage,
         "literal_prefix": prefix_literal,

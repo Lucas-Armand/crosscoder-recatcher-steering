@@ -20,8 +20,10 @@ The large artifacts remain in Google Cloud Storage. The repository stores code,
 configuration, manifests, validation logic, and compact reports; it does not
 duplicate model outputs, activations, or checkpoints.
 
-The machine-readable release definition is
-[`manifests/paper_v1.json`](manifests/paper_v1.json). The evidence-backed status,
+The corrected machine-readable evaluation definition is
+[`manifests/paper_v1_extraction_v4.json`](manifests/paper_v1_extraction_v4.json);
+the original [`manifests/paper_v1.json`](manifests/paper_v1.json) remains frozen
+for v3 provenance. The evidence-backed status,
 including known limitations, is in
 [`docs/CURRENT_STATUS.md`](docs/CURRENT_STATUS.md).
 
@@ -31,23 +33,26 @@ The table below is recomputed from evaluator artifacts rather than copied from
 the original summary. Timeouts remain separate from functional failures; the
 audit found no missing task verdicts.
 
-| Benchmark | Model | Evaluated | Pass | Pass % | Fail | Fail % | Timeout | Timeout % | Changed by post-processing |
-|---|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| HumanEval+ | DeepSeek base | 164 | 62 | 37.80% | 102 | 62.20% | 0 | 0.00% | 0 |
-| HumanEval+ | DeepSeek fine-tuned | 164 | 99 | 60.37% | 65 | 39.63% | 0 | 0.00% | 0 |
-| HumanEval+ | DeepSeek merged | 164 | 122 | 74.39% | 42 | 25.61% | 0 | 0.00% | 0 |
-| HumanEval+ | CodeLlama base | 164 | 52 | 31.71% | 112 | 68.29% | 0 | 0.00% | 118 |
-| HumanEval+ | CodeLlama fine-tuned | 164 | 0 | 0.00% | 164 | 100.00% | 0 | 0.00% | 1 |
-| HumanEval+ | CodeLlama merged | 164 | 17 | 10.37% | 147 | 89.63% | 0 | 0.00% | 139 |
-| BigCodeBench | DeepSeek base | 1,140 | 264 | 23.16% | 874 | 76.67% | 2 | 0.18% | 0 |
-| BigCodeBench | DeepSeek fine-tuned | 1,140 | 346 | 30.35% | 792 | 69.47% | 2 | 0.18% | 0 |
-| BigCodeBench | DeepSeek merged | 1,140 | 457 | 40.09% | 677 | 59.39% | 6 | 0.53% | 0 |
-| BigCodeBench | CodeLlama base | 1,140 | 310 | 27.19% | 827 | 72.54% | 3 | 0.26% | 635 |
-| BigCodeBench | CodeLlama fine-tuned | 1,140 | 2 | 0.18% | 1,137 | 99.74% | 1 | 0.09% | 8 |
-| BigCodeBench | CodeLlama merged | 1,140 | 26 | 2.28% | 1,113 | 97.63% | 1 | 0.09% | 747 |
+| Benchmark | Model | Evaluated | Pass | Pass % | Non-pass | Non-pass % |
+|---|---|---:|---:|---:|---:|---:|
+| HumanEval+ | DeepSeek base | 164 | 66 | 40.24% | 98 | 59.76% |
+| HumanEval+ | DeepSeek fine-tuned | 164 | 101 | 61.59% | 63 | 38.41% |
+| HumanEval+ | DeepSeek merged | 164 | 123 | 75.00% | 41 | 25.00% |
+| HumanEval+ | CodeLlama base | 164 | 55 | 33.54% | 109 | 66.46% |
+| HumanEval+ | CodeLlama fine-tuned | 164 | 58 | 35.37% | 106 | 64.63% |
+| HumanEval+ | CodeLlama merged | 164 | 17 | 10.37% | 147 | 89.63% |
+| BigCodeBench | DeepSeek base | 1,140 | 268 | 23.51% | 872 | 76.49% |
+| BigCodeBench | DeepSeek fine-tuned | 1,140 | 404 | 35.44% | 736 | 64.56% |
+| BigCodeBench | DeepSeek merged | 1,140 | 471 | 41.32% | 669 | 58.68% |
+| BigCodeBench | CodeLlama base | 1,140 | 314 | 27.54% | 826 | 72.46% |
+| BigCodeBench | CodeLlama fine-tuned | 1,140 | 319 | 27.98% | 821 | 72.02% |
+| BigCodeBench | CodeLlama merged | 1,140 | 27 | 2.37% | 1,113 | 97.63% |
 
-The complete machine-readable audit is
-[`reports/paper_v1_evaluation_audit.json`](reports/paper_v1_evaluation_audit.json).
+These are extraction-v4 results. The immutable v3 baseline and the complete
+machine-readable comparison remain available in
+[`reports/postprocessing_v4_validation.md`](reports/postprocessing_v4_validation.md).
+One BigCodeBench evaluator verdict changed from pass to fail despite byte-identical
+code; it is reported as evaluator nondeterminism, not a post-processing regression.
 Traceable pass/fail examples showing network completion, pre-repair code,
 post-repair code, and evaluator verdict are in
 [`reports/paper_v1_evaluation_samples.md`](reports/paper_v1_evaluation_samples.md).
@@ -74,6 +79,9 @@ Legacy paper-v1 masks are reconstructed only when retokenizing the exact histori
 forward-pass text reproduces every stored token ID; otherwise the example is
 rejected. New captures store the mask directly. See
 [`reports/roc_auc_feature_screening/IMPLEMENTATION_NOTES.md`](reports/roc_auc_feature_screening/IMPLEMENTATION_NOTES.md).
+Extraction v4 additionally materializes exact mask sidecars under
+`evaluated_token_masks/` in its versioned dataset prefix. ROC-AUC results have
+not been recomputed with the corrected labels.
 
 ## Validate the checkpoint
 
