@@ -86,6 +86,32 @@ Extraction v4 additionally materializes exact mask sidecars under
 `evaluated_token_masks/` in its versioned dataset prefix. The previous ROC-AUC
 report is retained as historical output and is not the current screening result.
 
+## Paired base-versus-variant screening
+
+The differential screen connects features more directly to fine-tuning and
+merging outcomes. It decomposes the joint CrossCoder preactivation into base-
+and variant-side additive contributions, then tests whether their paired
+difference separates:
+
+- regressions from preserved successes among tasks passed by the base model;
+- improvements from persistent failures among tasks failed by the base model.
+
+Four jointly maxT-corrected mechanisms cover variant increases/decreases
+associated with regressions/improvements. These quantities are contributions to
+a shared latent, not independent model-specific latent activations.
+
+```bash
+ACTIVATION_ROOTS=/path/to/deepseek:/path/to/codellama \
+CHECKPOINT_ROOT=/path/to/crosscoder/checkpoints \
+DATASET=/path/to/extraction_v4/out \
+scripts/run_differential_pr_auc_screening.sh full
+```
+
+See the [global differential report](reports/differential_pr_auc_feature_screening/index.md)
+and [implementation notes](reports/differential_pr_auc_feature_screening/IMPLEMENTATION_NOTES.md).
+Stored activations come from different generated texts, so shortlisted
+feature/task pairs require a same-text paired forward before steering.
+
 ## Validate the checkpoint
 
 On a machine with authenticated `gcloud` access:
