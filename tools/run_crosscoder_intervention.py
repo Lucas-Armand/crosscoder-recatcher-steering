@@ -2,13 +2,17 @@
 """
 Transparent dual-model CrossCoder intervention runner.
 
-For non-zero alpha, the reference model and target model process the same
-current token prefix. The target layer output is modified with:
+Two intervention modes are supported. ``crosscoder_scaled`` preserves the
+historical dual-model intervention:
 
     h_target' = h_target + alpha * z_j * decoder_target[:, j]
 
-where z_j is the selected CrossCoder latent computed from the paired layer
-activations.
+``traditional`` applies the decoder direction directly:
+
+    h_target' = h_target + alpha * decoder_target[:, j]
+
+Traditional steering does not require a reference-model forward. By default it
+modifies only the last token, whose hidden state predicts the next token.
 
 Important control behavior:
     alpha == 0 runs the target model without a hook, without CrossCoder
@@ -39,6 +43,20 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--layer", type=int, required=True)
     parser.add_argument("--feature-id", type=int, required=True)
     parser.add_argument("--alpha", type=float, required=True)
+    parser.add_argument(
+        "--intervention-mode",
+        choices=["crosscoder_scaled", "traditional"],
+        default="crosscoder_scaled",
+    )
+    parser.add_argument(
+        "--token-scope",
+        choices=["all", "last_token"],
+        default="all",
+        help=(
+            "Hidden-token positions modified in each forward. "
+            "Use last_token for autoregressive traditional steering."
+        ),
+    )
     parser.add_argument("--input-jsonl", type=Path, required=True)
     parser.add_argument("--output-jsonl", type=Path, required=True)
     parser.add_argument("--max-examples", type=int, default=None)
@@ -225,6 +243,10 @@ def main() -> None:
         if args.target_side == "a"
         else args.device_a
     )
+    needs_reference = (
+        args.alpha != 0.0
+        and args.intervention_mode == "crosscoder_scaled"
+    )
 
     tokenizer_id = args.tokenizer_id or target_model_id
     tokenizer = AutoTokenizer.from_pretrained(
@@ -297,7 +319,7 @@ def main() -> None:
                 "target_model_id": target_model_id,
                 "reference_model_id": (
                     reference_model_id
-                    if args.alpha != 0.0
+                    if needs_reference
                     else None
                 ),
                 "tokenizer_id": tokenizer_id,
@@ -305,6 +327,8 @@ def main() -> None:
                 "layer": args.layer,
                 "feature_id": args.feature_id,
                 "alpha": args.alpha,
+                "intervention_mode": args.intervention_mode,
+                "token_scope": args.token_scope,
                 "encoder_weight_shape": list(
                     encoder_weight_cpu.shape
                 ),
@@ -346,7 +370,7 @@ def main() -> None:
     encoder_bias = None
     decoder_direction = None
 
-    if args.alpha != 0.0:
+    if needs_reference:
         reference_model = AutoModelForCausalLM.from_pretrained(
             reference_model_id,
             torch_dtype=dtype,
@@ -374,12 +398,9 @@ def main() -> None:
             target_device,
             dtype=torch.float32,
         )
-        decoder_direction = decoder_weight_cpu[
-            :,
-            args.feature_id,
-        ].to(
-            target_device,
-            dtype=dtype,
+    if args.alpha != 0.0:
+        decoder_direction = decoder_weight_cpu[:, args.feature_id].to(
+            target_device, dtype=dtype
         )
 
     target_vocab = (
@@ -395,6 +416,12 @@ def main() -> None:
     overall_start = time.perf_counter()
 
     for example_idx, row in enumerate(rows):
+        # Re-seed per solution so alpha arms remain paired even when an earlier
+        # arm reaches EOS at a different decoding step.
+        example_seed = int(row.get("seed", args.seed + example_idx))
+        torch.manual_seed(example_seed)
+        if torch.cuda.is_available():
+            torch.cuda.manual_seed_all(example_seed)
         prompt = resolve_prompt(row, example_idx)
         encoded = tokenizer(prompt, return_tensors="pt")
         input_ids_cpu = encoded["input_ids"]
@@ -441,30 +468,32 @@ def main() -> None:
                         return_dict=True,
                     )
             else:
-                assert reference_model is not None
-                assert encoder_weight is not None
-                assert encoder_bias is not None
                 assert decoder_direction is not None
 
-                ref_ids = generated_cpu.to(reference_device)
-                ref_mask = torch.ones_like(
-                    ref_ids,
-                    device=reference_device,
-                )
-
-                if int(ref_ids.max()) >= int(reference_vocab):
-                    raise ValueError(
-                        "A generated token is outside the reference "
-                        f"vocabulary: max={int(ref_ids.max())}, "
-                        f"vocab={reference_vocab}"
+                ref_hidden = None
+                if needs_reference:
+                    assert reference_model is not None
+                    assert encoder_weight is not None
+                    assert encoder_bias is not None
+                    ref_ids = generated_cpu.to(reference_device)
+                    ref_mask = torch.ones_like(
+                        ref_ids,
+                        device=reference_device,
                     )
 
-                ref_hidden = post_layer_hidden(
-                    reference_model,
-                    ref_ids,
-                    ref_mask,
-                    args.layer,
-                ).to(target_device)
+                    if int(ref_ids.max()) >= int(reference_vocab):
+                        raise ValueError(
+                            "A generated token is outside the reference "
+                            f"vocabulary: max={int(ref_ids.max())}, "
+                            f"vocab={reference_vocab}"
+                        )
+
+                    ref_hidden = post_layer_hidden(
+                        reference_model,
+                        ref_ids,
+                        ref_mask,
+                        args.layer,
+                    ).to(target_device)
 
                 def hook(_module, _inputs, output):
                     nonlocal hook_debug_printed
@@ -474,36 +503,32 @@ def main() -> None:
                         if isinstance(output, tuple)
                         else output
                     )
-                    if hidden.ndim != 3 or ref_hidden.ndim != 3:
+                    if hidden.ndim != 3:
                         raise ValueError(
-                            "Expected hidden tensors shaped "
-                            "[batch, tokens, hidden]"
+                            "Expected hidden shaped [batch, tokens, hidden]"
                         )
 
-                    token_count = min(
-                        hidden.shape[1],
-                        ref_hidden.shape[1],
+                    token_count = (
+                        1
+                        if args.token_scope == "last_token"
+                        else hidden.shape[1]
                     )
                     target_slice = hidden[:, -token_count:, :]
-                    ref_slice = ref_hidden[
-                        :,
-                        -token_count:,
-                        :,
-                    ].to(
-                        device=hidden.device,
-                        dtype=hidden.dtype,
-                    )
-
-                    if args.target_side == "a":
-                        paired = torch.cat(
-                            [target_slice, ref_slice],
-                            dim=-1,
+                    paired = None
+                    if needs_reference:
+                        assert ref_hidden is not None
+                        ref_slice = ref_hidden[:, -token_count:, :].to(
+                            device=hidden.device,
+                            dtype=hidden.dtype,
                         )
-                    else:
-                        paired = torch.cat(
-                            [ref_slice, target_slice],
-                            dim=-1,
-                        )
+                        if args.target_side == "a":
+                            paired = torch.cat(
+                                [target_slice, ref_slice], dim=-1
+                            )
+                        else:
+                            paired = torch.cat(
+                                [ref_slice, target_slice], dim=-1
+                            )
 
                     if args.debug_hook and not hook_debug_printed:
                         print(
@@ -514,15 +539,18 @@ def main() -> None:
                                     ),
                                     "ref_hidden_shape": list(
                                         ref_hidden.shape
+                                    ) if ref_hidden is not None else None,
+                                    "paired_shape": (
+                                        list(paired.shape)
+                                        if paired is not None else None
                                     ),
-                                    "paired_shape": list(
-                                        paired.shape
+                                    "encoder_weight_shape": (
+                                        list(encoder_weight.shape)
+                                        if encoder_weight is not None else None
                                     ),
-                                    "encoder_weight_shape": list(
-                                        encoder_weight.shape
-                                    ),
-                                    "encoder_bias_shape": list(
-                                        encoder_bias.shape
+                                    "encoder_bias_shape": (
+                                        list(encoder_bias.shape)
+                                        if encoder_bias is not None else None
                                     ),
                                     "decoder_direction_shape": list(
                                         decoder_direction.shape
@@ -530,11 +558,13 @@ def main() -> None:
                                     "hidden_device": str(
                                         hidden.device
                                     ),
-                                    "ref_hidden_device": str(
-                                        ref_hidden.device
+                                    "ref_hidden_device": (
+                                        str(ref_hidden.device)
+                                        if ref_hidden is not None else None
                                     ),
-                                    "encoder_device": str(
-                                        encoder_weight.device
+                                    "encoder_device": (
+                                        str(encoder_weight.device)
+                                        if encoder_weight is not None else None
                                     ),
                                 },
                                 indent=2,
@@ -543,23 +573,28 @@ def main() -> None:
                         )
                         hook_debug_printed = True
 
-                    z_all = torch.relu(
-                        torch.nn.functional.linear(
-                            paired.float(),
-                            encoder_weight,
-                            encoder_bias,
+                    if args.intervention_mode == "traditional":
+                        delta = (
+                            args.alpha
+                            * decoder_direction.view(1, 1, -1)
                         )
-                    )
-                    z = z_all[
-                        ...,
-                        args.feature_id,
-                    ].to(hidden.dtype)
-
-                    delta = (
-                        args.alpha
-                        * z.unsqueeze(-1)
-                        * decoder_direction.view(1, 1, -1)
-                    )
+                    else:
+                        assert paired is not None
+                        assert encoder_weight is not None
+                        assert encoder_bias is not None
+                        z_all = torch.relu(
+                            torch.nn.functional.linear(
+                                paired.float(),
+                                encoder_weight,
+                                encoder_bias,
+                            )
+                        )
+                        z = z_all[..., args.feature_id].to(hidden.dtype)
+                        delta = (
+                            args.alpha
+                            * z.unsqueeze(-1)
+                            * decoder_direction.view(1, 1, -1)
+                        )
 
                     modified = hidden.clone()
                     modified[:, -token_count:, :] = (
@@ -653,11 +688,25 @@ def main() -> None:
                 "target_model_id": target_model_id,
                 "reference_model_id": (
                     reference_model_id
-                    if args.alpha != 0.0
+                    if needs_reference
                     else None
+                ),
+                "intervention_mode": args.intervention_mode,
+                "token_scope": args.token_scope,
+                "decoder_direction_norm": float(
+                    torch.linalg.vector_norm(
+                        decoder_weight_cpu[:, args.feature_id]
+                    )
+                ),
+                "intervention_vector_norm": float(
+                    abs(args.alpha)
+                    * torch.linalg.vector_norm(
+                        decoder_weight_cpu[:, args.feature_id]
+                    )
                 ),
                 "tokenizer_id": tokenizer_id,
                 "generation_seconds": elapsed,
+                "generation_seed": example_seed,
                 "generated_tokens": int(
                     completion_ids.numel()
                 ),

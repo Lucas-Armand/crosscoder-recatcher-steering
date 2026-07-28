@@ -199,3 +199,11 @@ intervention outputs are retained as development evidence.
   output.
 
 See [`docs/SECURITY_NOTES.md`](docs/SECURITY_NOTES.md) for additional guidance.
+## Causal steering experiments
+
+The first traditional-steering smoke test targets CodeLlama merged feature
+8994 at layer 16, using `alpha = 0, 0.25, 0.5, 0.75, 1.0` on ten historical
+regressions and ten preserved-success controls. The intervention acts on only
+the final hidden token of each autoregressive forward. See
+[`reports/steering_feature_8994_traditional/index.md`](reports/steering_feature_8994_traditional/index.md)
+for the design, limitations, task-level results, and dose-response figure.
