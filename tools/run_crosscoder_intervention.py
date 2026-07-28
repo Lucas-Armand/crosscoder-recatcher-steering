@@ -449,6 +449,7 @@ def main() -> None:
         prompt_len = generated_cpu.shape[1]
         start = time.perf_counter()
         hook_debug_printed = False
+        intervention_diagnostics: list[dict[str, float]] = []
 
         for _step in range(args.max_new_tokens):
             target_ids = generated_cpu.to(target_device)
@@ -596,6 +597,56 @@ def main() -> None:
                             * decoder_direction.view(1, 1, -1)
                         )
 
+                    if args.intervention_mode == "traditional":
+                        # Diagnostics use the exact modified positions. The
+                        # normalized projection is comparable across features,
+                        # while intervention_norm records the native decoder
+                        # scale actually applied.
+                        with torch.no_grad():
+                            direction_norm = torch.linalg.vector_norm(
+                                decoder_direction.float()
+                            )
+                            unit_direction = (
+                                decoder_direction.float()
+                                / direction_norm.clamp_min(1e-12)
+                            )
+                            residual_norm = torch.linalg.vector_norm(
+                                target_slice.float(), dim=-1
+                            ).mean()
+                            delta_norm = torch.linalg.vector_norm(
+                                delta.float(), dim=-1
+                            ).mean()
+                            projection_before = (
+                                target_slice.float()
+                                * unit_direction.view(1, 1, -1)
+                            ).sum(dim=-1).mean()
+                            projection_after = (
+                                (target_slice.float() + delta.float())
+                                * unit_direction.view(1, 1, -1)
+                            ).sum(dim=-1).mean()
+                            intervention_diagnostics.append(
+                                {
+                                    "residual_norm": float(
+                                        residual_norm.item()
+                                    ),
+                                    "intervention_norm": float(
+                                        delta_norm.item()
+                                    ),
+                                    "intervention_to_residual_ratio": float(
+                                        (
+                                            delta_norm
+                                            / residual_norm.clamp_min(1e-12)
+                                        ).item()
+                                    ),
+                                    "projection_before": float(
+                                        projection_before.item()
+                                    ),
+                                    "projection_after": float(
+                                        projection_after.item()
+                                    ),
+                                }
+                            )
+
                     modified = hidden.clone()
                     modified[:, -token_count:, :] = (
                         target_slice + delta
@@ -672,6 +723,31 @@ def main() -> None:
             syntax_error = f"{type(exc).__name__}: {exc}"
 
         output_row = dict(row)
+        diagnostics_summary = None
+        if intervention_diagnostics:
+            keys = intervention_diagnostics[0]
+            diagnostics_summary = {
+                f"{key}_{stat}": value
+                for key in keys
+                for stat, value in (
+                    (
+                        "mean",
+                        sum(x[key] for x in intervention_diagnostics)
+                        / len(intervention_diagnostics),
+                    ),
+                    (
+                        "min",
+                        min(x[key] for x in intervention_diagnostics),
+                    ),
+                    (
+                        "max",
+                        max(x[key] for x in intervention_diagnostics),
+                    ),
+                )
+            }
+            diagnostics_summary["n_intervention_steps"] = len(
+                intervention_diagnostics
+            )
         output_row.update(
             {
                 "completion": completion,
@@ -704,6 +780,7 @@ def main() -> None:
                         decoder_weight_cpu[:, args.feature_id]
                     )
                 ),
+                "intervention_diagnostics": diagnostics_summary,
                 "tokenizer_id": tokenizer_id,
                 "generation_seconds": elapsed,
                 "generation_seed": example_seed,

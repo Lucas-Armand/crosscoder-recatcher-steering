@@ -27,6 +27,31 @@ Only three tasks changed text at any nonzero alpha:
 The harmful transition on task 861 is non-monotonic and is not evidence for a
 stable dose-response effect.
 
+## Stronger-dose follow-up
+
+A preregistered follow-up tested `alpha = 1.5, 2, 3, 4` on the five strongest
+regressions and the five controls that passed in the new `alpha=0` arm.
+
+| Alpha | Regression passes | Passing-control passes |
+|---:|---:|---:|
+| 0.00 | 0/5 | 5/5 |
+| 1.50 | 0/5 | 4/5 |
+| 2.00 | 0/5 | 5/5 |
+| 3.00 | 0/5 | 4/5 |
+| 4.00 | 0/5 | 4/5 |
+
+The intervention was not merely too weak to affect the model. Mean projection
+shifts were approximately `0.95`, `1.27`, `1.91`, and `2.54`; the corresponding
+mean intervention-to-residual norm ratios were `2.3%`, `3.1%`, `4.6%`, and
+`6.1%`. At alpha 3 and 4, six of ten completions changed, including regressions
+756 and 536, but neither regression passed. Task 861 was again damaged at
+alphas 1.5, 3, and 4.
+
+This stronger-dose follow-up therefore also provides no evidence of causal
+rescue. Increasing the same intervention further is not currently justified:
+the direction is already changing generation trajectories and causing control
+damage without correcting the target failures.
+
 ## Experimental design
 
 - Model: `DevQuasar-5/coma-7B-v0.1` (CodeLlama merged).
@@ -94,6 +119,8 @@ the base model.
 - `task_level_results.csv`: task, group, alpha, verdict, syntax status, token
   count, and whether the generation changed from `alpha=0`.
 - `pass_rate_by_alpha.png`: dose-response summary.
+- `strong_task_level_results.csv`: stronger-dose verdicts and residual-stream
+  diagnostics.
 - Full generations, postprocessed samples, evaluator details, and logs are
   stored under `runs/steering_feature_8994_traditional/` and in the paper-v1
   bucket report copy.
