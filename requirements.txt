@@ -5,3 +5,4 @@ datasets>=2.18
 tqdm>=4.66
 pandas>=2.0
 accelerate>=0.30
+numba>=0.59

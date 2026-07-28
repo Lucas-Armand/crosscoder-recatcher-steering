@@ -57,31 +57,34 @@ Traceable pass/fail examples showing network completion, pre-repair code,
 post-repair code, and evaluator verdict are in
 [`reports/paper_v1_evaluation_samples.md`](reports/paper_v1_evaluation_samples.md).
 
-## ROC-AUC feature screening
+## Bidirectional PR-AUC feature screening
 
-The strict feature screen discovers cases from the paper manifest, uses failure as
-the positive class, aggregates each CrossCoder latent by its maximum over exactly
-the generated tokens submitted to evaluation, and produces max-statistic
-permutation evidence plus ranked-envelope plots.
+The current feature screen discovers cases from the paper manifest and analyzes
+failure and success as separate positive classes. Each CrossCoder latent is
+aggregated by its maximum over exactly the generated tokens submitted to
+evaluation. Because raw PR-AUC depends on class prevalence, ranking uses
+prevalence-normalized lift and a permutation effect/variability score (`E/V`).
+The five supported features with the highest `E/V` are marked on each plot.
 
 ```bash
-ACTIVATION_ROOT=/path/to/canonical/selected_layer_activations \
+ACTIVATION_ROOTS=/path/to/deepseek:/path/to/codellama \
 CHECKPOINT_ROOT=/path/to/crosscoder/checkpoints \
-scripts/run_roc_auc_feature_screening.sh smoke
+scripts/run_pr_auc_feature_screening.sh smoke
 
-# Full analysis: 5,000 permutations by default.
-ACTIVATION_ROOT=/path/to/canonical/selected_layer_activations \
+# Paper-v1 analysis: 200 permutations by default.
+ACTIVATION_ROOTS=/path/to/deepseek:/path/to/codellama \
 CHECKPOINT_ROOT=/path/to/crosscoder/checkpoints \
-scripts/run_roc_auc_feature_screening.sh full
+scripts/run_pr_auc_feature_screening.sh full
 ```
 
 Legacy paper-v1 masks are reconstructed only when retokenizing the exact historical
 forward-pass text reproduces every stored token ID; otherwise the example is
 rejected. New captures store the mask directly. See
-[`reports/roc_auc_feature_screening/IMPLEMENTATION_NOTES.md`](reports/roc_auc_feature_screening/IMPLEMENTATION_NOTES.md).
+[`reports/pr_auc_feature_screening/IMPLEMENTATION_NOTES.md`](reports/pr_auc_feature_screening/IMPLEMENTATION_NOTES.md)
+for definitions, validation, limitations, and exact reproduction commands.
 Extraction v4 additionally materializes exact mask sidecars under
-`evaluated_token_masks/` in its versioned dataset prefix. ROC-AUC results have
-not been recomputed with the corrected labels.
+`evaluated_token_masks/` in its versioned dataset prefix. The previous ROC-AUC
+report is retained as historical output and is not the current screening result.
 
 ## Validate the checkpoint
 
