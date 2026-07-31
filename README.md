@@ -207,3 +207,11 @@ regressions and ten preserved-success controls. The intervention acts on only
 the final hidden token of each autoregressive forward. See
 [`reports/steering_feature_8994_traditional/index.md`](reports/steering_feature_8994_traditional/index.md)
 for the design, limitations, task-level results, and dose-response figure.
+
+A historical-style replication uses the new DeepSeek base-versus-merged
+CrossCoder's strongest HumanEval+ base-side ROC-AUC feature (4672), selects
+high-activation failures and pass controls, and applies negative P99-scaled
+traditional steering. The smoke found no fail-to-pass transitions and one
+pass-to-fail transition at every nonzero strength. See
+[`reports/steering_historical_auc_feature_4672/index.md`](reports/steering_historical_auc_feature_4672/index.md)
+for the fixed design, paired results, diagnostics, and interpretation.

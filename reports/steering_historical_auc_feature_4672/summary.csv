@@ -1,0 +1,6 @@
+arm,nominal_alpha_times_p99,effective_alpha,passed,n,pass_rate,fail_to_pass,pass_to_fail,net_paired_change,evaluated_code_changed,historical_failures_passed,historical_controls_passed,mean_intervention_to_residual_ratio
+zero,0.0,0.0,5,20,0.25,0,0,0,0,0,5,0.0
+neg_0p10_p99,-0.1,-0.7072720051,4,20,0.2,0,1,-1,3,0,4,0.004067937138961168
+neg_0p25_p99,-0.25,-1.7681800127,4,20,0.2,0,1,-1,2,0,4,0.010166809171401224
+neg_0p50_p99,-0.5,-3.5363600254,4,20,0.2,0,1,-1,2,0,4,0.020333618342802447
+neg_1p00_p99,-1.0,-7.0727200508,4,20,0.2,0,1,-1,5,0,4,0.04069801423586308

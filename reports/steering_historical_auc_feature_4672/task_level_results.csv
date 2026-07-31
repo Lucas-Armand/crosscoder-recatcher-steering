@@ -1,0 +1,716 @@
+task_id,historical_label,historical_feature_score,arm,nominal_alpha_times_p99,effective_alpha,passed,control_passed,fail_to_pass,pass_to_fail,evaluated_code_changed,intervention_to_residual_ratio_mean,error
+HumanEval/12,pass_control,4.363240718841553,zero,0.0,0.0,False,False,False,False,False,,"SyntaxError('unterminated triple-quoted string literal (detected at line 36)', ('<string>', 35, 5, '    """""" Out of list of strings, return the length of the longest one. Return None in case the input', 35, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmph17yvx5y.py"", line 6, in <module>
+    exec('from typing import List, Optional\n\n\ndef longest(strings: List[str]) -> Optional[str]:\n    """""" Out of list of strings, return the longest one. Return the first one in case of multiple\n    strings of the same length. Return None in case the input list is empty.\n    >>> longest([])\n\n    >>> longest([\'a\', \'b\', \'c\'])\n    \'a\'\n    >>> longest([\'a\', \'bb\', \'ccc\'])\n    \'ccc\'\n    """"""\n    if not strings:\n        return None\n    return max(strings, key=len)\n\n\ndef longest_length(strings: List[str]) -> Optional[int]:\n    """""" Out of list of strings, return the length of the longest one. Return None in case the input\n    list is empty.\n    >>> longest_length([])\n\n    >>> longest_length([\'a\', \'b\', \'c\'])\n    1\n    >>> longest_length([\'a\', \'bb\', \'ccc\'])\n    3\n    """"""\n    if not strings:\n        return None\n    return len(max(strings, key=len))\n\n\ndef longest_length_or_none(strings: List[str]) -> Optional[int]:\n    """""" Out of list of strings, return the length of the longest one. Return None in case the input\n    list is', globals())
+  File ""<string>"", line 35
+    """""" Out of list of strings, return the length of the longest one. Return None in case the input
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 36)
+"
+HumanEval/13,pass_control,4.240393161773682,zero,0.0,0.0,False,False,False,False,False,,"SyntaxError('unterminated string literal (detected at line 32)', ('<string>', 32, 19, '    b = int(input(""Enter b:', 32, 19))
+Traceback (most recent call last):
+  File ""/tmp/tmpzwc_24h_.py"", line 6, in <module>
+    exec('\n\ndef greatest_common_divisor(a: int, b: int) -> int:\n    """""" Return a greatest common divisor of two integers a and b\n    >>> greatest_common_divisor(3, 5)\n    1\n    >>> greatest_common_divisor(25, 15)\n    5\n    """"""\n    if a == 0:\n        return b\n    if b == 0:\n        return a\n    if a > b:\n        return greatest_common_divisor(a % b, b)\n    else:\n        return greatest_common_divisor(a, b % a)\n\n\ndef least_common_multiple(a: int, b: int) -> int:\n    """""" Return a least common multiple of two integers a and b\n    >>> least_common_multiple(3, 5)\n    15\n    >>> least_common_multiple(25, 15)\n    75\n    """"""\n    return a * b // greatest_common_divisor(a, b)\n\n\ndef main():\n    a = int(input(""Enter a: ""))\n    b = int(input(""Enter b:', globals())
+  File ""<string>"", line 32
+    b = int(input(""Enter b:
+                  ^
+SyntaxError: unterminated string literal (detected at line 32)
+"
+HumanEval/20,pass_control,4.1080427169799805,zero,0.0,0.0,True,True,False,False,False,,
+HumanEval/23,pass_control,4.070234298706055,zero,0.0,0.0,True,True,False,False,False,,
+HumanEval/43,pass_control,7.275382995605469,zero,0.0,0.0,True,True,False,False,False,,
+HumanEval/55,pass_control,4.6110382080078125,zero,0.0,0.0,False,False,False,False,False,,"SyntaxError('unterminated triple-quoted string literal (detected at line 41)', ('<string>', 41, 5, '    """"""', 41, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmpm2l6ike4.py"", line 6, in <module>
+    exec('\n\ndef fib(n: int):\n    """"""Return n-th Fibonacci number.\n    >>> fib(10)\n    55\n    >>> fib(1)\n    1\n    >>> fib(8)\n    21\n    """"""\n    if n == 1:\n        return 1\n    elif n == 2:\n        return 1\n    else:\n        return fib(n-1) + fib(n-2)\n\n\ndef fib_iter(n: int):\n    """"""Return n-th Fibonacci number.\n    >>> fib_iter(10)\n    55\n    >>> fib_iter(1)\n    1\n    >>> fib_iter(8)\n    21\n    """"""\n    if n == 1:\n        return 1\n    elif n == 2:\n        return 1\n    else:\n        a, b = 1, 1\n        for i in range(n-2):\n            a, b = b, a + b\n        return b\n\n\ndef fib_iter_2(n: int):\n    """"""', globals())
+  File ""<string>"", line 41
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 41)
+"
+HumanEval/59,pass_control,7.901678562164307,zero,0.0,0.0,True,True,False,False,False,,
+HumanEval/63,pass_control,4.1913604736328125,zero,0.0,0.0,False,False,False,False,False,,"SyntaxError('unterminated triple-quoted string literal (detected at line 33)', ('<string>', 28, 5, '    """"""The FibFib number sequence is a sequence similar to the Fibbonacci sequnece that\'s defined as follows:', 28, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmpq2p96grb.py"", line 6, in <module>
+    exec('\n\ndef fibfib(n: int):\n    """"""The FibFib number sequence is a sequence similar to the Fibbonacci sequnece that\'s defined as follows:\n    fibfib(0) == 0\n    fibfib(1) == 0\n    fibfib(2) == 1\n    fibfib(n) == fibfib(n-1) + fibfib(n-2) + fibfib(n-3).\n    Please write a function to efficiently compute the n-th element of the fibfib number sequence.\n    >>> fibfib(1)\n    0\n    >>> fibfib(5)\n    4\n    >>> fibfib(8)\n    24\n    """"""\n    if n == 0:\n        return 0\n    elif n == 1:\n        return 0\n    elif n == 2:\n        return 1\n    else:\n        return fibfib(n-1) + fibfib(n-2) + fibfib(n-3)\n\n\ndef fibfib_iter(n: int):\n    """"""The FibFib number sequence is a sequence similar to the Fibbonacci sequnece that\'s defined as follows:\n    fibfib(0) == 0\n    fibfib(1) == 0\n    fibfib(2) == 1\n    fibfib(n) == fibfib(n-1) + fibfib(n-2) + fibfib(n-3).\n    Please write a function to efficiently compute the n-th', globals())
+  File ""<string>"", line 28
+    """"""The FibFib number sequence is a sequence similar to the Fibbonacci sequnece that's defined as follows:
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 33)
+"
+HumanEval/68,failure,9.00671672821045,zero,0.0,0.0,False,False,False,False,False,,"SyntaxError(""'[' was never closed"", ('<string>', 57, 17, '    print(pluck([5, 0, 3, \n', 57, 0))
+Traceback (most recent call last):
+  File ""/tmp/tmpe7yrzmne.py"", line 6, in <module>
+    exec('\ndef pluck(arr):\n    """"""\n    ""Given an array representing a branch of a tree that has non-negative integer nodes\n    your task is to pluck one of the nodes and return it.\n    The plucked node should be the node with the smallest even value.\n    If multiple nodes with the same smallest even value are found return the node that has smallest index.\n\n    The plucked node should be returned in a list, [ smalest_value, its index ],\n    If there are no even values or the given array is empty, return [].\n\n    Example 1:\n        Input: [4,2,3]\n        Output: [2, 1]\n        Explanation: 2 has the smallest even value, and 2 has the smallest index.\n\n    Example 2:\n        Input: [1,2,3]\n        Output: [2, 1]\n        Explanation: 2 has the smallest even value, and 2 has the smallest index. \n\n    Example 3:\n        Input: []\n        Output: []\n    \n    Example 4:\n        Input: [5, 0, 3, 0, 4, 2]\n        Output: [0, 1]\n        Explanation: 0 is the smallest value, but  there are two zeros,\n                     so we will choose the first zero, which has the smallest index.\n\n    Constraints:\n        * 1 <= nodes.length <= 10000\n        * 0 <= node.value\n    """"""\n    if not arr:\n        return []\n\n    min_even = float(\'inf\')\n    min_even_index = None\n\n    for i, num in enumerate(arr):\n        if num % 2 == 0 and num < min_even:\n            min_even = num\n            min_even_index = i\n\n    if min_even_index is None:\n        return []\n\n    return [min_even, min_even_index]\n\n\nif __name__ == \'__main__\':\n    print(pluck([4, 2, 3]))  # [2, 1]\n    print(pluck([1, 2, 3]))  # [2, 1]\n    print(pluck([]))  # []\n    print(pluck([5, 0, 3, ', globals())
+  File ""<string>"", line 57
+    print(pluck([5, 0, 3, 
+                ^
+SyntaxError: '[' was never closed
+"
+HumanEval/69,failure,9.034655570983887,zero,0.0,0.0,False,False,False,False,False,,"SyntaxError('unterminated triple-quoted string literal (detected at line 31)', ('<string>', 31, 5, ""    '''"", 31, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmpxvtt_svc.py"", line 6, in <module>
+    exec(""\ndef search(lst):\n    '''\n    You are given a non-empty list of positive integers. Return the greatest integer that is greater than \n    zero, and has a frequency greater than or equal to the value of the integer itself. \n    The frequency of an integer is the number of times it appears in the list.\n    If no such a value exist, return -1.\n    Examples:\n        search([4, 1, 2, 2, 3, 1]) == 2\n        search([1, 2, 2, 3, 3, 3, 4, 4, 4]) == 3\n        search([5, 5, 4, 4, 4]) == -1\n    '''\n    pass\n\n\ndef search_2(lst):\n    '''\n    You are given a non-empty list of positive integers. Return the greatest integer that is greater than \n    zero, and has a frequency greater than or equal to the value of the integer itself. \n    The frequency of an integer is the number of times it appears in the list.\n    If no such a value exist, return -1.\n    Examples:\n        search([4, 1, 2, 2, 3, 1]) == 2\n        search([1, 2, 2, 3, 3, 3, 4, 4, 4]) == 3\n        search([5, 5, 4, 4, 4]) == -1\n    '''\n    pass\n\n\ndef search_3(lst):\n    '''\n"", globals())
+  File ""<string>"", line 31
+    '''
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 31)
+"
+HumanEval/72,pass_control,12.469685554504395,zero,0.0,0.0,False,False,False,False,False,,"SyntaxError('unterminated triple-quoted string literal (detected at line 44)', ('<string>', 43, 5, ""    '''"", 43, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmpmdgy_xnm.py"", line 6, in <module>
+    exec('\ndef will_it_fly(q,w):\n    \'\'\'\n    Write a function that returns True if the object q will fly, and False otherwise.\n    The object q will fly if it\'s balanced (it is a palindromic list) and the sum of its elements is less than or equal the maximum possible weight w.\n\n    Example:\n    will_it_fly([1, 2], 5) ➞ False \n    # 1+2 is less than the maximum possible weight, but it\'s unbalanced.\n\n    will_it_fly([3, 2, 3], 1) ➞ False\n    # it\'s balanced, but 3+2+3 is more than the maximum possible weight.\n\n    will_it_fly([3, 2, 3], 9) ➞ True\n    # 3+2+3 is less than the maximum possible weight, and it\'s balanced.\n\n    will_it_fly([3], 5) ➞ True\n    # 3 is less than the maximum possible weight, and it\'s balanced.\n    \'\'\'\n    if sum(q) <= w and q == q[::-1]:\n        return True\n    else:\n        return False\n\n\ndef is_palindrome(q):\n    \'\'\'\n    Write a function that returns True if the given string is a palindrome, and False otherwise.\n    A palindrome is a word that is spelled the same way, backwards and forwards.\n\n    Example:\n    is_palindrome(""racecar"") ➞ True\n    is_palindrome(""rat"") ➞ False\n    is_palindrome(""madam"") ➞ True\n    \'\'\'\n    if q == q[::-1]:\n        return True\n    else:\n        return False\n\n\ndef is_palindrome(q):\n    \'\'\'\n    Write a function that returns True if the', globals())
+  File ""<string>"", line 43
+    '''
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 44)
+"
+HumanEval/94,pass_control,4.647215366363525,zero,0.0,0.0,True,True,False,False,False,,
+HumanEval/105,failure,8.714726448059082,zero,0.0,0.0,False,False,False,False,False,,"SyntaxError('unterminated triple-quoted string literal (detected at line 37)', ('<string>', 29, 5, '    """"""', 29, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmp4qtqqpzt.py"", line 6, in <module>
+    exec('\ndef by_length(arr):\n    """"""\n    Given an array of integers, sort the integers that are between 1 and 9 inclusive,\n    reverse the resulting array, and then replace each digit by its corresponding name from\n    ""One"", ""Two"", ""Three"", ""Four"", ""Five"", ""Six"", ""Seven"", ""Eight"", ""Nine"".\n\n    For example:\n      arr = [2, 1, 1, 4, 5, 8, 2, 3]   \n            -> sort arr -> [1, 1, 2, 2, 3, 4, 5, 8] \n            -> reverse arr -> [8, 5, 4, 3, 2, 2, 1, 1]\n      return [""Eight"", ""Five"", ""Four"", ""Three"", ""Two"", ""Two"", ""One"", ""One""]\n    \n      If the array is empty, return an empty array:\n      arr = []\n      return []\n    \n      If the array has any strange number ignore it:\n      arr = [1, -1 , 55] \n            -> sort arr -> [-1, 1, 55]\n            -> reverse arr -> [55, 1, -1]\n      return = [\'One\']\n    """"""\n    # Your code here\n    # return arr\n\n\ndef by_length_2(arr):\n    """"""\n    Given an array of integers, sort the integers that are between 1 and 9 inclusive,\n    reverse the resulting array, and then replace each digit by its corresponding name from\n    ""One"", ""Two"", ""Three"", ""Four"", ""Five"", ""Six"", ""Seven"", ""Eight"", ""Nine"".\n\n    For example:\n      arr = [2, 1, 1, 4, 5, 8, 2, 3]   \n            -> sort arr -> [1, 1, 2, 2, 3, 4, 5, 8] \n            -> reverse arr -> [8, 5, 4, 3, 2, 2, ', globals())
+  File ""<string>"", line 29
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 37)
+"
+HumanEval/117,failure,9.334943771362305,zero,0.0,0.0,False,False,False,False,False,,"SyntaxError('unterminated triple-quoted string literal (detected at line 30)', ('<string>', 20, 5, '    """"""Given a string s and a natural number n, you have been tasked to implement ', 20, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmpcyzaydkt.py"", line 6, in <module>
+    exec('\ndef select_words(s, n):\n    """"""Given a string s and a natural number n, you have been tasked to implement \n    a function that returns a list of all words from string s that contain exactly \n    n consonants, in order these words appear in the string s.\n    If the string s is empty then the function should return an empty list.\n    Note: you may assume the input string contains only letters and spaces.\n    Examples:\n    select_words(""Mary had a little lamb"", 4) ==> [""little""]\n    select_words(""Mary had a little lamb"", 3) ==> [""Mary"", ""lamb""]\n    select_words(""simple white space"", 2) ==> []\n    select_words(""Hello world"", 4) ==> [""world""]\n    select_words(""Uncle sam"", 3) ==> [""Uncle""]\n    """"""\n    # Your code here\n    pass\n\n\ndef select_words(s, n):\n    """"""Given a string s and a natural number n, you have been tasked to implement \n    a function that returns a list of all words from string s that contain exactly \n    n consonants, in order these words appear in the string s.\n    If the string s is empty then the function should return an empty list.\n    Note: you may assume the input string contains only letters and spaces.\n    Examples:\n    select_words(""Mary had a little lamb"", 4) ==> [""little""]\n    select_words(""Mary had a little lamb"", 3) ==> [""Mary"", ""lamb""]\n    select_words(""simple white space"", 2) ==> []\n    select_words(""Hello world"", 4) ==> [""world""]\n   ', globals())
+  File ""<string>"", line 20
+    """"""Given a string s and a natural number n, you have been tasked to implement 
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 30)
+"
+HumanEval/119,failure,8.977835655212402,zero,0.0,0.0,False,False,False,False,False,,"IndexError('list index out of range')
+Traceback (most recent call last):
+  File ""/tmp/tmpws80y0sb.py"", line 9, in <module>
+    check(match_parens)
+  File ""<string>"", line 4, in check
+  File ""<string>"", line 30, in match_parens
+IndexError: list index out of range
+"
+HumanEval/121,failure,13.737234115600586,zero,0.0,0.0,False,False,False,False,False,,"SyntaxError('invalid syntax', ('<string>', 26, 4, 'def\n', 26, 4))
+Traceback (most recent call last):
+  File ""/tmp/tmp87l8gl0x.py"", line 6, in <module>
+    exec('\ndef solution(lst):\n    """"""Given a non-empty list of integers, return the sum of all of the odd elements that are in even positions.\n    \n\n    Examples\n    solution([5, 8, 7, 1]) ==> 12\n    solution([3, 3, 3, 3, 3]) ==> 9\n    solution([30, 13, 24, 321]) ==>0\n    """"""\n    return sum([lst[i] for i in range(len(lst)) if i % 2 != 0 and lst[i] % 2 != 0])\n\n\ndef solution(lst):\n    """"""Given a non-empty list of integers, return the sum of all of the odd elements that are in even positions.\n    \n\n    Examples\n    solution([5, 8, 7, 1]) ==> 12\n    solution([3, 3, 3, 3, 3]) ==> 9\n    solution([30, 13, 24, 321]) ==>0\n    """"""\n    return sum([lst[i] for i in range(len(lst)) if i % 2 == 0 and lst[i] % 2 != 0])\n\n\ndef', globals())
+  File ""<string>"", line 26
+    def
+       ^
+SyntaxError: invalid syntax
+"
+HumanEval/136,failure,8.97400188446045,zero,0.0,0.0,False,False,False,False,False,,"AssertionError()
+Traceback (most recent call last):
+  File ""/tmp/tmppfm50wcv.py"", line 9, in <module>
+    check(largest_smallest_integers)
+  File ""<string>"", line 4, in check
+AssertionError
+"
+HumanEval/140,failure,8.717255592346191,zero,0.0,0.0,False,False,False,False,False,,"SyntaxError(""'(' was never closed"", ('<string>', 34, 17, 'def fix_spaces_3(\n', 34, 0))
+Traceback (most recent call last):
+  File ""/tmp/tmpulev5j_d.py"", line 6, in <module>
+    exec('\ndef fix_spaces(text):\n    """"""\n    Given a string text, replace all spaces in it with underscores, \n    and if a string has more than 2 consecutive spaces, \n    then replace all consecutive spaces with - \n    \n    fix_spaces(""Example"") == ""Example""\n    fix_spaces(""Example 1"") == ""Example_1""\n    fix_spaces("" Example 2"") == ""_Example_2""\n    fix_spaces("" Example   3"") == ""_Example-3""\n    """"""\n    text = text.replace("" "", ""_"")\n    text = text.replace(""  "", ""-"")\n    return text\n\n\ndef fix_spaces_2(text):\n    """"""\n    Given a string text, replace all spaces in it with underscores, \n    and if a string has more than 2 consecutive spaces, \n    then replace all consecutive spaces with - \n    \n    fix_spaces(""Example"") == ""Example""\n    fix_spaces(""Example 1"") == ""Example_1""\n    fix_spaces("" Example 2"") == ""_Example_2""\n    fix_spaces("" Example   3"") == ""_Example-3""\n    """"""\n    text = text.replace("" "", ""_"")\n    text = text.replace(""  "", ""-"")\n    return text\n\n\ndef fix_spaces_3(', globals())
+  File ""<string>"", line 34
+    def fix_spaces_3(
+                    ^
+SyntaxError: '(' was never closed
+"
+HumanEval/146,failure,8.999509811401367,zero,0.0,0.0,False,False,False,False,False,,"SyntaxError('unterminated triple-quoted string literal (detected at line 27)', ('<string>', 25, 5, '    """"""Write a function that takes an array of numbers as input and returns ', 25, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmpid8r_yy5.py"", line 6, in <module>
+    exec('\ndef specialFilter(nums):\n    """"""Write a function that takes an array of numbers as input and returns \n    the number of elements in the array that are greater than 10 and both \n    first and last digits of a number are odd (1, 3, 5, 7, 9).\n    For example:\n    specialFilter([15, -73, 14, -15]) => 1 \n    specialFilter([33, -2, -3, 45, 21, 109]) => 2\n    """"""\n    pass\n\n\ndef specialFilter2(nums):\n    """"""Write a function that takes an array of numbers as input and returns \n    the number of elements in the array that are greater than 10 and both \n    first and last digits of a number are odd (1, 3, 5, 7, 9).\n    For example:\n    specialFilter([15, -73, 14, -15]) => 1 \n    specialFilter([33, -2, -3, 45, 21, 109]) => 2\n    """"""\n    pass\n\n\ndef specialFilter3(nums):\n    """"""Write a function that takes an array of numbers as input and returns \n    the number of elements in the array that are greater than 10 and both \n    first and last dig', globals())
+  File ""<string>"", line 25
+    """"""Write a function that takes an array of numbers as input and returns 
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 27)
+"
+HumanEval/148,failure,9.56707763671875,zero,0.0,0.0,False,False,False,False,False,,"SyntaxError('unterminated triple-quoted string literal (detected at line 33)', ('<string>', 31, 5, ""    '''"", 31, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmpth1qxj9f.py"", line 6, in <module>
+    exec('\ndef bf(planet1, planet2):\n    \'\'\'\n    There are eight planets in our solar system: the closerst to the Sun \n    is Mercury, the next one is Venus, then Earth, Mars, Jupiter, Saturn, \n    Uranus, Neptune.\n    Write a function that takes two planet names as strings planet1 and planet2. \n    The function should return a tuple containing all planets whose orbits are \n    located between the orbit of planet1 and the orbit of planet2, sorted by \n    the proximity to the sun. \n    The function should return an empty tuple if planet1 or planet2\n    are not correct planet names. \n    Examples\n    bf(""Jupiter"", ""Neptune"") ==> (""Saturn"", ""Uranus"")\n    bf(""Earth"", ""Mercury"") ==> (""Venus"")\n    bf(""Mercury"", ""Uranus"") ==> (""Venus"", ""Earth"", ""Mars"", ""Jupiter"", ""Saturn"")\n    \'\'\'\n    planets = [""Mercury"", ""Venus"", ""Earth"", ""Mars"", ""Jupiter"", ""Saturn"", ""Uranus"", ""Neptune""]\n    if planet1 not in planets or planet2 not in planets:\n        return ()\n    else:\n        index1 = planets.index(planet1)\n        index2 = planets.index(planet2)\n        if index1 < index2:\n            return tuple(planets[index1+1:index2])\n        else:\n            return tuple(planets[index2+1:index1])\n\n\ndef bf2(planet1, planet2):\n    \'\'\'\n    There are eight planets in our solar system: the closerst to the Sun \n    is Mercury, the next one is Venus, then Earth, Mars, Jupiter, Saturn,', globals())
+  File ""<string>"", line 31
+    '''
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 33)
+"
+HumanEval/12,pass_control,4.363240718841553,neg_0p10_p99,-0.1,-0.7072720051,False,False,False,False,False,0.00408947867678459,"SyntaxError('unterminated triple-quoted string literal (detected at line 36)', ('<string>', 35, 5, '    """""" Out of list of strings, return the length of the longest one. Return None in case the input', 35, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmpw_3bqnbr.py"", line 6, in <module>
+    exec('from typing import List, Optional\n\n\ndef longest(strings: List[str]) -> Optional[str]:\n    """""" Out of list of strings, return the longest one. Return the first one in case of multiple\n    strings of the same length. Return None in case the input list is empty.\n    >>> longest([])\n\n    >>> longest([\'a\', \'b\', \'c\'])\n    \'a\'\n    >>> longest([\'a\', \'bb\', \'ccc\'])\n    \'ccc\'\n    """"""\n    if not strings:\n        return None\n    return max(strings, key=len)\n\n\ndef longest_length(strings: List[str]) -> Optional[int]:\n    """""" Out of list of strings, return the length of the longest one. Return None in case the input\n    list is empty.\n    >>> longest_length([])\n\n    >>> longest_length([\'a\', \'b\', \'c\'])\n    1\n    >>> longest_length([\'a\', \'bb\', \'ccc\'])\n    3\n    """"""\n    if not strings:\n        return None\n    return len(max(strings, key=len))\n\n\ndef longest_length_or_none(strings: List[str]) -> Optional[int]:\n    """""" Out of list of strings, return the length of the longest one. Return None in case the input\n    list is', globals())
+  File ""<string>"", line 35
+    """""" Out of list of strings, return the length of the longest one. Return None in case the input
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 36)
+"
+HumanEval/13,pass_control,4.240393161773682,neg_0p10_p99,-0.1,-0.7072720051,False,False,False,False,False,0.004130983648565234,"SyntaxError('unterminated string literal (detected at line 32)', ('<string>', 32, 19, '    b = int(input(""Enter b:', 32, 19))
+Traceback (most recent call last):
+  File ""/tmp/tmprenyoe5s.py"", line 6, in <module>
+    exec('\n\ndef greatest_common_divisor(a: int, b: int) -> int:\n    """""" Return a greatest common divisor of two integers a and b\n    >>> greatest_common_divisor(3, 5)\n    1\n    >>> greatest_common_divisor(25, 15)\n    5\n    """"""\n    if a == 0:\n        return b\n    if b == 0:\n        return a\n    if a > b:\n        return greatest_common_divisor(a % b, b)\n    else:\n        return greatest_common_divisor(a, b % a)\n\n\ndef least_common_multiple(a: int, b: int) -> int:\n    """""" Return a least common multiple of two integers a and b\n    >>> least_common_multiple(3, 5)\n    15\n    >>> least_common_multiple(25, 15)\n    75\n    """"""\n    return a * b // greatest_common_divisor(a, b)\n\n\ndef main():\n    a = int(input(""Enter a: ""))\n    b = int(input(""Enter b:', globals())
+  File ""<string>"", line 32
+    b = int(input(""Enter b:
+                  ^
+SyntaxError: unterminated string literal (detected at line 32)
+"
+HumanEval/20,pass_control,4.1080427169799805,neg_0p10_p99,-0.1,-0.7072720051,True,True,False,False,False,0.004163507251929411,
+HumanEval/23,pass_control,4.070234298706055,neg_0p10_p99,-0.1,-0.7072720051,False,True,False,True,True,0.004153218023930094,"SyntaxError('unterminated triple-quoted string literal (detected at line 36)', ('<string>', 30, 5, '    """""" Return 0 if string1 == string2,', 30, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmpn1q0lmiu.py"", line 6, in <module>
+    exec('\n\ndef strlen(string: str) -> int:\n    """""" Return length of given string\n    >>> strlen(\'\')\n    0\n    >>> strlen(\'abc\')\n    3\n    """"""\n    if string == \'\':\n        return 0\n    else:\n        return 1 + strlen(string[1:])\n\n\ndef strrev(string: str) -> str:\n    """""" Return reverse of given string\n    >>> strrev(\'\')\n    \'\'\n    >>> strrev(\'abc\')\n    \'cba\'\n    """"""\n    if string == \'\':\n        return \'\'\n    else:\n        return strrev(string[1:]) + string[0]\n\n\ndef strcmp(string1: str, string2: str) -> int:\n    """""" Return 0 if string1 == string2,\n    -1 if string1 < string2,\n    1 if string1 > string2\n    >>> strcmp(\'\', \'\')\n    0\n    >>> strcmp(\'abc\', \'abc\')\n    ', globals())
+  File ""<string>"", line 30
+    """""" Return 0 if string1 == string2,
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 36)
+"
+HumanEval/43,pass_control,7.275382995605469,neg_0p10_p99,-0.1,-0.7072720051,True,True,False,False,False,0.004151555345742963,
+HumanEval/55,pass_control,4.6110382080078125,neg_0p10_p99,-0.1,-0.7072720051,False,False,False,False,True,0.004059736230146882,"SyntaxError('unterminated triple-quoted string literal (detected at line 39)', ('<string>', 39, 5, '    """"""Return n-th F', 39, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmpko87bhmh.py"", line 6, in <module>
+    exec('\n\ndef fib(n: int):\n    """"""Return n-th Fibonacci number.\n    >>> fib(10)\n    55\n    >>> fib(1)\n    1\n    >>> fib(8)\n    21\n    """"""\n    if n == 1:\n        return 1\n    if n == 2:\n        return 1\n    return fib(n - 1) + fib(n - 2)\n\n\ndef fib_iter(n: int):\n    """"""Return n-th Fibonacci number.\n    >>> fib_iter(10)\n    55\n    >>> fib_iter(1)\n    1\n    >>> fib_iter(8)\n    21\n    """"""\n    if n == 1:\n        return 1\n    if n == 2:\n        return 1\n    a, b = 1, 1\n    for i in range(n - 2):\n        a, b = b, a + b\n    return b\n\n\ndef fib_iter_2(n: int):\n    """"""Return n-th F', globals())
+  File ""<string>"", line 39
+    """"""Return n-th F
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 39)
+"
+HumanEval/59,pass_control,7.901678562164307,neg_0p10_p99,-0.1,-0.7072720051,True,True,False,False,False,0.004143244338289757,
+HumanEval/63,pass_control,4.1913604736328125,neg_0p10_p99,-0.1,-0.7072720051,False,False,False,False,False,0.004037683199082191,"SyntaxError('unterminated triple-quoted string literal (detected at line 33)', ('<string>', 28, 5, '    """"""The FibFib number sequence is a sequence similar to the Fibbonacci sequnece that\'s defined as follows:', 28, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmp7tsoyopx.py"", line 6, in <module>
+    exec('\n\ndef fibfib(n: int):\n    """"""The FibFib number sequence is a sequence similar to the Fibbonacci sequnece that\'s defined as follows:\n    fibfib(0) == 0\n    fibfib(1) == 0\n    fibfib(2) == 1\n    fibfib(n) == fibfib(n-1) + fibfib(n-2) + fibfib(n-3).\n    Please write a function to efficiently compute the n-th element of the fibfib number sequence.\n    >>> fibfib(1)\n    0\n    >>> fibfib(5)\n    4\n    >>> fibfib(8)\n    24\n    """"""\n    if n == 0:\n        return 0\n    elif n == 1:\n        return 0\n    elif n == 2:\n        return 1\n    else:\n        return fibfib(n-1) + fibfib(n-2) + fibfib(n-3)\n\n\ndef fibfib_iter(n: int):\n    """"""The FibFib number sequence is a sequence similar to the Fibbonacci sequnece that\'s defined as follows:\n    fibfib(0) == 0\n    fibfib(1) == 0\n    fibfib(2) == 1\n    fibfib(n) == fibfib(n-1) + fibfib(n-2) + fibfib(n-3).\n    Please write a function to efficiently compute the n-th', globals())
+  File ""<string>"", line 28
+    """"""The FibFib number sequence is a sequence similar to the Fibbonacci sequnece that's defined as follows:
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 33)
+"
+HumanEval/68,failure,9.00671672821045,neg_0p10_p99,-0.1,-0.7072720051,False,False,False,False,False,0.004161287725310103,"SyntaxError(""'[' was never closed"", ('<string>', 57, 17, '    print(pluck([5, 0, 3, \n', 57, 0))
+Traceback (most recent call last):
+  File ""/tmp/tmpt6kwnwsw.py"", line 6, in <module>
+    exec('\ndef pluck(arr):\n    """"""\n    ""Given an array representing a branch of a tree that has non-negative integer nodes\n    your task is to pluck one of the nodes and return it.\n    The plucked node should be the node with the smallest even value.\n    If multiple nodes with the same smallest even value are found return the node that has smallest index.\n\n    The plucked node should be returned in a list, [ smalest_value, its index ],\n    If there are no even values or the given array is empty, return [].\n\n    Example 1:\n        Input: [4,2,3]\n        Output: [2, 1]\n        Explanation: 2 has the smallest even value, and 2 has the smallest index.\n\n    Example 2:\n        Input: [1,2,3]\n        Output: [2, 1]\n        Explanation: 2 has the smallest even value, and 2 has the smallest index. \n\n    Example 3:\n        Input: []\n        Output: []\n    \n    Example 4:\n        Input: [5, 0, 3, 0, 4, 2]\n        Output: [0, 1]\n        Explanation: 0 is the smallest value, but  there are two zeros,\n                     so we will choose the first zero, which has the smallest index.\n\n    Constraints:\n        * 1 <= nodes.length <= 10000\n        * 0 <= node.value\n    """"""\n    if not arr:\n        return []\n\n    min_even = float(\'inf\')\n    min_even_index = None\n\n    for i, num in enumerate(arr):\n        if num % 2 == 0 and num < min_even:\n            min_even = num\n            min_even_index = i\n\n    if min_even_index is None:\n        return []\n\n    return [min_even, min_even_index]\n\n\nif __name__ == \'__main__\':\n    print(pluck([4, 2, 3]))  # [2, 1]\n    print(pluck([1, 2, 3]))  # [2, 1]\n    print(pluck([]))  # []\n    print(pluck([5, 0, 3, ', globals())
+  File ""<string>"", line 57
+    print(pluck([5, 0, 3, 
+                ^
+SyntaxError: '[' was never closed
+"
+HumanEval/69,failure,9.034655570983887,neg_0p10_p99,-0.1,-0.7072720051,False,False,False,False,False,0.003964773130064714,"SyntaxError('unterminated triple-quoted string literal (detected at line 31)', ('<string>', 31, 5, ""    '''"", 31, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmp09ykp_gm.py"", line 6, in <module>
+    exec(""\ndef search(lst):\n    '''\n    You are given a non-empty list of positive integers. Return the greatest integer that is greater than \n    zero, and has a frequency greater than or equal to the value of the integer itself. \n    The frequency of an integer is the number of times it appears in the list.\n    If no such a value exist, return -1.\n    Examples:\n        search([4, 1, 2, 2, 3, 1]) == 2\n        search([1, 2, 2, 3, 3, 3, 4, 4, 4]) == 3\n        search([5, 5, 4, 4, 4]) == -1\n    '''\n    pass\n\n\ndef search_2(lst):\n    '''\n    You are given a non-empty list of positive integers. Return the greatest integer that is greater than \n    zero, and has a frequency greater than or equal to the value of the integer itself. \n    The frequency of an integer is the number of times it appears in the list.\n    If no such a value exist, return -1.\n    Examples:\n        search([4, 1, 2, 2, 3, 1]) == 2\n        search([1, 2, 2, 3, 3, 3, 4, 4, 4]) == 3\n        search([5, 5, 4, 4, 4]) == -1\n    '''\n    pass\n\n\ndef search_3(lst):\n    '''\n"", globals())
+  File ""<string>"", line 31
+    '''
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 31)
+"
+HumanEval/72,pass_control,12.469685554504395,neg_0p10_p99,-0.1,-0.7072720051,False,False,False,False,False,0.004064317119249002,"SyntaxError('unterminated triple-quoted string literal (detected at line 44)', ('<string>', 43, 5, ""    '''"", 43, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmpkcbvx1yi.py"", line 6, in <module>
+    exec('\ndef will_it_fly(q,w):\n    \'\'\'\n    Write a function that returns True if the object q will fly, and False otherwise.\n    The object q will fly if it\'s balanced (it is a palindromic list) and the sum of its elements is less than or equal the maximum possible weight w.\n\n    Example:\n    will_it_fly([1, 2], 5) ➞ False \n    # 1+2 is less than the maximum possible weight, but it\'s unbalanced.\n\n    will_it_fly([3, 2, 3], 1) ➞ False\n    # it\'s balanced, but 3+2+3 is more than the maximum possible weight.\n\n    will_it_fly([3, 2, 3], 9) ➞ True\n    # 3+2+3 is less than the maximum possible weight, and it\'s balanced.\n\n    will_it_fly([3], 5) ➞ True\n    # 3 is less than the maximum possible weight, and it\'s balanced.\n    \'\'\'\n    if sum(q) <= w and q == q[::-1]:\n        return True\n    else:\n        return False\n\n\ndef is_palindrome(q):\n    \'\'\'\n    Write a function that returns True if the given string is a palindrome, and False otherwise.\n    A palindrome is a word that is spelled the same way, backwards and forwards.\n\n    Example:\n    is_palindrome(""racecar"") ➞ True\n    is_palindrome(""rat"") ➞ False\n    is_palindrome(""madam"") ➞ True\n    \'\'\'\n    if q == q[::-1]:\n        return True\n    else:\n        return False\n\n\ndef is_palindrome(q):\n    \'\'\'\n    Write a function that returns True if the', globals())
+  File ""<string>"", line 43
+    '''
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 44)
+"
+HumanEval/94,pass_control,4.647215366363525,neg_0p10_p99,-0.1,-0.7072720051,True,True,False,False,False,0.004123913444952147,
+HumanEval/105,failure,8.714726448059082,neg_0p10_p99,-0.1,-0.7072720051,False,False,False,False,False,0.0038119437039085824,"SyntaxError('unterminated triple-quoted string literal (detected at line 37)', ('<string>', 29, 5, '    """"""', 29, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmp2usc87pm.py"", line 6, in <module>
+    exec('\ndef by_length(arr):\n    """"""\n    Given an array of integers, sort the integers that are between 1 and 9 inclusive,\n    reverse the resulting array, and then replace each digit by its corresponding name from\n    ""One"", ""Two"", ""Three"", ""Four"", ""Five"", ""Six"", ""Seven"", ""Eight"", ""Nine"".\n\n    For example:\n      arr = [2, 1, 1, 4, 5, 8, 2, 3]   \n            -> sort arr -> [1, 1, 2, 2, 3, 4, 5, 8] \n            -> reverse arr -> [8, 5, 4, 3, 2, 2, 1, 1]\n      return [""Eight"", ""Five"", ""Four"", ""Three"", ""Two"", ""Two"", ""One"", ""One""]\n    \n      If the array is empty, return an empty array:\n      arr = []\n      return []\n    \n      If the array has any strange number ignore it:\n      arr = [1, -1 , 55] \n            -> sort arr -> [-1, 1, 55]\n            -> reverse arr -> [55, 1, -1]\n      return = [\'One\']\n    """"""\n    # Your code here\n    # return arr\n\n\ndef by_length_2(arr):\n    """"""\n    Given an array of integers, sort the integers that are between 1 and 9 inclusive,\n    reverse the resulting array, and then replace each digit by its corresponding name from\n    ""One"", ""Two"", ""Three"", ""Four"", ""Five"", ""Six"", ""Seven"", ""Eight"", ""Nine"".\n\n    For example:\n      arr = [2, 1, 1, 4, 5, 8, 2, 3]   \n            -> sort arr -> [1, 1, 2, 2, 3, 4, 5, 8] \n            -> reverse arr -> [8, 5, 4, 3, 2, 2, ', globals())
+  File ""<string>"", line 29
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 37)
+"
+HumanEval/117,failure,9.334943771362305,neg_0p10_p99,-0.1,-0.7072720051,False,False,False,False,False,0.003846971741533404,"SyntaxError('unterminated triple-quoted string literal (detected at line 30)', ('<string>', 20, 5, '    """"""Given a string s and a natural number n, you have been tasked to implement ', 20, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmp4frnkpl7.py"", line 6, in <module>
+    exec('\ndef select_words(s, n):\n    """"""Given a string s and a natural number n, you have been tasked to implement \n    a function that returns a list of all words from string s that contain exactly \n    n consonants, in order these words appear in the string s.\n    If the string s is empty then the function should return an empty list.\n    Note: you may assume the input string contains only letters and spaces.\n    Examples:\n    select_words(""Mary had a little lamb"", 4) ==> [""little""]\n    select_words(""Mary had a little lamb"", 3) ==> [""Mary"", ""lamb""]\n    select_words(""simple white space"", 2) ==> []\n    select_words(""Hello world"", 4) ==> [""world""]\n    select_words(""Uncle sam"", 3) ==> [""Uncle""]\n    """"""\n    # Your code here\n    pass\n\n\ndef select_words(s, n):\n    """"""Given a string s and a natural number n, you have been tasked to implement \n    a function that returns a list of all words from string s that contain exactly \n    n consonants, in order these words appear in the string s.\n    If the string s is empty then the function should return an empty list.\n    Note: you may assume the input string contains only letters and spaces.\n    Examples:\n    select_words(""Mary had a little lamb"", 4) ==> [""little""]\n    select_words(""Mary had a little lamb"", 3) ==> [""Mary"", ""lamb""]\n    select_words(""simple white space"", 2) ==> []\n    select_words(""Hello world"", 4) ==> [""world""]\n   ', globals())
+  File ""<string>"", line 20
+    """"""Given a string s and a natural number n, you have been tasked to implement 
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 30)
+"
+HumanEval/119,failure,8.977835655212402,neg_0p10_p99,-0.1,-0.7072720051,False,False,False,False,False,0.004274525984025483,"IndexError('list index out of range')
+Traceback (most recent call last):
+  File ""/tmp/tmplpbgi_ty.py"", line 9, in <module>
+    check(match_parens)
+  File ""<string>"", line 4, in check
+  File ""<string>"", line 30, in match_parens
+IndexError: list index out of range
+"
+HumanEval/121,failure,13.737234115600586,neg_0p10_p99,-0.1,-0.7072720051,False,False,False,False,False,0.004048850584846757,"SyntaxError('invalid syntax', ('<string>', 26, 4, 'def\n', 26, 4))
+Traceback (most recent call last):
+  File ""/tmp/tmplhfx4rvj.py"", line 6, in <module>
+    exec('\ndef solution(lst):\n    """"""Given a non-empty list of integers, return the sum of all of the odd elements that are in even positions.\n    \n\n    Examples\n    solution([5, 8, 7, 1]) ==> 12\n    solution([3, 3, 3, 3, 3]) ==> 9\n    solution([30, 13, 24, 321]) ==>0\n    """"""\n    return sum([lst[i] for i in range(len(lst)) if i % 2 != 0 and lst[i] % 2 != 0])\n\n\ndef solution(lst):\n    """"""Given a non-empty list of integers, return the sum of all of the odd elements that are in even positions.\n    \n\n    Examples\n    solution([5, 8, 7, 1]) ==> 12\n    solution([3, 3, 3, 3, 3]) ==> 9\n    solution([30, 13, 24, 321]) ==>0\n    """"""\n    return sum([lst[i] for i in range(len(lst)) if i % 2 == 0 and lst[i] % 2 != 0])\n\n\ndef', globals())
+  File ""<string>"", line 26
+    def
+       ^
+SyntaxError: invalid syntax
+"
+HumanEval/136,failure,8.97400188446045,neg_0p10_p99,-0.1,-0.7072720051,False,False,False,False,False,0.0042310933155628545,"AssertionError()
+Traceback (most recent call last):
+  File ""/tmp/tmp3cc76wke.py"", line 9, in <module>
+    check(largest_smallest_integers)
+  File ""<string>"", line 4, in check
+AssertionError
+"
+HumanEval/140,failure,8.717255592346191,neg_0p10_p99,-0.1,-0.7072720051,False,False,False,False,False,0.003941482337722846,"SyntaxError(""'(' was never closed"", ('<string>', 34, 17, 'def fix_spaces_3(\n', 34, 0))
+Traceback (most recent call last):
+  File ""/tmp/tmppbm1m_yx.py"", line 6, in <module>
+    exec('\ndef fix_spaces(text):\n    """"""\n    Given a string text, replace all spaces in it with underscores, \n    and if a string has more than 2 consecutive spaces, \n    then replace all consecutive spaces with - \n    \n    fix_spaces(""Example"") == ""Example""\n    fix_spaces(""Example 1"") == ""Example_1""\n    fix_spaces("" Example 2"") == ""_Example_2""\n    fix_spaces("" Example   3"") == ""_Example-3""\n    """"""\n    text = text.replace("" "", ""_"")\n    text = text.replace(""  "", ""-"")\n    return text\n\n\ndef fix_spaces_2(text):\n    """"""\n    Given a string text, replace all spaces in it with underscores, \n    and if a string has more than 2 consecutive spaces, \n    then replace all consecutive spaces with - \n    \n    fix_spaces(""Example"") == ""Example""\n    fix_spaces(""Example 1"") == ""Example_1""\n    fix_spaces("" Example 2"") == ""_Example_2""\n    fix_spaces("" Example   3"") == ""_Example-3""\n    """"""\n    text = text.replace("" "", ""_"")\n    text = text.replace(""  "", ""-"")\n    return text\n\n\ndef fix_spaces_3(', globals())
+  File ""<string>"", line 34
+    def fix_spaces_3(
+                    ^
+SyntaxError: '(' was never closed
+"
+HumanEval/146,failure,8.999509811401367,neg_0p10_p99,-0.1,-0.7072720051,False,False,False,False,True,0.003955734090898962,"SyntaxError('invalid syntax', ('<string>', 27, 24, '        if num > 10 and\n', 27, 24))
+Traceback (most recent call last):
+  File ""/tmp/tmpefsip8q_.py"", line 6, in <module>
+    exec('\ndef specialFilter(nums):\n    """"""Write a function that takes an array of numbers as input and returns \n    the number of elements in the array that are greater than 10 and both \n    first and last digits of a number are odd (1, 3, 5, 7, 9).\n    For example:\n    specialFilter([15, -73, 14, -15]) => 1 \n    specialFilter([33, -2, -3, 45, 21, 109]) => 2\n    """"""\n    count = 0\n    for num in nums:\n        if num > 10 and num % 2 != 0:\n            count += 1\n    return count\n\n\ndef specialFilter2(nums):\n    """"""Write a function that takes an array of numbers as input and returns \n    the number of elements in the array that are greater than 10 and both \n    first and last digits of a number are odd (1, 3, 5, 7, 9).\n    For example:\n    specialFilter([15, -73, 14, -15]) => 1 \n    specialFilter([33, -2, -3, 45, 21, 109]) => 2\n    """"""\n    count = 0\n    for num in nums:\n        if num > 10 and', globals())
+  File ""<string>"", line 27
+    if num > 10 and
+                   ^
+SyntaxError: invalid syntax
+"
+HumanEval/148,failure,9.56707763671875,neg_0p10_p99,-0.1,-0.7072720051,False,False,False,False,False,0.004004442886677377,"SyntaxError('unterminated triple-quoted string literal (detected at line 33)', ('<string>', 31, 5, ""    '''"", 31, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmpvek9qb6g.py"", line 6, in <module>
+    exec('\ndef bf(planet1, planet2):\n    \'\'\'\n    There are eight planets in our solar system: the closerst to the Sun \n    is Mercury, the next one is Venus, then Earth, Mars, Jupiter, Saturn, \n    Uranus, Neptune.\n    Write a function that takes two planet names as strings planet1 and planet2. \n    The function should return a tuple containing all planets whose orbits are \n    located between the orbit of planet1 and the orbit of planet2, sorted by \n    the proximity to the sun. \n    The function should return an empty tuple if planet1 or planet2\n    are not correct planet names. \n    Examples\n    bf(""Jupiter"", ""Neptune"") ==> (""Saturn"", ""Uranus"")\n    bf(""Earth"", ""Mercury"") ==> (""Venus"")\n    bf(""Mercury"", ""Uranus"") ==> (""Venus"", ""Earth"", ""Mars"", ""Jupiter"", ""Saturn"")\n    \'\'\'\n    planets = [""Mercury"", ""Venus"", ""Earth"", ""Mars"", ""Jupiter"", ""Saturn"", ""Uranus"", ""Neptune""]\n    if planet1 not in planets or planet2 not in planets:\n        return ()\n    else:\n        index1 = planets.index(planet1)\n        index2 = planets.index(planet2)\n        if index1 < index2:\n            return tuple(planets[index1+1:index2])\n        else:\n            return tuple(planets[index2+1:index1])\n\n\ndef bf2(planet1, planet2):\n    \'\'\'\n    There are eight planets in our solar system: the closerst to the Sun \n    is Mercury, the next one is Venus, then Earth, Mars, Jupiter, Saturn,', globals())
+  File ""<string>"", line 31
+    '''
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 33)
+"
+HumanEval/12,pass_control,4.363240718841553,neg_0p25_p99,-0.25,-1.7681800127,False,False,False,False,False,0.010223776556813391,"SyntaxError('unterminated triple-quoted string literal (detected at line 36)', ('<string>', 35, 5, '    """""" Out of list of strings, return the length of the longest one. Return None in case the input', 35, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmpx0vfbq2q.py"", line 6, in <module>
+    exec('from typing import List, Optional\n\n\ndef longest(strings: List[str]) -> Optional[str]:\n    """""" Out of list of strings, return the longest one. Return the first one in case of multiple\n    strings of the same length. Return None in case the input list is empty.\n    >>> longest([])\n\n    >>> longest([\'a\', \'b\', \'c\'])\n    \'a\'\n    >>> longest([\'a\', \'bb\', \'ccc\'])\n    \'ccc\'\n    """"""\n    if not strings:\n        return None\n    return max(strings, key=len)\n\n\ndef longest_length(strings: List[str]) -> Optional[int]:\n    """""" Out of list of strings, return the length of the longest one. Return None in case the input\n    list is empty.\n    >>> longest_length([])\n\n    >>> longest_length([\'a\', \'b\', \'c\'])\n    1\n    >>> longest_length([\'a\', \'bb\', \'ccc\'])\n    3\n    """"""\n    if not strings:\n        return None\n    return len(max(strings, key=len))\n\n\ndef longest_length_or_none(strings: List[str]) -> Optional[int]:\n    """""" Out of list of strings, return the length of the longest one. Return None in case the input\n    list is', globals())
+  File ""<string>"", line 35
+    """""" Out of list of strings, return the length of the longest one. Return None in case the input
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 36)
+"
+HumanEval/13,pass_control,4.240393161773682,neg_0p25_p99,-0.25,-1.7681800127,False,False,False,False,False,0.010327539807273448,"SyntaxError('unterminated string literal (detected at line 32)', ('<string>', 32, 19, '    b = int(input(""Enter b:', 32, 19))
+Traceback (most recent call last):
+  File ""/tmp/tmpzb9jiwg7.py"", line 6, in <module>
+    exec('\n\ndef greatest_common_divisor(a: int, b: int) -> int:\n    """""" Return a greatest common divisor of two integers a and b\n    >>> greatest_common_divisor(3, 5)\n    1\n    >>> greatest_common_divisor(25, 15)\n    5\n    """"""\n    if a == 0:\n        return b\n    if b == 0:\n        return a\n    if a > b:\n        return greatest_common_divisor(a % b, b)\n    else:\n        return greatest_common_divisor(a, b % a)\n\n\ndef least_common_multiple(a: int, b: int) -> int:\n    """""" Return a least common multiple of two integers a and b\n    >>> least_common_multiple(3, 5)\n    15\n    >>> least_common_multiple(25, 15)\n    75\n    """"""\n    return a * b // greatest_common_divisor(a, b)\n\n\ndef main():\n    a = int(input(""Enter a: ""))\n    b = int(input(""Enter b:', globals())
+  File ""<string>"", line 32
+    b = int(input(""Enter b:
+                  ^
+SyntaxError: unterminated string literal (detected at line 32)
+"
+HumanEval/20,pass_control,4.1080427169799805,neg_0p25_p99,-0.25,-1.7681800127,True,True,False,False,False,0.01040884950054823,
+HumanEval/23,pass_control,4.070234298706055,neg_0p25_p99,-0.25,-1.7681800127,False,True,False,True,True,0.010383126130667128,"SyntaxError('unterminated triple-quoted string literal (detected at line 36)', ('<string>', 30, 5, '    """""" Return 0 if string1 == string2,', 30, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmpkbkiu29q.py"", line 6, in <module>
+    exec('\n\ndef strlen(string: str) -> int:\n    """""" Return length of given string\n    >>> strlen(\'\')\n    0\n    >>> strlen(\'abc\')\n    3\n    """"""\n    if string == \'\':\n        return 0\n    else:\n        return 1 + strlen(string[1:])\n\n\ndef strrev(string: str) -> str:\n    """""" Return reverse of given string\n    >>> strrev(\'\')\n    \'\'\n    >>> strrev(\'abc\')\n    \'cba\'\n    """"""\n    if string == \'\':\n        return \'\'\n    else:\n        return strrev(string[1:]) + string[0]\n\n\ndef strcmp(string1: str, string2: str) -> int:\n    """""" Return 0 if string1 == string2,\n    -1 if string1 < string2,\n    1 if string1 > string2\n    >>> strcmp(\'\', \'\')\n    0\n    >>> strcmp(\'abc\', \'abc\')\n    ', globals())
+  File ""<string>"", line 30
+    """""" Return 0 if string1 == string2,
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 36)
+"
+HumanEval/43,pass_control,7.275382995605469,neg_0p25_p99,-0.25,-1.7681800127,True,True,False,False,False,0.010378969411249273,
+HumanEval/55,pass_control,4.6110382080078125,neg_0p25_p99,-0.25,-1.7681800127,False,False,False,False,False,0.01008715732859855,"SyntaxError('unterminated triple-quoted string literal (detected at line 41)', ('<string>', 41, 5, '    """"""', 41, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmpbo6b8w2j.py"", line 6, in <module>
+    exec('\n\ndef fib(n: int):\n    """"""Return n-th Fibonacci number.\n    >>> fib(10)\n    55\n    >>> fib(1)\n    1\n    >>> fib(8)\n    21\n    """"""\n    if n == 1:\n        return 1\n    elif n == 2:\n        return 1\n    else:\n        return fib(n-1) + fib(n-2)\n\n\ndef fib_iter(n: int):\n    """"""Return n-th Fibonacci number.\n    >>> fib_iter(10)\n    55\n    >>> fib_iter(1)\n    1\n    >>> fib_iter(8)\n    21\n    """"""\n    if n == 1:\n        return 1\n    elif n == 2:\n        return 1\n    else:\n        a, b = 1, 1\n        for i in range(n-2):\n            a, b = b, a + b\n        return b\n\n\ndef fib_iter_2(n: int):\n    """"""', globals())
+  File ""<string>"", line 41
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 41)
+"
+HumanEval/59,pass_control,7.901678562164307,neg_0p25_p99,-0.25,-1.7681800127,True,True,False,False,False,0.010358191779232584,
+HumanEval/63,pass_control,4.1913604736328125,neg_0p25_p99,-0.25,-1.7681800127,False,False,False,False,False,0.01009428688606325,"SyntaxError('unterminated triple-quoted string literal (detected at line 33)', ('<string>', 28, 5, '    """"""The FibFib number sequence is a sequence similar to the Fibbonacci sequnece that\'s defined as follows:', 28, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmpydji87xu.py"", line 6, in <module>
+    exec('\n\ndef fibfib(n: int):\n    """"""The FibFib number sequence is a sequence similar to the Fibbonacci sequnece that\'s defined as follows:\n    fibfib(0) == 0\n    fibfib(1) == 0\n    fibfib(2) == 1\n    fibfib(n) == fibfib(n-1) + fibfib(n-2) + fibfib(n-3).\n    Please write a function to efficiently compute the n-th element of the fibfib number sequence.\n    >>> fibfib(1)\n    0\n    >>> fibfib(5)\n    4\n    >>> fibfib(8)\n    24\n    """"""\n    if n == 0:\n        return 0\n    elif n == 1:\n        return 0\n    elif n == 2:\n        return 1\n    else:\n        return fibfib(n-1) + fibfib(n-2) + fibfib(n-3)\n\n\ndef fibfib_iter(n: int):\n    """"""The FibFib number sequence is a sequence similar to the Fibbonacci sequnece that\'s defined as follows:\n    fibfib(0) == 0\n    fibfib(1) == 0\n    fibfib(2) == 1\n    fibfib(n) == fibfib(n-1) + fibfib(n-2) + fibfib(n-3).\n    Please write a function to efficiently compute the n-th', globals())
+  File ""<string>"", line 28
+    """"""The FibFib number sequence is a sequence similar to the Fibbonacci sequnece that's defined as follows:
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 33)
+"
+HumanEval/68,failure,9.00671672821045,neg_0p25_p99,-0.25,-1.7681800127,False,False,False,False,False,0.010403300561999155,"SyntaxError(""'[' was never closed"", ('<string>', 57, 17, '    print(pluck([5, 0, 3, \n', 57, 0))
+Traceback (most recent call last):
+  File ""/tmp/tmp5wz3hc76.py"", line 6, in <module>
+    exec('\ndef pluck(arr):\n    """"""\n    ""Given an array representing a branch of a tree that has non-negative integer nodes\n    your task is to pluck one of the nodes and return it.\n    The plucked node should be the node with the smallest even value.\n    If multiple nodes with the same smallest even value are found return the node that has smallest index.\n\n    The plucked node should be returned in a list, [ smalest_value, its index ],\n    If there are no even values or the given array is empty, return [].\n\n    Example 1:\n        Input: [4,2,3]\n        Output: [2, 1]\n        Explanation: 2 has the smallest even value, and 2 has the smallest index.\n\n    Example 2:\n        Input: [1,2,3]\n        Output: [2, 1]\n        Explanation: 2 has the smallest even value, and 2 has the smallest index. \n\n    Example 3:\n        Input: []\n        Output: []\n    \n    Example 4:\n        Input: [5, 0, 3, 0, 4, 2]\n        Output: [0, 1]\n        Explanation: 0 is the smallest value, but  there are two zeros,\n                     so we will choose the first zero, which has the smallest index.\n\n    Constraints:\n        * 1 <= nodes.length <= 10000\n        * 0 <= node.value\n    """"""\n    if not arr:\n        return []\n\n    min_even = float(\'inf\')\n    min_even_index = None\n\n    for i, num in enumerate(arr):\n        if num % 2 == 0 and num < min_even:\n            min_even = num\n            min_even_index = i\n\n    if min_even_index is None:\n        return []\n\n    return [min_even, min_even_index]\n\n\nif __name__ == \'__main__\':\n    print(pluck([4, 2, 3]))  # [2, 1]\n    print(pluck([1, 2, 3]))  # [2, 1]\n    print(pluck([]))  # []\n    print(pluck([5, 0, 3, ', globals())
+  File ""<string>"", line 57
+    print(pluck([5, 0, 3, 
+                ^
+SyntaxError: '[' was never closed
+"
+HumanEval/69,failure,9.034655570983887,neg_0p25_p99,-0.25,-1.7681800127,False,False,False,False,False,0.009912010265300827,"SyntaxError('unterminated triple-quoted string literal (detected at line 31)', ('<string>', 31, 5, ""    '''"", 31, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmptocv0pow.py"", line 6, in <module>
+    exec(""\ndef search(lst):\n    '''\n    You are given a non-empty list of positive integers. Return the greatest integer that is greater than \n    zero, and has a frequency greater than or equal to the value of the integer itself. \n    The frequency of an integer is the number of times it appears in the list.\n    If no such a value exist, return -1.\n    Examples:\n        search([4, 1, 2, 2, 3, 1]) == 2\n        search([1, 2, 2, 3, 3, 3, 4, 4, 4]) == 3\n        search([5, 5, 4, 4, 4]) == -1\n    '''\n    pass\n\n\ndef search_2(lst):\n    '''\n    You are given a non-empty list of positive integers. Return the greatest integer that is greater than \n    zero, and has a frequency greater than or equal to the value of the integer itself. \n    The frequency of an integer is the number of times it appears in the list.\n    If no such a value exist, return -1.\n    Examples:\n        search([4, 1, 2, 2, 3, 1]) == 2\n        search([1, 2, 2, 3, 3, 3, 4, 4, 4]) == 3\n        search([5, 5, 4, 4, 4]) == -1\n    '''\n    pass\n\n\ndef search_3(lst):\n    '''\n"", globals())
+  File ""<string>"", line 31
+    '''
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 31)
+"
+HumanEval/72,pass_control,12.469685554504395,neg_0p25_p99,-0.25,-1.7681800127,False,False,False,False,False,0.010160872219178904,"SyntaxError('unterminated triple-quoted string literal (detected at line 44)', ('<string>', 43, 5, ""    '''"", 43, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmpjldfmag8.py"", line 6, in <module>
+    exec('\ndef will_it_fly(q,w):\n    \'\'\'\n    Write a function that returns True if the object q will fly, and False otherwise.\n    The object q will fly if it\'s balanced (it is a palindromic list) and the sum of its elements is less than or equal the maximum possible weight w.\n\n    Example:\n    will_it_fly([1, 2], 5) ➞ False \n    # 1+2 is less than the maximum possible weight, but it\'s unbalanced.\n\n    will_it_fly([3, 2, 3], 1) ➞ False\n    # it\'s balanced, but 3+2+3 is more than the maximum possible weight.\n\n    will_it_fly([3, 2, 3], 9) ➞ True\n    # 3+2+3 is less than the maximum possible weight, and it\'s balanced.\n\n    will_it_fly([3], 5) ➞ True\n    # 3 is less than the maximum possible weight, and it\'s balanced.\n    \'\'\'\n    if sum(q) <= w and q == q[::-1]:\n        return True\n    else:\n        return False\n\n\ndef is_palindrome(q):\n    \'\'\'\n    Write a function that returns True if the given string is a palindrome, and False otherwise.\n    A palindrome is a word that is spelled the same way, backwards and forwards.\n\n    Example:\n    is_palindrome(""racecar"") ➞ True\n    is_palindrome(""rat"") ➞ False\n    is_palindrome(""madam"") ➞ True\n    \'\'\'\n    if q == q[::-1]:\n        return True\n    else:\n        return False\n\n\ndef is_palindrome(q):\n    \'\'\'\n    Write a function that returns True if the', globals())
+  File ""<string>"", line 43
+    '''
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 44)
+"
+HumanEval/94,pass_control,4.647215366363525,neg_0p25_p99,-0.25,-1.7681800127,True,True,False,False,False,0.010309864104783628,
+HumanEval/105,failure,8.714726448059082,neg_0p25_p99,-0.25,-1.7681800127,False,False,False,False,False,0.009529933709776136,"SyntaxError('unterminated triple-quoted string literal (detected at line 37)', ('<string>', 29, 5, '    """"""', 29, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmpsvuwb047.py"", line 6, in <module>
+    exec('\ndef by_length(arr):\n    """"""\n    Given an array of integers, sort the integers that are between 1 and 9 inclusive,\n    reverse the resulting array, and then replace each digit by its corresponding name from\n    ""One"", ""Two"", ""Three"", ""Four"", ""Five"", ""Six"", ""Seven"", ""Eight"", ""Nine"".\n\n    For example:\n      arr = [2, 1, 1, 4, 5, 8, 2, 3]   \n            -> sort arr -> [1, 1, 2, 2, 3, 4, 5, 8] \n            -> reverse arr -> [8, 5, 4, 3, 2, 2, 1, 1]\n      return [""Eight"", ""Five"", ""Four"", ""Three"", ""Two"", ""Two"", ""One"", ""One""]\n    \n      If the array is empty, return an empty array:\n      arr = []\n      return []\n    \n      If the array has any strange number ignore it:\n      arr = [1, -1 , 55] \n            -> sort arr -> [-1, 1, 55]\n            -> reverse arr -> [55, 1, -1]\n      return = [\'One\']\n    """"""\n    # Your code here\n    # return arr\n\n\ndef by_length_2(arr):\n    """"""\n    Given an array of integers, sort the integers that are between 1 and 9 inclusive,\n    reverse the resulting array, and then replace each digit by its corresponding name from\n    ""One"", ""Two"", ""Three"", ""Four"", ""Five"", ""Six"", ""Seven"", ""Eight"", ""Nine"".\n\n    For example:\n      arr = [2, 1, 1, 4, 5, 8, 2, 3]   \n            -> sort arr -> [1, 1, 2, 2, 3, 4, 5, 8] \n            -> reverse arr -> [8, 5, 4, 3, 2, 2, ', globals())
+  File ""<string>"", line 29
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 37)
+"
+HumanEval/117,failure,9.334943771362305,neg_0p25_p99,-0.25,-1.7681800127,False,False,False,False,False,0.009617504475803193,"SyntaxError('unterminated triple-quoted string literal (detected at line 30)', ('<string>', 20, 5, '    """"""Given a string s and a natural number n, you have been tasked to implement ', 20, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmp8cfc74gf.py"", line 6, in <module>
+    exec('\ndef select_words(s, n):\n    """"""Given a string s and a natural number n, you have been tasked to implement \n    a function that returns a list of all words from string s that contain exactly \n    n consonants, in order these words appear in the string s.\n    If the string s is empty then the function should return an empty list.\n    Note: you may assume the input string contains only letters and spaces.\n    Examples:\n    select_words(""Mary had a little lamb"", 4) ==> [""little""]\n    select_words(""Mary had a little lamb"", 3) ==> [""Mary"", ""lamb""]\n    select_words(""simple white space"", 2) ==> []\n    select_words(""Hello world"", 4) ==> [""world""]\n    select_words(""Uncle sam"", 3) ==> [""Uncle""]\n    """"""\n    # Your code here\n    pass\n\n\ndef select_words(s, n):\n    """"""Given a string s and a natural number n, you have been tasked to implement \n    a function that returns a list of all words from string s that contain exactly \n    n consonants, in order these words appear in the string s.\n    If the string s is empty then the function should return an empty list.\n    Note: you may assume the input string contains only letters and spaces.\n    Examples:\n    select_words(""Mary had a little lamb"", 4) ==> [""little""]\n    select_words(""Mary had a little lamb"", 3) ==> [""Mary"", ""lamb""]\n    select_words(""simple white space"", 2) ==> []\n    select_words(""Hello world"", 4) ==> [""world""]\n   ', globals())
+  File ""<string>"", line 20
+    """"""Given a string s and a natural number n, you have been tasked to implement 
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 30)
+"
+HumanEval/119,failure,8.977835655212402,neg_0p25_p99,-0.25,-1.7681800127,False,False,False,False,False,0.010686398425605148,"IndexError('list index out of range')
+Traceback (most recent call last):
+  File ""/tmp/tmp804relqs.py"", line 9, in <module>
+    check(match_parens)
+  File ""<string>"", line 4, in check
+  File ""<string>"", line 30, in match_parens
+IndexError: list index out of range
+"
+HumanEval/121,failure,13.737234115600586,neg_0p25_p99,-0.25,-1.7681800127,False,False,False,False,False,0.010122205602025739,"SyntaxError('invalid syntax', ('<string>', 26, 4, 'def\n', 26, 4))
+Traceback (most recent call last):
+  File ""/tmp/tmp7m79lsm_.py"", line 6, in <module>
+    exec('\ndef solution(lst):\n    """"""Given a non-empty list of integers, return the sum of all of the odd elements that are in even positions.\n    \n\n    Examples\n    solution([5, 8, 7, 1]) ==> 12\n    solution([3, 3, 3, 3, 3]) ==> 9\n    solution([30, 13, 24, 321]) ==>0\n    """"""\n    return sum([lst[i] for i in range(len(lst)) if i % 2 != 0 and lst[i] % 2 != 0])\n\n\ndef solution(lst):\n    """"""Given a non-empty list of integers, return the sum of all of the odd elements that are in even positions.\n    \n\n    Examples\n    solution([5, 8, 7, 1]) ==> 12\n    solution([3, 3, 3, 3, 3]) ==> 9\n    solution([30, 13, 24, 321]) ==>0\n    """"""\n    return sum([lst[i] for i in range(len(lst)) if i % 2 == 0 and lst[i] % 2 != 0])\n\n\ndef', globals())
+  File ""<string>"", line 26
+    def
+       ^
+SyntaxError: invalid syntax
+"
+HumanEval/136,failure,8.97400188446045,neg_0p25_p99,-0.25,-1.7681800127,False,False,False,False,False,0.010577815934084356,"AssertionError()
+Traceback (most recent call last):
+  File ""/tmp/tmpdjv1pzhv.py"", line 9, in <module>
+    check(largest_smallest_integers)
+  File ""<string>"", line 4, in check
+AssertionError
+"
+HumanEval/140,failure,8.717255592346191,neg_0p25_p99,-0.25,-1.7681800127,False,False,False,False,False,0.009853782833943114,"SyntaxError(""'(' was never closed"", ('<string>', 34, 17, 'def fix_spaces_3(\n', 34, 0))
+Traceback (most recent call last):
+  File ""/tmp/tmp_q36ev45.py"", line 6, in <module>
+    exec('\ndef fix_spaces(text):\n    """"""\n    Given a string text, replace all spaces in it with underscores, \n    and if a string has more than 2 consecutive spaces, \n    then replace all consecutive spaces with - \n    \n    fix_spaces(""Example"") == ""Example""\n    fix_spaces(""Example 1"") == ""Example_1""\n    fix_spaces("" Example 2"") == ""_Example_2""\n    fix_spaces("" Example   3"") == ""_Example-3""\n    """"""\n    text = text.replace("" "", ""_"")\n    text = text.replace(""  "", ""-"")\n    return text\n\n\ndef fix_spaces_2(text):\n    """"""\n    Given a string text, replace all spaces in it with underscores, \n    and if a string has more than 2 consecutive spaces, \n    then replace all consecutive spaces with - \n    \n    fix_spaces(""Example"") == ""Example""\n    fix_spaces(""Example 1"") == ""Example_1""\n    fix_spaces("" Example 2"") == ""_Example_2""\n    fix_spaces("" Example   3"") == ""_Example-3""\n    """"""\n    text = text.replace("" "", ""_"")\n    text = text.replace(""  "", ""-"")\n    return text\n\n\ndef fix_spaces_3(', globals())
+  File ""<string>"", line 34
+    def fix_spaces_3(
+                    ^
+SyntaxError: '(' was never closed
+"
+HumanEval/146,failure,8.999509811401367,neg_0p25_p99,-0.25,-1.7681800127,False,False,False,False,True,0.009889412485790672,"SyntaxError('invalid syntax', ('<string>', 27, 24, '        if num > 10 and\n', 27, 24))
+Traceback (most recent call last):
+  File ""/tmp/tmp1jnxi2in.py"", line 6, in <module>
+    exec('\ndef specialFilter(nums):\n    """"""Write a function that takes an array of numbers as input and returns \n    the number of elements in the array that are greater than 10 and both \n    first and last digits of a number are odd (1, 3, 5, 7, 9).\n    For example:\n    specialFilter([15, -73, 14, -15]) => 1 \n    specialFilter([33, -2, -3, 45, 21, 109]) => 2\n    """"""\n    count = 0\n    for num in nums:\n        if num > 10 and num % 2 != 0:\n            count += 1\n    return count\n\n\ndef specialFilter2(nums):\n    """"""Write a function that takes an array of numbers as input and returns \n    the number of elements in the array that are greater than 10 and both \n    first and last digits of a number are odd (1, 3, 5, 7, 9).\n    For example:\n    specialFilter([15, -73, 14, -15]) => 1 \n    specialFilter([33, -2, -3, 45, 21, 109]) => 2\n    """"""\n    count = 0\n    for num in nums:\n        if num > 10 and', globals())
+  File ""<string>"", line 27
+    if num > 10 and
+                   ^
+SyntaxError: invalid syntax
+"
+HumanEval/148,failure,9.56707763671875,neg_0p25_p99,-0.25,-1.7681800127,False,False,False,False,False,0.010011185409287767,"SyntaxError('unterminated triple-quoted string literal (detected at line 33)', ('<string>', 31, 5, ""    '''"", 31, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmpfd5fn20g.py"", line 6, in <module>
+    exec('\ndef bf(planet1, planet2):\n    \'\'\'\n    There are eight planets in our solar system: the closerst to the Sun \n    is Mercury, the next one is Venus, then Earth, Mars, Jupiter, Saturn, \n    Uranus, Neptune.\n    Write a function that takes two planet names as strings planet1 and planet2. \n    The function should return a tuple containing all planets whose orbits are \n    located between the orbit of planet1 and the orbit of planet2, sorted by \n    the proximity to the sun. \n    The function should return an empty tuple if planet1 or planet2\n    are not correct planet names. \n    Examples\n    bf(""Jupiter"", ""Neptune"") ==> (""Saturn"", ""Uranus"")\n    bf(""Earth"", ""Mercury"") ==> (""Venus"")\n    bf(""Mercury"", ""Uranus"") ==> (""Venus"", ""Earth"", ""Mars"", ""Jupiter"", ""Saturn"")\n    \'\'\'\n    planets = [""Mercury"", ""Venus"", ""Earth"", ""Mars"", ""Jupiter"", ""Saturn"", ""Uranus"", ""Neptune""]\n    if planet1 not in planets or planet2 not in planets:\n        return ()\n    else:\n        index1 = planets.index(planet1)\n        index2 = planets.index(planet2)\n        if index1 < index2:\n            return tuple(planets[index1+1:index2])\n        else:\n            return tuple(planets[index2+1:index1])\n\n\ndef bf2(planet1, planet2):\n    \'\'\'\n    There are eight planets in our solar system: the closerst to the Sun \n    is Mercury, the next one is Venus, then Earth, Mars, Jupiter, Saturn,', globals())
+  File ""<string>"", line 31
+    '''
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 33)
+"
+HumanEval/12,pass_control,4.363240718841553,neg_0p50_p99,-0.5,-3.5363600254,False,False,False,False,False,0.020447553113626782,"SyntaxError('unterminated triple-quoted string literal (detected at line 36)', ('<string>', 35, 5, '    """""" Out of list of strings, return the length of the longest one. Return None in case the input', 35, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmpjt9q7vqc.py"", line 6, in <module>
+    exec('from typing import List, Optional\n\n\ndef longest(strings: List[str]) -> Optional[str]:\n    """""" Out of list of strings, return the longest one. Return the first one in case of multiple\n    strings of the same length. Return None in case the input list is empty.\n    >>> longest([])\n\n    >>> longest([\'a\', \'b\', \'c\'])\n    \'a\'\n    >>> longest([\'a\', \'bb\', \'ccc\'])\n    \'ccc\'\n    """"""\n    if not strings:\n        return None\n    return max(strings, key=len)\n\n\ndef longest_length(strings: List[str]) -> Optional[int]:\n    """""" Out of list of strings, return the length of the longest one. Return None in case the input\n    list is empty.\n    >>> longest_length([])\n\n    >>> longest_length([\'a\', \'b\', \'c\'])\n    1\n    >>> longest_length([\'a\', \'bb\', \'ccc\'])\n    3\n    """"""\n    if not strings:\n        return None\n    return len(max(strings, key=len))\n\n\ndef longest_length_or_none(strings: List[str]) -> Optional[int]:\n    """""" Out of list of strings, return the length of the longest one. Return None in case the input\n    list is', globals())
+  File ""<string>"", line 35
+    """""" Out of list of strings, return the length of the longest one. Return None in case the input
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 36)
+"
+HumanEval/13,pass_control,4.240393161773682,neg_0p50_p99,-0.5,-3.5363600254,False,False,False,False,False,0.020655079614546896,"SyntaxError('unterminated string literal (detected at line 32)', ('<string>', 32, 19, '    b = int(input(""Enter b:', 32, 19))
+Traceback (most recent call last):
+  File ""/tmp/tmp__p9hof2.py"", line 6, in <module>
+    exec('\n\ndef greatest_common_divisor(a: int, b: int) -> int:\n    """""" Return a greatest common divisor of two integers a and b\n    >>> greatest_common_divisor(3, 5)\n    1\n    >>> greatest_common_divisor(25, 15)\n    5\n    """"""\n    if a == 0:\n        return b\n    if b == 0:\n        return a\n    if a > b:\n        return greatest_common_divisor(a % b, b)\n    else:\n        return greatest_common_divisor(a, b % a)\n\n\ndef least_common_multiple(a: int, b: int) -> int:\n    """""" Return a least common multiple of two integers a and b\n    >>> least_common_multiple(3, 5)\n    15\n    >>> least_common_multiple(25, 15)\n    75\n    """"""\n    return a * b // greatest_common_divisor(a, b)\n\n\ndef main():\n    a = int(input(""Enter a: ""))\n    b = int(input(""Enter b:', globals())
+  File ""<string>"", line 32
+    b = int(input(""Enter b:
+                  ^
+SyntaxError: unterminated string literal (detected at line 32)
+"
+HumanEval/20,pass_control,4.1080427169799805,neg_0p50_p99,-0.5,-3.5363600254,True,True,False,False,False,0.02081769900109646,
+HumanEval/23,pass_control,4.070234298706055,neg_0p50_p99,-0.5,-3.5363600254,False,True,False,True,True,0.020766252261334255,"SyntaxError('unterminated triple-quoted string literal (detected at line 36)', ('<string>', 30, 5, '    """""" Return 0 if string1 == string2,', 30, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmp9d3bx6s8.py"", line 6, in <module>
+    exec('\n\ndef strlen(string: str) -> int:\n    """""" Return length of given string\n    >>> strlen(\'\')\n    0\n    >>> strlen(\'abc\')\n    3\n    """"""\n    if string == \'\':\n        return 0\n    else:\n        return 1 + strlen(string[1:])\n\n\ndef strrev(string: str) -> str:\n    """""" Return reverse of given string\n    >>> strrev(\'\')\n    \'\'\n    >>> strrev(\'abc\')\n    \'cba\'\n    """"""\n    if string == \'\':\n        return \'\'\n    else:\n        return strrev(string[1:]) + string[0]\n\n\ndef strcmp(string1: str, string2: str) -> int:\n    """""" Return 0 if string1 == string2,\n    -1 if string1 < string2,\n    1 if string1 > string2\n    >>> strcmp(\'\', \'\')\n    0\n    >>> strcmp(\'abc\', \'abc\')\n    ', globals())
+  File ""<string>"", line 30
+    """""" Return 0 if string1 == string2,
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 36)
+"
+HumanEval/43,pass_control,7.275382995605469,neg_0p50_p99,-0.5,-3.5363600254,True,True,False,False,False,0.020757938822498545,
+HumanEval/55,pass_control,4.6110382080078125,neg_0p50_p99,-0.5,-3.5363600254,False,False,False,False,False,0.0201743146571971,"SyntaxError('unterminated triple-quoted string literal (detected at line 41)', ('<string>', 41, 5, '    """"""', 41, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmpl784k_ls.py"", line 6, in <module>
+    exec('\n\ndef fib(n: int):\n    """"""Return n-th Fibonacci number.\n    >>> fib(10)\n    55\n    >>> fib(1)\n    1\n    >>> fib(8)\n    21\n    """"""\n    if n == 1:\n        return 1\n    elif n == 2:\n        return 1\n    else:\n        return fib(n-1) + fib(n-2)\n\n\ndef fib_iter(n: int):\n    """"""Return n-th Fibonacci number.\n    >>> fib_iter(10)\n    55\n    >>> fib_iter(1)\n    1\n    >>> fib_iter(8)\n    21\n    """"""\n    if n == 1:\n        return 1\n    elif n == 2:\n        return 1\n    else:\n        a, b = 1, 1\n        for i in range(n-2):\n            a, b = b, a + b\n        return b\n\n\ndef fib_iter_2(n: int):\n    """"""', globals())
+  File ""<string>"", line 41
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 41)
+"
+HumanEval/59,pass_control,7.901678562164307,neg_0p50_p99,-0.5,-3.5363600254,True,True,False,False,False,0.020716383558465168,
+HumanEval/63,pass_control,4.1913604736328125,neg_0p50_p99,-0.5,-3.5363600254,False,False,False,False,False,0.0201885737721265,"SyntaxError('unterminated triple-quoted string literal (detected at line 33)', ('<string>', 28, 5, '    """"""The FibFib number sequence is a sequence similar to the Fibbonacci sequnece that\'s defined as follows:', 28, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmpod5khleb.py"", line 6, in <module>
+    exec('\n\ndef fibfib(n: int):\n    """"""The FibFib number sequence is a sequence similar to the Fibbonacci sequnece that\'s defined as follows:\n    fibfib(0) == 0\n    fibfib(1) == 0\n    fibfib(2) == 1\n    fibfib(n) == fibfib(n-1) + fibfib(n-2) + fibfib(n-3).\n    Please write a function to efficiently compute the n-th element of the fibfib number sequence.\n    >>> fibfib(1)\n    0\n    >>> fibfib(5)\n    4\n    >>> fibfib(8)\n    24\n    """"""\n    if n == 0:\n        return 0\n    elif n == 1:\n        return 0\n    elif n == 2:\n        return 1\n    else:\n        return fibfib(n-1) + fibfib(n-2) + fibfib(n-3)\n\n\ndef fibfib_iter(n: int):\n    """"""The FibFib number sequence is a sequence similar to the Fibbonacci sequnece that\'s defined as follows:\n    fibfib(0) == 0\n    fibfib(1) == 0\n    fibfib(2) == 1\n    fibfib(n) == fibfib(n-1) + fibfib(n-2) + fibfib(n-3).\n    Please write a function to efficiently compute the n-th', globals())
+  File ""<string>"", line 28
+    """"""The FibFib number sequence is a sequence similar to the Fibbonacci sequnece that's defined as follows:
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 33)
+"
+HumanEval/68,failure,9.00671672821045,neg_0p50_p99,-0.5,-3.5363600254,False,False,False,False,False,0.02080660112399831,"SyntaxError(""'[' was never closed"", ('<string>', 57, 17, '    print(pluck([5, 0, 3, \n', 57, 0))
+Traceback (most recent call last):
+  File ""/tmp/tmpy0n1gefd.py"", line 6, in <module>
+    exec('\ndef pluck(arr):\n    """"""\n    ""Given an array representing a branch of a tree that has non-negative integer nodes\n    your task is to pluck one of the nodes and return it.\n    The plucked node should be the node with the smallest even value.\n    If multiple nodes with the same smallest even value are found return the node that has smallest index.\n\n    The plucked node should be returned in a list, [ smalest_value, its index ],\n    If there are no even values or the given array is empty, return [].\n\n    Example 1:\n        Input: [4,2,3]\n        Output: [2, 1]\n        Explanation: 2 has the smallest even value, and 2 has the smallest index.\n\n    Example 2:\n        Input: [1,2,3]\n        Output: [2, 1]\n        Explanation: 2 has the smallest even value, and 2 has the smallest index. \n\n    Example 3:\n        Input: []\n        Output: []\n    \n    Example 4:\n        Input: [5, 0, 3, 0, 4, 2]\n        Output: [0, 1]\n        Explanation: 0 is the smallest value, but  there are two zeros,\n                     so we will choose the first zero, which has the smallest index.\n\n    Constraints:\n        * 1 <= nodes.length <= 10000\n        * 0 <= node.value\n    """"""\n    if not arr:\n        return []\n\n    min_even = float(\'inf\')\n    min_even_index = None\n\n    for i, num in enumerate(arr):\n        if num % 2 == 0 and num < min_even:\n            min_even = num\n            min_even_index = i\n\n    if min_even_index is None:\n        return []\n\n    return [min_even, min_even_index]\n\n\nif __name__ == \'__main__\':\n    print(pluck([4, 2, 3]))  # [2, 1]\n    print(pluck([1, 2, 3]))  # [2, 1]\n    print(pluck([]))  # []\n    print(pluck([5, 0, 3, ', globals())
+  File ""<string>"", line 57
+    print(pluck([5, 0, 3, 
+                ^
+SyntaxError: '[' was never closed
+"
+HumanEval/69,failure,9.034655570983887,neg_0p50_p99,-0.5,-3.5363600254,False,False,False,False,False,0.019824020530601654,"SyntaxError('unterminated triple-quoted string literal (detected at line 31)', ('<string>', 31, 5, ""    '''"", 31, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmpuzcjgiix.py"", line 6, in <module>
+    exec(""\ndef search(lst):\n    '''\n    You are given a non-empty list of positive integers. Return the greatest integer that is greater than \n    zero, and has a frequency greater than or equal to the value of the integer itself. \n    The frequency of an integer is the number of times it appears in the list.\n    If no such a value exist, return -1.\n    Examples:\n        search([4, 1, 2, 2, 3, 1]) == 2\n        search([1, 2, 2, 3, 3, 3, 4, 4, 4]) == 3\n        search([5, 5, 4, 4, 4]) == -1\n    '''\n    pass\n\n\ndef search_2(lst):\n    '''\n    You are given a non-empty list of positive integers. Return the greatest integer that is greater than \n    zero, and has a frequency greater than or equal to the value of the integer itself. \n    The frequency of an integer is the number of times it appears in the list.\n    If no such a value exist, return -1.\n    Examples:\n        search([4, 1, 2, 2, 3, 1]) == 2\n        search([1, 2, 2, 3, 3, 3, 4, 4, 4]) == 3\n        search([5, 5, 4, 4, 4]) == -1\n    '''\n    pass\n\n\ndef search_3(lst):\n    '''\n"", globals())
+  File ""<string>"", line 31
+    '''
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 31)
+"
+HumanEval/72,pass_control,12.469685554504395,neg_0p50_p99,-0.5,-3.5363600254,False,False,False,False,False,0.020321744438357808,"SyntaxError('unterminated triple-quoted string literal (detected at line 44)', ('<string>', 43, 5, ""    '''"", 43, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmp5oaguj05.py"", line 6, in <module>
+    exec('\ndef will_it_fly(q,w):\n    \'\'\'\n    Write a function that returns True if the object q will fly, and False otherwise.\n    The object q will fly if it\'s balanced (it is a palindromic list) and the sum of its elements is less than or equal the maximum possible weight w.\n\n    Example:\n    will_it_fly([1, 2], 5) ➞ False \n    # 1+2 is less than the maximum possible weight, but it\'s unbalanced.\n\n    will_it_fly([3, 2, 3], 1) ➞ False\n    # it\'s balanced, but 3+2+3 is more than the maximum possible weight.\n\n    will_it_fly([3, 2, 3], 9) ➞ True\n    # 3+2+3 is less than the maximum possible weight, and it\'s balanced.\n\n    will_it_fly([3], 5) ➞ True\n    # 3 is less than the maximum possible weight, and it\'s balanced.\n    \'\'\'\n    if sum(q) <= w and q == q[::-1]:\n        return True\n    else:\n        return False\n\n\ndef is_palindrome(q):\n    \'\'\'\n    Write a function that returns True if the given string is a palindrome, and False otherwise.\n    A palindrome is a word that is spelled the same way, backwards and forwards.\n\n    Example:\n    is_palindrome(""racecar"") ➞ True\n    is_palindrome(""rat"") ➞ False\n    is_palindrome(""madam"") ➞ True\n    \'\'\'\n    if q == q[::-1]:\n        return True\n    else:\n        return False\n\n\ndef is_palindrome(q):\n    \'\'\'\n    Write a function that returns True if the', globals())
+  File ""<string>"", line 43
+    '''
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 44)
+"
+HumanEval/94,pass_control,4.647215366363525,neg_0p50_p99,-0.5,-3.5363600254,True,True,False,False,False,0.020619728209567256,
+HumanEval/105,failure,8.714726448059082,neg_0p50_p99,-0.5,-3.5363600254,False,False,False,False,False,0.019059867419552273,"SyntaxError('unterminated triple-quoted string literal (detected at line 37)', ('<string>', 29, 5, '    """"""', 29, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmp0y7mxp4l.py"", line 6, in <module>
+    exec('\ndef by_length(arr):\n    """"""\n    Given an array of integers, sort the integers that are between 1 and 9 inclusive,\n    reverse the resulting array, and then replace each digit by its corresponding name from\n    ""One"", ""Two"", ""Three"", ""Four"", ""Five"", ""Six"", ""Seven"", ""Eight"", ""Nine"".\n\n    For example:\n      arr = [2, 1, 1, 4, 5, 8, 2, 3]   \n            -> sort arr -> [1, 1, 2, 2, 3, 4, 5, 8] \n            -> reverse arr -> [8, 5, 4, 3, 2, 2, 1, 1]\n      return [""Eight"", ""Five"", ""Four"", ""Three"", ""Two"", ""Two"", ""One"", ""One""]\n    \n      If the array is empty, return an empty array:\n      arr = []\n      return []\n    \n      If the array has any strange number ignore it:\n      arr = [1, -1 , 55] \n            -> sort arr -> [-1, 1, 55]\n            -> reverse arr -> [55, 1, -1]\n      return = [\'One\']\n    """"""\n    # Your code here\n    # return arr\n\n\ndef by_length_2(arr):\n    """"""\n    Given an array of integers, sort the integers that are between 1 and 9 inclusive,\n    reverse the resulting array, and then replace each digit by its corresponding name from\n    ""One"", ""Two"", ""Three"", ""Four"", ""Five"", ""Six"", ""Seven"", ""Eight"", ""Nine"".\n\n    For example:\n      arr = [2, 1, 1, 4, 5, 8, 2, 3]   \n            -> sort arr -> [1, 1, 2, 2, 3, 4, 5, 8] \n            -> reverse arr -> [8, 5, 4, 3, 2, 2, ', globals())
+  File ""<string>"", line 29
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 37)
+"
+HumanEval/117,failure,9.334943771362305,neg_0p50_p99,-0.5,-3.5363600254,False,False,False,False,False,0.019235008951606385,"SyntaxError('unterminated triple-quoted string literal (detected at line 30)', ('<string>', 20, 5, '    """"""Given a string s and a natural number n, you have been tasked to implement ', 20, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmptym1ae79.py"", line 6, in <module>
+    exec('\ndef select_words(s, n):\n    """"""Given a string s and a natural number n, you have been tasked to implement \n    a function that returns a list of all words from string s that contain exactly \n    n consonants, in order these words appear in the string s.\n    If the string s is empty then the function should return an empty list.\n    Note: you may assume the input string contains only letters and spaces.\n    Examples:\n    select_words(""Mary had a little lamb"", 4) ==> [""little""]\n    select_words(""Mary had a little lamb"", 3) ==> [""Mary"", ""lamb""]\n    select_words(""simple white space"", 2) ==> []\n    select_words(""Hello world"", 4) ==> [""world""]\n    select_words(""Uncle sam"", 3) ==> [""Uncle""]\n    """"""\n    # Your code here\n    pass\n\n\ndef select_words(s, n):\n    """"""Given a string s and a natural number n, you have been tasked to implement \n    a function that returns a list of all words from string s that contain exactly \n    n consonants, in order these words appear in the string s.\n    If the string s is empty then the function should return an empty list.\n    Note: you may assume the input string contains only letters and spaces.\n    Examples:\n    select_words(""Mary had a little lamb"", 4) ==> [""little""]\n    select_words(""Mary had a little lamb"", 3) ==> [""Mary"", ""lamb""]\n    select_words(""simple white space"", 2) ==> []\n    select_words(""Hello world"", 4) ==> [""world""]\n   ', globals())
+  File ""<string>"", line 20
+    """"""Given a string s and a natural number n, you have been tasked to implement 
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 30)
+"
+HumanEval/119,failure,8.977835655212402,neg_0p50_p99,-0.5,-3.5363600254,False,False,False,False,False,0.021372796851210296,"IndexError('list index out of range')
+Traceback (most recent call last):
+  File ""/tmp/tmpk1afgfow.py"", line 9, in <module>
+    check(match_parens)
+  File ""<string>"", line 4, in check
+  File ""<string>"", line 30, in match_parens
+IndexError: list index out of range
+"
+HumanEval/121,failure,13.737234115600586,neg_0p50_p99,-0.5,-3.5363600254,False,False,False,False,False,0.020244411204051477,"SyntaxError('invalid syntax', ('<string>', 26, 4, 'def\n', 26, 4))
+Traceback (most recent call last):
+  File ""/tmp/tmpxd9iyssd.py"", line 6, in <module>
+    exec('\ndef solution(lst):\n    """"""Given a non-empty list of integers, return the sum of all of the odd elements that are in even positions.\n    \n\n    Examples\n    solution([5, 8, 7, 1]) ==> 12\n    solution([3, 3, 3, 3, 3]) ==> 9\n    solution([30, 13, 24, 321]) ==>0\n    """"""\n    return sum([lst[i] for i in range(len(lst)) if i % 2 != 0 and lst[i] % 2 != 0])\n\n\ndef solution(lst):\n    """"""Given a non-empty list of integers, return the sum of all of the odd elements that are in even positions.\n    \n\n    Examples\n    solution([5, 8, 7, 1]) ==> 12\n    solution([3, 3, 3, 3, 3]) ==> 9\n    solution([30, 13, 24, 321]) ==>0\n    """"""\n    return sum([lst[i] for i in range(len(lst)) if i % 2 == 0 and lst[i] % 2 != 0])\n\n\ndef', globals())
+  File ""<string>"", line 26
+    def
+       ^
+SyntaxError: invalid syntax
+"
+HumanEval/136,failure,8.97400188446045,neg_0p50_p99,-0.5,-3.5363600254,False,False,False,False,False,0.02115563186816871,"AssertionError()
+Traceback (most recent call last):
+  File ""/tmp/tmpxudlwqyx.py"", line 9, in <module>
+    check(largest_smallest_integers)
+  File ""<string>"", line 4, in check
+AssertionError
+"
+HumanEval/140,failure,8.717255592346191,neg_0p50_p99,-0.5,-3.5363600254,False,False,False,False,False,0.01970756566788623,"SyntaxError(""'(' was never closed"", ('<string>', 34, 17, 'def fix_spaces_3(\n', 34, 0))
+Traceback (most recent call last):
+  File ""/tmp/tmpboahfg_9.py"", line 6, in <module>
+    exec('\ndef fix_spaces(text):\n    """"""\n    Given a string text, replace all spaces in it with underscores, \n    and if a string has more than 2 consecutive spaces, \n    then replace all consecutive spaces with - \n    \n    fix_spaces(""Example"") == ""Example""\n    fix_spaces(""Example 1"") == ""Example_1""\n    fix_spaces("" Example 2"") == ""_Example_2""\n    fix_spaces("" Example   3"") == ""_Example-3""\n    """"""\n    text = text.replace("" "", ""_"")\n    text = text.replace(""  "", ""-"")\n    return text\n\n\ndef fix_spaces_2(text):\n    """"""\n    Given a string text, replace all spaces in it with underscores, \n    and if a string has more than 2 consecutive spaces, \n    then replace all consecutive spaces with - \n    \n    fix_spaces(""Example"") == ""Example""\n    fix_spaces(""Example 1"") == ""Example_1""\n    fix_spaces("" Example 2"") == ""_Example_2""\n    fix_spaces("" Example   3"") == ""_Example-3""\n    """"""\n    text = text.replace("" "", ""_"")\n    text = text.replace(""  "", ""-"")\n    return text\n\n\ndef fix_spaces_3(', globals())
+  File ""<string>"", line 34
+    def fix_spaces_3(
+                    ^
+SyntaxError: '(' was never closed
+"
+HumanEval/146,failure,8.999509811401367,neg_0p50_p99,-0.5,-3.5363600254,False,False,False,False,True,0.019778824971581344,"SyntaxError('invalid syntax', ('<string>', 27, 24, '        if num > 10 and\n', 27, 24))
+Traceback (most recent call last):
+  File ""/tmp/tmpeyoanjie.py"", line 6, in <module>
+    exec('\ndef specialFilter(nums):\n    """"""Write a function that takes an array of numbers as input and returns \n    the number of elements in the array that are greater than 10 and both \n    first and last digits of a number are odd (1, 3, 5, 7, 9).\n    For example:\n    specialFilter([15, -73, 14, -15]) => 1 \n    specialFilter([33, -2, -3, 45, 21, 109]) => 2\n    """"""\n    count = 0\n    for num in nums:\n        if num > 10 and num % 2 != 0:\n            count += 1\n    return count\n\n\ndef specialFilter2(nums):\n    """"""Write a function that takes an array of numbers as input and returns \n    the number of elements in the array that are greater than 10 and both \n    first and last digits of a number are odd (1, 3, 5, 7, 9).\n    For example:\n    specialFilter([15, -73, 14, -15]) => 1 \n    specialFilter([33, -2, -3, 45, 21, 109]) => 2\n    """"""\n    count = 0\n    for num in nums:\n        if num > 10 and', globals())
+  File ""<string>"", line 27
+    if num > 10 and
+                   ^
+SyntaxError: invalid syntax
+"
+HumanEval/148,failure,9.56707763671875,neg_0p50_p99,-0.5,-3.5363600254,False,False,False,False,False,0.020022370818575535,"SyntaxError('unterminated triple-quoted string literal (detected at line 33)', ('<string>', 31, 5, ""    '''"", 31, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmpl491o82s.py"", line 6, in <module>
+    exec('\ndef bf(planet1, planet2):\n    \'\'\'\n    There are eight planets in our solar system: the closerst to the Sun \n    is Mercury, the next one is Venus, then Earth, Mars, Jupiter, Saturn, \n    Uranus, Neptune.\n    Write a function that takes two planet names as strings planet1 and planet2. \n    The function should return a tuple containing all planets whose orbits are \n    located between the orbit of planet1 and the orbit of planet2, sorted by \n    the proximity to the sun. \n    The function should return an empty tuple if planet1 or planet2\n    are not correct planet names. \n    Examples\n    bf(""Jupiter"", ""Neptune"") ==> (""Saturn"", ""Uranus"")\n    bf(""Earth"", ""Mercury"") ==> (""Venus"")\n    bf(""Mercury"", ""Uranus"") ==> (""Venus"", ""Earth"", ""Mars"", ""Jupiter"", ""Saturn"")\n    \'\'\'\n    planets = [""Mercury"", ""Venus"", ""Earth"", ""Mars"", ""Jupiter"", ""Saturn"", ""Uranus"", ""Neptune""]\n    if planet1 not in planets or planet2 not in planets:\n        return ()\n    else:\n        index1 = planets.index(planet1)\n        index2 = planets.index(planet2)\n        if index1 < index2:\n            return tuple(planets[index1+1:index2])\n        else:\n            return tuple(planets[index2+1:index1])\n\n\ndef bf2(planet1, planet2):\n    \'\'\'\n    There are eight planets in our solar system: the closerst to the Sun \n    is Mercury, the next one is Venus, then Earth, Mars, Jupiter, Saturn,', globals())
+  File ""<string>"", line 31
+    '''
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 33)
+"
+HumanEval/12,pass_control,4.363240718841553,neg_1p00_p99,-1.0,-7.0727200508,False,False,False,False,False,0.040895106227253564,"SyntaxError('unterminated triple-quoted string literal (detected at line 36)', ('<string>', 35, 5, '    """""" Out of list of strings, return the length of the longest one. Return None in case the input', 35, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmp9g3aabdw.py"", line 6, in <module>
+    exec('from typing import List, Optional\n\n\ndef longest(strings: List[str]) -> Optional[str]:\n    """""" Out of list of strings, return the longest one. Return the first one in case of multiple\n    strings of the same length. Return None in case the input list is empty.\n    >>> longest([])\n\n    >>> longest([\'a\', \'b\', \'c\'])\n    \'a\'\n    >>> longest([\'a\', \'bb\', \'ccc\'])\n    \'ccc\'\n    """"""\n    if not strings:\n        return None\n    return max(strings, key=len)\n\n\ndef longest_length(strings: List[str]) -> Optional[int]:\n    """""" Out of list of strings, return the length of the longest one. Return None in case the input\n    list is empty.\n    >>> longest_length([])\n\n    >>> longest_length([\'a\', \'b\', \'c\'])\n    1\n    >>> longest_length([\'a\', \'bb\', \'ccc\'])\n    3\n    """"""\n    if not strings:\n        return None\n    return len(max(strings, key=len))\n\n\ndef longest_length_or_none(strings: List[str]) -> Optional[int]:\n    """""" Out of list of strings, return the length of the longest one. Return None in case the input\n    list is', globals())
+  File ""<string>"", line 35
+    """""" Out of list of strings, return the length of the longest one. Return None in case the input
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 36)
+"
+HumanEval/13,pass_control,4.240393161773682,neg_1p00_p99,-1.0,-7.0727200508,False,False,False,False,True,0.04127139352749509,"SyntaxError('unterminated string literal (detected at line 32)', ('<string>', 32, 19, '    b = int(input(""Enter b:', 32, 19))
+Traceback (most recent call last):
+  File ""/tmp/tmpqvt784hc.py"", line 6, in <module>
+    exec('\n\ndef greatest_common_divisor(a: int, b: int) -> int:\n    """""" Return a greatest common divisor of two integers a and b\n    >>> greatest_common_divisor(3, 5)\n    1\n    >>> greatest_common_divisor(25, 15)\n    5\n    """"""\n    if a == 0:\n        return b\n    elif b == 0:\n        return a\n    elif a > b:\n        return greatest_common_divisor(a % b, b)\n    else:\n        return greatest_common_divisor(a, b % a)\n\n\ndef least_common_multiple(a: int, b: int) -> int:\n    """""" Return a least common multiple of two integers a and b\n    >>> least_common_multiple(3, 5)\n    15\n    >>> least_common_multiple(25, 15)\n    75\n    """"""\n    return a * b // greatest_common_divisor(a, b)\n\n\ndef main():\n    a = int(input(""Enter a: ""))\n    b = int(input(""Enter b:', globals())
+  File ""<string>"", line 32
+    b = int(input(""Enter b:
+                  ^
+SyntaxError: unterminated string literal (detected at line 32)
+"
+HumanEval/20,pass_control,4.1080427169799805,neg_1p00_p99,-1.0,-7.0727200508,True,True,False,False,False,0.04163539800219292,
+HumanEval/23,pass_control,4.070234298706055,neg_1p00_p99,-1.0,-7.0727200508,False,True,False,True,True,0.04153250452266851,"SyntaxError('unterminated triple-quoted string literal (detected at line 36)', ('<string>', 30, 5, '    """""" Return 0 if string1 == string2,', 30, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmpy8eqt57o.py"", line 6, in <module>
+    exec('\n\ndef strlen(string: str) -> int:\n    """""" Return length of given string\n    >>> strlen(\'\')\n    0\n    >>> strlen(\'abc\')\n    3\n    """"""\n    if string == \'\':\n        return 0\n    else:\n        return 1 + strlen(string[1:])\n\n\ndef strrev(string: str) -> str:\n    """""" Return reverse of given string\n    >>> strrev(\'\')\n    \'\'\n    >>> strrev(\'abc\')\n    \'cba\'\n    """"""\n    if string == \'\':\n        return \'\'\n    else:\n        return strrev(string[1:]) + string[0]\n\n\ndef strcmp(string1: str, string2: str) -> int:\n    """""" Return 0 if string1 == string2,\n    -1 if string1 < string2,\n    1 if string1 > string2\n    >>> strcmp(\'\', \'\')\n    0\n    >>> strcmp(\'abc\', \'abc\')\n    ', globals())
+  File ""<string>"", line 30
+    """""" Return 0 if string1 == string2,
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 36)
+"
+HumanEval/43,pass_control,7.275382995605469,neg_1p00_p99,-1.0,-7.0727200508,True,True,False,False,False,0.04151587764499709,
+HumanEval/55,pass_control,4.6110382080078125,neg_1p00_p99,-1.0,-7.0727200508,False,False,False,False,True,0.040597679648878206,"SyntaxError('unterminated triple-quoted string literal (detected at line 39)', ('<string>', 39, 5, '    """"""Return n-th F', 39, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmpgz2g2__o.py"", line 6, in <module>
+    exec('\n\ndef fib(n: int):\n    """"""Return n-th Fibonacci number.\n    >>> fib(10)\n    55\n    >>> fib(1)\n    1\n    >>> fib(8)\n    21\n    """"""\n    if n == 1:\n        return 1\n    if n == 2:\n        return 1\n    return fib(n - 1) + fib(n - 2)\n\n\ndef fib_iter(n: int):\n    """"""Return n-th Fibonacci number.\n    >>> fib_iter(10)\n    55\n    >>> fib_iter(1)\n    1\n    >>> fib_iter(8)\n    21\n    """"""\n    if n == 1:\n        return 1\n    if n == 2:\n        return 1\n    a, b = 1, 1\n    for i in range(n - 2):\n        a, b = b, a + b\n    return b\n\n\ndef fib_iter_2(n: int):\n    """"""Return n-th F', globals())
+  File ""<string>"", line 39
+    """"""Return n-th F
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 39)
+"
+HumanEval/59,pass_control,7.901678562164307,neg_1p00_p99,-1.0,-7.0727200508,True,True,False,False,False,0.041432767116930336,
+HumanEval/63,pass_control,4.1913604736328125,neg_1p00_p99,-1.0,-7.0727200508,False,False,False,False,False,0.040377147544253,"SyntaxError('unterminated triple-quoted string literal (detected at line 33)', ('<string>', 28, 5, '    """"""The FibFib number sequence is a sequence similar to the Fibbonacci sequnece that\'s defined as follows:', 28, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmp89jhpx7p.py"", line 6, in <module>
+    exec('\n\ndef fibfib(n: int):\n    """"""The FibFib number sequence is a sequence similar to the Fibbonacci sequnece that\'s defined as follows:\n    fibfib(0) == 0\n    fibfib(1) == 0\n    fibfib(2) == 1\n    fibfib(n) == fibfib(n-1) + fibfib(n-2) + fibfib(n-3).\n    Please write a function to efficiently compute the n-th element of the fibfib number sequence.\n    >>> fibfib(1)\n    0\n    >>> fibfib(5)\n    4\n    >>> fibfib(8)\n    24\n    """"""\n    if n == 0:\n        return 0\n    elif n == 1:\n        return 0\n    elif n == 2:\n        return 1\n    else:\n        return fibfib(n-1) + fibfib(n-2) + fibfib(n-3)\n\n\ndef fibfib_iter(n: int):\n    """"""The FibFib number sequence is a sequence similar to the Fibbonacci sequnece that\'s defined as follows:\n    fibfib(0) == 0\n    fibfib(1) == 0\n    fibfib(2) == 1\n    fibfib(n) == fibfib(n-1) + fibfib(n-2) + fibfib(n-3).\n    Please write a function to efficiently compute the n-th', globals())
+  File ""<string>"", line 28
+    """"""The FibFib number sequence is a sequence similar to the Fibbonacci sequnece that's defined as follows:
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 33)
+"
+HumanEval/68,failure,9.00671672821045,neg_1p00_p99,-1.0,-7.0727200508,False,False,False,False,False,0.04161320224799662,"SyntaxError(""'[' was never closed"", ('<string>', 57, 17, '    print(pluck([5, 0, 3, \n', 57, 0))
+Traceback (most recent call last):
+  File ""/tmp/tmpodfwth73.py"", line 6, in <module>
+    exec('\ndef pluck(arr):\n    """"""\n    ""Given an array representing a branch of a tree that has non-negative integer nodes\n    your task is to pluck one of the nodes and return it.\n    The plucked node should be the node with the smallest even value.\n    If multiple nodes with the same smallest even value are found return the node that has smallest index.\n\n    The plucked node should be returned in a list, [ smalest_value, its index ],\n    If there are no even values or the given array is empty, return [].\n\n    Example 1:\n        Input: [4,2,3]\n        Output: [2, 1]\n        Explanation: 2 has the smallest even value, and 2 has the smallest index.\n\n    Example 2:\n        Input: [1,2,3]\n        Output: [2, 1]\n        Explanation: 2 has the smallest even value, and 2 has the smallest index. \n\n    Example 3:\n        Input: []\n        Output: []\n    \n    Example 4:\n        Input: [5, 0, 3, 0, 4, 2]\n        Output: [0, 1]\n        Explanation: 0 is the smallest value, but  there are two zeros,\n                     so we will choose the first zero, which has the smallest index.\n\n    Constraints:\n        * 1 <= nodes.length <= 10000\n        * 0 <= node.value\n    """"""\n    if not arr:\n        return []\n\n    min_even = float(\'inf\')\n    min_even_index = None\n\n    for i, num in enumerate(arr):\n        if num % 2 == 0 and num < min_even:\n            min_even = num\n            min_even_index = i\n\n    if min_even_index is None:\n        return []\n\n    return [min_even, min_even_index]\n\n\nif __name__ == \'__main__\':\n    print(pluck([4, 2, 3]))  # [2, 1]\n    print(pluck([1, 2, 3]))  # [2, 1]\n    print(pluck([]))  # []\n    print(pluck([5, 0, 3, ', globals())
+  File ""<string>"", line 57
+    print(pluck([5, 0, 3, 
+                ^
+SyntaxError: '[' was never closed
+"
+HumanEval/69,failure,9.034655570983887,neg_1p00_p99,-1.0,-7.0727200508,False,False,False,False,False,0.03964804106120331,"SyntaxError('unterminated triple-quoted string literal (detected at line 31)', ('<string>', 31, 5, ""    '''"", 31, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmpkc9v5xmo.py"", line 6, in <module>
+    exec(""\ndef search(lst):\n    '''\n    You are given a non-empty list of positive integers. Return the greatest integer that is greater than \n    zero, and has a frequency greater than or equal to the value of the integer itself. \n    The frequency of an integer is the number of times it appears in the list.\n    If no such a value exist, return -1.\n    Examples:\n        search([4, 1, 2, 2, 3, 1]) == 2\n        search([1, 2, 2, 3, 3, 3, 4, 4, 4]) == 3\n        search([5, 5, 4, 4, 4]) == -1\n    '''\n    pass\n\n\ndef search_2(lst):\n    '''\n    You are given a non-empty list of positive integers. Return the greatest integer that is greater than \n    zero, and has a frequency greater than or equal to the value of the integer itself. \n    The frequency of an integer is the number of times it appears in the list.\n    If no such a value exist, return -1.\n    Examples:\n        search([4, 1, 2, 2, 3, 1]) == 2\n        search([1, 2, 2, 3, 3, 3, 4, 4, 4]) == 3\n        search([5, 5, 4, 4, 4]) == -1\n    '''\n    pass\n\n\ndef search_3(lst):\n    '''\n"", globals())
+  File ""<string>"", line 31
+    '''
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 31)
+"
+HumanEval/72,pass_control,12.469685554504395,neg_1p00_p99,-1.0,-7.0727200508,False,False,False,False,False,0.040643488876715615,"SyntaxError('unterminated triple-quoted string literal (detected at line 44)', ('<string>', 43, 5, ""    '''"", 43, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmp51mwd25f.py"", line 6, in <module>
+    exec('\ndef will_it_fly(q,w):\n    \'\'\'\n    Write a function that returns True if the object q will fly, and False otherwise.\n    The object q will fly if it\'s balanced (it is a palindromic list) and the sum of its elements is less than or equal the maximum possible weight w.\n\n    Example:\n    will_it_fly([1, 2], 5) ➞ False \n    # 1+2 is less than the maximum possible weight, but it\'s unbalanced.\n\n    will_it_fly([3, 2, 3], 1) ➞ False\n    # it\'s balanced, but 3+2+3 is more than the maximum possible weight.\n\n    will_it_fly([3, 2, 3], 9) ➞ True\n    # 3+2+3 is less than the maximum possible weight, and it\'s balanced.\n\n    will_it_fly([3], 5) ➞ True\n    # 3 is less than the maximum possible weight, and it\'s balanced.\n    \'\'\'\n    if sum(q) <= w and q == q[::-1]:\n        return True\n    else:\n        return False\n\n\ndef is_palindrome(q):\n    \'\'\'\n    Write a function that returns True if the given string is a palindrome, and False otherwise.\n    A palindrome is a word that is spelled the same way, backwards and forwards.\n\n    Example:\n    is_palindrome(""racecar"") ➞ True\n    is_palindrome(""rat"") ➞ False\n    is_palindrome(""madam"") ➞ True\n    \'\'\'\n    if q == q[::-1]:\n        return True\n    else:\n        return False\n\n\ndef is_palindrome(q):\n    \'\'\'\n    Write a function that returns True if the', globals())
+  File ""<string>"", line 43
+    '''
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 44)
+"
+HumanEval/94,pass_control,4.647215366363525,neg_1p00_p99,-1.0,-7.0727200508,True,True,False,False,False,0.04123945641913451,
+HumanEval/105,failure,8.714726448059082,neg_1p00_p99,-1.0,-7.0727200508,False,False,False,False,False,0.038119734839104545,"SyntaxError('unterminated triple-quoted string literal (detected at line 37)', ('<string>', 29, 5, '    """"""', 29, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmp27vjgp6m.py"", line 6, in <module>
+    exec('\ndef by_length(arr):\n    """"""\n    Given an array of integers, sort the integers that are between 1 and 9 inclusive,\n    reverse the resulting array, and then replace each digit by its corresponding name from\n    ""One"", ""Two"", ""Three"", ""Four"", ""Five"", ""Six"", ""Seven"", ""Eight"", ""Nine"".\n\n    For example:\n      arr = [2, 1, 1, 4, 5, 8, 2, 3]   \n            -> sort arr -> [1, 1, 2, 2, 3, 4, 5, 8] \n            -> reverse arr -> [8, 5, 4, 3, 2, 2, 1, 1]\n      return [""Eight"", ""Five"", ""Four"", ""Three"", ""Two"", ""Two"", ""One"", ""One""]\n    \n      If the array is empty, return an empty array:\n      arr = []\n      return []\n    \n      If the array has any strange number ignore it:\n      arr = [1, -1 , 55] \n            -> sort arr -> [-1, 1, 55]\n            -> reverse arr -> [55, 1, -1]\n      return = [\'One\']\n    """"""\n    # Your code here\n    # return arr\n\n\ndef by_length_2(arr):\n    """"""\n    Given an array of integers, sort the integers that are between 1 and 9 inclusive,\n    reverse the resulting array, and then replace each digit by its corresponding name from\n    ""One"", ""Two"", ""Three"", ""Four"", ""Five"", ""Six"", ""Seven"", ""Eight"", ""Nine"".\n\n    For example:\n      arr = [2, 1, 1, 4, 5, 8, 2, 3]   \n            -> sort arr -> [1, 1, 2, 2, 3, 4, 5, 8] \n            -> reverse arr -> [8, 5, 4, 3, 2, 2, ', globals())
+  File ""<string>"", line 29
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 37)
+"
+HumanEval/117,failure,9.334943771362305,neg_1p00_p99,-1.0,-7.0727200508,False,False,False,False,False,0.03847001790321277,"SyntaxError('unterminated triple-quoted string literal (detected at line 30)', ('<string>', 20, 5, '    """"""Given a string s and a natural number n, you have been tasked to implement ', 20, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmpx1wywl9w.py"", line 6, in <module>
+    exec('\ndef select_words(s, n):\n    """"""Given a string s and a natural number n, you have been tasked to implement \n    a function that returns a list of all words from string s that contain exactly \n    n consonants, in order these words appear in the string s.\n    If the string s is empty then the function should return an empty list.\n    Note: you may assume the input string contains only letters and spaces.\n    Examples:\n    select_words(""Mary had a little lamb"", 4) ==> [""little""]\n    select_words(""Mary had a little lamb"", 3) ==> [""Mary"", ""lamb""]\n    select_words(""simple white space"", 2) ==> []\n    select_words(""Hello world"", 4) ==> [""world""]\n    select_words(""Uncle sam"", 3) ==> [""Uncle""]\n    """"""\n    # Your code here\n    pass\n\n\ndef select_words(s, n):\n    """"""Given a string s and a natural number n, you have been tasked to implement \n    a function that returns a list of all words from string s that contain exactly \n    n consonants, in order these words appear in the string s.\n    If the string s is empty then the function should return an empty list.\n    Note: you may assume the input string contains only letters and spaces.\n    Examples:\n    select_words(""Mary had a little lamb"", 4) ==> [""little""]\n    select_words(""Mary had a little lamb"", 3) ==> [""Mary"", ""lamb""]\n    select_words(""simple white space"", 2) ==> []\n    select_words(""Hello world"", 4) ==> [""world""]\n   ', globals())
+  File ""<string>"", line 20
+    """"""Given a string s and a natural number n, you have been tasked to implement 
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 30)
+"
+HumanEval/119,failure,8.977835655212402,neg_1p00_p99,-1.0,-7.0727200508,False,False,False,False,False,0.04274559370242059,"IndexError('list index out of range')
+Traceback (most recent call last):
+  File ""/tmp/tmpp9ggx218.py"", line 9, in <module>
+    check(match_parens)
+  File ""<string>"", line 4, in check
+  File ""<string>"", line 30, in match_parens
+IndexError: list index out of range
+"
+HumanEval/121,failure,13.737234115600586,neg_1p00_p99,-1.0,-7.0727200508,False,False,False,False,False,0.040488822408102955,"SyntaxError('invalid syntax', ('<string>', 26, 4, 'def\n', 26, 4))
+Traceback (most recent call last):
+  File ""/tmp/tmpppo4ivj_.py"", line 6, in <module>
+    exec('\ndef solution(lst):\n    """"""Given a non-empty list of integers, return the sum of all of the odd elements that are in even positions.\n    \n\n    Examples\n    solution([5, 8, 7, 1]) ==> 12\n    solution([3, 3, 3, 3, 3]) ==> 9\n    solution([30, 13, 24, 321]) ==>0\n    """"""\n    return sum([lst[i] for i in range(len(lst)) if i % 2 != 0 and lst[i] % 2 != 0])\n\n\ndef solution(lst):\n    """"""Given a non-empty list of integers, return the sum of all of the odd elements that are in even positions.\n    \n\n    Examples\n    solution([5, 8, 7, 1]) ==> 12\n    solution([3, 3, 3, 3, 3]) ==> 9\n    solution([30, 13, 24, 321]) ==>0\n    """"""\n    return sum([lst[i] for i in range(len(lst)) if i % 2 == 0 and lst[i] % 2 != 0])\n\n\ndef', globals())
+  File ""<string>"", line 26
+    def
+       ^
+SyntaxError: invalid syntax
+"
+HumanEval/136,failure,8.97400188446045,neg_1p00_p99,-1.0,-7.0727200508,False,False,False,False,False,0.04231126373633742,"AssertionError()
+Traceback (most recent call last):
+  File ""/tmp/tmp1f9l8elx.py"", line 9, in <module>
+    check(largest_smallest_integers)
+  File ""<string>"", line 4, in check
+AssertionError
+"
+HumanEval/140,failure,8.717255592346191,neg_1p00_p99,-1.0,-7.0727200508,False,False,False,False,True,0.03982039770805083,"AssertionError('This prints if this assert fails 3 (good for debugging!)')
+Traceback (most recent call last):
+  File ""/tmp/tmpes31l9co.py"", line 9, in <module>
+    check(fix_spaces)
+  File ""<string>"", line 6, in check
+AssertionError: This prints if this assert fails 3 (good for debugging!)
+"
+HumanEval/146,failure,8.999509811401367,neg_1p00_p99,-1.0,-7.0727200508,False,False,False,False,True,0.03955764994316269,"SyntaxError('invalid syntax', ('<string>', 27, 24, '        if num > 10 and\n', 27, 24))
+Traceback (most recent call last):
+  File ""/tmp/tmp_emcib3o.py"", line 6, in <module>
+    exec('\ndef specialFilter(nums):\n    """"""Write a function that takes an array of numbers as input and returns \n    the number of elements in the array that are greater than 10 and both \n    first and last digits of a number are odd (1, 3, 5, 7, 9).\n    For example:\n    specialFilter([15, -73, 14, -15]) => 1 \n    specialFilter([33, -2, -3, 45, 21, 109]) => 2\n    """"""\n    count = 0\n    for num in nums:\n        if num > 10 and num % 2 != 0:\n            count += 1\n    return count\n\n\ndef specialFilter2(nums):\n    """"""Write a function that takes an array of numbers as input and returns \n    the number of elements in the array that are greater than 10 and both \n    first and last digits of a number are odd (1, 3, 5, 7, 9).\n    For example:\n    specialFilter([15, -73, 14, -15]) => 1 \n    specialFilter([33, -2, -3, 45, 21, 109]) => 2\n    """"""\n    count = 0\n    for num in nums:\n        if num > 10 and', globals())
+  File ""<string>"", line 27
+    if num > 10 and
+                   ^
+SyntaxError: invalid syntax
+"
+HumanEval/148,failure,9.56707763671875,neg_1p00_p99,-1.0,-7.0727200508,False,False,False,False,False,0.04004474163715107,"SyntaxError('unterminated triple-quoted string literal (detected at line 33)', ('<string>', 31, 5, ""    '''"", 31, 5))
+Traceback (most recent call last):
+  File ""/tmp/tmpi079gzf_.py"", line 6, in <module>
+    exec('\ndef bf(planet1, planet2):\n    \'\'\'\n    There are eight planets in our solar system: the closerst to the Sun \n    is Mercury, the next one is Venus, then Earth, Mars, Jupiter, Saturn, \n    Uranus, Neptune.\n    Write a function that takes two planet names as strings planet1 and planet2. \n    The function should return a tuple containing all planets whose orbits are \n    located between the orbit of planet1 and the orbit of planet2, sorted by \n    the proximity to the sun. \n    The function should return an empty tuple if planet1 or planet2\n    are not correct planet names. \n    Examples\n    bf(""Jupiter"", ""Neptune"") ==> (""Saturn"", ""Uranus"")\n    bf(""Earth"", ""Mercury"") ==> (""Venus"")\n    bf(""Mercury"", ""Uranus"") ==> (""Venus"", ""Earth"", ""Mars"", ""Jupiter"", ""Saturn"")\n    \'\'\'\n    planets = [""Mercury"", ""Venus"", ""Earth"", ""Mars"", ""Jupiter"", ""Saturn"", ""Uranus"", ""Neptune""]\n    if planet1 not in planets or planet2 not in planets:\n        return ()\n    else:\n        index1 = planets.index(planet1)\n        index2 = planets.index(planet2)\n        if index1 < index2:\n            return tuple(planets[index1+1:index2])\n        else:\n            return tuple(planets[index2+1:index1])\n\n\ndef bf2(planet1, planet2):\n    \'\'\'\n    There are eight planets in our solar system: the closerst to the Sun \n    is Mercury, the next one is Venus, then Earth, Mars, Jupiter, Saturn,', globals())
+  File ""<string>"", line 31
+    '''
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 33)
+"
