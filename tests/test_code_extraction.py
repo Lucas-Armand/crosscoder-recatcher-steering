@@ -65,6 +65,20 @@ class CodeExtractionTest(unittest.TestCase):
         self.assertNotIn("unfinished", result.code)
         compile(result.code, "<test>", "exec")
 
+    def test_continuation_is_not_discarded_for_similarly_named_later_function(self):
+        prompt = "def derivative(xs):\n"
+        raw = (
+            "    return [i * xs[i] for i in range(1, len(xs))]\n\n"
+            "def derivative_2(xs):\n"
+            "    return []\n\n"
+            "def unfinished(\n"
+        )
+        result = MODULE.extract_python_candidate(prompt, raw, "derivative")
+        namespace = {}
+        exec(result.code, namespace)
+        self.assertEqual(namespace["derivative"]([3, 1, 2, 4]), [1, 4, 12])
+        self.assertEqual(result.generated_spans[0][0], 0)
+
 
 if __name__ == "__main__":
     unittest.main()

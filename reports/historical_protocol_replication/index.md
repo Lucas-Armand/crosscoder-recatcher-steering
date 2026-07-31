@@ -16,7 +16,8 @@ It corrects protocol differences identified after the earlier steering smokes.
   used layer 12).
 - Only the last token is modified at every autoregressive step.
 - Negative traditional steering uses the base decoder vector.
-- Original alpha grid: `0, -0.10, -0.25, -0.50, -1.00`.
+- Original alpha grid: `0, -0.10, -0.25, -0.50, -1.00`, extended here
+  with `-2.00` and `-3.00`.
 - Scale is P99 over all positive token-level joint-latent activations, not a
   percentile of per-solution aggregates.
 
@@ -45,15 +46,26 @@ pipeline produce the same verdict transitions.
 | 6258 | -0.25 | 1/20 | 0 | 0 | 0 |
 | 6258 | -0.50 | 1/20 | 0 | 0 | 0 |
 | 6258 | -1.00 | 1/20 | 0 | 0 | 0 |
+| 6258 | -2.00 | 3/20 | 2 (`HumanEval/62`, `HumanEval/78`) | 0 | +2 |
+| 6258 | -3.00 | 3/20 | 2 (`HumanEval/62`, `HumanEval/78`) | 0 | +2 |
 | 6873 | 0 | 1/20 | 0 | 0 | 0 |
 | 6873 | -0.10 | 1/20 | 0 | 0 | 0 |
 | 6873 | -0.25 | 1/20 | 0 | 0 | 0 |
 | 6873 | -0.50 | 1/20 | 0 | 0 | 0 |
 | 6873 | -1.00 | 1/20 | 1 (`HumanEval/78`) | 1 (`HumanEval/56`) | 0 |
+| 6873 | -2.00 | 1/20 | 1 (`HumanEval/78`) | 1 (`HumanEval/56`) | 0 |
+| 6873 | -3.00 | 1/20 | 1 (`HumanEval/78`) | 1 (`HumanEval/56`) | 0 |
 
-Feature 6258 does not alter evaluated code under the historical extractor. The
-v4 extractor retains one harmless suffix difference for HumanEval/65 at the
-largest dose, without changing its verdict.
+Feature 6258 has a threshold between `-1 P99` and `-2 P99`. At both `-2` and
+`-3`, it changes evaluated code in 3/20 cases (15%) and converts two failures
+to passes with no regressions. Accuracy rises from 1/20 (5%) to 3/20 (15%), a
+10 percentage-point absolute increase. The identical verdict at `-2` and `-3`
+suggests a plateau rather than evidence that increasingly large doses help.
+
+- **HumanEval/62 improves.** Steering completes the prompted `derivative`
+  function with the standard coefficient-times-index implementation.
+- **HumanEval/78 improves.** Steering produces the complete hexadecimal-prime
+  counting implementation also observed in the 6873 arm.
 
 Feature 6873 at `-1 P99` has a real bidirectional causal effect:
 
@@ -70,6 +82,10 @@ net performance gain: the regression on HumanEval/56 exactly offsets it. The
 scientifically defensible claim is partial mechanistic replication, not recovery
 of the original beneficial feature.
 
+Increasing feature 6873 to `-2` or `-3 P99` changes more evaluated programs
+(5/20, 25%) but produces exactly the same verdict swap. This is evidence of
+greater nonspecific code disruption, not greater functional benefit.
+
 ## Evaluation-wrapper correction
 
 `scripts/prepare_and_postprocess_generation.sh` previously exported steering
@@ -83,11 +99,21 @@ unfinished repeated function later in the continuation. After correction, v4
 selects the literal compilable prefix and agrees with the historical evaluator
 on all causal transitions in this experiment.
 
+A second boundary bug was exposed by HumanEval/62 at the stronger 6258 doses.
+The old `_compose` substring search treated a later helper named
+`derivative_2` as though it were a repeated definition of the exact
+`derivative` entry point. It then discarded the valid leading continuation and
+reported a false `NameError`. The extractor now requires an exact function name
+and only treats it as a self-contained replacement when it is the first
+substantive generated content. A regression test covers this case. All arms
+were reprocessed and reevaluated after the fix.
+
 ## Conclusion
 
 Matching the historical cohort, NF4 model, token-level scale, generation budget,
-and hook protocol was decisive: it exposed a causal transition that the earlier
-high-activation cohort did not. Task selection and scale definition mattered
-more than escalating alpha. The next replication should test additional current
-features on this fixed cohort and use a matched random decoder direction to
-quantify how specific the HumanEval/78/56 swap is.
+and hook protocol was decisive. Feature 6258 at `-2 P99` is the strongest result
+so far: two improvements, no regressions, and no additional benefit at `-3`.
+This 20-task selected cohort is too small for a performance claim, however, and
+the absence of a matched random-direction control means the result does not yet
+establish feature specificity. The next experiment should keep `-2 P99`, add a
+same-norm random decoder direction, and test a preregistered larger cohort.

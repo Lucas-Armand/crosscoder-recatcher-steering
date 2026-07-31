@@ -57,10 +57,16 @@ def _safe_cut(text: str) -> int:
 def _compose(prompt: str, generated: str, entry_point: str | None) -> tuple[str, int]:
     generated = generated.rstrip()
     if entry_point:
-        marker = f"def {entry_point}"
-        position = generated.find(marker)
-        if position >= 0:
-            return generated[position:].rstrip() + "\n", position
+        # Treat the completion as a self-contained replacement only when the
+        # exact entry-point definition is its first substantive content. A
+        # substring search incorrectly matched helpers such as ``derivative_2``
+        # and discarded a valid leading continuation of the prompted function.
+        marker = re.compile(
+            rf"(?m)^[ \t]*(?:async[ \t]+)?def[ \t]+{re.escape(entry_point)}[ \t]*\("
+        )
+        match = marker.search(generated)
+        if match is not None and not generated[:match.start()].strip():
+            return generated[match.start():].rstrip() + "\n", match.start()
     return prompt.rstrip() + "\n" + generated + "\n", 0
 
 
