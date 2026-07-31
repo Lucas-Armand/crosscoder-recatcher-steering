@@ -29,7 +29,7 @@ from pathlib import Path
 from typing import Any
 
 import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
 from crosscoder_common import read_jsonl, write_jsonl
 
@@ -68,7 +68,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--device-b", default="cuda:1")
     parser.add_argument(
         "--dtype",
-        choices=["float16", "bfloat16", "float32"],
+        choices=["float16", "bfloat16", "float32", "nf4"],
         default="float16",
     )
     parser.add_argument("--trust-remote-code", action="store_true")
@@ -221,6 +221,7 @@ def main() -> None:
         "float16": torch.float16,
         "bfloat16": torch.bfloat16,
         "float32": torch.float32,
+        "nf4": torch.float16,
     }[args.dtype]
 
     target_model_id = (
@@ -342,11 +343,32 @@ def main() -> None:
         flush=True,
     )
 
+    quantization_config = (
+        BitsAndBytesConfig(
+            load_in_4bit=True,
+            bnb_4bit_compute_dtype=torch.float16,
+            bnb_4bit_use_double_quant=True,
+            bnb_4bit_quant_type="nf4",
+        )
+        if args.dtype == "nf4" else None
+    )
+    target_load_args = {
+        "torch_dtype": dtype,
+        "trust_remote_code": args.trust_remote_code,
+    }
+    if quantization_config is not None:
+        target_load_args.update({
+            "quantization_config": quantization_config,
+            "device_map": {"": target_device},
+            "low_cpu_mem_usage": True,
+            "attn_implementation": "eager",
+        })
     target_model = AutoModelForCausalLM.from_pretrained(
-        target_model_id,
-        torch_dtype=dtype,
-        trust_remote_code=args.trust_remote_code,
-    ).to(target_device).eval()
+        target_model_id, **target_load_args,
+    )
+    if quantization_config is None:
+        target_model = target_model.to(target_device)
+    target_model = target_model.eval()
 
     target_layers = get_layers(target_model)
     if not 0 <= args.layer < len(target_layers):
@@ -371,11 +393,15 @@ def main() -> None:
     decoder_direction = None
 
     if needs_reference:
+        reference_load_args = dict(target_load_args)
+        if quantization_config is not None:
+            reference_load_args["device_map"] = {"": reference_device}
         reference_model = AutoModelForCausalLM.from_pretrained(
-            reference_model_id,
-            torch_dtype=dtype,
-            trust_remote_code=args.trust_remote_code,
-        ).to(reference_device).eval()
+            reference_model_id, **reference_load_args,
+        )
+        if quantization_config is None:
+            reference_model = reference_model.to(reference_device)
+        reference_model = reference_model.eval()
 
         reference_hidden_size = (
             reference_model.get_input_embeddings().embedding_dim

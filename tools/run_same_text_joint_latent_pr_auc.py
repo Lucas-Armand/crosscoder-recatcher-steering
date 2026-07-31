@@ -44,6 +44,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--top-features", type=int, default=50)
     parser.add_argument("--contexts-per-feature", type=int, default=5)
+    parser.add_argument("--token-feature-ids", type=int, nargs="*", default=[])
+    parser.add_argument(
+        "--capture-only", action="store_true",
+        help="Capture aggregates/token values without running PR-AUC permutations.",
+    )
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--trust-remote-code", action="store_true")
     return parser.parse_args()
@@ -352,6 +357,8 @@ def main() -> int:
     nonprefix_cases = []
     skipped_solutions = []
     removed_nonfinite_or_extreme_tokens = 0
+    token_feature_chunks: list[np.ndarray] = []
+    token_feature_offsets = [0]
 
     for index, row in enumerate(source_rows):
         code = row["candidate_code_repaired"]
@@ -436,6 +443,13 @@ def main() -> int:
                     f"non-finite joint latent for {row['source_model']}/{row['task_id']}"
                 )
             aggregated = aggregate_latent(z)
+            if args.token_feature_ids:
+                token_feature_chunks.append(
+                    z[:, args.token_feature_ids].cpu().numpy().astype(np.float32)
+                )
+                token_feature_offsets.append(
+                    token_feature_offsets[-1] + int(z.shape[0])
+                )
             base_contribution_sum += contribution_a.sum(dim=0).cpu().numpy()
             merged_contribution_sum += contribution_b.sum(dim=0).cpu().numpy()
             total_tokens += len(z)
@@ -487,6 +501,35 @@ def main() -> int:
     (args.output_dir / "solution_metadata.json").write_text(
         json.dumps(metadata, ensure_ascii=False) + "\n"
     )
+    if args.token_feature_ids:
+        np.savez_compressed(
+            args.output_dir / "selected_token_feature_values.npz",
+            feature_ids=np.asarray(args.token_feature_ids, dtype=np.int32),
+            values=np.concatenate(token_feature_chunks, axis=0),
+            solution_offsets=np.asarray(token_feature_offsets, dtype=np.int64),
+        )
+
+    if args.capture_only:
+        summary = {
+            "models": [args.model_a_id, args.model_b_id],
+            "benchmark": args.benchmark,
+            "layer": args.layer,
+            "crosscoder_checkpoint": str(args.checkpoint),
+            "n_solutions": len(metadata),
+            "n_base_solutions": int(len(base_solution_indices)),
+            "n_merged_solutions": int(len(merged_solution_indices)),
+            "token_feature_ids": args.token_feature_ids,
+            "nonprefix_full_function_cases": nonprefix_cases,
+            "skipped_solutions": skipped_solutions,
+            "removed_nonfinite_or_extreme_tokens": removed_nonfinite_or_extreme_tokens,
+            "capture_only": True,
+            "elapsed_seconds": time.perf_counter() - started,
+        }
+        (args.output_dir / "run_summary.json").write_text(
+            json.dumps(summary, indent=2) + "\n"
+        )
+        print(json.dumps(summary, indent=2))
+        return 0
 
     all_tables = []
     all_candidates = []

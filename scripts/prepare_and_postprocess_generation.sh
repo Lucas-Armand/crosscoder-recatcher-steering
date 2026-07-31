@@ -28,7 +28,7 @@ python tools/export_generated_scripts_to_zips.py \
   --out-dir "${OUTPUT_ROOT}/zips_raw"
 
 python tools/reprocess_outputs_minimal.py \
-  --zip-dir "${OUTPUT_ROOT}/zips_raw" \
+  --raw-results-dir "${OUTPUT_ROOT}/raw_results" \
   --output-dir "${OUTPUT_ROOT}/postprocessed"
 
 echo "Prepared evaluator inputs under ${OUTPUT_ROOT}/postprocessed"

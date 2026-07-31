@@ -135,6 +135,13 @@ baseline reproduced only two or three of five historical pass controls, this is
 a negative exploratory result rather than a final causal test. See the
 [same-text steering report](reports/steering_same_text_features/index.md).
 
+The subsequent historical-protocol replication recovered the exact original
+20-task cohort, NF4 generation, positive token-level P99 scaling, and alpha
+grid. Current feature 6873 at `-1 P99` corrected HumanEval/78—the same task fixed
+by old feature 962—but regressed HumanEval/56, for zero net gain. The historical
+and corrected v4 extractors agree on both transitions. See the
+[historical-protocol replication report](reports/historical_protocol_replication/index.md).
+
 ## Validate the checkpoint
 
 On a machine with authenticated `gcloud` access:
