@@ -24,6 +24,9 @@ Output.txt
 !reports/paper_v1_evaluation_labels.csv
 !reports/roc_auc_feature_screening/*.csv
 !reports/roc_auc_feature_screening/**/*.csv
+!reports/same_text_joint_latent_pr_auc/**/top_feature_candidates.csv
+!reports/same_text_joint_latent_pr_auc/**/top_feature_contexts.csv
+!reports/same_text_joint_latent_pr_auc/**/steering_candidate_summary.csv
 *.db
 *.sqlite
 *.sqlite3
@@ -35,6 +38,7 @@ Output.txt
 /*.json
 runs/
 reports/*.json
+reports/same_text_joint_latent_pr_auc/**/solution_metadata.json
 !reports/paper_v1_validation.json
 !reports/paper_v1_activation_task0_validation.json
 !reports/paper_v1_evaluation_audit.json

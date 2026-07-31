@@ -1,0 +1,199 @@
+{
+  "models": [
+    "deepseek-ai/deepseek-coder-6.7b-base",
+    "ori-ai-fabric/ds-trinity-7b-v1"
+  ],
+  "benchmark": "humanevalplus",
+  "layer": 16,
+  "crosscoder_checkpoint": "runs/crosscoder_training_v1/deepseek_base_vs_deepseek_merged_layer16_lat16384_steps20000/final.pt",
+  "n_solutions": 295,
+  "n_base_solutions": 152,
+  "n_merged_solutions": 143,
+  "identical_token_ids_required": true,
+  "nonprefix_full_function_cases": [
+    "deepseek_base:HumanEval/121",
+    "deepseek_base:HumanEval/148",
+    "deepseek_merged:HumanEval/106"
+  ],
+  "skipped_solutions": [
+    {
+      "source_model": "deepseek_base",
+      "task_id": "HumanEval/6",
+      "reason": "no finite paired evaluated tokens after historical norm<500 filter"
+    },
+    {
+      "source_model": "deepseek_base",
+      "task_id": "HumanEval/14",
+      "reason": "no finite paired evaluated tokens after historical norm<500 filter"
+    },
+    {
+      "source_model": "deepseek_base",
+      "task_id": "HumanEval/24",
+      "reason": "no finite paired evaluated tokens after historical norm<500 filter"
+    },
+    {
+      "source_model": "deepseek_base",
+      "task_id": "HumanEval/27",
+      "reason": "no finite paired evaluated tokens after historical norm<500 filter"
+    },
+    {
+      "source_model": "deepseek_base",
+      "task_id": "HumanEval/28",
+      "reason": "no finite paired evaluated tokens after historical norm<500 filter"
+    },
+    {
+      "source_model": "deepseek_base",
+      "task_id": "HumanEval/52",
+      "reason": "no finite paired evaluated tokens after historical norm<500 filter"
+    },
+    {
+      "source_model": "deepseek_base",
+      "task_id": "HumanEval/53",
+      "reason": "no finite paired evaluated tokens after historical norm<500 filter"
+    },
+    {
+      "source_model": "deepseek_base",
+      "task_id": "HumanEval/79",
+      "reason": "no finite paired evaluated tokens after historical norm<500 filter"
+    },
+    {
+      "source_model": "deepseek_base",
+      "task_id": "HumanEval/102",
+      "reason": "no finite paired evaluated tokens after historical norm<500 filter"
+    },
+    {
+      "source_model": "deepseek_base",
+      "task_id": "HumanEval/117",
+      "reason": "no finite paired evaluated tokens after historical norm<500 filter"
+    },
+    {
+      "source_model": "deepseek_base",
+      "task_id": "HumanEval/138",
+      "reason": "no finite paired evaluated tokens after historical norm<500 filter"
+    },
+    {
+      "source_model": "deepseek_base",
+      "task_id": "HumanEval/139",
+      "reason": "no finite paired evaluated tokens after historical norm<500 filter"
+    },
+    {
+      "source_model": "deepseek_merged",
+      "task_id": "HumanEval/2",
+      "reason": "no finite paired evaluated tokens after historical norm<500 filter"
+    },
+    {
+      "source_model": "deepseek_merged",
+      "task_id": "HumanEval/12",
+      "reason": "no finite paired evaluated tokens after historical norm<500 filter"
+    },
+    {
+      "source_model": "deepseek_merged",
+      "task_id": "HumanEval/14",
+      "reason": "no finite paired evaluated tokens after historical norm<500 filter"
+    },
+    {
+      "source_model": "deepseek_merged",
+      "task_id": "HumanEval/22",
+      "reason": "no finite paired evaluated tokens after historical norm<500 filter"
+    },
+    {
+      "source_model": "deepseek_merged",
+      "task_id": "HumanEval/24",
+      "reason": "no finite paired evaluated tokens after historical norm<500 filter"
+    },
+    {
+      "source_model": "deepseek_merged",
+      "task_id": "HumanEval/29",
+      "reason": "no finite paired evaluated tokens after historical norm<500 filter"
+    },
+    {
+      "source_model": "deepseek_merged",
+      "task_id": "HumanEval/34",
+      "reason": "no finite paired evaluated tokens after historical norm<500 filter"
+    },
+    {
+      "source_model": "deepseek_merged",
+      "task_id": "HumanEval/42",
+      "reason": "no finite paired evaluated tokens after historical norm<500 filter"
+    },
+    {
+      "source_model": "deepseek_merged",
+      "task_id": "HumanEval/44",
+      "reason": "no finite paired evaluated tokens after historical norm<500 filter"
+    },
+    {
+      "source_model": "deepseek_merged",
+      "task_id": "HumanEval/45",
+      "reason": "no finite paired evaluated tokens after historical norm<500 filter"
+    },
+    {
+      "source_model": "deepseek_merged",
+      "task_id": "HumanEval/64",
+      "reason": "no finite paired evaluated tokens after historical norm<500 filter"
+    },
+    {
+      "source_model": "deepseek_merged",
+      "task_id": "HumanEval/71",
+      "reason": "no finite paired evaluated tokens after historical norm<500 filter"
+    },
+    {
+      "source_model": "deepseek_merged",
+      "task_id": "HumanEval/78",
+      "reason": "no finite paired evaluated tokens after historical norm<500 filter"
+    },
+    {
+      "source_model": "deepseek_merged",
+      "task_id": "HumanEval/86",
+      "reason": "no finite paired evaluated tokens after historical norm<500 filter"
+    },
+    {
+      "source_model": "deepseek_merged",
+      "task_id": "HumanEval/109",
+      "reason": "no finite paired evaluated tokens after historical norm<500 filter"
+    },
+    {
+      "source_model": "deepseek_merged",
+      "task_id": "HumanEval/114",
+      "reason": "no finite paired evaluated tokens after historical norm<500 filter"
+    },
+    {
+      "source_model": "deepseek_merged",
+      "task_id": "HumanEval/115",
+      "reason": "no finite paired evaluated tokens after historical norm<500 filter"
+    },
+    {
+      "source_model": "deepseek_merged",
+      "task_id": "HumanEval/139",
+      "reason": "no finite paired evaluated tokens after historical norm<500 filter"
+    },
+    {
+      "source_model": "deepseek_merged",
+      "task_id": "HumanEval/148",
+      "reason": "no finite paired evaluated tokens after historical norm<500 filter"
+    },
+    {
+      "source_model": "deepseek_merged",
+      "task_id": "HumanEval/160",
+      "reason": "no finite paired evaluated tokens after historical norm<500 filter"
+    },
+    {
+      "source_model": "deepseek_merged",
+      "task_id": "HumanEval/162",
+      "reason": "no finite paired evaluated tokens after historical norm<500 filter"
+    }
+  ],
+  "removed_nonfinite_or_extreme_tokens": 3295,
+  "token_scope": "evaluated generated code; prompt excluded unless full-function replacement",
+  "latent": "relu(rms(x_base) @ D_base.T + rms(x_merged) @ D_target.T + b_enc)",
+  "statistics": [
+    "mean",
+    "max",
+    "p95",
+    "p99",
+    "active_fraction"
+  ],
+  "permutations": 200,
+  "seed": 42,
+  "failure_positive_class": true,
+  "elapsed_seconds": 75.24937492981553
+}

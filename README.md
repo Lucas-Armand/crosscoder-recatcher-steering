@@ -112,6 +112,22 @@ and [implementation notes](reports/differential_pr_auc_feature_screening/IMPLEME
 Stored activations come from different generated texts, so shortlisted
 feature/task pairs require a same-text paired forward before steering.
 
+## Same-text joint-latent screening
+
+The first DeepSeek base-versus-merged follow-up passes each evaluated HumanEval+
+solution through both models with identical token IDs, captures layer 16,
+applies RMS normalization, and calculates the complete joint CrossCoder latent.
+It screens mean, maximum, P95, P99, and active-fraction summaries using PR-AUC
+with failure as the positive class. The compact report includes permutation
+effect/variability, maxT evidence, decoder and activation specificity, temporal
+diagnostics, and peak-token contexts.
+
+See the [same-text PR-AUC report](reports/same_text_joint_latent_pr_auc/deepseek_base_merged_humaneval_layer16/index.md)
+and [implementation notes](reports/same_text_joint_latent_pr_auc/IMPLEMENTATION_NOTES.md).
+The run retained 295/328 solutions; 33 were excluded because no paired token
+survived the historical finite-state and norm filter. This material limitation
+is documented and prevents treating the current screen as final paper evidence.
+
 ## Validate the checkpoint
 
 On a machine with authenticated `gcloud` access:
