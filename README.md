@@ -128,6 +128,13 @@ The run retained 295/328 solutions; 33 were excluded because no paired token
 survived the historical finite-state and norm filter. This material limitation
 is documented and prevents treating the current screen as final paper evidence.
 
+A paired traditional-steering smoke tested features 6258 and 6873 at local
+negative doses. Neither feature produced a verdict transition; only one of 15
+evaluated programs changed, without becoming correct. Because the 192-token
+baseline reproduced only two or three of five historical pass controls, this is
+a negative exploratory result rather than a final causal test. See the
+[same-text steering report](reports/steering_same_text_features/index.md).
+
 ## Validate the checkpoint
 
 On a machine with authenticated `gcloud` access:
