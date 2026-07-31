@@ -84,3 +84,38 @@ direction is insufficient to produce correct programs. A next experiment should
 use baseline-reproducing tasks, add a norm-matched random-direction control, and
 intervene selectively near tokens where the feature is active rather than at
 every decoding step.
+
+## High-dose follow-up: -2, -3, and -4 P99
+
+The same paired samples and 512-token generation budget were retained. All six
+new arms completed without numerical or GPU failures.
+
+| Feature | Arm | Passed | Fail to pass | Pass to fail | Evaluated code changed | Syntax-valid | Mean intervention/residual |
+|---:|---:|---:|---:|---:|---:|---:|---:|
+| 6258 | -2 P99 | 3/15 | 0 | 0 | 6/15 | 9/15 | 0.06484 |
+| 6258 | -3 P99 | 3/15 | 0 | 0 | 6/15 | 9/15 | 0.09727 |
+| 6258 | -4 P99 | 3/15 | 0 | 0 | 7/15 | 9/15 | 0.12971 |
+| 6873 | -2 P99 | 3/15 | 0 | 0 | 4/15 | 7/15 | 0.05291 |
+| 6873 | -3 P99 | 3/15 | 0 | 0 | 5/15 | 8/15 | 0.07956 |
+| 6873 | -4 P99 | 3/15 | 0 | 0 | 5/15 | 8/15 | 0.10618 |
+
+The intervention produces a clear dose-response in the probability of changing
+the generated program, but no dose-response in functional correctness. Feature
+6258 continues to turn some placeholders into concrete implementation attempts;
+for example, HumanEval/160 receives a complete arithmetic loop, but it remains
+incorrect. Other changes are mostly helper renaming, comments, repeated suffixes,
+or equivalent rewrites of already passing code.
+
+For feature 6873, the high-dose regime is actively concerning. At -4 P99,
+HumanEval/151 changes from a nontrivial algorithm to `return 0`, HumanEval/115
+expands a placeholder into a long sequence of repetitive comments, and
+HumanEval/143 removes the TODO comment while retaining `pass`. These are signs of
+distributional distortion, not targeted repair.
+
+The practical conclusion is that increasing traditional-steering magnitude past
+-1 P99 makes the decoder direction behaviorally stronger without improving the
+target outcome. The absence of verdict regressions is partly masked by the low
+contemporary baseline pass rate and must not be interpreted as safety. Further
+magnitude escalation is not justified on this sample. The next useful test is a
+feature-gated intervention or a norm-matched random-direction control, not a
+larger constant alpha.
