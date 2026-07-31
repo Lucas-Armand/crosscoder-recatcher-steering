@@ -48,3 +48,39 @@ should not be used as a final causal comparison. A confirmatory run should use
 the original 512-token budget, require baseline agreement before including a
 task, and then test stronger doses (for example -0.5 and -1.0 P99) with a
 matched random decoder-direction control.
+
+## 512-token stronger-dose follow-up
+
+The same fixed task sets were rerun with the original 512-token budget and
+stronger negative doses. This follow-up preserved the earlier run rather than
+overwriting it.
+
+| Feature | Arm | Passed | Fail to pass | Pass to fail | Evaluated code changed | Mean intervention/residual |
+|---:|---:|---:|---:|---:|---:|---:|
+| 6258 | 0 | 3/15 | 0 | 0 | 0/15 | 0 |
+| 6258 | -0.50 P99 | 3/15 | 0 | 0 | 2/15 | 0.01618 |
+| 6258 | -1.00 P99 | 3/15 | 0 | 0 | 3/15 | 0.03240 |
+| 6873 | 0 | 3/15 | 0 | 0 | 0/15 | 0 |
+| 6873 | -0.50 P99 | 3/15 | 0 | 0 | 2/15 | 0.01330 |
+| 6873 | -1.00 P99 | 3/15 | 0 | 0 | 2/15 | 0.02660 |
+
+No verdict changed. The larger doses did, however, expose a semantically
+coherent effect. For feature 6258 at -1.00 P99, HumanEval/160 changed from
+`# Write your code here; pass` to a complete arithmetic implementation. The new
+implementation remained incorrect. For feature 6873, HumanEval/143 changed from
+`TODO; pass` to `TODO; return ""`; it also remained incorrect. Both features
+also changed repeated helper-function naming or long suffixes in a small number
+of examples.
+
+Increasing the token budget fixed HumanEval/151's truncation but did not fully
+restore the historical controls: only three of five passed in each zero arm.
+One historically failed task also passed in each contemporary zero arm. The
+paired zero-versus-steering comparison is still internally valid, but the old
+labels are not a reliable substitute for a fresh baseline verdict.
+
+The result supports a narrow mechanistic hypothesis: these decoder directions
+influence placeholder/incomplete-code style, but simply subtracting either
+direction is insufficient to produce correct programs. A next experiment should
+use baseline-reproducing tasks, add a norm-matched random-direction control, and
+intervene selectively near tokens where the feature is active rather than at
+every decoding step.
