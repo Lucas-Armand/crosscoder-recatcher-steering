@@ -29,7 +29,12 @@ from pathlib import Path
 from typing import Any
 
 import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
+from transformers import (
+    AutoModelForCausalLM,
+    AutoTokenizer,
+    BitsAndBytesConfig,
+    PreTrainedTokenizerFast,
+)
 
 from crosscoder_common import read_jsonl, write_jsonl
 
@@ -63,6 +68,16 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--max-new-tokens", type=int, default=128)
     parser.add_argument("--temperature", type=float, default=0.0)
     parser.add_argument("--top-p", type=float, default=0.95)
+    parser.add_argument(
+        "--generation-backend",
+        choices=["manual", "hf_generate"],
+        default="manual",
+        help=(
+            "Use hf_generate to match datasets captured with Transformers "
+            "model.generate(use_cache=True). This backend currently supports "
+            "traditional steering only."
+        ),
+    )
     parser.add_argument("--seed", type=int, default=1000)
     parser.add_argument("--device-a", default="cuda:0")
     parser.add_argument("--device-b", default="cuda:1")
@@ -250,12 +265,26 @@ def main() -> None:
     )
 
     tokenizer_id = args.tokenizer_id or target_model_id
-    tokenizer = AutoTokenizer.from_pretrained(
-        tokenizer_id,
-        trust_remote_code=args.trust_remote_code,
-    )
+    if "deepseek" in tokenizer_id.lower():
+        # Match run_recatcher_benchmarks.py exactly. AutoTokenizer has routed
+        # this repository through an incompatible Llama tokenizer in some
+        # environments, changing code whitespace and therefore token IDs.
+        tokenizer = PreTrainedTokenizerFast.from_pretrained(
+            tokenizer_id,
+            trust_remote_code=args.trust_remote_code,
+            bos_token="<｜begin▁of▁sentence｜>",
+            eos_token="<｜end▁of▁sentence｜>",
+            pad_token="<｜end▁of▁sentence｜>",
+        )
+    else:
+        tokenizer = AutoTokenizer.from_pretrained(
+            tokenizer_id,
+            trust_remote_code=args.trust_remote_code,
+            use_fast=True,
+        )
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token_id = tokenizer.eos_token_id
+    tokenizer.padding_side = "left"
 
     checkpoint = torch.load(
         args.checkpoint,
@@ -477,7 +506,66 @@ def main() -> None:
         hook_debug_printed = False
         intervention_diagnostics: list[dict[str, float]] = []
 
-        for _step in range(args.max_new_tokens):
+        if args.generation_backend == "hf_generate":
+            if args.intervention_mode != "traditional":
+                raise ValueError(
+                    "hf_generate currently supports traditional steering only"
+                )
+
+            handle = None
+            if args.alpha != 0.0:
+                assert decoder_direction is not None
+
+                def hf_traditional_hook(_module, _inputs, output):
+                    hidden = output[0] if isinstance(output, tuple) else output
+                    token_count = (
+                        1 if args.token_scope == "last_token" else hidden.shape[1]
+                    )
+                    modified = hidden.clone()
+                    modified[:, -token_count:, :] += (
+                        args.alpha * decoder_direction.view(1, 1, -1)
+                    )
+                    if isinstance(output, tuple):
+                        return (modified, *output[1:])
+                    return modified
+
+                handle = target_layers[args.layer].register_forward_hook(
+                    hf_traditional_hook
+                )
+
+            generate_kwargs = {
+                "max_new_tokens": args.max_new_tokens,
+                "do_sample": args.temperature > 0,
+                "use_cache": True,
+                "pad_token_id": tokenizer.pad_token_id,
+                "eos_token_id": tokenizer.eos_token_id,
+            }
+            if args.temperature > 0:
+                generate_kwargs.update({
+                    "temperature": args.temperature,
+                    "top_p": args.top_p,
+                })
+            try:
+                with torch.inference_mode():
+                    generated_device = target_model.generate(
+                        input_ids=generated_cpu.to(target_device),
+                        attention_mask=torch.ones_like(
+                            generated_cpu, device=target_device
+                        ),
+                        **generate_kwargs,
+                    )
+                generated_cpu = generated_device.detach().to(
+                    device="cpu", dtype=torch.long
+                )
+            finally:
+                if handle is not None:
+                    handle.remove()
+
+        manual_steps = (
+            0 if args.generation_backend == "hf_generate"
+            else args.max_new_tokens
+        )
+        for _step in range(manual_steps):
             target_ids = generated_cpu.to(target_device)
             target_mask = torch.ones_like(
                 target_ids,
@@ -738,6 +826,7 @@ def main() -> None:
         completion = tokenizer.decode(
             completion_ids,
             skip_special_tokens=True,
+            clean_up_tokenization_spaces=False,
         )
         candidate_code = prompt + completion
         try:
@@ -795,6 +884,11 @@ def main() -> None:
                 ),
                 "intervention_mode": args.intervention_mode,
                 "token_scope": args.token_scope,
+                "generation_backend": args.generation_backend,
+                "max_new_tokens_config": args.max_new_tokens,
+                "temperature_config": args.temperature,
+                "top_p_config": args.top_p,
+                "model_dtype_config": args.dtype,
                 "decoder_direction_norm": float(
                     torch.linalg.vector_norm(
                         decoder_weight_cpu[:, args.feature_id]

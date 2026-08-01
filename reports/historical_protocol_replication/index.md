@@ -1,5 +1,11 @@
 # Historical-protocol replication with the current CrossCoder
 
+> **Scope:** this is an exploratory replication of the old feature-962
+> protocol, not the primary causal evaluation for the current activation
+> dataset. The dataset-aligned test uses sampled generation at temperature 0.2,
+> top-p 0.95, 512 tokens, the capture tokenizer, and cached HF generation; see
+> `reports/aligned_steering_protocol/index.md`.
+
 ## Question
 
 This experiment tests whether current DeepSeek base-versus-merged CrossCoder
@@ -111,9 +117,10 @@ were reprocessed and reevaluated after the fix.
 ## Conclusion
 
 Matching the historical cohort, NF4 model, token-level scale, generation budget,
-and hook protocol was decisive. Feature 6258 at `-2 P99` is the strongest result
-so far: two improvements, no regressions, and no additional benefit at `-3`.
-This 20-task selected cohort is too small for a performance claim, however, and
-the absence of a matched random-direction control means the result does not yet
-establish feature specificity. The next experiment should keep `-2 P99`, add a
-same-norm random decoder direction, and test a preregistered larger cohort.
+and hook protocol was decisive within this historical decoding regime. Feature
+6258 at `-2 P99` produced two improvements, no regressions, and no additional
+benefit at `-3` in that regime. This 20-task selected cohort is too small for a
+performance claim, and the absence of a matched random-direction control means
+the result does not establish feature specificity. The dataset-aligned
+reproduction gate and intervention must take precedence when making claims
+about the current CrossCoder.
