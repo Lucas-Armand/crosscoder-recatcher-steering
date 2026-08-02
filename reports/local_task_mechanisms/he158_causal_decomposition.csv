@@ -1,0 +1,6 @@
+task_id,direction,alpha,direction_norm,effective_vector_norm,verdict,interpretation
+HumanEval/158,reference_loto_discriminant,6,1.000000,6.000000,pass,correct explicit-loop tie break
+HumanEval/158,projection_different_own_text_scaled,6,0.531962,3.191769,fail,no function definition
+HumanEval/158,residual_different_own_text_scaled,6,0.846768,5.080611,pass,correct explicit-loop tie break
+HumanEval/158,projection_local_pc1_to_pc5_span_scaled,6,0.638443,3.830660,fail,incorrect lexicographically-largest tie break
+HumanEval/158,residual_local_pc1_to_pc5_span_scaled,6,0.769669,4.618013,pass,correct explicit-loop tie break
