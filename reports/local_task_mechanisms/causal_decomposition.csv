@@ -1,0 +1,16 @@
+task_id,direction,alpha,direction_norm,effective_vector_norm,verdict,mechanism
+HumanEval/158,reference_loto_discriminant,6,1.000000,6.000000,pass,correct explicit-loop lexicographic tie break
+HumanEval/158,projection_different_own_text_scaled,6,0.531962,3.191769,fail,no function definition
+HumanEval/158,residual_different_own_text_scaled,6,0.846768,5.080611,pass,correct explicit-loop lexicographic tie break
+HumanEval/158,projection_local_pc1_to_pc5_span_scaled,6,0.638443,3.830660,fail,incorrect lexicographically-largest tie break
+HumanEval/158,residual_local_pc1_to_pc5_span_scaled,6,0.769669,4.618013,pass,correct explicit-loop lexicographic tie break
+HumanEval/68,reference_loto_discriminant,6,1.000000,6.000000,pass,complete smallest-even selection loop
+HumanEval/68,projection_different_own_text_scaled,6,0.589297,3.535780,fail,empty pass implementation
+HumanEval/68,residual_different_own_text_scaled,6,0.807917,4.847501,pass,complete smallest-even selection loop
+HumanEval/68,projection_local_pc1_to_pc5_span_scaled,6,0.534212,3.205274,fail,empty pass implementation
+HumanEval/68,residual_local_pc1_to_pc5_span_scaled,6,0.845350,5.072102,pass,complete smallest-even selection loop
+HumanEval/96,reference_loto_discriminant,6,1.000000,6.000000,fail,missing or ineffective helper continuation
+HumanEval/96,projection_different_own_text_scaled,6,0.465782,2.794692,pass,generates count_up_to and is_prime helper
+HumanEval/96,residual_different_own_text_scaled,6,0.884899,5.309397,fail,references undefined is_prime helper
+HumanEval/96,projection_local_pc1_to_pc5_span_scaled,6,0.661702,3.970212,pass,generates count_up_to and is_prime helper
+HumanEval/96,residual_local_pc1_to_pc5_span_scaled,6,0.749767,4.498602,fail,references undefined is_prime helper

@@ -68,14 +68,55 @@ correctness. It shows that, for this task and intervention, a specific
 model-difference dimension outside the dominant local subspace is sufficient
 to produce the correct decision.
 
+## Additional task-local causal contrasts
+
+The identical magnitude-preserving decomposition was then applied to the two
+most informative controls from the original smoke test.
+
+| Task | Local subspace | Squared reference fraction | Projection verdict | Residual verdict |
+|---|---|---:|---|---|
+| HumanEval/68 | different-own-text | 0.347 | Fail | **Pass** |
+| HumanEval/68 | joint PC1--PC5 | 0.285 | Fail | **Pass** |
+| HumanEval/96 | different-own-text | 0.217 | **Pass** | Fail |
+| HumanEval/96 | joint PC1--PC5 | 0.438 | **Pass** | Fail |
+
+`HumanEval/68` repeats the HE158 residual-carried pattern. The base checkpoint
+historically emits only `pass` for `pluck`. Both local projections still emit
+only `pass`, whereas both residuals produce a complete loop that tracks the
+smallest even value and its first index. This is nearly the same algorithm as
+the historically successful finetuned solution. The causal effect is thus
+associated with completing the implementation, but it lies outside the
+dominant local displacement subspace.
+
+`HumanEval/96` shows the opposite decomposition. Both local projections pass,
+while both residuals fail with `NameError: is_prime is not defined`. The
+passing projections generate both `count_up_to` and the required `is_prime`
+helper. The failure mechanism is therefore structural program completeness,
+not primarily an incorrect primality rule. Here the causally useful behavior
+is carried by the observed local subspace rather than its residual.
+
+These opposing results are evidence against treating a PCA projection or its
+orthogonal residual as a universal success direction. They instead form a
+small mechanism catalog:
+
+- HE158: lower-variance residual changes a lexicographic tie-breaking rule;
+- HE68: lower-variance residual changes an empty implementation into a complete
+  selection algorithm;
+- HE96: dominant local component induces the missing helper continuation.
+
+The common object is not one geometric direction. It is a task-conditioned
+dimension of the base-to-finetuned difference whose causal role must be tested
+by projection/residual ablation.
+
 ## Reproducibility and limitations
 
 - `tools/analyze_local_task_mechanisms.py` creates same-token local components
   and CrossCoder decoder projections.
 - `tools/decompose_reference_directions.py` creates normalized exploratory
   components and magnitude-preserving causal projection/residual ablations.
-- `scripts/run_he158_local_decomposition.sh` reproduces the four causal
-  decomposition arms.
+- `scripts/run_local_task_decomposition.sh TASK_ID 6` reproduces the four
+  causal decomposition arms for any task whose local directions exist. The
+  original HE158-specific launcher is retained for provenance.
 - Machine-readable outputs are under
   `runs/local_task_mechanisms/deepseek_base_finetuned_layer16/`.
 
