@@ -1,0 +1,47 @@
+{
+  "base_pass_finetuned_fail": [
+    "HumanEval/18",
+    "HumanEval/39",
+    "HumanEval/49",
+    "HumanEval/70",
+    "HumanEval/76",
+    "HumanEval/82",
+    "HumanEval/127"
+  ],
+  "base_fail_finetuned_pass": [
+    "HumanEval/1",
+    "HumanEval/6",
+    "HumanEval/8",
+    "HumanEval/10",
+    "HumanEval/26",
+    "HumanEval/36",
+    "HumanEval/46",
+    "HumanEval/47",
+    "HumanEval/61",
+    "HumanEval/62"
+  ],
+  "both_pass": [
+    "HumanEval/0",
+    "HumanEval/2",
+    "HumanEval/3",
+    "HumanEval/4",
+    "HumanEval/7",
+    "HumanEval/9",
+    "HumanEval/11",
+    "HumanEval/12",
+    "HumanEval/13",
+    "HumanEval/14"
+  ],
+  "both_fail": [
+    "HumanEval/5",
+    "HumanEval/32",
+    "HumanEval/33",
+    "HumanEval/37",
+    "HumanEval/41",
+    "HumanEval/54",
+    "HumanEval/64",
+    "HumanEval/67",
+    "HumanEval/75",
+    "HumanEval/77"
+  ]
+}

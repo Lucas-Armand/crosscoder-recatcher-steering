@@ -128,6 +128,14 @@ The run retained 295/328 solutions; 33 were excluded because no paired token
 survived the historical finite-state and norm filter. This material limitation
 is documented and prevents treating the current screen as final paper evidence.
 
+An intra-task DeepSeek base-versus-finetuned analysis separately compares both
+models on identical content-token IDs and compares each model on its own
+generated answer. Raw layer-16 principal directions are dominated by a global
+checkpoint displacement. After global centering, same-text directions show a
+weak, non-significant outcome-group trend (2,000-permutation `p=0.110`), while
+different-own-text directions show no separation (`p=0.536`). See the
+[intra-task direction report](reports/intra_task_directions/deepseek_base_finetuned_humaneval_layer16/index.md).
+
 A paired traditional-steering smoke tested features 6258 and 6873 at local
 negative doses. Neither feature produced a verdict transition; only one of 15
 evaluated programs changed, without becoming correct. Because the 192-token
