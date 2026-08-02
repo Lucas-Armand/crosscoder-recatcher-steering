@@ -17,12 +17,8 @@ matches=[row for row in rows if row["task_id"] == task_id]
 if len(matches) != 1: raise SystemExit(f"expected one {task_id}; got {len(matches)}")
 with open(out,"w") as handle: handle.write(json.dumps(matches[0])+"\n")
 PY
-components=(
-  projection_different_own_text_scaled
-  residual_different_own_text_scaled
-  projection_local_pc1_to_pc5_span_scaled
-  residual_local_pc1_to_pc5_span_scaled
-)
+default_components="projection_different_own_text_scaled residual_different_own_text_scaled projection_local_pc1_to_pc5_span_scaled residual_local_pc1_to_pc5_span_scaled"
+read -r -a components <<< "${COMPONENTS_STR:-$default_components}"
 for component in "${components[@]}"; do
   out="$work/generations/${component}_pos${alpha}.jsonl"
   log="$work/logs/${component}_pos${alpha}.log"

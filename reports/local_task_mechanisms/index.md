@@ -108,6 +108,28 @@ The common object is not one geometric direction. It is a task-conditioned
 dimension of the base-to-finetuned difference whose causal role must be tested
 by projection/residual ablation.
 
+## Negative case: HumanEval/114
+
+`HumanEval/114` had the largest positive held-out discriminant margin in the
+initial ten-task cohort, making it an important check against selecting only
+steerable examples. Its mean and PC1 directions have cross-text cosines 0.363
+and 0.354. The different-own-text projection explains 36.2% of the squared
+reference norm, while the joint PC1--PC5 span explains 30.9%.
+
+At alpha `+6`, neither projection nor residual from either decomposition
+changes the baseline `pass` implementation. A targeted different-own-text dose
+and sign sweep (`-6`, `+4`, `+6`, `+8`) also produces the exact same 512-token
+raw completion byte-for-byte in every arm, and every evaluated function remains
+`pass`.
+
+HE114 is therefore a clean negative result: a large observational discriminant
+margin and substantial geometric overlap do not imply causal controllability
+under last-token additive steering. The absence of any token change also means
+this experiment does not distinguish an irrelevant direction from a relevant
+direction whose logit effect remains below the generation decision boundary.
+Escalating alpha further would test a different, extreme-perturbation regime
+and is not justified by the present evidence.
+
 ## Reproducibility and limitations
 
 - `tools/analyze_local_task_mechanisms.py` creates same-token local components
@@ -116,7 +138,8 @@ by projection/residual ablation.
   components and magnitude-preserving causal projection/residual ablations.
 - `scripts/run_local_task_decomposition.sh TASK_ID 6` reproduces the four
   causal decomposition arms for any task whose local directions exist. The
-  original HE158-specific launcher is retained for provenance.
+  optional `COMPONENTS_STR` environment variable selects a subset for dose or
+  sign sweeps. The original HE158-specific launcher is retained for provenance.
 - Machine-readable outputs are under
   `runs/local_task_mechanisms/deepseek_base_finetuned_layer16/`.
 

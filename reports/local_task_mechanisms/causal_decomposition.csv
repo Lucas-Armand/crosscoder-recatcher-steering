@@ -14,3 +14,13 @@ HumanEval/96,projection_different_own_text_scaled,6,0.465782,2.794692,pass,gener
 HumanEval/96,residual_different_own_text_scaled,6,0.884899,5.309397,fail,references undefined is_prime helper
 HumanEval/96,projection_local_pc1_to_pc5_span_scaled,6,0.661702,3.970212,pass,generates count_up_to and is_prime helper
 HumanEval/96,residual_local_pc1_to_pc5_span_scaled,6,0.749767,4.498602,fail,references undefined is_prime helper
+HumanEval/114,projection_different_own_text_scaled,-6,0.601750,3.610502,fail,raw completion identical to baseline pass implementation
+HumanEval/114,projection_different_own_text_scaled,4,0.601750,2.407001,fail,raw completion identical to baseline pass implementation
+HumanEval/114,projection_different_own_text_scaled,6,0.601750,3.610502,fail,raw completion identical to baseline pass implementation
+HumanEval/114,projection_different_own_text_scaled,8,0.601750,4.814002,fail,raw completion identical to baseline pass implementation
+HumanEval/114,residual_different_own_text_scaled,-6,0.798684,4.792106,fail,raw completion identical to baseline pass implementation
+HumanEval/114,residual_different_own_text_scaled,4,0.798684,3.194737,fail,raw completion identical to baseline pass implementation
+HumanEval/114,residual_different_own_text_scaled,6,0.798684,4.792106,fail,raw completion identical to baseline pass implementation
+HumanEval/114,residual_different_own_text_scaled,8,0.798684,6.389474,fail,raw completion identical to baseline pass implementation
+HumanEval/114,projection_local_pc1_to_pc5_span_scaled,6,0.555897,3.335382,fail,raw completion identical to baseline pass implementation
+HumanEval/114,residual_local_pc1_to_pc5_span_scaled,6,0.831251,4.987507,fail,raw completion identical to baseline pass implementation
