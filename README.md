@@ -136,6 +136,14 @@ weak, non-significant outcome-group trend (2,000-permutation `p=0.110`), while
 different-own-text directions show no separation (`p=0.536`). See the
 [intra-task direction report](reports/intra_task_directions/deepseek_base_finetuned_humaneval_layer16/index.md).
 
+A follow-up direction discriminant uses all 49 HumanEval base/finetuned
+transitions and evaluates every score leave-one-task-out. Controlled same-text
+displacement remains inconclusive (ROC-AUC 0.633, permutation `p=0.165`), while
+the confounded different-own-text representation reaches ROC-AUC and balanced
+accuracy 0.738 (`p≈0.02`). The latter is predictive but mixes model and code
+content and is not yet a causal steering direction. See the
+[LOTO discriminant report](reports/intra_task_discriminant/deepseek_base_finetuned_humaneval_layer16/index.md).
+
 A paired traditional-steering smoke tested features 6258 and 6873 at local
 negative doses. Neither feature produced a verdict transition; only one of 15
 evaluated programs changed, without becoming correct. Because the 192-token

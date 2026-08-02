@@ -244,6 +244,12 @@ def main() -> None:
     global_own = np.mean(list(own_vectors.values()), axis=0)
     same_centered = {task: unit(value - global_same) for task, value in same_vectors.items()}
     own_centered = {task: unit(value - global_own) for task, value in own_vectors.items()}
+    for task in selected:
+        safe_task = task.replace("/", "_")
+        direction_store[f"raw_same_text_mean_delta__{safe_task}"] = same_vectors[task]
+        direction_store[f"raw_different_own_text_mean_delta__{safe_task}"] = own_vectors[task]
+        direction_store[f"centered_same_text__{safe_task}"] = same_centered[task]
+        direction_store[f"centered_different_own_text__{safe_task}"] = own_centered[task]
     for row in own_rows:
         task = row["task_id"]
         row["globally_centered_same_text_delta_norm"] = float(
