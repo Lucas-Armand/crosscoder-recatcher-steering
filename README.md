@@ -152,6 +152,15 @@ direction-specific effect: expected +6 fixes its lexicographic tie break, while
 the opposite direction and 10/10 orthogonal random directions fail. See the
 [discriminant-direction steering report](reports/discriminant_direction_steering_smoke/index.md).
 
+A follow-up local decomposition asks which dimensions explain the checkpoint
+difference without assuming that they generalize across tasks. On
+`HumanEval/158`, the fail-to-pass effect survives removing both the direct
+same-task displacement and the joint local PC1--PC5 subspace from the causal
+LOTO direction. The dominant checkpoint variation is therefore not the causal
+carrier in this example; a lower-variance residual produces the correct
+lexicographic tie-break behavior. See the
+[local mechanism report](reports/local_task_mechanisms/index.md).
+
 A paired traditional-steering smoke tested features 6258 and 6873 at local
 negative doses. Neither feature produced a verdict transition; only one of 15
 evaluated programs changed, without becoming correct. Because the 192-token
