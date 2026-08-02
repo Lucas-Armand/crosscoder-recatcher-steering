@@ -1,0 +1,9 @@
+arm,alpha,direction_type,evaluated_code_changed,total,passed,fail_to_pass_tasks
+zero,0,none,0,10,0,
+pos_2,2,expected_loto,2,10,0,
+pos_4,4,expected_loto,4,10,1,HumanEval/68
+pos_6,6,expected_loto,5,10,2,HumanEval/68;HumanEval/158
+neg_4,-4,opposite_loto,3,10,1,HumanEval/96
+neg_6,-6,opposite_loto,5,10,1,HumanEval/96
+random_4,4,random_orthogonal,3,10,2,HumanEval/68;HumanEval/96
+random_6,6,random_orthogonal,5,10,2,HumanEval/68;HumanEval/96

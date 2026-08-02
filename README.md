@@ -144,6 +144,14 @@ accuracy 0.738 (`p≈0.02`). The latter is predictive but mixes model and code
 content and is not yet a causal steering direction. See the
 [LOTO discriminant report](reports/intra_task_discriminant/deepseek_base_finetuned_humaneval_layer16/index.md).
 
+A causal smoke applies the task-held-out discriminant directions to ten aligned
+DeepSeek-base failures. Expected-direction steering shows a 0/10, 1/10, 2/10
+dose response at norms 2, 4, and 6, but a matched random direction also reaches
+2/10, so there is no aggregate specificity. HumanEval/158 is a candidate
+direction-specific effect: expected +6 fixes its lexicographic tie break, while
+the opposite direction and 10/10 orthogonal random directions fail. See the
+[discriminant-direction steering report](reports/discriminant_direction_steering_smoke/index.md).
+
 A paired traditional-steering smoke tested features 6258 and 6873 at local
 negative doses. Neither feature produced a verdict transition; only one of 15
 evaluated programs changed, without becoming correct. Because the 192-token

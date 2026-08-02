@@ -28,6 +28,7 @@ import time
 from pathlib import Path
 from typing import Any
 
+import numpy as np
 import torch
 from transformers import (
     AutoModelForCausalLM,
@@ -47,6 +48,13 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--target-side", choices=["a", "b"], required=True)
     parser.add_argument("--layer", type=int, required=True)
     parser.add_argument("--feature-id", type=int, required=True)
+    parser.add_argument(
+        "--per-example-direction-npz", type=Path, default=None,
+        help=(
+            "Optional archive with task_ids and directions [examples, hidden]. "
+            "Overrides the CrossCoder decoder direction per input task."
+        ),
+    )
     parser.add_argument("--alpha", type=float, required=True)
     parser.add_argument(
         "--intervention-mode",
@@ -420,6 +428,23 @@ def main() -> None:
     encoder_weight = None
     encoder_bias = None
     decoder_direction = None
+    per_example_directions = None
+    if args.per_example_direction_npz is not None:
+        archive = np.load(args.per_example_direction_npz)
+        task_ids = [str(value) for value in archive["task_ids"].tolist()]
+        directions = np.asarray(archive["directions"], dtype=np.float32)
+        if directions.ndim != 2 or directions.shape[1] != target_hidden_size:
+            raise ValueError(
+                "per-example directions must be [tasks, target_hidden_size], "
+                f"got {directions.shape}"
+            )
+        if len(task_ids) != len(directions) or len(set(task_ids)) != len(task_ids):
+            raise ValueError("per-example direction task IDs are missing or duplicated")
+        norms = np.linalg.norm(directions, axis=1)
+        if not np.isfinite(directions).all() or np.any(norms <= 0):
+            raise ValueError("per-example directions must be finite and nonzero")
+        directions = directions / norms[:, None]
+        per_example_directions = dict(zip(task_ids, directions))
 
     if needs_reference:
         reference_load_args = dict(target_load_args)
@@ -478,6 +503,13 @@ def main() -> None:
         if torch.cuda.is_available():
             torch.cuda.manual_seed_all(example_seed)
         prompt = resolve_prompt(row, example_idx)
+        if per_example_directions is not None and args.alpha != 0.0:
+            task_id = str(row.get("task_id", ""))
+            if task_id not in per_example_directions:
+                raise KeyError(f"no per-example direction for {task_id}")
+            decoder_direction = torch.from_numpy(
+                per_example_directions[task_id]
+            ).to(target_device, dtype=dtype)
         encoded = tokenizer(prompt, return_tensors="pt")
         input_ids_cpu = encoded["input_ids"]
 
@@ -885,19 +917,30 @@ def main() -> None:
                 "intervention_mode": args.intervention_mode,
                 "token_scope": args.token_scope,
                 "generation_backend": args.generation_backend,
+                "direction_source": (
+                    str(args.per_example_direction_npz)
+                    if args.per_example_direction_npz is not None
+                    else f"crosscoder_decoder_feature_{args.feature_id}"
+                ),
                 "max_new_tokens_config": args.max_new_tokens,
                 "temperature_config": args.temperature,
                 "top_p_config": args.top_p,
                 "model_dtype_config": args.dtype,
                 "decoder_direction_norm": float(
+                    torch.linalg.vector_norm(decoder_direction).item()
+                    if decoder_direction is not None else
                     torch.linalg.vector_norm(
                         decoder_weight_cpu[:, args.feature_id]
-                    )
+                    ).item()
                 ),
                 "intervention_vector_norm": float(
                     abs(args.alpha)
-                    * torch.linalg.vector_norm(
-                        decoder_weight_cpu[:, args.feature_id]
+                    * (
+                        torch.linalg.vector_norm(decoder_direction).item()
+                        if decoder_direction is not None else
+                        torch.linalg.vector_norm(
+                            decoder_weight_cpu[:, args.feature_id]
+                        ).item()
                     )
                 ),
                 "intervention_diagnostics": diagnostics_summary,
