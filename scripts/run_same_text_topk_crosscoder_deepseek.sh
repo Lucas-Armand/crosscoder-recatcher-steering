@@ -24,7 +24,7 @@ fi
   --benchmarks humanevalplus bigcodebench \
   --model-a deepseek_base --model-b deepseek_finetuned --layer 16 \
   --latent-dim 16384 --top-k 100 --batch-size 2048 --tokens-per-pair 128 \
-  --steps 20000 --lr 1e-4 --l1-coef 0 --val-frac 0.10 \
+  --steps 10000 --lr 1e-4 --l1-coef 0 --val-frac 0.10 \
   --eval-every 500 --save-every 2000 --pairing-mode same_position \
   --device cuda --dtype float32 --output-dir "$output_dir" \
   >"$output_dir/train.log" 2>&1
