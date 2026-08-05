@@ -285,3 +285,11 @@ traditional steering. The smoke found no fail-to-pass transitions and one
 pass-to-fail transition at every nonzero strength. See
 [`reports/steering_historical_auc_feature_4672/index.md`](reports/steering_historical_auc_feature_4672/index.md)
 for the fixed design, paired results, diagnostics, and interpretation.
+
+A low-percentile paired screen then selected CodeLlama base-versus-merged
+BigCodeBench regression features 4815/P80, 13439/P80, and 4567/P60. Traditional
+merged-side steering changed up to three of five completions per arm but rescued
+none of the 60 evaluated generations. See
+[`reports/steering_percentile_pass_to_fail_smoke/index.md`](reports/steering_percentile_pass_to_fail_smoke/index.md)
+for the task selection, intervention norms, qualitative effects, and the
+activation-matched clamping follow-up motivated by this negative result.
