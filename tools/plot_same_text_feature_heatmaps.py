@@ -49,8 +49,10 @@ def main() -> None:
     enc = state["encoder.weight"].float(); hidden = state["decoder_a.weight"].shape[0]
     enc_base = enc[:, :hidden].to(a.device_base)
     enc_variant = enc[:, hidden:].to(a.device_variant)
+    bias = state["encoder.bias"].float().cpu().numpy()
 
     maps: dict[tuple[str, str], np.ndarray] = {}
+    latent_maps: dict[str, np.ndarray] = {}
     token_text: dict[str, list[str]] = {}
     for text_label, row in source.items():
         code = row["candidate_code_repaired"]
@@ -74,10 +76,11 @@ def main() -> None:
             hv = ov.hidden_states[a.layer + 1][0, mask].float(); del ov
             hb = hb / torch.sqrt(torch.mean(hb ** 2, dim=-1, keepdim=True) + 1e-6)
             hv = hv / torch.sqrt(torch.mean(hv ** 2, dim=-1, keepdim=True) + 1e-6)
-            cb = torch.relu(torch.nn.functional.linear(hb, enc_base)).T.cpu().numpy()
-            cv = torch.relu(torch.nn.functional.linear(hv, enc_variant)).T.cpu().numpy()
-        maps[(text_label, "base model")] = cb
-        maps[(text_label, "finetuned model")] = cv
+            cb_raw = torch.nn.functional.linear(hb, enc_base).cpu().numpy()
+            cv_raw = torch.nn.functional.linear(hv, enc_variant).cpu().numpy()
+        maps[(text_label, "base model")] = np.maximum(cb_raw, 0).T
+        maps[(text_label, "finetuned model")] = np.maximum(cv_raw, 0).T
+        latent_maps[text_label] = np.maximum(cb_raw + cv_raw + bias, 0).T
         selected_offsets = offsets[mask_np]
         token_text[text_label] = [code[s:e].replace("\n", "↵") for s, e in selected_offsets]
 
@@ -136,6 +139,32 @@ def main() -> None:
         "evaluated_token_counts": {k: len(v) for k, v in token_text.items()},
         "ranking": "P80 positive base-side encoder contribution on base-generated evaluated code",
     }
+    thresholds = (0.0, 1e-8, 1e-6, 1e-4, 1e-2, 1e-1)
+    sparsity = {}
+    for label, latent in latent_maps.items():
+        per_threshold = {}
+        for threshold in thresholds:
+            counts = (latent > threshold).sum(axis=0)
+            per_threshold[str(threshold)] = {
+                "mean_active_features_per_token": float(counts.mean()),
+                "median_active_features_per_token": float(np.median(counts)),
+                "p05": float(np.quantile(counts, 0.05)),
+                "p95": float(np.quantile(counts, 0.95)),
+                "mean_active_fraction": float(counts.mean() / latent.shape[0]),
+            }
+        sparsity[label] = per_threshold
+    combined = np.concatenate(list(latent_maps.values()), axis=1)
+    sparsity["combined"] = {}
+    for threshold in thresholds:
+        counts = (combined > threshold).sum(axis=0)
+        sparsity["combined"][str(threshold)] = {
+            "mean_active_features_per_token": float(counts.mean()),
+            "median_active_features_per_token": float(np.median(counts)),
+            "p05": float(np.quantile(counts, 0.05)),
+            "p95": float(np.quantile(counts, 0.95)),
+            "mean_active_fraction": float(counts.mean() / combined.shape[0]),
+        }
+    metadata["joint_latent_sparsity"] = sparsity
     a.output.with_suffix(".json").write_text(json.dumps(metadata, indent=2) + "\n")
     print(json.dumps({k: v for k, v in metadata.items() if k != "feature_order"}, indent=2))
 

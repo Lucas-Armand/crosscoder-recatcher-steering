@@ -512,5 +512,139 @@
     "base text": 163,
     "finetuned text": 277
   },
-  "ranking": "P80 positive base-side encoder contribution on base-generated evaluated code"
+  "ranking": "P80 positive base-side encoder contribution on base-generated evaluated code",
+  "joint_latent_sparsity": {
+    "base text": {
+      "0.0": {
+        "mean_active_features_per_token": 11061.527607361963,
+        "median_active_features_per_token": 11206.0,
+        "p05": 10888.8,
+        "p95": 11409.2,
+        "mean_active_fraction": 0.675142065879026
+      },
+      "1e-08": {
+        "mean_active_features_per_token": 11061.527607361963,
+        "median_active_features_per_token": 11206.0,
+        "p05": 10888.8,
+        "p95": 11409.2,
+        "mean_active_fraction": 0.675142065879026
+      },
+      "1e-06": {
+        "mean_active_features_per_token": 11061.515337423312,
+        "median_active_features_per_token": 11206.0,
+        "p05": 10888.8,
+        "p95": 11409.2,
+        "mean_active_fraction": 0.6751413169814033
+      },
+      "0.0001": {
+        "mean_active_features_per_token": 11060.944785276073,
+        "median_active_features_per_token": 11206.0,
+        "p05": 10887.8,
+        "p95": 11409.1,
+        "mean_active_fraction": 0.6751064932419478
+      },
+      "0.01": {
+        "mean_active_features_per_token": 11018.20245398773,
+        "median_active_features_per_token": 11178.0,
+        "p05": 10853.4,
+        "p95": 11386.5,
+        "mean_active_fraction": 0.6724977083732745
+      },
+      "0.1": {
+        "mean_active_features_per_token": 10681.061349693251,
+        "median_active_features_per_token": 10892.0,
+        "p05": 10352.4,
+        "p95": 11121.9,
+        "mean_active_fraction": 0.6519202483943635
+      }
+    },
+    "finetuned text": {
+      "0.0": {
+        "mean_active_features_per_token": 11191.971119133574,
+        "median_active_features_per_token": 11236.0,
+        "p05": 10844.0,
+        "p95": 11451.4,
+        "mean_active_fraction": 0.683103706001805
+      },
+      "1e-08": {
+        "mean_active_features_per_token": 11191.971119133574,
+        "median_active_features_per_token": 11236.0,
+        "p05": 10844.0,
+        "p95": 11451.4,
+        "mean_active_fraction": 0.683103706001805
+      },
+      "1e-06": {
+        "mean_active_features_per_token": 11191.963898916967,
+        "median_active_features_per_token": 11236.0,
+        "p05": 10844.0,
+        "p95": 11451.4,
+        "mean_active_fraction": 0.6831032653147563
+      },
+      "0.0001": {
+        "mean_active_features_per_token": 11191.671480144405,
+        "median_active_features_per_token": 11236.0,
+        "p05": 10843.8,
+        "p95": 11451.0,
+        "mean_active_fraction": 0.6830854174892825
+      },
+      "0.01": {
+        "mean_active_features_per_token": 11162.642599277979,
+        "median_active_features_per_token": 11211.0,
+        "p05": 10812.6,
+        "p95": 11429.4,
+        "mean_active_fraction": 0.6813136352098376
+      },
+      "0.1": {
+        "mean_active_features_per_token": 10854.613718411552,
+        "median_active_features_per_token": 10914.0,
+        "p05": 10430.0,
+        "p95": 11209.4,
+        "mean_active_fraction": 0.6625130443366426
+      }
+    },
+    "combined": {
+      "0.0": {
+        "mean_active_features_per_token": 11143.647727272728,
+        "median_active_features_per_token": 11220.0,
+        "p05": 10850.0,
+        "p95": 11446.0,
+        "mean_active_fraction": 0.6801542802290483
+      },
+      "1e-08": {
+        "mean_active_features_per_token": 11143.647727272728,
+        "median_active_features_per_token": 11220.0,
+        "p05": 10850.0,
+        "p95": 11446.0,
+        "mean_active_fraction": 0.6801542802290483
+      },
+      "1e-06": {
+        "mean_active_features_per_token": 11143.638636363636,
+        "median_active_features_per_token": 11220.0,
+        "p05": 10850.0,
+        "p95": 11446.0,
+        "mean_active_fraction": 0.6801537253639914
+      },
+      "0.0001": {
+        "mean_active_features_per_token": 11143.243181818181,
+        "median_active_features_per_token": 11219.5,
+        "p05": 10849.95,
+        "p95": 11446.0,
+        "mean_active_fraction": 0.6801295887340199
+      },
+      "0.01": {
+        "mean_active_features_per_token": 11109.13409090909,
+        "median_active_features_per_token": 11193.5,
+        "p05": 10819.65,
+        "p95": 11421.05,
+        "mean_active_fraction": 0.678047735040838
+      },
+      "0.1": {
+        "mean_active_features_per_token": 10790.320454545454,
+        "median_active_features_per_token": 10900.5,
+        "p05": 10397.25,
+        "p95": 11191.2,
+        "mean_active_fraction": 0.6585888949307528
+      }
+    }
+  }
 }

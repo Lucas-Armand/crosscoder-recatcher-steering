@@ -83,3 +83,14 @@ source token counts are 163 for the base-generated code and 277 for the
 finetuned-generated code. The accompanying
 [machine-readable metadata](task_1130_top500_same_text_heatmap.json) records the
 complete feature order and boundary information.
+
+### Joint-latent sparsity audit
+
+Across the 440 evaluated tokens in the two controlled texts, the complete
+CrossCoder latent has a mean of **11,143.6/16,384 active features per token
+(68.0%)** at threshold `>0`. The count remains 11,109.1 at `>0.01` and 10,790.3
+at `>0.1`, so this is not numerical noise. The checkpoint training log agrees:
+its final validation L0 is 11,250.3. The model uses `l1_coef=0.001`; under the
+current loss scaling this checkpoint is dense despite being trained with an L1
+term. Consequently, individual latents should not be described as sparse
+features without this limitation.
