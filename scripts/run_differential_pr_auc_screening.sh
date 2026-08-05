@@ -19,6 +19,8 @@ args=(
   --seed "$SEED"
   --device "${DEVICE:-cuda}"
 )
+read -r -a percentiles <<< "${PERCENTILES:-50 60 70 80 90 95 99}"
+args+=(--percentiles "${percentiles[@]}")
 IFS=: read -r -a activation_roots <<< "$ACTIVATION_ROOTS"
 for activation_root in "${activation_roots[@]}"; do
   args+=(--activation-root "$activation_root")
@@ -30,4 +32,4 @@ case "$MODE" in
   *) echo "Usage: $0 [smoke|full]" >&2; exit 2 ;;
 esac
 
-python tools/run_differential_pr_auc_screening.py "${args[@]}"
+"${PYTHON:-.venv/bin/python}" tools/run_differential_pr_auc_screening.py "${args[@]}"

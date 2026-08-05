@@ -61,6 +61,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--minimum-difference-count", type=int, default=5)
     parser.add_argument("--minimum-difference-proportion", type=float, default=0.01)
     parser.add_argument("--difference-epsilon", type=float, default=1e-8)
+    parser.add_argument(
+        "--percentiles", type=float, nargs="+",
+        default=[50, 60, 70, 80, 90, 95, 99],
+        help="Token-level positive-contribution percentiles to compare.",
+    )
     return parser.parse_args()
 
 
@@ -137,6 +142,79 @@ def maximum_positive_contribution(
     if not np.isfinite(result).all():
         raise ValueError("non-finite model-side contribution")
     return result.astype(np.float32, copy=False)
+
+
+def positive_contribution_percentiles(
+    hidden: np.ndarray,
+    mask: np.ndarray,
+    weight: Any,
+    device: str,
+    percentiles: list[float],
+) -> np.ndarray:
+    """Positive model-side contribution quantiles over exact evaluated tokens."""
+    import torch
+
+    selected = np.asarray(hidden[-len(mask):][mask], dtype=np.float32)
+    if selected.ndim != 2 or not len(selected):
+        raise ValueError("no selected hidden-state rows")
+    if not percentiles or any(p < 0 or p > 100 for p in percentiles):
+        raise ValueError("percentiles must be nonempty and within [0, 100]")
+    torch_device = torch.device(device)
+    with torch.inference_mode():
+        x = torch.from_numpy(selected).to(torch_device, dtype=torch.float32)
+        w = (
+            torch.from_numpy(weight).to(torch_device, dtype=torch.float32)
+            if isinstance(weight, np.ndarray)
+            else weight
+        )
+        contribution = torch.nn.functional.linear(x, w).clamp_min_(0)
+        q = torch.tensor(
+            [p / 100.0 for p in percentiles], device=torch_device,
+            dtype=torch.float32,
+        )
+        result = torch.quantile(contribution, q, dim=0).cpu().numpy()
+    if not np.isfinite(result).all():
+        raise ValueError("non-finite model-side contribution percentile")
+    return result.astype(np.float32, copy=False)
+
+
+def roc_auc_from_order(
+    order: np.ndarray, group_end: np.ndarray, labels: np.ndarray
+) -> np.ndarray:
+    """Tie-aware ROC-AUC for columns already sorted in descending order."""
+    try:
+        from numba import njit, prange
+    except ImportError as exc:
+        raise RuntimeError("ROC-AUC analysis requires numba") from exc
+
+    @njit(parallel=True, cache=True)
+    def kernel(sorted_order, ends, y):
+        columns, n = sorted_order.shape
+        n_pos = 0
+        for i in range(n):
+            n_pos += y[i]
+        n_neg = n - n_pos
+        result = np.empty(columns, dtype=np.float64)
+        for column in prange(columns):
+            positives_before = 0
+            group_pos = 0
+            group_neg = 0
+            concordant = 0.0
+            for rank in range(n):
+                if y[sorted_order[column, rank]]:
+                    group_pos += 1
+                else:
+                    group_neg += 1
+                if ends[column, rank]:
+                    concordant += positives_before * group_neg
+                    concordant += 0.5 * group_pos * group_neg
+                    positives_before += group_pos
+                    group_pos = 0
+                    group_neg = 0
+            result[column] = concordant / (n_pos * n_neg)
+        return result
+
+    return kernel(order, group_end, labels)
 
 
 def permutation_statistics(
@@ -272,13 +350,14 @@ def plot_case(
         for row in top:
             if row["selected_category"] != category:
                 continue
-            rank = positions[int(row["feature_id"])]
+            rank = positions[int(row["analysis_column"])]
             ax.scatter(
                 rank, ranked_values[rank], s=55, color="#e6550d",
                 edgecolor="black", zorder=4,
             )
             ax.annotate(
-                f"{row['feature_id']} (E/V={row['selected_effect_to_variability']:.1f})",
+                f"{row['feature_id']}/{row['aggregation']} "
+                f"(E/V={row['selected_effect_to_variability']:.1f})",
                 (rank, ranked_values[rank]),
                 xytext=(
                     4,
@@ -438,11 +517,13 @@ def main() -> int:
                             index_b[activation_key], array_b, token_count, task_id,
                             raw_b, repaired_b, tokenizer_cache[variant_model],
                         )
-                        score_a = maximum_positive_contribution(
-                            array_a, mask_a, weight_a_device, args.device
+                        score_a = positive_contribution_percentiles(
+                            array_a, mask_a, weight_a_device, args.device,
+                            args.percentiles,
                         )
-                        score_b = maximum_positive_contribution(
-                            array_b, mask_b, weight_b_device, args.device
+                        score_b = positive_contribution_percentiles(
+                            array_b, mask_b, weight_b_device, args.device,
+                            args.percentiles,
                         )
                         contributions_a.append(score_a)
                         contributions_b.append(score_b)
@@ -460,8 +541,20 @@ def main() -> int:
                         )
                 if not contributions_a:
                     raise ValueError(f"no aligned paired tasks; errors={skips[:3]}")
-                score_a = np.stack(contributions_a)
-                score_b = np.stack(contributions_b)
+                score_a_tensor = np.stack(contributions_a)
+                score_b_tensor = np.stack(contributions_b)
+                if score_a_tensor.shape != score_b_tensor.shape:
+                    raise ValueError("base/variant percentile tensor shapes differ")
+                n_examples, n_aggregations, n_features = score_a_tensor.shape
+                score_a = score_a_tensor.reshape(n_examples, -1)
+                score_b = score_b_tensor.reshape(n_examples, -1)
+                column_feature_ids = np.tile(
+                    np.arange(n_features, dtype=np.int32), n_aggregations
+                )
+                column_aggregations = np.repeat(
+                    np.asarray([f"p{p:g}" for p in args.percentiles], dtype=object),
+                    n_features,
+                )
                 transition_array = np.asarray(transitions, dtype=np.int8)
                 differential = (score_b - score_a).astype(np.float32)
                 regression_population = transition_array[:, 0] == 0
@@ -523,6 +616,26 @@ def main() -> int:
                     "variant_increase_associated_with_improvement": high_improvement,
                     "variant_decrease_associated_with_improvement": low_improvement,
                 }
+                observed_roc = {
+                    "variant_increase_associated_with_regression":
+                        roc_auc_from_order(
+                            regression_order, regression_ties, regression
+                        ),
+                    "variant_decrease_associated_with_regression":
+                        roc_auc_from_order(
+                            regression_reverse_order, regression_reverse_ties,
+                            regression,
+                        ),
+                    "variant_increase_associated_with_improvement":
+                        roc_auc_from_order(
+                            improvement_order, improvement_ties, improvement
+                        ),
+                    "variant_decrease_associated_with_improvement":
+                        roc_auc_from_order(
+                            improvement_reverse_order, improvement_reverse_ties,
+                            improvement,
+                        ),
+                }
                 regression_prevalence = float(regression.mean())
                 improvement_prevalence = float(improvement.mean())
                 prevalence = {
@@ -571,26 +684,28 @@ def main() -> int:
                     np.abs(differential) > args.difference_epsilon
                 ).sum(axis=0)
                 table = []
-                for feature in range(differential.shape[1]):
-                    positions = np.flatnonzero(valid_ids == feature)
-                    is_valid = bool(valid[feature])
+                for column in range(differential.shape[1]):
+                    positions = np.flatnonzero(valid_ids == column)
+                    is_valid = bool(valid[column])
                     position = int(positions[0]) if len(positions) else -1
+                    feature = int(column_feature_ids[column])
+                    aggregation = str(column_aggregations[column])
                     sign_compatible = {
                         "variant_increase_associated_with_regression":
                             float(np.median(
-                                regression_positive_delta[:, feature]
+                                regression_positive_delta[:, column]
                             )) > 0,
                         "variant_decrease_associated_with_regression":
                             float(np.median(
-                                regression_positive_delta[:, feature]
+                                regression_positive_delta[:, column]
                             )) < 0,
                         "variant_increase_associated_with_improvement":
                             float(np.median(
-                                improvement_positive_delta[:, feature]
+                                improvement_positive_delta[:, column]
                             )) > 0,
                         "variant_decrease_associated_with_improvement":
                             float(np.median(
-                                improvement_positive_delta[:, feature]
+                                improvement_positive_delta[:, column]
                             )) < 0,
                     }
                     compatible = [
@@ -610,12 +725,14 @@ def main() -> int:
                         if compatible else "neutral_or_degenerate"
                     )
                     support_ok = bool(
-                        difference_count[feature] >= args.minimum_difference_count
-                        and difference_count[feature] / len(differential)
+                        difference_count[column] >= args.minimum_difference_count
+                        and difference_count[column] / len(differential)
                         >= args.minimum_difference_proportion
                     )
                     row: dict[str, Any] = {
                         "feature_id": feature,
+                        "aggregation": aggregation,
+                        "analysis_column": column,
                         "selected_category": selected,
                         "selected_pr_auc": (
                             float(observed[selected][position])
@@ -634,44 +751,44 @@ def main() -> int:
                             if selected != "neutral_or_degenerate" else None
                         ),
                         "support_ok": support_ok,
-                        "difference_count": int(difference_count[feature]),
+                        "difference_count": int(difference_count[column]),
                         "difference_proportion": float(
-                            difference_count[feature] / len(differential)
+                            difference_count[column] / len(differential)
                         ),
-                        "unique_differential_values": int(unique_values[feature]),
+                        "unique_differential_values": int(unique_values[column]),
                         "base_contribution_mean": float(
-                            score_a[:, feature].mean()
+                            score_a[:, column].mean()
                         ),
                         "variant_contribution_mean": float(
-                            score_b[:, feature].mean()
+                            score_b[:, column].mean()
                         ),
-                        "differential_mean": float(differential[:, feature].mean()),
+                        "differential_mean": float(differential[:, column].mean()),
                         "differential_median": float(
-                            np.median(differential[:, feature])
+                            np.median(differential[:, column])
                         ),
                         "regression_differential_mean": float(
-                            regression_positive_delta[:, feature].mean()
+                            regression_positive_delta[:, column].mean()
                         ),
                         "regression_differential_median": float(
-                            np.median(regression_positive_delta[:, feature])
+                            np.median(regression_positive_delta[:, column])
                         ),
                         "preserved_success_differential_mean": float(
-                            regression_control_delta[:, feature].mean()
+                            regression_control_delta[:, column].mean()
                         ),
                         "preserved_success_differential_median": float(
-                            np.median(regression_control_delta[:, feature])
+                            np.median(regression_control_delta[:, column])
                         ),
                         "improvement_differential_mean": float(
-                            improvement_positive_delta[:, feature].mean()
+                            improvement_positive_delta[:, column].mean()
                         ),
                         "improvement_differential_median": float(
-                            np.median(improvement_positive_delta[:, feature])
+                            np.median(improvement_positive_delta[:, column])
                         ),
                         "persistent_failure_differential_mean": float(
-                            improvement_control_delta[:, feature].mean()
+                            improvement_control_delta[:, column].mean()
                         ),
                         "persistent_failure_differential_median": float(
-                            np.median(improvement_control_delta[:, feature])
+                            np.median(improvement_control_delta[:, column])
                         ),
                     }
                     for category in CATEGORIES:
@@ -682,6 +799,10 @@ def main() -> int:
                         )
                         row[f"{category}_pr_auc"] = (
                             float(observed[category][position])
+                            if is_valid else None
+                        )
+                        row[f"{category}_roc_auc"] = (
+                            float(observed_roc[category][position])
                             if is_valid else None
                         )
                         row[f"{category}_baseline"] = prevalence[target]
@@ -737,6 +858,7 @@ def main() -> int:
                 task_id_array = np.asarray(task_ids, dtype=object)
                 for candidate in category_top:
                     feature = int(candidate["feature_id"])
+                    column = int(candidate["analysis_column"])
                     is_regression_category = candidate[
                         "selected_category"
                     ].endswith("regression")
@@ -747,9 +869,9 @@ def main() -> int:
                     )
                     population_task_ids = task_id_array[population]
                     population_transitions = transition_array[population]
-                    population_score_a = score_a[population, feature]
-                    population_score_b = score_b[population, feature]
-                    population_delta = differential[population, feature]
+                    population_score_a = score_a[population, column]
+                    population_score_b = score_b[population, column]
+                    population_delta = differential[population, column]
                     for task_position, task_id in enumerate(
                         population_task_ids
                     ):
@@ -768,6 +890,7 @@ def main() -> int:
                                 "crosscoder_run": cc["id"],
                                 "benchmark": benchmark,
                                 "feature_id": feature,
+                                "aggregation": candidate["aggregation"],
                                 "selected_category":
                                     candidate["selected_category"],
                                 "category_rank": candidate["category_rank"],
@@ -828,7 +951,8 @@ def main() -> int:
                         ),
                         "degenerate_features": int((~valid).sum()),
                         "top_candidates": "; ".join(
-                            f"{row['feature_id']} ({row['selected_category']}, "
+                            f"{row['feature_id']}/{row['aggregation']} "
+                            f"({row['selected_category']}, "
                             f"E/V={row['selected_effect_to_variability']:.2f}, "
                             f"p={row['p_maxT']:.4f})"
                             for row in top[:5]
@@ -857,7 +981,8 @@ def main() -> int:
         f"Permutations: **{permutations}**; seed: **{args.seed}**.",
         "",
         "The score is the task-level difference between the variant-side and "
-        "base-side maximum positive additive encoder contributions. Regressions "
+        "base-side positive additive encoder-contribution percentiles over exact "
+        "evaluated tokens (P50/P60/P70/P80/P90/P95/P99). Regressions "
         "are tested only among tasks passed by the base model (variant failure "
         "versus preserved success). Improvements are tested only among tasks "
         "failed by the base model (variant success versus persistent failure).",
@@ -866,7 +991,7 @@ def main() -> int:
         "with regression, variant decrease associated with regression, variant "
         "increase associated with improvement, and variant decrease associated "
         "with improvement. `p_maxT` searches all valid features and all four "
-        "categories in every label permutation.",
+        "categories, features, and percentiles in every label permutation.",
         "",
         "These are model-side contributions to a shared joint latent, not "
         "independently encoded model-specific latent activations.",

@@ -112,6 +112,13 @@ and [implementation notes](reports/differential_pr_auc_feature_screening/IMPLEME
 Stored activations come from different generated texts, so shortlisted
 feature/task pairs require a same-text paired forward before steering.
 
+The percentile-sensitivity extension repeats this paired analysis with P50,
+P60, P70, P80, P90, P95, and P99 positive contribution over evaluated tokens.
+Feature, percentile, sign, and transition category are included in the same
+permutation maxT search. See the
+[percentile analysis](reports/differential_percentile_pr_auc_screening/PERCENTILE_ANALYSIS.md)
+and its [machine-readable comparison](reports/differential_percentile_pr_auc_screening/percentile_comparison.csv).
+
 ## Same-text joint-latent screening
 
 The first DeepSeek base-versus-merged follow-up passes each evaluated HumanEval+
