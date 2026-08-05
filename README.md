@@ -293,3 +293,9 @@ none of the 60 evaluated generations. See
 [`reports/steering_percentile_pass_to_fail_smoke/index.md`](reports/steering_percentile_pass_to_fail_smoke/index.md)
 for the task selection, intervention norms, qualitative effects, and the
 activation-matched clamping follow-up motivated by this negative result.
+
+Negative steering of DeepSeek finetuned feature 7608/P95 tested five reproduced
+BigCodeBench regressions at direct alphas from `-0.5` through `-4`, with `+2` as
+a directionality control. Steering changed raw suffixes but never changed the
+exact evaluated-code prefix or rescued a task. See
+[`reports/steering_harmful_feature_7608/index.md`](reports/steering_harmful_feature_7608/index.md).
