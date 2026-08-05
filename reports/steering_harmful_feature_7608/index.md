@@ -68,3 +68,18 @@ measure feature 7608 during generation and subtract/clamp it only at positions
 where it is active, especially before the first incorrect program decision.
 That directly tests the proposed harmful mechanism and avoids accumulating a
 constant direction in irrelevant suffix tokens.
+
+## Same-text token-feature map
+
+The [top-500 same-text heatmap for BigCodeBench/1130](task_1130_top500_same_text_heatmap.png)
+forwards both the base-generated and finetuned-generated evaluated code through
+both models. Rows are fixed across all panels and ranked by the base-side P80 on
+the base-generated text; the two right-hand panels show finetuned-minus-base
+encoder contribution on each controlled text.
+
+Feature 7608 has natural rank **3540**, so it is not silently presented as a
+top-500 feature. It is appended as row 501 and outlined/labeled in green. The
+source token counts are 163 for the base-generated code and 277 for the
+finetuned-generated code. The accompanying
+[machine-readable metadata](task_1130_top500_same_text_heatmap.json) records the
+complete feature order and boundary information.
