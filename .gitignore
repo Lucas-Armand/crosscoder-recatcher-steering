@@ -69,3 +69,5 @@ reports/same_text_joint_latent_pr_auc/**/solution_metadata.json
 .env
 .env.local
 configs/model_map.local.json
+# Generated full DSTK100 screening table; publish as a versioned artifact.
+reports/dstk100_feature_screening/all_feature_statistics.csv
