@@ -1,0 +1,5 @@
+case,canonical,ev_only_max_early,all_four_aggregations
+bigcodebench_regression,10,10,10
+bigcodebench_improvement,10,2,1
+humanevalplus_regression,10,7,4
+humanevalplus_improvement,10,10,8
