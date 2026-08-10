@@ -55,10 +55,14 @@ def parse_args() -> argparse.Namespace:
             "Overrides the CrossCoder decoder direction per input task."
         ),
     )
+    parser.add_argument(
+        "--preserve-per-example-direction-norm", action="store_true",
+        help="Do not unit-normalize directions loaded from --per-example-direction-npz.",
+    )
     parser.add_argument("--alpha", type=float, required=True)
     parser.add_argument(
         "--intervention-mode",
-        choices=["crosscoder_scaled", "traditional"],
+        choices=["crosscoder_scaled", "traditional", "topk_gated_suppression"],
         default="crosscoder_scaled",
     )
     parser.add_argument(
@@ -78,14 +82,16 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--top-p", type=float, default=0.95)
     parser.add_argument(
         "--generation-backend",
-        choices=["manual", "hf_generate"],
+        choices=["manual", "hf_generate", "paired_cached"],
         default="manual",
         help=(
             "Use hf_generate to match datasets captured with Transformers "
-            "model.generate(use_cache=True). This backend currently supports "
-            "traditional steering only."
+            "model.generate(use_cache=True). paired_cached keeps synchronized "
+            "target/reference KV caches for online CrossCoder gating."
         ),
     )
+    parser.add_argument("--top-k", type=int, default=None)
+    parser.add_argument("--rms-epsilon", type=float, default=1e-6)
     parser.add_argument("--seed", type=int, default=1000)
     parser.add_argument("--device-a", default="cuda:0")
     parser.add_argument("--device-b", default="cuda:1")
@@ -93,6 +99,11 @@ def parse_args() -> argparse.Namespace:
         "--dtype",
         choices=["float16", "bfloat16", "float32", "nf4"],
         default="float16",
+    )
+    parser.add_argument(
+        "--reference-dtype",
+        choices=["float16", "bfloat16", "float32", "nf4"],
+        default=None,
     )
     parser.add_argument("--trust-remote-code", action="store_true")
     parser.add_argument(
@@ -172,26 +183,21 @@ def sample_next_token(
     if not 0 < top_p <= 1:
         raise ValueError("--top-p must be in (0, 1]")
 
-    probs = torch.softmax(logits / temperature, dim=-1)
-    sorted_probs, sorted_indices = torch.sort(
-        probs,
-        descending=True,
-        dim=-1,
+    scores = logits / temperature
+    sorted_logits, sorted_indices = torch.sort(
+        scores, descending=False, dim=-1
     )
-    cumulative = torch.cumsum(sorted_probs, dim=-1)
-    mask = cumulative > top_p
-    mask[..., 1:] = mask[..., :-1].clone()
-    mask[..., 0] = False
-
-    sorted_probs = sorted_probs.masked_fill(mask, 0)
-    denominator = sorted_probs.sum(dim=-1, keepdim=True)
-
-    if torch.any(denominator <= 0):
-        raise RuntimeError("Top-p filtering produced zero probability mass")
-
-    sorted_probs = sorted_probs / denominator
-    sampled = torch.multinomial(sorted_probs, num_samples=1)
-    return sorted_indices.gather(-1, sampled)
+    cumulative_probs = torch.softmax(
+        sorted_logits, dim=-1
+    ).cumsum(dim=-1)
+    sorted_indices_to_remove = cumulative_probs <= (1 - top_p)
+    sorted_indices_to_remove[..., -1:] = False
+    indices_to_remove = sorted_indices_to_remove.scatter(
+        1, sorted_indices, sorted_indices_to_remove
+    )
+    scores = scores.masked_fill(indices_to_remove, -float("inf"))
+    probs = torch.softmax(scores, dim=-1)
+    return torch.multinomial(probs, num_samples=1)
 
 
 def resolve_prompt(row: dict[str, Any], row_index: int) -> str:
@@ -269,7 +275,7 @@ def main() -> None:
     )
     needs_reference = (
         args.alpha != 0.0
-        and args.intervention_mode == "crosscoder_scaled"
+        and args.intervention_mode in ("crosscoder_scaled", "topk_gated_suppression")
     )
 
     tokenizer_id = args.tokenizer_id or target_model_id
@@ -350,6 +356,17 @@ def main() -> None:
             f"feature-id={args.feature_id} outside "
             f"[0, {latent_dim - 1}]"
         )
+    checkpoint_top_k = int(checkpoint.get("config", {}).get("top_k", 0))
+    top_k = args.top_k if args.top_k is not None else checkpoint_top_k
+    if args.intervention_mode == "topk_gated_suppression":
+        if top_k <= 0 or top_k > latent_dim:
+            raise ValueError(f"invalid TopK={top_k} for latent_dim={latent_dim}")
+        if args.generation_backend != "paired_cached":
+            raise ValueError("topk_gated_suppression requires --generation-backend paired_cached")
+        if args.token_scope != "last_token":
+            raise ValueError("topk_gated_suppression requires --token-scope last_token")
+        if args.rms_epsilon <= 0:
+            raise ValueError("--rms-epsilon must be positive")
 
     print(
         json.dumps(
@@ -367,6 +384,8 @@ def main() -> None:
                 "alpha": args.alpha,
                 "intervention_mode": args.intervention_mode,
                 "token_scope": args.token_scope,
+                "top_k": top_k if args.intervention_mode == "topk_gated_suppression" else None,
+                "rms_epsilon": args.rms_epsilon if args.intervention_mode == "topk_gated_suppression" else None,
                 "encoder_weight_shape": list(
                     encoder_weight_cpu.shape
                 ),
@@ -443,17 +462,43 @@ def main() -> None:
         norms = np.linalg.norm(directions, axis=1)
         if not np.isfinite(directions).all() or np.any(norms <= 0):
             raise ValueError("per-example directions must be finite and nonzero")
-        directions = directions / norms[:, None]
+        if not args.preserve_per_example_direction_norm:
+            directions = directions / norms[:, None]
         per_example_directions = dict(zip(task_ids, directions))
 
     if needs_reference:
-        reference_load_args = dict(target_load_args)
-        if quantization_config is not None:
+        if args.reference_dtype is None:
+            reference_load_args = dict(target_load_args)
+            reference_quantized = quantization_config is not None
+        else:
+            reference_dtype = {
+                "float16": torch.float16,
+                "bfloat16": torch.bfloat16,
+                "float32": torch.float32,
+                "nf4": torch.float16,
+            }[args.reference_dtype]
+            reference_quantized = args.reference_dtype == "nf4"
+            reference_load_args = {
+                "torch_dtype": reference_dtype,
+                "trust_remote_code": args.trust_remote_code,
+                "attn_implementation": "eager",
+            }
+            if reference_quantized:
+                reference_load_args.update({
+                    "quantization_config": BitsAndBytesConfig(
+                        load_in_4bit=True,
+                        bnb_4bit_compute_dtype=torch.float16,
+                        bnb_4bit_use_double_quant=True,
+                        bnb_4bit_quant_type="nf4",
+                    ),
+                    "low_cpu_mem_usage": True,
+                })
+        if reference_quantized:
             reference_load_args["device_map"] = {"": reference_device}
         reference_model = AutoModelForCausalLM.from_pretrained(
             reference_model_id, **reference_load_args,
         )
-        if quantization_config is None:
+        if not reference_quantized:
             reference_model = reference_model.to(reference_device)
         reference_model = reference_model.eval()
 
@@ -537,6 +582,7 @@ def main() -> None:
         start = time.perf_counter()
         hook_debug_printed = False
         intervention_diagnostics: list[dict[str, float]] = []
+        gate_trace: list[dict[str, Any]] = []
 
         if args.generation_backend == "hf_generate":
             if args.intervention_mode != "traditional":
@@ -597,10 +643,14 @@ def main() -> None:
             0 if args.generation_backend == "hf_generate"
             else args.max_new_tokens
         )
+        target_past = None
+        reference_past = None
         for _step in range(manual_steps):
-            target_ids = generated_cpu.to(target_device)
+            cached = args.generation_backend == "paired_cached"
+            step_ids_cpu = generated_cpu if (not cached or target_past is None) else generated_cpu[:, -1:]
+            target_ids = step_ids_cpu.to(target_device)
             target_mask = torch.ones_like(
-                target_ids,
+                generated_cpu,
                 device=target_device,
             )
 
@@ -611,9 +661,14 @@ def main() -> None:
                     out = target_model(
                         input_ids=target_ids,
                         attention_mask=target_mask,
-                        use_cache=False,
+                        past_key_values=(
+                            target_past if cached else None
+                        ),
+                        use_cache=cached,
                         return_dict=True,
                     )
+                if cached:
+                    target_past = out.past_key_values
             else:
                 assert decoder_direction is not None
 
@@ -624,7 +679,7 @@ def main() -> None:
                     assert encoder_bias is not None
                     ref_ids = generated_cpu.to(reference_device)
                     ref_mask = torch.ones_like(
-                        ref_ids,
+                        generated_cpu,
                         device=reference_device,
                     )
 
@@ -725,7 +780,7 @@ def main() -> None:
                             args.alpha
                             * decoder_direction.view(1, 1, -1)
                         )
-                    else:
+                    elif args.intervention_mode == "crosscoder_scaled":
                         assert paired is not None
                         assert encoder_weight is not None
                         assert encoder_bias is not None
@@ -742,6 +797,54 @@ def main() -> None:
                             * z.unsqueeze(-1)
                             * decoder_direction.view(1, 1, -1)
                         )
+                    else:
+                        assert paired is not None
+                        assert encoder_weight is not None
+                        assert encoder_bias is not None
+                        ref_part = paired[..., :target_hidden_size] if args.target_side == "b" else paired[..., target_hidden_size:]
+                        target_part = paired[..., target_hidden_size:] if args.target_side == "b" else paired[..., :target_hidden_size]
+                        pair_finite = bool(
+                            torch.isfinite(ref_part).all().item()
+                            and torch.isfinite(target_part).all().item()
+                        )
+                        if not pair_finite:
+                            ref_part = torch.nan_to_num(ref_part)
+                            target_part = torch.nan_to_num(target_part)
+                        ref_rms = torch.sqrt(ref_part.float().pow(2).mean(dim=-1, keepdim=True) + args.rms_epsilon)
+                        target_rms = torch.sqrt(target_part.float().pow(2).mean(dim=-1, keepdim=True) + args.rms_epsilon)
+                        if args.target_side == "a":
+                            normalized = torch.cat((target_part.float() / target_rms, ref_part.float() / ref_rms), dim=-1)
+                        else:
+                            normalized = torch.cat((ref_part.float() / ref_rms, target_part.float() / target_rms), dim=-1)
+                        dense = torch.relu(torch.nn.functional.linear(normalized, encoder_weight, encoder_bias))
+                        values, indices = torch.topk(dense, k=top_k, dim=-1, sorted=False)
+                        matches = indices == args.feature_id
+                        active = matches.any(dim=-1)
+                        z = torch.where(matches, values, torch.zeros_like(values)).sum(dim=-1)
+                        if not pair_finite:
+                            active = torch.zeros_like(active)
+                            z = torch.zeros_like(z)
+                        scale = args.alpha * target_rms.squeeze(-1) * z
+                        delta = scale.unsqueeze(-1).to(hidden.dtype) * decoder_direction.view(1, 1, -1)
+                        gate_trace.append({
+                            "step": int(_step),
+                            "generated_tokens_before_step": int(generated_cpu.shape[1] - prompt_len),
+                            "active": bool(active.item()),
+                            "pair_finite": pair_finite,
+                            "feature_activation": float(z.item()),
+                            "dense_activation": float(dense[..., args.feature_id].item()),
+                            "target_rms": float(target_rms.item()),
+                            "delta_norm": float(torch.linalg.vector_norm(delta.float()).item()),
+                        })
+
+                    if (
+                        args.intervention_mode == "topk_gated_suppression"
+                        and (
+                            not bool(active.item())
+                            or int(torch.count_nonzero(delta).item()) == 0
+                        )
+                    ):
+                        return output
 
                     if args.intervention_mode == "traditional":
                         # Diagnostics use the exact modified positions. The
@@ -811,11 +914,14 @@ def main() -> None:
                         out = target_model(
                             input_ids=target_ids,
                             attention_mask=target_mask,
-                            use_cache=False,
+                            past_key_values=target_past if cached else None,
+                            use_cache=cached,
                             return_dict=True,
                         )
                 finally:
                     handle.remove()
+                if cached:
+                    target_past = out.past_key_values
 
             next_token = sample_next_token(
                 out.logits[:, -1, :],
@@ -895,6 +1001,13 @@ def main() -> None:
             diagnostics_summary["n_intervention_steps"] = len(
                 intervention_diagnostics
             )
+        for trace_index, trace_row in enumerate(gate_trace):
+            for trace_key, trace_value in trace_row.items():
+                if isinstance(trace_value, float) and not math.isfinite(trace_value):
+                    raise ValueError(
+                        f"non-finite gate diagnostic at step {trace_index}: "
+                        f"{trace_key}={trace_value}"
+                    )
         output_row.update(
             {
                 "completion": completion,
@@ -944,6 +1057,10 @@ def main() -> None:
                     )
                 ),
                 "intervention_diagnostics": diagnostics_summary,
+                "topk_gate_trace": gate_trace if args.intervention_mode == "topk_gated_suppression" else None,
+                "topk_gate_active_steps": sum(int(x["active"]) for x in gate_trace),
+                "topk_gate_total_steps": len(gate_trace),
+                "topk_gate_first_active_step": next((x["step"] for x in gate_trace if x["active"]), None),
                 "tokenizer_id": tokenizer_id,
                 "generation_seconds": elapsed,
                 "generation_seed": example_seed,

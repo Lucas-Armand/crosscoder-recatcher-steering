@@ -1,0 +1,6 @@
+{
+  "transition_cases": 343,
+  "regressions": 86,
+  "improvements": 257,
+  "taxonomy": "rule-based; audit candidates manually"
+}

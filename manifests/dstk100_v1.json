@@ -1,0 +1,48 @@
+{
+  "release_id": "dstk100_v1",
+  "technical_name": "deepseek_base_finetuned_l16_sametext_topk100_10k",
+  "status_date": "2026-08-10",
+  "git_repository": "https://github.com/Lucas-Armand/crosscoder-recatcher-steering.git",
+  "git_branch": "paper-v1-reproducibility",
+  "experiment_base_commit": "784bd49",
+  "canonical_training_commit": "8018a2a",
+  "gcs_prefix": "gs://data-intelligence-bucket/tests/recatcher_crosscoder_humaneval/crosscoder_deepseek_base_finetuned_layer16_sametext_topk100_10k_v1",
+  "layout": {
+    "checkpoint": "checkpoint/",
+    "activations": "activations/",
+    "metadata": "metadata/",
+    "experiments": "experiments/2026-08-10/"
+  },
+  "models": {
+    "a": "deepseek-ai/deepseek-coder-6.7b-base",
+    "b": "JetBrains/deepseek-coder-6.7B-kexer"
+  },
+  "layer": 16,
+  "latent_dim": 16384,
+  "top_k": 100,
+  "canonical_step": 10000,
+  "same_text_alignment": true,
+  "rms_normalized_inputs": true,
+  "evaluated_tokens_only": true,
+  "evaluation": {
+    "extraction": "v4",
+    "bigcodebench_version": "0.1.5"
+  },
+  "canonical_checkpoint_files": [
+    "final.pt",
+    "config.json",
+    "metrics.csv",
+    "CANONICAL_CHECKPOINT.json",
+    "capture_manifest.json",
+    "checksums.sha256"
+  ],
+  "experiment_runs": [
+    "dstk100_early_gated_v1",
+    "dstk100_f6404_test_contamination_general_v1",
+    "dstk100_f6404_sham_orthogonal_v1",
+    "dstk100_matched_feature_controls_v1",
+    "dstk100_extended_controls_neg3_neg4_v1",
+    "dstk100_f6404_dense_negative_curve_v1"
+  ],
+  "historical_prefixes_modified": false
+}

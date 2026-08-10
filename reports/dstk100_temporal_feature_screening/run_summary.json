@@ -1,0 +1,23 @@
+{
+  "checkpoint": "runs/crosscoder_deepseek_base_finetuned_layer16_same_text_topk100_v1/final.pt",
+  "step": 10000,
+  "top_k": 100,
+  "mask": "extraction-v4 candidate_code_repaired evaluated tokens; prompt/padding excluded; non-finite pairs excluded",
+  "metrics": [
+    "max",
+    "q10_max",
+    "q25_max",
+    "q50_max",
+    "discounted_max",
+    "discounted_mean",
+    "first_horizon",
+    "future_exposure"
+  ],
+  "bins": 20,
+  "permutations": 500,
+  "seed": 42,
+  "encoded_rows": 2608,
+  "paired_tasks": 1304,
+  "skipped": [],
+  "maxT_family": "within benchmark x transition across all features and temporal metrics"
+}
