@@ -12,7 +12,7 @@ This is strong evidence of feature-specific causal control in the selected cohor
 
 - Repository: `/home/lucas/crosscoder-recatcher-steering`
 - Branch: `paper-v1-reproducibility`
-- Current HEAD: `784bd49` (`Screen DSTK100 features for steering`)
+- Experiment base commit: `784bd49` (`Screen DSTK100 features for steering`)\n- Status and reproducibility commit: `22d92f4` (`Document and validate DSTK100 causal steering`)
 - Previous canonical DSTK100 training commit: `8018a2a`
 - Canonical checkpoint: `runs/crosscoder_deepseek_base_finetuned_layer16_same_text_topk100_v1/final.pt`
 - Canonical checkpoint step: 10,000
