@@ -1,0 +1,21 @@
+{
+  "checkpoint_step": 10000,
+  "benchmark": "bigcodebench",
+  "transition": "improvement",
+  "delta": "finetuned-source-text aggregate minus base-source-text aggregate",
+  "direction": "negative: enriched in base failure relative to finetuned success",
+  "aggregations": [
+    "max",
+    "early_max",
+    "mean",
+    "active_fraction"
+  ],
+  "permutations": 200,
+  "seed": 42,
+  "positive_tasks": 215,
+  "control_tasks": 657,
+  "minimum_support": 22,
+  "support_side": "base-source text among improvement tasks",
+  "eligible_unique_features": 3301,
+  "skipped": []
+}

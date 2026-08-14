@@ -1,0 +1,14 @@
+{
+  "checkpoint": "runs/crosscoder_deepseek_base_finetuned_layer16_same_text_topk100_v1/final.pt",
+  "step": 10000,
+  "top_k": 100,
+  "manifest_rows": 2608,
+  "encoded_rows": 2608,
+  "paired_tasks": 1304,
+  "permutations": 200,
+  "seed": 42,
+  "skipped": [],
+  "labels": "1=fail; regression positive=base pass -> finetuned fail; improvement positive=base fail -> finetuned pass",
+  "score": "finetuned-source-text aggregate minus base-source-text aggregate",
+  "candidate_rule": "positive differential, ROC-AUC > .55, >= max(3,10% positive tasks) support; rank effect/permutation-null SD then PR lift/support/FT decoder specificity"
+}
