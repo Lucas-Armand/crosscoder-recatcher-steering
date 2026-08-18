@@ -1,7 +1,7 @@
 {
   "release_id": "codellama_base_merged_topk100_v1",
   "technical_name": "codellama_base_merged_l16_sametext_topk100_10k",
-  "publication_status": "local_canonical_not_uploaded",
+  "publication_status": "ready_for_upload_authentication_required",
   "proposed_gcs_prefix": "gs://data-intelligence-bucket/tests/recatcher_crosscoder_humaneval/crosscoder_codellama_base_merged_layer16_sametext_topk100_10k_v1",
   "git_repository": "https://github.com/Lucas-Armand/crosscoder-recatcher-steering.git",
   "git_branch": "presentation-v1",
@@ -20,5 +20,13 @@
   "extraction_version": "v4",
   "capture_examples": 2608,
   "capture_tokens": 582135,
-  "historical_prefixes_modified": false
+  "historical_prefixes_modified": false,
+  "gcs_prefix": "gs://data-intelligence-bucket/tests/recatcher_crosscoder_humaneval/crosscoder_codellama_base_merged_layer16_sametext_topk100_10k_v1",
+  "gcs_layout": {
+    "checkpoint": "checkpoint/",
+    "activations": "activations/",
+    "metadata": "metadata/"
+  },
+  "activation_file_count": 5216,
+  "activation_checksums_sha256": "4646bef62ea8ec680bb210db335669bd63f27566f90877ed5ba9ce6834f55edb"
 }
