@@ -1,0 +1,123 @@
+{
+  "method": "paired_repeat_boundary_minus_first_motif_occurrence_normalized_attribution",
+  "tasks": 40,
+  "minimum_support": 4,
+  "known_features": {
+    "1058": {
+      "rank": 62,
+      "feature_id": 1058,
+      "mean_normalized_attribution_contrast_repeat_minus_first_occurrence": 0.0009238825878128409,
+      "contrast_to_task_sd": 0.30890706181526184,
+      "support_tasks_either_boundary": 19,
+      "positive_contrast_tasks": 12,
+      "positive_contrast_fraction_over_support": 0.6315789222717285,
+      "repeat_mean_normalized_attribution": 0.0018042975571006536,
+      "sham_mean_normalized_attribution": 0.0008804152021184564
+    },
+    "2857": {
+      "rank": 879,
+      "feature_id": 2857,
+      "mean_normalized_attribution_contrast_repeat_minus_first_occurrence": 2.8566395485540852e-05,
+      "contrast_to_task_sd": 0.16861476004123688,
+      "support_tasks_either_boundary": 5,
+      "positive_contrast_tasks": 3,
+      "positive_contrast_fraction_over_support": 0.6000000238418579,
+      "repeat_mean_normalized_attribution": -7.817878213245422e-05,
+      "sham_mean_normalized_attribution": -0.00010674518125597388
+    },
+    "14881": {
+      "rank": 2285,
+      "feature_id": 14881,
+      "mean_normalized_attribution_contrast_repeat_minus_first_occurrence": -0.00010256296809529886,
+      "contrast_to_task_sd": -0.05107257515192032,
+      "support_tasks_either_boundary": 20,
+      "positive_contrast_tasks": 10,
+      "positive_contrast_fraction_over_support": 0.5,
+      "repeat_mean_normalized_attribution": -0.0008329326519742608,
+      "sham_mean_normalized_attribution": -0.0007303697057068348
+    },
+    "3612": {
+      "rank": 2379,
+      "feature_id": 3612,
+      "mean_normalized_attribution_contrast_repeat_minus_first_occurrence": -0.00013345466868486255,
+      "contrast_to_task_sd": -0.06533470004796982,
+      "support_tasks_either_boundary": 27,
+      "positive_contrast_tasks": 11,
+      "positive_contrast_fraction_over_support": 0.40740740299224854,
+      "repeat_mean_normalized_attribution": -0.0012738099321722984,
+      "sham_mean_normalized_attribution": -0.0011403552489355206
+    },
+    "6128": {
+      "rank": 525,
+      "feature_id": 6128,
+      "mean_normalized_attribution_contrast_repeat_minus_first_occurrence": 8.860376692609861e-05,
+      "contrast_to_task_sd": 0.05257353559136391,
+      "support_tasks_either_boundary": 30,
+      "positive_contrast_tasks": 13,
+      "positive_contrast_fraction_over_support": 0.4333333373069763,
+      "repeat_mean_normalized_attribution": -1.2905215044156648e-05,
+      "sham_mean_normalized_attribution": -0.00010150896559935063
+    },
+    "5411": {
+      "rank": 31,
+      "feature_id": 5411,
+      "mean_normalized_attribution_contrast_repeat_minus_first_occurrence": 0.0020558435935527086,
+      "contrast_to_task_sd": 0.445206880569458,
+      "support_tasks_either_boundary": 40,
+      "positive_contrast_tasks": 29,
+      "positive_contrast_fraction_over_support": 0.7250000238418579,
+      "repeat_mean_normalized_attribution": 0.007469351403415203,
+      "sham_mean_normalized_attribution": 0.005413508042693138
+    },
+    "7915": {
+      "rank": 67,
+      "feature_id": 7915,
+      "mean_normalized_attribution_contrast_repeat_minus_first_occurrence": 0.0008494635112583637,
+      "contrast_to_task_sd": 0.11703793704509735,
+      "support_tasks_either_boundary": 37,
+      "positive_contrast_tasks": 19,
+      "positive_contrast_fraction_over_support": 0.5135135054588318,
+      "repeat_mean_normalized_attribution": 0.009628603234887123,
+      "sham_mean_normalized_attribution": 0.008779140189290047
+    },
+    "8313": {
+      "rank": 11,
+      "feature_id": 8313,
+      "mean_normalized_attribution_contrast_repeat_minus_first_occurrence": 0.004287268500775099,
+      "contrast_to_task_sd": 0.37240150570869446,
+      "support_tasks_either_boundary": 39,
+      "positive_contrast_tasks": 27,
+      "positive_contrast_fraction_over_support": 0.692307710647583,
+      "repeat_mean_normalized_attribution": 0.00548649113625288,
+      "sham_mean_normalized_attribution": 0.0011992219369858503
+    },
+    "14673": {
+      "rank": 342,
+      "feature_id": 14673,
+      "mean_normalized_attribution_contrast_repeat_minus_first_occurrence": 0.00017007708083838224,
+      "contrast_to_task_sd": 0.04730559512972832,
+      "support_tasks_either_boundary": 40,
+      "positive_contrast_tasks": 21,
+      "positive_contrast_fraction_over_support": 0.5249999761581421,
+      "repeat_mean_normalized_attribution": 0.002725475002080202,
+      "sham_mean_normalized_attribution": 0.0025553975719958544
+    },
+    "9608": {
+      "rank": 3,
+      "feature_id": 9608,
+      "mean_normalized_attribution_contrast_repeat_minus_first_occurrence": 0.007310380227863789,
+      "contrast_to_task_sd": 0.5134195685386658,
+      "support_tasks_either_boundary": 35,
+      "positive_contrast_tasks": 22,
+      "positive_contrast_fraction_over_support": 0.6285714507102966,
+      "repeat_mean_normalized_attribution": 0.014916953630745411,
+      "sham_mean_normalized_attribution": 0.007606573402881622
+    }
+  },
+  "limitations": [
+    "post-hoc sensitivity contrast",
+    "first-order approximation",
+    "EOS comparator",
+    "first motif occurrence and repeat boundary have different prefix lengths"
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "method": "first_order_pre_repetition_topk_feature_attribution",
+  "objective": "observed_first_repeated_token_logit_minus_eos_logit",
+  "interpretation": "positive attribution predicts that feature suppression lowers the unwanted margin",
+  "tasks_requested": 89,
+  "tasks_analyzed": 41,
+  "tasks_skipped": 48,
+  "top_k": 100,
+  "minimum_support": 5,
+  "known_features": {
+    "1058": {
+      "rank": 49,
+      "support": 19,
+      "mean_task_normalized_attribution": 0.0017602903535589576,
+      "attribution_to_task_sd": 0.4925391376018524,
+      "positive_sign_fraction": 0.8947368421052632
+    },
+    "2857": {
+      "rank": 2105,
+      "support": 5,
+      "mean_task_normalized_attribution": -7.627199374837801e-05,
+      "attribution_to_task_sd": -0.15151287615299225,
+      "positive_sign_fraction": 0.4
+    },
+    "14881": {
+      "rank": 2598,
+      "support": 21,
+      "mean_task_normalized_attribution": -0.0011421390809118748,
+      "attribution_to_task_sd": -0.45895645022392273,
+      "positive_sign_fraction": 0.09523809523809523
+    },
+    "3612": {
+      "rank": 2609,
+      "support": 27,
+      "mean_task_normalized_attribution": -0.0012427413603290915,
+      "attribution_to_task_sd": -0.41103318333625793,
+      "positive_sign_fraction": 0.1111111111111111
+    },
+    "6128": {
+      "rank": 1650,
+      "support": 31,
+      "mean_task_normalized_attribution": -1.0700817256292794e-05,
+      "attribution_to_task_sd": -0.007861812599003315,
+      "positive_sign_fraction": 0.5483870967741935
+    }
+  },
+  "seconds": 5.8147430419921875,
+  "limitations": [
+    "first-order approximation, not an intervention result",
+    "deterministic consecutive repeated-n-gram boundary",
+    "single bad-token-vs-EOS objective",
+    "selection cohort is exploratory and not held out"
+  ]
+}

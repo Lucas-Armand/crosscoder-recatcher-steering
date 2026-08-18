@@ -1,0 +1,71 @@
+task_id,boundary_char,boundary_text,repeat_motif_tokens,detector_required_copies,boundary_percent,bad_token_id,bad_token_text,pre_eval_count
+BigCodeBench/18,2086,command,1,8,44.870875179340025,1899,command,320
+BigCodeBench/43,1587,----------------,1,8,5.152752358158525,2683,----------------,91
+BigCodeBench/60,1227,----------------,1,8,11.789473684210526,2683,----------------,224
+BigCodeBench/73,1355,"
+    # Convert string representation of list into list.",11,4,4.672523961661342,13,"
+",34
+BigCodeBench/204,715,1.,2,4,0.970873786407767,29896,1,3
+BigCodeBench/261,1776,0,1,8,83.52098259979529,29900,0,352
+BigCodeBench/288,1004,1.,2,4,0.970873786407767,29896,1,3
+BigCodeBench/289,1356,1.,2,4,0.970873786407767,29896,1,3
+BigCodeBench/393,1107,"
+    fig.add_subplot(1,1)",13,4,14.53320500481232,13,"
+",52
+BigCodeBench/406,1069,")
+    img_array = np.array(img",12,4,2.255054432348367,29897,),10
+BigCodeBench/415,1297,"
+    dataframe.drop(columns=['UnicodeString'])",13,4,10.945273631840797,13,"
+",50
+BigCodeBench/447,1518,----------------,1,8,0.19799529761168172,2683,----------------,8
+BigCodeBench/465,1455,"
+        """"""",3,4,1.1274509803921569,13,"
+",7
+BigCodeBench/476,1334,0,1,8,51.20405576679341,29900,0,128
+BigCodeBench/504,819,1.,2,4,0.970873786407767,29896,1,3
+BigCodeBench/536,750,----------------,1,8,0.5727804756568298,2683,----------------,13
+BigCodeBench/592,1468,os,1,8,29.695431472081218,2897,os,143
+BigCodeBench/607,1048,"# Remove rows from DataFrame based on column values
+   ",12,4,0.08368200836820083,396,#,1
+BigCodeBench/610,1144,"# Remove rows from DataFrame based on values of multiple columns
+   ",14,4,0.07930214115781126,396,#,1
+BigCodeBench/632,673,----------------,1,8,0.6895687061183551,2683,----------------,17
+BigCodeBench/653,1832,"
+    dataframe = dataframe.copy()",8,4,44.54354669464848,13,"
+",250
+BigCodeBench/693,883,")
+    df = df.drop(columns",10,4,2.4719101123595504,29897,),11
+BigCodeBench/697,840,"
+    df = df.dropna()",9,4,0.9259259259259259,13,"
+",4
+BigCodeBench/698,952,5:,3,4,4.965753424657534,29871,,24
+BigCodeBench/704,840,"# Create list of column names
+    column_names = cols
+
+   ",16,4,0.10604453870625663,396,#,1
+BigCodeBench/722,652,----------------,1,8,0.7363954068896655,2683,----------------,15
+BigCodeBench/742,1633,"', axis=1)
+
+    df = df.drop('Value",15,4,14.854771784232366,742,"',",67
+BigCodeBench/767,632,"# Get the count of each letter in the list
+   ",12,4,0.099601593625498,396,#,1
+BigCodeBench/808,806,"
+    text = text.replace(' ', ' ')",11,4,1.4800514800514801,13,"
+",7
+BigCodeBench/835,1359,".
+    # Remove columns columns based on the provided indexes",12,4,4.92,29889,.,36
+BigCodeBench/837,1530,0,1,8,12.857142857142858,29900,0,25
+BigCodeBench/840,1086,0,1,8,12.857142857142858,29900,0,25
+BigCodeBench/847,810,----------------,1,8,0.7116104868913857,2683,----------------,15
+BigCodeBench/860,1305,0,1,8,10.018214936247723,29900,0,19
+BigCodeBench/862,1870,0,1,8,10.018214936247723,29900,0,19
+BigCodeBench/891,1460,")
+    df = df.drop(attribute",10,4,2.48403122782115,29897,),15
+BigCodeBench/905,1269,"
+            csv_reader.next()",8,4,8.544303797468354,13,"
+",51
+BigCodeBench/976,1673,----------------,1,8,1.39516858287043,2683,----------------,35
+BigCodeBench/977,2139,"
+    np.random.randint(0, len(features))",15,4,33.26195574589579,13,"
+",162
+BigCodeBench/1115,1090,1.,2,4,0.970873786407767,29896,1,3

@@ -1,0 +1,194 @@
+[
+  {
+    "task_id": "BigCodeBench/2",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/16",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/52",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/110",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/112",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/135",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/136",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/137",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/169",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/176",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/188",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/201",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/228",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/249",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/286",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/292",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/303",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/328",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/355",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/384",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/390",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/480",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/497",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/537",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/542",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/563",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/572",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/588",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/699",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/700",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/725",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/757",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/758",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/773",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/788",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/803",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/877",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/884",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/948",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/974",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/1002",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/1007",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/1010",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/1017",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/1031",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/1033",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/1083",
+    "reason": "no_repeated_ngram_boundary"
+  },
+  {
+    "task_id": "BigCodeBench/1130",
+    "reason": "no_repeated_ngram_boundary"
+  }
+]
