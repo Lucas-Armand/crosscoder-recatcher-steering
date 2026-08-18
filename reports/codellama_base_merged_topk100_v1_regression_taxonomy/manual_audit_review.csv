@@ -1,0 +1,8 @@
+stratum,manual_n,observation
+api_or_type_mismatch,6,"6/6 matched the terminal evaluator exception; this is an outcome phenotype, not a unique semantic root cause."
+commentary_heavy,4,"4/4 were comment-heavy, but 4/4 had a more concrete implementation defect; do not use commentary-heavy as a primary causal class."
+edge_case_or_exception,6,"6/6 matched the exception phenotype; failures still arose from diverse logic defects."
+generation_limit_or_overgeneration,4,"3/4 showed unmistakable repetitive degeneration; 1/4 reached the limit without enough evidence to infer degeneration from length alone."
+missing_required_name_or_import,6,"6/6 showed a missing name/import or loss/redefinition of the required entry point."
+syntax_or_incomplete_code,5,"5/5 were visibly syntactically invalid or incomplete."
+wrong_logic_or_other_runtime,8,"8/8 had clear incorrect or incomplete task logic; the class remains semantically broad."
