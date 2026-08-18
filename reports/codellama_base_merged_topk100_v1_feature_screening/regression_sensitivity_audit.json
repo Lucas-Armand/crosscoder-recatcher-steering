@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "primary_population": "model A pass -> model B fail",
+  "model_a": "codellama_base",
+  "model_b": "codellama_merged",
+  "four_summaries": [
+    "max",
+    "early_max",
+    "mean",
+    "active_fraction"
+  ],
+  "canonical_preference": "max/early_max; localized or early events",
+  "sensitivity": "all four summaries ranked separately and jointly",
+  "ranking_score": "effect / permutation-null SD (E/V)",
+  "guardrails": "positive effect; ROC-AUC > .55; positive support >= max(3,10% positives)",
+  "permutations": 200,
+  "p_value_warning": "permutation_p_nominal is two-sided nominal and not maxT-corrected",
+  "summary": {
+    "bigcodebench": {
+      "canonical_localized_top10": [
+        4300,
+        3612,
+        8471,
+        14881,
+        2910,
+        12671,
+        10890,
+        1058,
+        6128,
+        2857
+      ],
+      "all4_top10": [
+        13147,
+        15471,
+        2825,
+        10570,
+        14881,
+        4300,
+        4484,
+        3612,
+        8247,
+        8471
+      ],
+      "localized_ev_only_top10": [
+        4300,
+        6130,
+        8614,
+        3612,
+        8471,
+        14881,
+        2910,
+        16120,
+        12671,
+        10890
+      ],
+      "canonical_vs_all4_overlap": 4,
+      "canonical_vs_ev_only_overlap": 7,
+      "positive_support_minimum": 30
+    },
+    "humanevalplus": {
+      "canonical_localized_top10": [
+        2572,
+        4614,
+        7097,
+        3612,
+        2969,
+        1287,
+        4966,
+        8764,
+        4672,
+        7123
+      ],
+      "all4_top10": [
+        3612,
+        1700,
+        2572,
+        7097,
+        3638,
+        9142,
+        2151,
+        12047,
+        4614,
+        10387
+      ],
+      "localized_ev_only_top10": [
+        2572,
+        4230,
+        4614,
+        7097,
+        3612,
+        2969,
+        1833,
+        1287,
+        4966,
+        5559
+      ],
+      "canonical_vs_all4_overlap": 4,
+      "canonical_vs_ev_only_overlap": 7,
+      "positive_support_minimum": 4
+    }
+  },
+  "historical_feature_id_diagnostic": {
+    "8994": {
+      "localized_guarded": null,
+      "all4_guarded": null
+    },
+    "11586": {
+      "localized_guarded": null,
+      "all4_guarded": null
+    },
+    "4815": {
+      "localized_guarded": null,
+      "all4_guarded": null
+    },
+    "13439": {
+      "localized_guarded": null,
+      "all4_guarded": null
+    },
+    "4567": {
+      "localized_guarded": null,
+      "all4_guarded": null
+    }
+  },
+  "historical_id_warning": "Feature IDs from the old dense CrossCoder are not aligned coordinates in the new TopK CrossCoder."
+}

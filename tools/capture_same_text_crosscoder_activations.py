@@ -6,7 +6,7 @@ import argparse, json, re, time
 from pathlib import Path
 import numpy as np
 import torch
-from transformers import AutoModelForCausalLM, PreTrainedTokenizerFast
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
 def read(path): return [json.loads(x) for x in path.read_text().splitlines() if x]
 def safe_task(task_id): return re.sub(r"[^A-Za-z0-9]+", "_", task_id).strip("_")
@@ -19,9 +19,12 @@ def main():
     p.add_argument("--benchmarks",nargs="+",default=["humanevalplus","bigcodebench"])
     p.add_argument("--layer",type=int,default=16); p.add_argument("--device-a",default="cuda:0"); p.add_argument("--device-b",default="cuda:1")
     p.add_argument("--max-examples",type=int); p.add_argument("--trust-remote-code",action="store_true")
+    p.add_argument("--native-special-tokens",action="store_true",help="Use each checkpoint native special-token configuration; default preserves the historical DeepSeek profile.")
     a=p.parse_args(); a.output_root.mkdir(parents=True,exist_ok=True)
-    tok_kw=dict(bos_token="<｜begin▁of▁sentence｜>",eos_token="<｜end▁of▁sentence｜>",pad_token="<｜end▁of▁sentence｜>",use_fast=True,local_files_only=True,trust_remote_code=a.trust_remote_code)
-    ta=PreTrainedTokenizerFast.from_pretrained(a.model_a_id,**tok_kw); tb=PreTrainedTokenizerFast.from_pretrained(a.model_b_id,**tok_kw)
+    tok_kw=dict(use_fast=True,local_files_only=True,trust_remote_code=a.trust_remote_code)
+    if not a.native_special_tokens:
+      tok_kw.update(bos_token="<｜begin▁of▁sentence｜>",eos_token="<｜end▁of▁sentence｜>",pad_token="<｜end▁of▁sentence｜>")
+    ta=AutoTokenizer.from_pretrained(a.model_a_id,**tok_kw); tb=AutoTokenizer.from_pretrained(a.model_b_id,**tok_kw)
     common=dict(torch_dtype=torch.float16,local_files_only=True,trust_remote_code=a.trust_remote_code,attn_implementation="eager")
     ma=AutoModelForCausalLM.from_pretrained(a.model_a_id,**common).to(a.device_a).eval(); mb=AutoModelForCausalLM.from_pretrained(a.model_b_id,**common).to(a.device_b).eval()
     manifest=[]; count=0; started=time.time()

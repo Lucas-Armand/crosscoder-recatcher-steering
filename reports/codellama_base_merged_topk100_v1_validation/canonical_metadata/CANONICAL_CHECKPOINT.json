@@ -1,0 +1,10 @@
+{
+  "canonical_step": 10000,
+  "selection_reason": "User-specified 10000-step training budget; training ended at the requested budget.",
+  "source_checkpoint": "checkpoint_step_010000.pt",
+  "canonical_checkpoint": "final.pt",
+  "planned_steps_for_reproduction": 10000,
+  "top_k": 100,
+  "status": "complete_at_requested_budget",
+  "checkpoint_sha256": "b8df3b3a8ea3a488cdca426283399f906b9b0e439e3797c6785f30f21e87093d"
+}

@@ -1,0 +1,16 @@
+{
+  "checkpoint": "runs/crosscoder_codellama_base_merged_layer16_same_text_topk100_v1/final.pt",
+  "step": 10000,
+  "top_k": 100,
+  "manifest_rows": 2608,
+  "encoded_rows": 2608,
+  "paired_tasks": 1304,
+  "permutations": 200,
+  "seed": 42,
+  "model_a_label": "codellama_base",
+  "model_b_label": "codellama_merged",
+  "skipped": [],
+  "labels": "1=fail; regression positive=model A pass -> model B fail; improvement positive=model A fail -> model B pass",
+  "score": "model-B-source-text aggregate minus model-A-source-text aggregate",
+  "candidate_rule": "positive differential, ROC-AUC > .55, >= max(3,10% positive tasks) support; rank effect/permutation-null SD then PR lift/support/model-B decoder specificity"
+}

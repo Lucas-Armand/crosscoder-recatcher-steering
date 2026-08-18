@@ -1,0 +1,30 @@
+{
+  "activation_root": "runs/same_text_activations/codellama_base_merged_layer16_rms",
+  "benchmarks": [
+    "humanevalplus",
+    "bigcodebench"
+  ],
+  "model_a": "codellama_base",
+  "model_b": "codellama_merged",
+  "layer": "layer_16",
+  "latent_dim": 16384,
+  "batch_size": 2048,
+  "tokens_per_pair": 128,
+  "steps": 10000,
+  "lr": 0.0001,
+  "l1_coef": 0.0,
+  "top_k": 100,
+  "weight_decay": 0.0,
+  "seed": 42,
+  "device": "cuda",
+  "dtype": "float32",
+  "max_pairs": null,
+  "val_frac": 0.1,
+  "eval_every": 500,
+  "save_every": 2000,
+  "num_workers_note": "This script intentionally uses a simple lazy single-process loader for NPZ files.",
+  "output_dir": "runs/crosscoder_codellama_base_merged_layer16_same_text_topk100_v1",
+  "normalize_loss": true,
+  "decoder_unit_norm": true,
+  "pairing_mode": "same_position"
+}

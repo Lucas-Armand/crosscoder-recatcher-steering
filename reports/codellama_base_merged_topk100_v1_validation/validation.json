@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "artifact": "codellama_base_merged_l16_sametext_topk100_10k",
+  "checkpoint_step": 10000,
+  "checkpoint_sha256": "b8df3b3a8ea3a488cdca426283399f906b9b0e439e3797c6785f30f21e87093d",
+  "manifest_rows": 2608,
+  "paired_tasks": 1304,
+  "tokens": 582135,
+  "alignment_errors": 0,
+  "bad_source_groups": 0,
+  "max_rms_absolute_error": 0.00031435489654541016,
+  "activation_shape": [
+    4096
+  ],
+  "same_text_alignment_valid": true,
+  "split_grouping": "benchmark + task id; both source-text generations remain in the same split",
+  "transition_counts": {
+    "bigcodebench": {
+      "regression": 291,
+      "improvement": 4,
+      "both_pass": 23,
+      "both_fail": 822
+    },
+    "humanevalplus": {
+      "regression": 39,
+      "improvement": 1,
+      "both_pass": 16,
+      "both_fail": 108
+    }
+  },
+  "final_validation": {
+    "loss": 0.3778462588787079,
+    "mse_base": 0.21712999194860458,
+    "mse_merged": 0.1607157766819,
+    "l0": 99.99716796875
+  }
+}
