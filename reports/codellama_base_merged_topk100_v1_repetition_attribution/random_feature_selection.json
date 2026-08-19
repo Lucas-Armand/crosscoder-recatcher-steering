@@ -1,0 +1,48 @@
+{
+  "seed": 20260819,
+  "criteria": {
+    "support_tasks": "30..40",
+    "mean_active_tokens": "0.5x..1.8x feature9608",
+    "mean_first_position": "within 30 tokens of feature9608",
+    "merged_decoder_norm": "within 10% of feature9608",
+    "abs_decoder_cosine_with_9608": "<0.08",
+    "abs_paired_attribution_contrast": "<0.0005"
+  },
+  "eligible_pool_size": 21,
+  "target": {
+    "feature_id": 9608,
+    "decoder_norm": 0.6860393285751343,
+    "support_tasks": 35,
+    "mean_active_tokens": 4.780487804878049,
+    "mean_first_position": 6.6571428571428575
+  },
+  "selected": [
+    {
+      "feature_id": 5584,
+      "decoder_norm": 0.6738066077232361,
+      "cosine_with_9608": -0.020648054778575897,
+      "support_tasks": 38,
+      "mean_active_tokens": 4.0,
+      "mean_first_position": 0.9736842105263158,
+      "paired_contrast": 0.0004613524361047894
+    },
+    {
+      "feature_id": 10733,
+      "decoder_norm": 0.6507835984230042,
+      "cosine_with_9608": 0.012419430539011955,
+      "support_tasks": 30,
+      "mean_active_tokens": 8.195121951219512,
+      "mean_first_position": 9.9,
+      "paired_contrast": -0.0002950888592749834
+    },
+    {
+      "feature_id": 10749,
+      "decoder_norm": 0.7301828861236572,
+      "cosine_with_9608": -0.03240062668919563,
+      "support_tasks": 37,
+      "mean_active_tokens": 4.2439024390243905,
+      "mean_first_position": 1.7297297297297298,
+      "paired_contrast": 0.0004286800103727728
+    }
+  ]
+}
