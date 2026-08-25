@@ -1,0 +1,2 @@
+feature_id,decoder_base_norm,decoder_finetuned_norm,decoder_cosine,decoder_difference_norm,encoder_base_half_norm,encoder_finetuned_half_norm,encoder_half_cosine,active_texts,active_tokens
+13147,0.5443973541259766,0.8388271927833557,0.2750724256038666,0.8653169274330139,0.7658050656318665,0.9767676591873169,0.07523535192012787,718,9966

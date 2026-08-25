@@ -1,0 +1,191 @@
+{
+  "project": "codellama",
+  "checkpoint": "runs/crosscoder_codellama_base_merged_layer16_same_text_topk100_v1/final.pt",
+  "top_k": 100,
+  "tokens": "extraction-v4 evaluated code only",
+  "local_window": "\u00b110% of each source text around normalized first divergence",
+  "permutations": 200,
+  "sign": "positive=specialized text enriched; negative=base text enriched",
+  "support_rule": "max(3,10% positives)",
+  "known_feature": 27,
+  "cells": [
+    {
+      "cell": "regression_association_global",
+      "population": 314,
+      "positives": 291,
+      "controls": 23,
+      "top10": [
+        13147,
+        8992,
+        1840,
+        16161,
+        15471,
+        10570,
+        8138,
+        7353,
+        14359,
+        2825
+      ],
+      "known_absolute_rank": 987,
+      "known_signed_rank": 661,
+      "known_orientation": "base_enriched",
+      "known_ev": -1.5637866258621216,
+      "known_summary": "max"
+    },
+    {
+      "cell": "regression_association_local",
+      "population": 314,
+      "positives": 291,
+      "controls": 23,
+      "top10": [
+        4837,
+        2861,
+        12780,
+        4313,
+        10879,
+        10111,
+        8558,
+        71,
+        9579,
+        8545
+      ],
+      "known_absolute_rank": 529,
+      "known_signed_rank": 249,
+      "known_orientation": "base_enriched",
+      "known_ev": -1.7318018674850464,
+      "known_summary": "max"
+    },
+    {
+      "cell": "regression_paired_global",
+      "population": 314,
+      "positives": 291,
+      "controls": 0,
+      "top10": [
+        8138,
+        3612,
+        12253,
+        1840,
+        11227,
+        14765,
+        4148,
+        2286,
+        12573,
+        12643
+      ],
+      "known_absolute_rank": 819,
+      "known_signed_rank": 633,
+      "known_orientation": "base_enriched",
+      "known_ev": -5.5686445236206055,
+      "known_summary": "max"
+    },
+    {
+      "cell": "regression_paired_local",
+      "population": 314,
+      "positives": 291,
+      "controls": 0,
+      "top10": [
+        3612,
+        8309,
+        5642,
+        6214,
+        13428,
+        1231,
+        13934,
+        8965,
+        11222,
+        354
+      ],
+      "known_absolute_rank": 195,
+      "known_signed_rank": 45,
+      "known_orientation": "base_enriched",
+      "known_ev": -4.620321750640869,
+      "known_summary": "mean"
+    },
+    {
+      "cell": "improvement_association_global",
+      "population": 826,
+      "positives": 4,
+      "controls": 822,
+      "top10": [
+        811,
+        12201,
+        13220,
+        7860,
+        128,
+        12527,
+        6691,
+        5290,
+        4150,
+        13390
+      ],
+      "known_absolute_rank": null,
+      "known_signed_rank": null
+    },
+    {
+      "cell": "improvement_association_local",
+      "population": 826,
+      "positives": 4,
+      "controls": 822,
+      "top10": [
+        7860,
+        10173,
+        8175,
+        553,
+        7392,
+        4663,
+        14636,
+        9293,
+        16304,
+        8088
+      ],
+      "known_absolute_rank": null,
+      "known_signed_rank": null
+    },
+    {
+      "cell": "improvement_paired_global",
+      "population": 826,
+      "positives": 4,
+      "controls": 0,
+      "top10": [
+        15247,
+        15441,
+        13519,
+        7154,
+        144,
+        13768,
+        10380,
+        3612,
+        2516,
+        11252
+      ],
+      "known_absolute_rank": 2462,
+      "known_signed_rank": 1687,
+      "known_orientation": "base_enriched",
+      "known_ev": -0.9380723237991333,
+      "known_summary": "max"
+    },
+    {
+      "cell": "improvement_paired_local",
+      "population": 826,
+      "positives": 4,
+      "controls": 0,
+      "top10": [
+        827,
+        4084,
+        9736,
+        7080,
+        507,
+        9405,
+        9293,
+        11896,
+        863,
+        13428
+      ],
+      "known_absolute_rank": 675,
+      "known_signed_rank": 487,
+      "known_orientation": "base_enriched",
+      "known_ev": -1.0662773847579956,
+      "known_summary": "max"
+    }
+  ]
+}

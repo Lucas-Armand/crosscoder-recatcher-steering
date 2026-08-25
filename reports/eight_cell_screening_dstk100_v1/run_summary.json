@@ -1,0 +1,185 @@
+{
+  "project": "dstk",
+  "checkpoint": "runs/crosscoder_deepseek_base_finetuned_layer16_same_text_topk100_v1/final.pt",
+  "top_k": 100,
+  "tokens": "extraction-v4 evaluated code only",
+  "local_window": "\u00b110% of each source text around normalized first divergence",
+  "permutations": 200,
+  "sign": "positive=specialized text enriched; negative=base text enriched",
+  "support_rule": "max(3,10% positives)",
+  "known_feature": 10168,
+  "cells": [
+    {
+      "cell": "regression_association_global",
+      "population": 268,
+      "positives": 79,
+      "controls": 189,
+      "top10": [
+        8587,
+        8959,
+        6404,
+        9716,
+        14089,
+        11381,
+        15246,
+        1112,
+        6684,
+        9805
+      ],
+      "known_absolute_rank": 3390,
+      "known_signed_rank": 1652,
+      "known_orientation": "base_enriched",
+      "known_ev": -0.2803152799606323,
+      "known_summary": "max"
+    },
+    {
+      "cell": "regression_association_local",
+      "population": 268,
+      "positives": 79,
+      "controls": 189,
+      "top10": [
+        14481,
+        14767,
+        4938,
+        11020,
+        970,
+        7635,
+        11247,
+        348,
+        9461,
+        13874
+      ],
+      "known_absolute_rank": null,
+      "known_signed_rank": null
+    },
+    {
+      "cell": "regression_paired_global",
+      "population": 268,
+      "positives": 79,
+      "controls": 0,
+      "top10": [
+        10532,
+        6565,
+        1395,
+        11172,
+        1767,
+        16044,
+        9632,
+        6859,
+        11153,
+        1189
+      ],
+      "known_absolute_rank": 1374,
+      "known_signed_rank": 557,
+      "known_orientation": "base_enriched",
+      "known_ev": -2.9039502143859863,
+      "known_summary": "mean"
+    },
+    {
+      "cell": "regression_paired_local",
+      "population": 268,
+      "positives": 79,
+      "controls": 0,
+      "top10": [
+        4751,
+        10135,
+        7865,
+        6623,
+        14481,
+        14316,
+        5456,
+        348,
+        10959,
+        11517
+      ],
+      "known_absolute_rank": null,
+      "known_signed_rank": null
+    },
+    {
+      "cell": "improvement_association_global",
+      "population": 872,
+      "positives": 215,
+      "controls": 657,
+      "top10": [
+        3602,
+        10168,
+        5422,
+        1982,
+        1862,
+        1650,
+        5039,
+        9580,
+        5837,
+        9537
+      ],
+      "known_absolute_rank": 2,
+      "known_signed_rank": 2,
+      "known_orientation": "base_enriched",
+      "known_ev": -7.665519714355469,
+      "known_summary": "active_fraction"
+    },
+    {
+      "cell": "improvement_association_local",
+      "population": 872,
+      "positives": 215,
+      "controls": 657,
+      "top10": [
+        900,
+        14653,
+        2021,
+        7279,
+        16331,
+        2582,
+        12591,
+        2380,
+        10257,
+        15715
+      ],
+      "known_absolute_rank": null,
+      "known_signed_rank": null
+    },
+    {
+      "cell": "improvement_paired_global",
+      "population": 872,
+      "positives": 215,
+      "controls": 0,
+      "top10": [
+        11172,
+        1767,
+        16044,
+        10532,
+        9632,
+        7027,
+        1395,
+        6565,
+        14818,
+        6911
+      ],
+      "known_absolute_rank": 64,
+      "known_signed_rank": 35,
+      "known_orientation": "base_enriched",
+      "known_ev": -10.412240028381348,
+      "known_summary": "max"
+    },
+    {
+      "cell": "improvement_paired_local",
+      "population": 872,
+      "positives": 215,
+      "controls": 0,
+      "top10": [
+        9009,
+        5456,
+        309,
+        12591,
+        9982,
+        6927,
+        1126,
+        900,
+        13220,
+        6356
+      ],
+      "known_absolute_rank": null,
+      "known_signed_rank": null
+    }
+  ]
+}

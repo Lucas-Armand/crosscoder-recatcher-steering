@@ -1,0 +1,11 @@
+{
+  "checkpoint": "runs/crosscoder_codellama_base_merged_layer16_same_text_topk100_v1/final.pt",
+  "step": 10000,
+  "top_k": 100,
+  "features": [
+    13147
+  ],
+  "texts": 2608,
+  "mask": "evaluated extraction-v4 code tokens",
+  "contexts_per_feature": 50
+}

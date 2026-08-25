@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "comparison": "exact extraction-v4 evaluated code versus same-model alpha=0 baseline",
+  "specs": [
+    {
+      "project": "DSTK100",
+      "run": "dstk100_f3048_bidirectional_controls_v1",
+      "n": 80,
+      "target": 3048,
+      "own0": "dstk_own_alpha0",
+      "reverse0": "dstk_reverse_alpha0"
+    },
+    {
+      "project": "CodeLlama",
+      "run": "codellama_bm_f13147_bidirectional_controls_v1",
+      "n": 50,
+      "target": 13147,
+      "own0": "codellama_own_alpha0",
+      "reverse0": "codellama_reverse_alpha0"
+    }
+  ],
+  "limitations": [
+    "rule-based mutually exclusive change taxonomy",
+    "seed 50000 in the focused sweeps differs from the original alpha=3 discovery seed convention 1000+task_idx"
+  ]
+}
