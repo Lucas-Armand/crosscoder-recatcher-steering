@@ -23,8 +23,8 @@ def card(a,x,y,w,h,title,body,accent,ts=10.5,bs=8.2):
 def save(f,p,pdf):f.savefig(p,dpi=175,facecolor=BG);pdf.savefig(f,facecolor=BG);plt.close(f)
 
 def top(repo,model,tr):
- root=repo/("reports/eight_cell_screening_dstk100_v1" if model=="DS" else "reports/eight_cell_screening_codellama_base_merged_v1")
- cells=[f"{tr}_association_global",f"{tr}_association_local",f"{tr}_paired_global",f"{tr}_paired_local"]
+ root=repo/("reports/focused_subtype_screening_dstk100_contamination_v1" if model=="DS" else "reports/focused_subtype_screening_codellama_wrong_logic_v1")
+ cells=["association_global","association_local","paired_global","paired_local"]
  out={}
  for c in cells:
   with open(root/f"{c}_absolute.csv",newline="") as f:out[c]=[int(r["feature_id"]) for r in list(csv.DictReader(f))[:10]]
@@ -35,7 +35,7 @@ def build(repo,out):
  with PdfPages(out/"focus_and_pool_insert.pdf") as pdf:
   f,a=setup("WE FOCUS ON TWO ONE-SIDED BEHAVIORAL TRANSITIONS","Taxonomy turns aggregate model differences into semantically targeted cohorts")
   card(a,.055,.39,.42,.34,"DEEPSEEK · 215 IMPROVEMENTS","base fail → fine-tuned pass\n\n119/215: generated test/import contamination\n48: wrong output or logic\n16: missing name/import\n32: other primary categories\n\nMechanistic focus: 80 contamination cases",PURPLE,11,8.3)
-  card(a,.53,.39,.42,.34,"CODELLAMA · 291 REGRESSIONS","base pass → merged fail\n\n120/291: API/type mismatch\n50: wrong logic/other runtime\n43: edge case/exception\n78: generation, import, syntax, commentary\n\nMechanistic focus: 50 wrong-logic/runtime cases",ORANGE,11,8.3)
+  card(a,.53,.39,.42,.34,"CODELLAMA · 291 REGRESSIONS","base pass → merged fail\n\n120/291: API/type mismatch\n50: wrong logic/other runtime\n43: edge case/exception\n78: generation, import, syntax, commentary\n\nMechanistic focus: 50 wrong-logic/runtime cases\nImprovements: only 4 positives · EXCLUDED",ORANGE,11,7.8)
   card(a,.055,.17,.42,.14,"HOW WE CLASSIFIED","Rule/AI-assisted taxonomy + human spot checks",TEAL,9.3,8)
   card(a,.53,.17,.42,.14,"IMPORTANT QUALIFICATION","Primary = most salient observed error—not a unique root cause. CodeLlama failures are heterogeneous and often multilabel.",RED,9.3,7.8)
   p=out/"05_transition_focus.png";save(f,p,pdf);imgs.append(p)
@@ -49,8 +49,8 @@ def build(repo,out):
   p=out/"06_paired_error_examples.png";save(f,p,pdf);imgs.append(p)
 
   ds=top(repo,"DS","improvement");cl=top(repo,"CL","regression")
-  f,a=setup("EIGHT PRE-DECLARED TOP-10 LISTS DEFINE THE α=3 CANDIDATE POOL","Association vs paired model Δ × global vs error-local scope")
-  for x,title,d,col in [(.04,"DEEPSEEK · IMPROVEMENT",ds,PURPLE),(.515,"CODELLAMA · REGRESSION",cl,ORANGE)]:
+  f,a=setup("ERROR-FOCUSED TOP-10 LISTS DEFINE THE NEW α=3 CANDIDATE POOL","Three summaries per cell: max · mean · active fraction; ranking by absolute E/V")
+  for x,title,d,col in [(.04,"DEEPSEEK · 80 CONTAMINATION IMPROVEMENTS",ds,PURPLE),(.515,"CODELLAMA · 50 WRONG-LOGIC REGRESSIONS",cl,ORANGE)]:
    a.text(x,.755,title,fontsize=11,color=col,weight="bold")
    short=[("association_global","ASSOC · GLOBAL"),("association_local","ASSOC · LOCAL"),("paired_global","PAIRED · GLOBAL"),("paired_local","PAIRED · LOCAL")]
    for j,(suffix,label) in enumerate(short):
@@ -59,7 +59,7 @@ def build(repo,out):
     for i,v in enumerate(d[key]):a.text(xx+.0515,.59-i*.031,str(v),ha="center",fontsize=7.2,color=NAVY,weight="bold" if sum(v in z for z in d.values())>1 else "normal")
    union=set().union(*map(set,d.values()));over=sum(sum(v in z for z in d.values())>1 for v in union)
    a.text(x,.205,f"40 nominations → {len(union)} unique features",fontsize=10,color=col,weight="bold");a.text(x,.165,f"{over} feature(s) appear in more than one list",fontsize=8.5,color=MUTED)
-  a.add_patch(FancyBboxPatch((.19,.075),.62,.065,boxstyle="round,pad=.008",facecolor="#EEEAE2",edgecolor=GRID));a.text(.50,.108,"NEW α=3 SWEEP: exactly 38 DeepSeek + 37 CodeLlama features · no post-hoc additions",ha="center",va="center",fontsize=10,color=NAVY,weight="bold")
+  a.add_patch(FancyBboxPatch((.16,.075),.68,.065,boxstyle="round,pad=.008",facecolor="#EEEAE2",edgecolor=GRID));a.text(.50,.108,"NEW α=3 SWEEP: exactly 35 DeepSeek + 32 CodeLlama unique features · no post-hoc additions",ha="center",va="center",fontsize=10,color=NAVY,weight="bold")
   a.text(.50,.065,"Hard gate: baseline must reproduce the original raw completion byte for byte before any steered arm runs.",ha="center",fontsize=8.5,color=RED,weight="bold")
   p=out/"10_candidate_pool.png";save(f,p,pdf);imgs.append(p)
  return imgs
