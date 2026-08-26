@@ -1,0 +1,88 @@
+{
+  "project": "codellama",
+  "transition": "regression",
+  "positive_subtype": "wrong_logic_or_other_runtime",
+  "positives": 50,
+  "controls_same_transition": 241,
+  "metrics": [
+    "max",
+    "mean",
+    "active_fraction"
+  ],
+  "association": "specialized-source-text aggregate: positives minus same-transition subtype controls",
+  "paired": "(specialized-source-text minus base-source-text) per task: positives minus same-transition subtype controls",
+  "local_window": "\u00b110% around normalized first textual divergence in extraction-v4 candidate_code_repaired",
+  "permutations": 200,
+  "seed": 42,
+  "support": "max(3,10% positives); specialized-text activation for association, either-source activation for paired",
+  "cells": [
+    {
+      "cell": "association_global",
+      "positives": 50,
+      "controls": 241,
+      "top10": [
+        7692,
+        10818,
+        5642,
+        447,
+        11596,
+        1017,
+        4634,
+        7588,
+        3442,
+        8384
+      ]
+    },
+    {
+      "cell": "association_local",
+      "positives": 50,
+      "controls": 241,
+      "top10": [
+        15559,
+        3097,
+        565,
+        4173,
+        15890,
+        414,
+        4740,
+        13768,
+        4309,
+        14969
+      ]
+    },
+    {
+      "cell": "paired_global",
+      "positives": 50,
+      "controls": 241,
+      "top10": [
+        8875,
+        7588,
+        12895,
+        447,
+        4634,
+        5862,
+        3366,
+        7486,
+        1017,
+        5642
+      ]
+    },
+    {
+      "cell": "paired_local",
+      "positives": 50,
+      "controls": 241,
+      "top10": [
+        4173,
+        15559,
+        12623,
+        15968,
+        8142,
+        9419,
+        13231,
+        414,
+        13151,
+        13172
+      ]
+    }
+  ]
+}

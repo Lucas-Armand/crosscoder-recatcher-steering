@@ -1,0 +1,88 @@
+{
+  "project": "dstk",
+  "transition": "improvement",
+  "positive_subtype": "test_import_contamination",
+  "positives": 80,
+  "controls_same_transition": 135,
+  "metrics": [
+    "max",
+    "mean",
+    "active_fraction"
+  ],
+  "association": "specialized-source-text aggregate: positives minus same-transition subtype controls",
+  "paired": "(specialized-source-text minus base-source-text) per task: positives minus same-transition subtype controls",
+  "local_window": "\u00b110% around normalized first textual divergence in extraction-v4 candidate_code_repaired",
+  "permutations": 200,
+  "seed": 42,
+  "support": "max(3,10% positives); specialized-text activation for association, either-source activation for paired",
+  "cells": [
+    {
+      "cell": "association_global",
+      "positives": 80,
+      "controls": 135,
+      "top10": [
+        13879,
+        6895,
+        1078,
+        596,
+        8185,
+        14820,
+        1939,
+        15235,
+        15733,
+        16205
+      ]
+    },
+    {
+      "cell": "association_local",
+      "positives": 80,
+      "controls": 135,
+      "top10": [
+        14175,
+        9666,
+        1206,
+        8686,
+        7169,
+        11612,
+        7804,
+        1939,
+        4994,
+        1591
+      ]
+    },
+    {
+      "cell": "paired_global",
+      "positives": 80,
+      "controls": 135,
+      "top10": [
+        2913,
+        7728,
+        15821,
+        12308,
+        16264,
+        2957,
+        3602,
+        2621,
+        6877,
+        14006
+      ]
+    },
+    {
+      "cell": "paired_local",
+      "positives": 80,
+      "controls": 135,
+      "top10": [
+        2468,
+        14295,
+        8661,
+        7728,
+        2913,
+        2957,
+        9700,
+        6305,
+        10736,
+        3602
+      ]
+    }
+  ]
+}
