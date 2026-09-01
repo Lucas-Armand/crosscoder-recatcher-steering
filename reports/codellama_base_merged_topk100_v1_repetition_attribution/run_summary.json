@@ -43,9 +43,44 @@
       "mean_task_normalized_attribution": -1.0700817256292794e-05,
       "attribution_to_task_sd": -0.007861812599003315,
       "positive_sign_fraction": 0.5483870967741935
+    },
+    "5411": {
+      "rank": 5,
+      "support": 41,
+      "mean_task_normalized_attribution": 0.007294817827641964,
+      "attribution_to_task_sd": 1.4673752784729004,
+      "positive_sign_fraction": 0.9512195121951219
+    },
+    "7915": {
+      "rank": 3,
+      "support": 38,
+      "mean_task_normalized_attribution": 0.00940623413771391,
+      "attribution_to_task_sd": 1.188382625579834,
+      "positive_sign_fraction": 1.0
+    },
+    "8313": {
+      "rank": 10,
+      "support": 40,
+      "mean_task_normalized_attribution": 0.00535011338070035,
+      "attribution_to_task_sd": 1.1460533142089844,
+      "positive_sign_fraction": 0.925
+    },
+    "14673": {
+      "rank": 24,
+      "support": 41,
+      "mean_task_normalized_attribution": 0.0027204661164432764,
+      "attribution_to_task_sd": 1.0369799137115479,
+      "positive_sign_fraction": 0.926829268292683
+    },
+    "9608": {
+      "rank": 2,
+      "support": 35,
+      "mean_task_normalized_attribution": 0.014553125016391277,
+      "attribution_to_task_sd": 0.7068449854850769,
+      "positive_sign_fraction": 0.9428571428571428
     }
   },
-  "seconds": 5.8147430419921875,
+  "seconds": 5.76363468170166,
   "limitations": [
     "first-order approximation, not an intervention result",
     "deterministic consecutive repeated-n-gram boundary",

@@ -1,0 +1,34 @@
+[
+  {
+    "family": "deepseek",
+    "baseline": {
+      "direct": 0,
+      "reverse": 60,
+      "n_direct": 80,
+      "n_reverse": 80
+    },
+    "complete_arms": 50,
+    "target_arms": 50,
+    "control_arms": 0,
+    "direct_unique_tasks_changed_outcome": 16,
+    "reverse_unique_tasks_changed_outcome": 17,
+    "direct_feature_task_transitions": 119,
+    "reverse_feature_task_transitions": 97
+  },
+  {
+    "family": "codellama",
+    "baseline": {
+      "direct": 0,
+      "reverse": 50,
+      "n_direct": 50,
+      "n_reverse": 50
+    },
+    "complete_arms": 75,
+    "target_arms": 50,
+    "control_arms": 25,
+    "direct_unique_tasks_changed_outcome": 5,
+    "reverse_unique_tasks_changed_outcome": 9,
+    "direct_feature_task_transitions": 19,
+    "reverse_feature_task_transitions": 40
+  }
+]

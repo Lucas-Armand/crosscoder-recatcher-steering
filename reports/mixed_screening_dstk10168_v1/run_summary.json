@@ -1,0 +1,14 @@
+{
+  "project": "dstk10168",
+  "tasks": 80,
+  "orientation_definition": "base_text-minus-model_b_text",
+  "region": "boundary",
+  "known_feature": 10168,
+  "known_ranks": {
+    "transition_vs_rest": 8,
+    "paired_model_diff": 41,
+    "error_region": 52,
+    "temporal_weighted": 96
+  },
+  "known_mixed_rank": 26
+}

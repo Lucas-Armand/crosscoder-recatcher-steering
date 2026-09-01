@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-15T05:54:36-04:00",
+  "run": "runs/dstk100_f5422_test_contamination_v1",
+  "feature_id": 5422,
+  "checkpoint": "runs/crosscoder_deepseek_base_finetuned_layer16_same_text_topk100_v1/final.pt",
+  "checkpoint_step": 10000,
+  "benchmark": "bigcodebench",
+  "cohort_size": 119,
+  "baseline_reproduction": {
+    "verified": true,
+    "exact_raw_completion_matches": 119,
+    "total": 119,
+    "path": "runs/dstk100_f5422_test_contamination_v1/BASELINE_REPRODUCTION.json"
+  },
+  "taxonomy": {
+    "label": "exploratory test/import contamination removal",
+    "rule_version": "transition_failure_analysis_v1_rules",
+    "source_rule_file": "tools/analyze_transition_failures.py"
+  },
+  "arms": {
+    "zero": {
+      "alpha": 0.0,
+      "official_passes": 0,
+      "fail_to_pass_vs_alpha0": 0,
+      "pass_to_fail_vs_alpha0": 0,
+      "exploratory_test_import_contamination_removed": 0,
+      "exact_raw_change_count_vs_alpha0": 0,
+      "exact_raw_change_rate_vs_alpha0": 0.0,
+      "exact_code_change_count_vs_alpha0": 0,
+      "exact_code_change_rate_vs_alpha0": 0.0,
+      "tasks_with_active_online_gate": 0
+    },
+    "neg0p5": {
+      "alpha": -0.5,
+      "official_passes": 3,
+      "fail_to_pass_vs_alpha0": 3,
+      "pass_to_fail_vs_alpha0": 0,
+      "exploratory_test_import_contamination_removed": 0,
+      "exact_raw_change_count_vs_alpha0": 29,
+      "exact_raw_change_rate_vs_alpha0": 0.24369747899159663,
+      "exact_code_change_count_vs_alpha0": 0,
+      "exact_code_change_rate_vs_alpha0": 0.0,
+      "tasks_with_active_online_gate": 111
+    },
+    "neg1": {
+      "alpha": -1.0,
+      "official_passes": 1,
+      "fail_to_pass_vs_alpha0": 1,
+      "pass_to_fail_vs_alpha0": 0,
+      "exploratory_test_import_contamination_removed": 0,
+      "exact_raw_change_count_vs_alpha0": 13,
+      "exact_raw_change_rate_vs_alpha0": 0.1092436974789916,
+      "exact_code_change_count_vs_alpha0": 0,
+      "exact_code_change_rate_vs_alpha0": 0.0,
+      "tasks_with_active_online_gate": 114
+    },
+    "neg2": {
+      "alpha": -2.0,
+      "official_passes": 1,
+      "fail_to_pass_vs_alpha0": 1,
+      "pass_to_fail_vs_alpha0": 0,
+      "exploratory_test_import_contamination_removed": 0,
+      "exact_raw_change_count_vs_alpha0": 37,
+      "exact_raw_change_rate_vs_alpha0": 0.31092436974789917,
+      "exact_code_change_count_vs_alpha0": 0,
+      "exact_code_change_rate_vs_alpha0": 0.0,
+      "tasks_with_active_online_gate": 119
+    },
+    "neg3": {
+      "alpha": -3.0,
+      "official_passes": 6,
+      "fail_to_pass_vs_alpha0": 6,
+      "pass_to_fail_vs_alpha0": 0,
+      "exploratory_test_import_contamination_removed": 0,
+      "exact_raw_change_count_vs_alpha0": 42,
+      "exact_raw_change_rate_vs_alpha0": 0.35294117647058826,
+      "exact_code_change_count_vs_alpha0": 0,
+      "exact_code_change_rate_vs_alpha0": 0.0,
+      "tasks_with_active_online_gate": 107
+    },
+    "pos1": {
+      "alpha": 1.0,
+      "official_passes": 3,
+      "fail_to_pass_vs_alpha0": 3,
+      "pass_to_fail_vs_alpha0": 0,
+      "exploratory_test_import_contamination_removed": 0,
+      "exact_raw_change_count_vs_alpha0": 41,
+      "exact_raw_change_rate_vs_alpha0": 0.3445378151260504,
+      "exact_code_change_count_vs_alpha0": 0,
+      "exact_code_change_rate_vs_alpha0": 0.0,
+      "tasks_with_active_online_gate": 109
+    }
+  },
+  "decision": {
+    "promising": false,
+    "best_negative_arm": "neg3",
+    "best_negative_alpha": -3.0,
+    "rationale": "No negative arm reached the overnight threshold of at least 8 official passes or at least 20 exploratory contamination removals. The strongest negative arm reached 6/119 official passes, while alpha +1 also produced 3/119 passes in the same direction.",
+    "thresholds": {
+      "official_passes_min": 8,
+      "contamination_removals_min": 20,
+      "positive_control_same_direction_arm": "pos1"
+    }
+  },
+  "evidence_paths": [
+    "runs/dstk100_f5422_test_contamination_v1/BASELINE_REPRODUCTION.json",
+    "runs/dstk100_f5422_test_contamination_v1/evaluations/bigcodebench__f5422_alpha_zero_eval.json",
+    "runs/dstk100_f5422_test_contamination_v1/evaluations/bigcodebench__f5422_alpha_neg0p5_eval.json",
+    "runs/dstk100_f5422_test_contamination_v1/evaluations/bigcodebench__f5422_alpha_neg1_eval.json",
+    "runs/dstk100_f5422_test_contamination_v1/evaluations/bigcodebench__f5422_alpha_neg2_eval.json",
+    "runs/dstk100_f5422_test_contamination_v1/evaluations/bigcodebench__f5422_alpha_neg3_eval.json",
+    "runs/dstk100_f5422_test_contamination_v1/evaluations/bigcodebench__f5422_alpha_pos1_eval.json"
+  ]
+}

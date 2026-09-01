@@ -1,0 +1,14 @@
+{
+  "project": "codellama_f27",
+  "tasks": 50,
+  "orientation_definition": "base_text-minus-model_b_text",
+  "region": "first10",
+  "known_feature": 27,
+  "known_ranks": {
+    "transition_vs_rest": 1280,
+    "paired_model_diff": 142,
+    "error_region": 4,
+    "temporal_weighted": 41
+  },
+  "known_mixed_rank": 51
+}

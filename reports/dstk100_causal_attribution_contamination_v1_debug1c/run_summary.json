@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "method": "first_order_pre_boundary_topk_feature_attribution",
+  "objective": "observed_first_contamination_token_logit_minus_eos_logit",
+  "interpretation": "positive attribution predicts that feature suppression lowers the unwanted margin",
+  "tasks_requested": 1,
+  "tasks_analyzed": 1,
+  "tasks_skipped": 0,
+  "top_k": 100,
+  "minimum_support": 3,
+  "known_features": {
+    "6404": {
+      "rank": null,
+      "support": 0,
+      "mean_task_normalized_attribution": 0.0,
+      "attribution_to_task_sd": 0.0,
+      "positive_sign_fraction": 0.0
+    },
+    "12883": {
+      "rank": null,
+      "support": 1,
+      "mean_task_normalized_attribution": -0.0006225724355317652,
+      "attribution_to_task_sd": 0.0,
+      "positive_sign_fraction": 0.0
+    },
+    "9537": {
+      "rank": null,
+      "support": 0,
+      "mean_task_normalized_attribution": 0.0,
+      "attribution_to_task_sd": 0.0,
+      "positive_sign_fraction": 0.0
+    }
+  },
+  "seconds": 0.7355246543884277,
+  "limitations": [
+    "first-order approximation, not an intervention result",
+    "rule-based contamination boundary",
+    "single bad-token-vs-EOS objective",
+    "selection cohort is exploratory and not held out"
+  ]
+}
