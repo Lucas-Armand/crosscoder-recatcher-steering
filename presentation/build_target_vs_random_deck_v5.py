@@ -52,13 +52,21 @@ def changed_panel(fig,rect,title,target,random,col,denom):
  ax.set_title(title,loc='left',fontsize=10,color=NAVY,weight='bold');ax.set_xlabel('|α|');ax.set_ylabel(f'evaluated codes changed / {denom}');ax.set_xticks(A);ax.grid(color=GRID,alpha=.6);ax.spines[['top','right']].set_visible(False);ax.legend(frameon=False,fontsize=7)
 
 imgs={}
-# 9: remove forward-looking reverse-test language while keeping the funnel rationale.
+# 9: update the funnel rationale for the final direct comparison.
 f,a=setup('SCREEN FIRST; TEST CAUSALLY AT A COMMON OPERATING POINT','The statistical shortlist reduces the intervention search by ~99.8%',section='ERROR-FOCUSED FEATURE SELECTION')
 for x,big,small,col in [(.10,'16,384','latents / CrossCoder',NAVY),(.40,'≈30–40','candidates / model',TEAL),(.70,'≈0.2%','of latent space',RED)]:a.text(x,.63,big,fontsize=36,color=col,weight='bold',ha='center');a.text(x,.56,small,fontsize=9,color=MUTED,ha='center')
 arrow(a,.18,.61,.30,.61);arrow(a,.48,.61,.60,.61)
 card(a,.07,.20,.39,.25,'WHY |α| = 3?','Earlier dose-response work identified a practical exploratory point: visible causal changes below the most disruptive high-dose regime.',GOLD)
 card(a,.54,.20,.39,.25,'WHY STANDARDIZE?','One common magnitude makes dozens of candidates comparable before selecting five features for complete dose curves.',TEAL)
 a.text(.07,.11,'|α|=3 is a common operating point—not an independently validated optimum.',fontsize=9.5,color=NAVY,weight='bold');imgs[9]=save(f,9)
+
+# 16: retain task concentration and connect it to random-feature comparison.
+f,a=setup('DEEPSEEK: 116 TRANSITIONS COLLAPSE TO 16 SUSCEPTIBLE TASKS','Feature–task outcomes reveal both latent leverage and task-level susceptibility',section='CANONICAL ERROR-FOCUSED α=3 SWEEP')
+tasks=[('/316',17),('/435',15),('/166',13),('/496',11),('/937',10),('/349',7),('/459',7),('/7',7),('/634',6),('/695',6),('/940',5),('/188',5),('/666',3),('/1',2),('/576',1),('/823',1)]
+ax=f.add_axes([.075,.17,.56,.59]);y=list(range(len(tasks)))[::-1];ax.barh(y,[n for _,n in tasks],color=PURPLE);ax.set_yticks(y,[t for t,_ in tasks],fontsize=7.5);ax.set_xlabel('screened features that corrected the task');ax.spines[['top','right']].set_visible(False);ax.grid(axis='x',color=GRID,alpha=.45)
+card(a,.68,.46,.27,.28,'CONCENTRATION','/316   17 features\n/435   15 features\n/166   13 features\n/496   11 features\n/937   10 features',PURPLE,10,8.8)
+card(a,.68,.20,.27,.19,'NEXT COMPARISON','The complete dose experiment tests whether the selected pool reaches corrections beyond prospectively sampled random CrossCoder features.',TEAL,9.5,7.8)
+a.text(.075,.10,'16 unique corrections across 80 contamination-focused improvements.',fontsize=9,color=NAVY,weight='bold');imgs[16]=save(f,16)
 
 # 20 alpha=3 context
 f,a=setup('THE α=3 SWEEP REVEALS BOTH MODEL AND TASK SENSITIVITY','Complete error-focused sweep · official BigCodeBench 0.1.5 evaluation',section='CAUSAL CANDIDATE SWEEP')
