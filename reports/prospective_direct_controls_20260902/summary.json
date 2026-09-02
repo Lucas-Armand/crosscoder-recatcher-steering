@@ -1,0 +1,1908 @@
+{
+  "deepseek": {
+    "family": "deepseek",
+    "n": 80,
+    "baseline_passed": 0,
+    "arms": [
+      {
+        "kind": "target",
+        "id": 1078,
+        "alpha": 1,
+        "magnitude": 1,
+        "passed": 2,
+        "pass_tasks": [
+          "BigCodeBench/316",
+          "BigCodeBench/940"
+        ],
+        "raw_changed": 14,
+        "extracted_changed": 14
+      },
+      {
+        "kind": "target",
+        "id": 1078,
+        "alpha": 2,
+        "magnitude": 2,
+        "passed": 5,
+        "pass_tasks": [
+          "BigCodeBench/316",
+          "BigCodeBench/349",
+          "BigCodeBench/435",
+          "BigCodeBench/634",
+          "BigCodeBench/940"
+        ],
+        "raw_changed": 23,
+        "extracted_changed": 23
+      },
+      {
+        "kind": "target",
+        "id": 1078,
+        "alpha": 3,
+        "magnitude": 3,
+        "passed": 5,
+        "pass_tasks": [
+          "BigCodeBench/166",
+          "BigCodeBench/349",
+          "BigCodeBench/435",
+          "BigCodeBench/634",
+          "BigCodeBench/940"
+        ],
+        "raw_changed": 26,
+        "extracted_changed": 26
+      },
+      {
+        "kind": "target",
+        "id": 1078,
+        "alpha": 4,
+        "magnitude": 4,
+        "passed": 7,
+        "pass_tasks": [
+          "BigCodeBench/1",
+          "BigCodeBench/166",
+          "BigCodeBench/349",
+          "BigCodeBench/435",
+          "BigCodeBench/459",
+          "BigCodeBench/634",
+          "BigCodeBench/940"
+        ],
+        "raw_changed": 30,
+        "extracted_changed": 30
+      },
+      {
+        "kind": "target",
+        "id": 1078,
+        "alpha": 5,
+        "magnitude": 5,
+        "passed": 6,
+        "pass_tasks": [
+          "BigCodeBench/1",
+          "BigCodeBench/166",
+          "BigCodeBench/349",
+          "BigCodeBench/435",
+          "BigCodeBench/634",
+          "BigCodeBench/940"
+        ],
+        "raw_changed": 39,
+        "extracted_changed": 39
+      },
+      {
+        "kind": "target",
+        "id": 14175,
+        "alpha": 1,
+        "magnitude": 1,
+        "passed": 1,
+        "pass_tasks": [
+          "BigCodeBench/435"
+        ],
+        "raw_changed": 13,
+        "extracted_changed": 13
+      },
+      {
+        "kind": "target",
+        "id": 14175,
+        "alpha": 2,
+        "magnitude": 2,
+        "passed": 2,
+        "pass_tasks": [
+          "BigCodeBench/316",
+          "BigCodeBench/435"
+        ],
+        "raw_changed": 17,
+        "extracted_changed": 17
+      },
+      {
+        "kind": "target",
+        "id": 14175,
+        "alpha": 3,
+        "magnitude": 3,
+        "passed": 6,
+        "pass_tasks": [
+          "BigCodeBench/1",
+          "BigCodeBench/166",
+          "BigCodeBench/316",
+          "BigCodeBench/435",
+          "BigCodeBench/496",
+          "BigCodeBench/937"
+        ],
+        "raw_changed": 26,
+        "extracted_changed": 26
+      },
+      {
+        "kind": "target",
+        "id": 14175,
+        "alpha": 4,
+        "magnitude": 4,
+        "passed": 6,
+        "pass_tasks": [
+          "BigCodeBench/1",
+          "BigCodeBench/166",
+          "BigCodeBench/435",
+          "BigCodeBench/496",
+          "BigCodeBench/695",
+          "BigCodeBench/937"
+        ],
+        "raw_changed": 32,
+        "extracted_changed": 32
+      },
+      {
+        "kind": "target",
+        "id": 14175,
+        "alpha": 5,
+        "magnitude": 5,
+        "passed": 5,
+        "pass_tasks": [
+          "BigCodeBench/1",
+          "BigCodeBench/316",
+          "BigCodeBench/435",
+          "BigCodeBench/695",
+          "BigCodeBench/937"
+        ],
+        "raw_changed": 33,
+        "extracted_changed": 33
+      },
+      {
+        "kind": "target",
+        "id": 15235,
+        "alpha": -1,
+        "magnitude": 1,
+        "passed": 2,
+        "pass_tasks": [
+          "BigCodeBench/435",
+          "BigCodeBench/634"
+        ],
+        "raw_changed": 14,
+        "extracted_changed": 14
+      },
+      {
+        "kind": "target",
+        "id": 15235,
+        "alpha": -2,
+        "magnitude": 2,
+        "passed": 3,
+        "pass_tasks": [
+          "BigCodeBench/316",
+          "BigCodeBench/435",
+          "BigCodeBench/459"
+        ],
+        "raw_changed": 15,
+        "extracted_changed": 15
+      },
+      {
+        "kind": "target",
+        "id": 15235,
+        "alpha": -3,
+        "magnitude": 3,
+        "passed": 6,
+        "pass_tasks": [
+          "BigCodeBench/166",
+          "BigCodeBench/316",
+          "BigCodeBench/435",
+          "BigCodeBench/459",
+          "BigCodeBench/496",
+          "BigCodeBench/634"
+        ],
+        "raw_changed": 23,
+        "extracted_changed": 23
+      },
+      {
+        "kind": "target",
+        "id": 15235,
+        "alpha": -4,
+        "magnitude": 4,
+        "passed": 5,
+        "pass_tasks": [
+          "BigCodeBench/109",
+          "BigCodeBench/316",
+          "BigCodeBench/435",
+          "BigCodeBench/459",
+          "BigCodeBench/634"
+        ],
+        "raw_changed": 25,
+        "extracted_changed": 25
+      },
+      {
+        "kind": "target",
+        "id": 15235,
+        "alpha": -5,
+        "magnitude": 5,
+        "passed": 4,
+        "pass_tasks": [
+          "BigCodeBench/316",
+          "BigCodeBench/435",
+          "BigCodeBench/459",
+          "BigCodeBench/634"
+        ],
+        "raw_changed": 26,
+        "extracted_changed": 26
+      },
+      {
+        "kind": "target",
+        "id": 2468,
+        "alpha": -1,
+        "magnitude": 1,
+        "passed": 3,
+        "pass_tasks": [
+          "BigCodeBench/435",
+          "BigCodeBench/7",
+          "BigCodeBench/937"
+        ],
+        "raw_changed": 13,
+        "extracted_changed": 13
+      },
+      {
+        "kind": "target",
+        "id": 2468,
+        "alpha": -2,
+        "magnitude": 2,
+        "passed": 4,
+        "pass_tasks": [
+          "BigCodeBench/435",
+          "BigCodeBench/695",
+          "BigCodeBench/7",
+          "BigCodeBench/937"
+        ],
+        "raw_changed": 25,
+        "extracted_changed": 25
+      },
+      {
+        "kind": "target",
+        "id": 2468,
+        "alpha": -3,
+        "magnitude": 3,
+        "passed": 7,
+        "pass_tasks": [
+          "BigCodeBench/188",
+          "BigCodeBench/316",
+          "BigCodeBench/435",
+          "BigCodeBench/459",
+          "BigCodeBench/695",
+          "BigCodeBench/7",
+          "BigCodeBench/937"
+        ],
+        "raw_changed": 34,
+        "extracted_changed": 34
+      },
+      {
+        "kind": "target",
+        "id": 2468,
+        "alpha": -4,
+        "magnitude": 4,
+        "passed": 7,
+        "pass_tasks": [
+          "BigCodeBench/1",
+          "BigCodeBench/188",
+          "BigCodeBench/316",
+          "BigCodeBench/435",
+          "BigCodeBench/695",
+          "BigCodeBench/7",
+          "BigCodeBench/937"
+        ],
+        "raw_changed": 37,
+        "extracted_changed": 37
+      },
+      {
+        "kind": "target",
+        "id": 2468,
+        "alpha": -5,
+        "magnitude": 5,
+        "passed": 7,
+        "pass_tasks": [
+          "BigCodeBench/1",
+          "BigCodeBench/188",
+          "BigCodeBench/435",
+          "BigCodeBench/695",
+          "BigCodeBench/7",
+          "BigCodeBench/858",
+          "BigCodeBench/937"
+        ],
+        "raw_changed": 44,
+        "extracted_changed": 44
+      },
+      {
+        "kind": "target",
+        "id": 2621,
+        "alpha": -1,
+        "magnitude": 1,
+        "passed": 3,
+        "pass_tasks": [
+          "BigCodeBench/435",
+          "BigCodeBench/459",
+          "BigCodeBench/496"
+        ],
+        "raw_changed": 12,
+        "extracted_changed": 12
+      },
+      {
+        "kind": "target",
+        "id": 2621,
+        "alpha": -2,
+        "magnitude": 2,
+        "passed": 4,
+        "pass_tasks": [
+          "BigCodeBench/435",
+          "BigCodeBench/459",
+          "BigCodeBench/496",
+          "BigCodeBench/7"
+        ],
+        "raw_changed": 22,
+        "extracted_changed": 22
+      },
+      {
+        "kind": "target",
+        "id": 2621,
+        "alpha": -3,
+        "magnitude": 3,
+        "passed": 6,
+        "pass_tasks": [
+          "BigCodeBench/316",
+          "BigCodeBench/435",
+          "BigCodeBench/459",
+          "BigCodeBench/496",
+          "BigCodeBench/695",
+          "BigCodeBench/7"
+        ],
+        "raw_changed": 28,
+        "extracted_changed": 28
+      },
+      {
+        "kind": "target",
+        "id": 2621,
+        "alpha": -4,
+        "magnitude": 4,
+        "passed": 5,
+        "pass_tasks": [
+          "BigCodeBench/435",
+          "BigCodeBench/459",
+          "BigCodeBench/496",
+          "BigCodeBench/695",
+          "BigCodeBench/7"
+        ],
+        "raw_changed": 31,
+        "extracted_changed": 31
+      },
+      {
+        "kind": "target",
+        "id": 2621,
+        "alpha": -5,
+        "magnitude": 5,
+        "passed": 8,
+        "pass_tasks": [
+          "BigCodeBench/316",
+          "BigCodeBench/435",
+          "BigCodeBench/459",
+          "BigCodeBench/496",
+          "BigCodeBench/666",
+          "BigCodeBench/695",
+          "BigCodeBench/7",
+          "BigCodeBench/858"
+        ],
+        "raw_changed": 40,
+        "extracted_changed": 40
+      },
+      {
+        "kind": "random",
+        "id": 15173,
+        "alpha": -1,
+        "magnitude": 1,
+        "passed": 1,
+        "pass_tasks": [
+          "BigCodeBench/937"
+        ],
+        "raw_changed": 12,
+        "extracted_changed": 12
+      },
+      {
+        "kind": "random",
+        "id": 15173,
+        "alpha": -2,
+        "magnitude": 2,
+        "passed": 2,
+        "pass_tasks": [
+          "BigCodeBench/496",
+          "BigCodeBench/937"
+        ],
+        "raw_changed": 19,
+        "extracted_changed": 19
+      },
+      {
+        "kind": "random",
+        "id": 15173,
+        "alpha": -3,
+        "magnitude": 3,
+        "passed": 3,
+        "pass_tasks": [
+          "BigCodeBench/496",
+          "BigCodeBench/937",
+          "BigCodeBench/940"
+        ],
+        "raw_changed": 23,
+        "extracted_changed": 22
+      },
+      {
+        "kind": "random",
+        "id": 15173,
+        "alpha": -4,
+        "magnitude": 4,
+        "passed": 3,
+        "pass_tasks": [
+          "BigCodeBench/435",
+          "BigCodeBench/496",
+          "BigCodeBench/937"
+        ],
+        "raw_changed": 29,
+        "extracted_changed": 28
+      },
+      {
+        "kind": "random",
+        "id": 15173,
+        "alpha": -5,
+        "magnitude": 5,
+        "passed": 4,
+        "pass_tasks": [
+          "BigCodeBench/435",
+          "BigCodeBench/496",
+          "BigCodeBench/634",
+          "BigCodeBench/937"
+        ],
+        "raw_changed": 31,
+        "extracted_changed": 30
+      },
+      {
+        "kind": "random",
+        "id": 6023,
+        "alpha": 1,
+        "magnitude": 1,
+        "passed": 1,
+        "pass_tasks": [
+          "BigCodeBench/634"
+        ],
+        "raw_changed": 12,
+        "extracted_changed": 12
+      },
+      {
+        "kind": "random",
+        "id": 6023,
+        "alpha": 2,
+        "magnitude": 2,
+        "passed": 1,
+        "pass_tasks": [
+          "BigCodeBench/634"
+        ],
+        "raw_changed": 20,
+        "extracted_changed": 20
+      },
+      {
+        "kind": "random",
+        "id": 6023,
+        "alpha": 3,
+        "magnitude": 3,
+        "passed": 1,
+        "pass_tasks": [
+          "BigCodeBench/634"
+        ],
+        "raw_changed": 22,
+        "extracted_changed": 22
+      },
+      {
+        "kind": "random",
+        "id": 6023,
+        "alpha": 4,
+        "magnitude": 4,
+        "passed": 1,
+        "pass_tasks": [
+          "BigCodeBench/634"
+        ],
+        "raw_changed": 29,
+        "extracted_changed": 29
+      },
+      {
+        "kind": "random",
+        "id": 6023,
+        "alpha": 5,
+        "magnitude": 5,
+        "passed": 4,
+        "pass_tasks": [
+          "BigCodeBench/1",
+          "BigCodeBench/109",
+          "BigCodeBench/188",
+          "BigCodeBench/634"
+        ],
+        "raw_changed": 30,
+        "extracted_changed": 30
+      },
+      {
+        "kind": "random",
+        "id": 605,
+        "alpha": 1,
+        "magnitude": 1,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 12,
+        "extracted_changed": 12
+      },
+      {
+        "kind": "random",
+        "id": 605,
+        "alpha": 2,
+        "magnitude": 2,
+        "passed": 1,
+        "pass_tasks": [
+          "BigCodeBench/7"
+        ],
+        "raw_changed": 20,
+        "extracted_changed": 20
+      },
+      {
+        "kind": "random",
+        "id": 605,
+        "alpha": 3,
+        "magnitude": 3,
+        "passed": 4,
+        "pass_tasks": [
+          "BigCodeBench/1",
+          "BigCodeBench/316",
+          "BigCodeBench/7",
+          "BigCodeBench/940"
+        ],
+        "raw_changed": 24,
+        "extracted_changed": 24
+      },
+      {
+        "kind": "random",
+        "id": 605,
+        "alpha": 4,
+        "magnitude": 4,
+        "passed": 3,
+        "pass_tasks": [
+          "BigCodeBench/1",
+          "BigCodeBench/7",
+          "BigCodeBench/940"
+        ],
+        "raw_changed": 26,
+        "extracted_changed": 26
+      },
+      {
+        "kind": "random",
+        "id": 605,
+        "alpha": 5,
+        "magnitude": 5,
+        "passed": 3,
+        "pass_tasks": [
+          "BigCodeBench/1",
+          "BigCodeBench/7",
+          "BigCodeBench/940"
+        ],
+        "raw_changed": 31,
+        "extracted_changed": 31
+      },
+      {
+        "kind": "sham",
+        "id": 1,
+        "alpha": 1,
+        "magnitude": 1,
+        "passed": 1,
+        "pass_tasks": [
+          "BigCodeBench/316"
+        ],
+        "raw_changed": 12,
+        "extracted_changed": 12
+      },
+      {
+        "kind": "sham",
+        "id": 1,
+        "alpha": 2,
+        "magnitude": 2,
+        "passed": 1,
+        "pass_tasks": [
+          "BigCodeBench/937"
+        ],
+        "raw_changed": 17,
+        "extracted_changed": 17
+      },
+      {
+        "kind": "sham",
+        "id": 1,
+        "alpha": 3,
+        "magnitude": 3,
+        "passed": 1,
+        "pass_tasks": [
+          "BigCodeBench/937"
+        ],
+        "raw_changed": 21,
+        "extracted_changed": 21
+      },
+      {
+        "kind": "sham",
+        "id": 1,
+        "alpha": 4,
+        "magnitude": 4,
+        "passed": 2,
+        "pass_tasks": [
+          "BigCodeBench/496",
+          "BigCodeBench/937"
+        ],
+        "raw_changed": 28,
+        "extracted_changed": 27
+      },
+      {
+        "kind": "sham",
+        "id": 1,
+        "alpha": 5,
+        "magnitude": 5,
+        "passed": 4,
+        "pass_tasks": [
+          "BigCodeBench/1",
+          "BigCodeBench/349",
+          "BigCodeBench/496",
+          "BigCodeBench/937"
+        ],
+        "raw_changed": 29,
+        "extracted_changed": 28
+      },
+      {
+        "kind": "sham",
+        "id": 2,
+        "alpha": 1,
+        "magnitude": 1,
+        "passed": 1,
+        "pass_tasks": [
+          "BigCodeBench/349"
+        ],
+        "raw_changed": 15,
+        "extracted_changed": 15
+      },
+      {
+        "kind": "sham",
+        "id": 2,
+        "alpha": 2,
+        "magnitude": 2,
+        "passed": 2,
+        "pass_tasks": [
+          "BigCodeBench/188",
+          "BigCodeBench/349"
+        ],
+        "raw_changed": 21,
+        "extracted_changed": 21
+      },
+      {
+        "kind": "sham",
+        "id": 2,
+        "alpha": 3,
+        "magnitude": 3,
+        "passed": 4,
+        "pass_tasks": [
+          "BigCodeBench/1",
+          "BigCodeBench/188",
+          "BigCodeBench/204",
+          "BigCodeBench/349"
+        ],
+        "raw_changed": 26,
+        "extracted_changed": 26
+      },
+      {
+        "kind": "sham",
+        "id": 2,
+        "alpha": 4,
+        "magnitude": 4,
+        "passed": 4,
+        "pass_tasks": [
+          "BigCodeBench/1",
+          "BigCodeBench/188",
+          "BigCodeBench/204",
+          "BigCodeBench/349"
+        ],
+        "raw_changed": 31,
+        "extracted_changed": 31
+      },
+      {
+        "kind": "sham",
+        "id": 2,
+        "alpha": 5,
+        "magnitude": 5,
+        "passed": 4,
+        "pass_tasks": [
+          "BigCodeBench/1",
+          "BigCodeBench/188",
+          "BigCodeBench/204",
+          "BigCodeBench/349"
+        ],
+        "raw_changed": 36,
+        "extracted_changed": 36
+      },
+      {
+        "kind": "sham",
+        "id": 3,
+        "alpha": 1,
+        "magnitude": 1,
+        "passed": 2,
+        "pass_tasks": [
+          "BigCodeBench/166",
+          "BigCodeBench/937"
+        ],
+        "raw_changed": 14,
+        "extracted_changed": 14
+      },
+      {
+        "kind": "sham",
+        "id": 3,
+        "alpha": 2,
+        "magnitude": 2,
+        "passed": 3,
+        "pass_tasks": [
+          "BigCodeBench/188",
+          "BigCodeBench/634",
+          "BigCodeBench/937"
+        ],
+        "raw_changed": 15,
+        "extracted_changed": 15
+      },
+      {
+        "kind": "sham",
+        "id": 3,
+        "alpha": 3,
+        "magnitude": 3,
+        "passed": 5,
+        "pass_tasks": [
+          "BigCodeBench/166",
+          "BigCodeBench/188",
+          "BigCodeBench/634",
+          "BigCodeBench/7",
+          "BigCodeBench/937"
+        ],
+        "raw_changed": 23,
+        "extracted_changed": 23
+      },
+      {
+        "kind": "sham",
+        "id": 3,
+        "alpha": 4,
+        "magnitude": 4,
+        "passed": 7,
+        "pass_tasks": [
+          "BigCodeBench/166",
+          "BigCodeBench/188",
+          "BigCodeBench/349",
+          "BigCodeBench/435",
+          "BigCodeBench/634",
+          "BigCodeBench/7",
+          "BigCodeBench/937"
+        ],
+        "raw_changed": 27,
+        "extracted_changed": 27
+      },
+      {
+        "kind": "sham",
+        "id": 3,
+        "alpha": 5,
+        "magnitude": 5,
+        "passed": 9,
+        "pass_tasks": [
+          "BigCodeBench/1",
+          "BigCodeBench/166",
+          "BigCodeBench/188",
+          "BigCodeBench/349",
+          "BigCodeBench/435",
+          "BigCodeBench/634",
+          "BigCodeBench/7",
+          "BigCodeBench/823",
+          "BigCodeBench/937"
+        ],
+        "raw_changed": 32,
+        "extracted_changed": 32
+      }
+    ],
+    "by_magnitude": {
+      "1": {
+        "target": {
+          "n": 5,
+          "values": [
+            2,
+            1,
+            2,
+            3,
+            3
+          ],
+          "mean": 2.2,
+          "median": 2,
+          "maximum": 3,
+          "mean_raw_changed": 13.2,
+          "mean_extracted_changed": 13.2
+        },
+        "sham": {
+          "n": 3,
+          "values": [
+            1,
+            1,
+            2
+          ],
+          "mean": 1.3333333333333333,
+          "median": 1,
+          "maximum": 2,
+          "mean_raw_changed": 13.666666666666666,
+          "mean_extracted_changed": 13.666666666666666
+        },
+        "random": {
+          "n": 3,
+          "values": [
+            1,
+            1,
+            0
+          ],
+          "mean": 0.6666666666666666,
+          "median": 1,
+          "maximum": 1,
+          "mean_raw_changed": 12.0,
+          "mean_extracted_changed": 12.0
+        }
+      },
+      "2": {
+        "target": {
+          "n": 5,
+          "values": [
+            5,
+            2,
+            3,
+            4,
+            4
+          ],
+          "mean": 3.6,
+          "median": 4,
+          "maximum": 5,
+          "mean_raw_changed": 20.4,
+          "mean_extracted_changed": 20.4
+        },
+        "sham": {
+          "n": 3,
+          "values": [
+            1,
+            2,
+            3
+          ],
+          "mean": 2.0,
+          "median": 2,
+          "maximum": 3,
+          "mean_raw_changed": 17.666666666666668,
+          "mean_extracted_changed": 17.666666666666668
+        },
+        "random": {
+          "n": 3,
+          "values": [
+            2,
+            1,
+            1
+          ],
+          "mean": 1.3333333333333333,
+          "median": 1,
+          "maximum": 2,
+          "mean_raw_changed": 19.666666666666668,
+          "mean_extracted_changed": 19.666666666666668
+        }
+      },
+      "3": {
+        "target": {
+          "n": 5,
+          "values": [
+            5,
+            6,
+            6,
+            7,
+            6
+          ],
+          "mean": 6.0,
+          "median": 6,
+          "maximum": 7,
+          "mean_raw_changed": 27.4,
+          "mean_extracted_changed": 27.4
+        },
+        "sham": {
+          "n": 3,
+          "values": [
+            1,
+            4,
+            5
+          ],
+          "mean": 3.3333333333333335,
+          "median": 4,
+          "maximum": 5,
+          "mean_raw_changed": 23.333333333333332,
+          "mean_extracted_changed": 23.333333333333332
+        },
+        "random": {
+          "n": 3,
+          "values": [
+            3,
+            1,
+            4
+          ],
+          "mean": 2.6666666666666665,
+          "median": 3,
+          "maximum": 4,
+          "mean_raw_changed": 23.0,
+          "mean_extracted_changed": 22.666666666666668
+        }
+      },
+      "4": {
+        "target": {
+          "n": 5,
+          "values": [
+            7,
+            6,
+            5,
+            7,
+            5
+          ],
+          "mean": 6.0,
+          "median": 6,
+          "maximum": 7,
+          "mean_raw_changed": 31.0,
+          "mean_extracted_changed": 31.0
+        },
+        "sham": {
+          "n": 3,
+          "values": [
+            2,
+            4,
+            7
+          ],
+          "mean": 4.333333333333333,
+          "median": 4,
+          "maximum": 7,
+          "mean_raw_changed": 28.666666666666668,
+          "mean_extracted_changed": 28.333333333333332
+        },
+        "random": {
+          "n": 3,
+          "values": [
+            3,
+            1,
+            3
+          ],
+          "mean": 2.3333333333333335,
+          "median": 3,
+          "maximum": 3,
+          "mean_raw_changed": 28.0,
+          "mean_extracted_changed": 27.666666666666668
+        }
+      },
+      "5": {
+        "target": {
+          "n": 5,
+          "values": [
+            6,
+            5,
+            4,
+            7,
+            8
+          ],
+          "mean": 6.0,
+          "median": 6,
+          "maximum": 8,
+          "mean_raw_changed": 36.4,
+          "mean_extracted_changed": 36.4
+        },
+        "sham": {
+          "n": 3,
+          "values": [
+            4,
+            4,
+            9
+          ],
+          "mean": 5.666666666666667,
+          "median": 4,
+          "maximum": 9,
+          "mean_raw_changed": 32.333333333333336,
+          "mean_extracted_changed": 32.0
+        },
+        "random": {
+          "n": 3,
+          "values": [
+            4,
+            4,
+            3
+          ],
+          "mean": 3.6666666666666665,
+          "median": 4,
+          "maximum": 4,
+          "mean_raw_changed": 30.666666666666668,
+          "mean_extracted_changed": 30.333333333333332
+        }
+      }
+    },
+    "unique_pass_tasks": {
+      "target": [
+        "BigCodeBench/1",
+        "BigCodeBench/109",
+        "BigCodeBench/166",
+        "BigCodeBench/188",
+        "BigCodeBench/316",
+        "BigCodeBench/349",
+        "BigCodeBench/435",
+        "BigCodeBench/459",
+        "BigCodeBench/496",
+        "BigCodeBench/634",
+        "BigCodeBench/666",
+        "BigCodeBench/695",
+        "BigCodeBench/7",
+        "BigCodeBench/858",
+        "BigCodeBench/937",
+        "BigCodeBench/940"
+      ],
+      "sham": [
+        "BigCodeBench/1",
+        "BigCodeBench/166",
+        "BigCodeBench/188",
+        "BigCodeBench/204",
+        "BigCodeBench/316",
+        "BigCodeBench/349",
+        "BigCodeBench/435",
+        "BigCodeBench/496",
+        "BigCodeBench/634",
+        "BigCodeBench/7",
+        "BigCodeBench/823",
+        "BigCodeBench/937"
+      ],
+      "random": [
+        "BigCodeBench/1",
+        "BigCodeBench/109",
+        "BigCodeBench/188",
+        "BigCodeBench/316",
+        "BigCodeBench/435",
+        "BigCodeBench/496",
+        "BigCodeBench/634",
+        "BigCodeBench/7",
+        "BigCodeBench/937",
+        "BigCodeBench/940"
+      ]
+    }
+  },
+  "codellama": {
+    "family": "codellama",
+    "n": 50,
+    "baseline_passed": 0,
+    "arms": [
+      {
+        "kind": "target",
+        "id": 10818,
+        "alpha": -1,
+        "magnitude": 1,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 5,
+        "extracted_changed": 5
+      },
+      {
+        "kind": "target",
+        "id": 10818,
+        "alpha": -2,
+        "magnitude": 2,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 14,
+        "extracted_changed": 13
+      },
+      {
+        "kind": "target",
+        "id": 10818,
+        "alpha": -3,
+        "magnitude": 3,
+        "passed": 1,
+        "pass_tasks": [
+          "BigCodeBench/119"
+        ],
+        "raw_changed": 19,
+        "extracted_changed": 18
+      },
+      {
+        "kind": "target",
+        "id": 10818,
+        "alpha": -4,
+        "magnitude": 4,
+        "passed": 1,
+        "pass_tasks": [
+          "BigCodeBench/119"
+        ],
+        "raw_changed": 25,
+        "extracted_changed": 22
+      },
+      {
+        "kind": "target",
+        "id": 10818,
+        "alpha": -5,
+        "magnitude": 5,
+        "passed": 1,
+        "pass_tasks": [
+          "BigCodeBench/119"
+        ],
+        "raw_changed": 30,
+        "extracted_changed": 26
+      },
+      {
+        "kind": "target",
+        "id": 11596,
+        "alpha": -1,
+        "magnitude": 1,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 13,
+        "extracted_changed": 9
+      },
+      {
+        "kind": "target",
+        "id": 11596,
+        "alpha": -2,
+        "magnitude": 2,
+        "passed": 1,
+        "pass_tasks": [
+          "BigCodeBench/119"
+        ],
+        "raw_changed": 19,
+        "extracted_changed": 16
+      },
+      {
+        "kind": "target",
+        "id": 11596,
+        "alpha": -3,
+        "magnitude": 3,
+        "passed": 1,
+        "pass_tasks": [
+          "BigCodeBench/119"
+        ],
+        "raw_changed": 24,
+        "extracted_changed": 22
+      },
+      {
+        "kind": "target",
+        "id": 11596,
+        "alpha": -4,
+        "magnitude": 4,
+        "passed": 1,
+        "pass_tasks": [
+          "BigCodeBench/119"
+        ],
+        "raw_changed": 27,
+        "extracted_changed": 25
+      },
+      {
+        "kind": "target",
+        "id": 11596,
+        "alpha": -5,
+        "magnitude": 5,
+        "passed": 1,
+        "pass_tasks": [
+          "BigCodeBench/119"
+        ],
+        "raw_changed": 31,
+        "extracted_changed": 29
+      },
+      {
+        "kind": "target",
+        "id": 4309,
+        "alpha": -1,
+        "magnitude": 1,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 8,
+        "extracted_changed": 8
+      },
+      {
+        "kind": "target",
+        "id": 4309,
+        "alpha": -2,
+        "magnitude": 2,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 14,
+        "extracted_changed": 14
+      },
+      {
+        "kind": "target",
+        "id": 4309,
+        "alpha": -3,
+        "magnitude": 3,
+        "passed": 1,
+        "pass_tasks": [
+          "BigCodeBench/490"
+        ],
+        "raw_changed": 21,
+        "extracted_changed": 21
+      },
+      {
+        "kind": "target",
+        "id": 4309,
+        "alpha": -4,
+        "magnitude": 4,
+        "passed": 2,
+        "pass_tasks": [
+          "BigCodeBench/183",
+          "BigCodeBench/490"
+        ],
+        "raw_changed": 24,
+        "extracted_changed": 23
+      },
+      {
+        "kind": "target",
+        "id": 4309,
+        "alpha": -5,
+        "magnitude": 5,
+        "passed": 2,
+        "pass_tasks": [
+          "BigCodeBench/183",
+          "BigCodeBench/490"
+        ],
+        "raw_changed": 29,
+        "extracted_changed": 27
+      },
+      {
+        "kind": "target",
+        "id": 5642,
+        "alpha": -1,
+        "magnitude": 1,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 10,
+        "extracted_changed": 9
+      },
+      {
+        "kind": "target",
+        "id": 5642,
+        "alpha": -2,
+        "magnitude": 2,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 16,
+        "extracted_changed": 13
+      },
+      {
+        "kind": "target",
+        "id": 5642,
+        "alpha": -3,
+        "magnitude": 3,
+        "passed": 1,
+        "pass_tasks": [
+          "BigCodeBench/630"
+        ],
+        "raw_changed": 22,
+        "extracted_changed": 18
+      },
+      {
+        "kind": "target",
+        "id": 5642,
+        "alpha": -4,
+        "magnitude": 4,
+        "passed": 1,
+        "pass_tasks": [
+          "BigCodeBench/630"
+        ],
+        "raw_changed": 30,
+        "extracted_changed": 25
+      },
+      {
+        "kind": "target",
+        "id": 5642,
+        "alpha": -5,
+        "magnitude": 5,
+        "passed": 1,
+        "pass_tasks": [
+          "BigCodeBench/630"
+        ],
+        "raw_changed": 32,
+        "extracted_changed": 28
+      },
+      {
+        "kind": "target",
+        "id": 7692,
+        "alpha": -1,
+        "magnitude": 1,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 7,
+        "extracted_changed": 5
+      },
+      {
+        "kind": "target",
+        "id": 7692,
+        "alpha": -2,
+        "magnitude": 2,
+        "passed": 1,
+        "pass_tasks": [
+          "BigCodeBench/119"
+        ],
+        "raw_changed": 15,
+        "extracted_changed": 13
+      },
+      {
+        "kind": "target",
+        "id": 7692,
+        "alpha": -3,
+        "magnitude": 3,
+        "passed": 1,
+        "pass_tasks": [
+          "BigCodeBench/119"
+        ],
+        "raw_changed": 20,
+        "extracted_changed": 17
+      },
+      {
+        "kind": "target",
+        "id": 7692,
+        "alpha": -4,
+        "magnitude": 4,
+        "passed": 1,
+        "pass_tasks": [
+          "BigCodeBench/119"
+        ],
+        "raw_changed": 26,
+        "extracted_changed": 24
+      },
+      {
+        "kind": "target",
+        "id": 7692,
+        "alpha": -5,
+        "magnitude": 5,
+        "passed": 1,
+        "pass_tasks": [
+          "BigCodeBench/194"
+        ],
+        "raw_changed": 28,
+        "extracted_changed": 25
+      },
+      {
+        "kind": "random",
+        "id": 14260,
+        "alpha": -1,
+        "magnitude": 1,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 7,
+        "extracted_changed": 6
+      },
+      {
+        "kind": "random",
+        "id": 14260,
+        "alpha": -2,
+        "magnitude": 2,
+        "passed": 1,
+        "pass_tasks": [
+          "BigCodeBench/119"
+        ],
+        "raw_changed": 16,
+        "extracted_changed": 13
+      },
+      {
+        "kind": "random",
+        "id": 14260,
+        "alpha": -3,
+        "magnitude": 3,
+        "passed": 1,
+        "pass_tasks": [
+          "BigCodeBench/119"
+        ],
+        "raw_changed": 20,
+        "extracted_changed": 18
+      },
+      {
+        "kind": "random",
+        "id": 14260,
+        "alpha": -4,
+        "magnitude": 4,
+        "passed": 1,
+        "pass_tasks": [
+          "BigCodeBench/119"
+        ],
+        "raw_changed": 23,
+        "extracted_changed": 21
+      },
+      {
+        "kind": "random",
+        "id": 14260,
+        "alpha": -5,
+        "magnitude": 5,
+        "passed": 1,
+        "pass_tasks": [
+          "BigCodeBench/119"
+        ],
+        "raw_changed": 24,
+        "extracted_changed": 21
+      },
+      {
+        "kind": "random",
+        "id": 2947,
+        "alpha": 1,
+        "magnitude": 1,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 8,
+        "extracted_changed": 7
+      },
+      {
+        "kind": "random",
+        "id": 2947,
+        "alpha": 2,
+        "magnitude": 2,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 15,
+        "extracted_changed": 15
+      },
+      {
+        "kind": "random",
+        "id": 2947,
+        "alpha": 3,
+        "magnitude": 3,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 19,
+        "extracted_changed": 17
+      },
+      {
+        "kind": "random",
+        "id": 2947,
+        "alpha": 4,
+        "magnitude": 4,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 23,
+        "extracted_changed": 21
+      },
+      {
+        "kind": "random",
+        "id": 2947,
+        "alpha": 5,
+        "magnitude": 5,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 29,
+        "extracted_changed": 26
+      },
+      {
+        "kind": "random",
+        "id": 3698,
+        "alpha": 1,
+        "magnitude": 1,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 9,
+        "extracted_changed": 9
+      },
+      {
+        "kind": "random",
+        "id": 3698,
+        "alpha": 2,
+        "magnitude": 2,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 13,
+        "extracted_changed": 11
+      },
+      {
+        "kind": "random",
+        "id": 3698,
+        "alpha": 3,
+        "magnitude": 3,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 16,
+        "extracted_changed": 14
+      },
+      {
+        "kind": "random",
+        "id": 3698,
+        "alpha": 4,
+        "magnitude": 4,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 19,
+        "extracted_changed": 17
+      },
+      {
+        "kind": "random",
+        "id": 3698,
+        "alpha": 5,
+        "magnitude": 5,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 22,
+        "extracted_changed": 20
+      },
+      {
+        "kind": "sham",
+        "id": 1,
+        "alpha": 1,
+        "magnitude": 1,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 5,
+        "extracted_changed": 5
+      },
+      {
+        "kind": "sham",
+        "id": 1,
+        "alpha": 2,
+        "magnitude": 2,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 15,
+        "extracted_changed": 13
+      },
+      {
+        "kind": "sham",
+        "id": 1,
+        "alpha": 3,
+        "magnitude": 3,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 17,
+        "extracted_changed": 14
+      },
+      {
+        "kind": "sham",
+        "id": 1,
+        "alpha": 4,
+        "magnitude": 4,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 18,
+        "extracted_changed": 15
+      },
+      {
+        "kind": "sham",
+        "id": 1,
+        "alpha": 5,
+        "magnitude": 5,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 21,
+        "extracted_changed": 17
+      },
+      {
+        "kind": "sham",
+        "id": 2,
+        "alpha": 1,
+        "magnitude": 1,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 5,
+        "extracted_changed": 5
+      },
+      {
+        "kind": "sham",
+        "id": 2,
+        "alpha": 2,
+        "magnitude": 2,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 8,
+        "extracted_changed": 7
+      },
+      {
+        "kind": "sham",
+        "id": 2,
+        "alpha": 3,
+        "magnitude": 3,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 12,
+        "extracted_changed": 10
+      },
+      {
+        "kind": "sham",
+        "id": 2,
+        "alpha": 4,
+        "magnitude": 4,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 16,
+        "extracted_changed": 14
+      },
+      {
+        "kind": "sham",
+        "id": 2,
+        "alpha": 5,
+        "magnitude": 5,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 19,
+        "extracted_changed": 17
+      },
+      {
+        "kind": "sham",
+        "id": 3,
+        "alpha": 1,
+        "magnitude": 1,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 8,
+        "extracted_changed": 7
+      },
+      {
+        "kind": "sham",
+        "id": 3,
+        "alpha": 2,
+        "magnitude": 2,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 9,
+        "extracted_changed": 7
+      },
+      {
+        "kind": "sham",
+        "id": 3,
+        "alpha": 3,
+        "magnitude": 3,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 14,
+        "extracted_changed": 11
+      },
+      {
+        "kind": "sham",
+        "id": 3,
+        "alpha": 4,
+        "magnitude": 4,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 15,
+        "extracted_changed": 11
+      },
+      {
+        "kind": "sham",
+        "id": 3,
+        "alpha": 5,
+        "magnitude": 5,
+        "passed": 0,
+        "pass_tasks": [],
+        "raw_changed": 21,
+        "extracted_changed": 17
+      }
+    ],
+    "by_magnitude": {
+      "1": {
+        "target": {
+          "n": 5,
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "mean": 0.0,
+          "median": 0,
+          "maximum": 0,
+          "mean_raw_changed": 8.6,
+          "mean_extracted_changed": 7.2
+        },
+        "sham": {
+          "n": 3,
+          "values": [
+            0,
+            0,
+            0
+          ],
+          "mean": 0.0,
+          "median": 0,
+          "maximum": 0,
+          "mean_raw_changed": 6.0,
+          "mean_extracted_changed": 5.666666666666667
+        },
+        "random": {
+          "n": 3,
+          "values": [
+            0,
+            0,
+            0
+          ],
+          "mean": 0.0,
+          "median": 0,
+          "maximum": 0,
+          "mean_raw_changed": 8.0,
+          "mean_extracted_changed": 7.333333333333333
+        }
+      },
+      "2": {
+        "target": {
+          "n": 5,
+          "values": [
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          "mean": 0.4,
+          "median": 0,
+          "maximum": 1,
+          "mean_raw_changed": 15.6,
+          "mean_extracted_changed": 13.8
+        },
+        "sham": {
+          "n": 3,
+          "values": [
+            0,
+            0,
+            0
+          ],
+          "mean": 0.0,
+          "median": 0,
+          "maximum": 0,
+          "mean_raw_changed": 10.666666666666666,
+          "mean_extracted_changed": 9.0
+        },
+        "random": {
+          "n": 3,
+          "values": [
+            1,
+            0,
+            0
+          ],
+          "mean": 0.3333333333333333,
+          "median": 0,
+          "maximum": 1,
+          "mean_raw_changed": 14.666666666666666,
+          "mean_extracted_changed": 13.0
+        }
+      },
+      "3": {
+        "target": {
+          "n": 5,
+          "values": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "mean": 1.0,
+          "median": 1,
+          "maximum": 1,
+          "mean_raw_changed": 21.2,
+          "mean_extracted_changed": 19.2
+        },
+        "sham": {
+          "n": 3,
+          "values": [
+            0,
+            0,
+            0
+          ],
+          "mean": 0.0,
+          "median": 0,
+          "maximum": 0,
+          "mean_raw_changed": 14.333333333333334,
+          "mean_extracted_changed": 11.666666666666666
+        },
+        "random": {
+          "n": 3,
+          "values": [
+            1,
+            0,
+            0
+          ],
+          "mean": 0.3333333333333333,
+          "median": 0,
+          "maximum": 1,
+          "mean_raw_changed": 18.333333333333332,
+          "mean_extracted_changed": 16.333333333333332
+        }
+      },
+      "4": {
+        "target": {
+          "n": 5,
+          "values": [
+            1,
+            1,
+            2,
+            1,
+            1
+          ],
+          "mean": 1.2,
+          "median": 1,
+          "maximum": 2,
+          "mean_raw_changed": 26.4,
+          "mean_extracted_changed": 23.8
+        },
+        "sham": {
+          "n": 3,
+          "values": [
+            0,
+            0,
+            0
+          ],
+          "mean": 0.0,
+          "median": 0,
+          "maximum": 0,
+          "mean_raw_changed": 16.333333333333332,
+          "mean_extracted_changed": 13.333333333333334
+        },
+        "random": {
+          "n": 3,
+          "values": [
+            1,
+            0,
+            0
+          ],
+          "mean": 0.3333333333333333,
+          "median": 0,
+          "maximum": 1,
+          "mean_raw_changed": 21.666666666666668,
+          "mean_extracted_changed": 19.666666666666668
+        }
+      },
+      "5": {
+        "target": {
+          "n": 5,
+          "values": [
+            1,
+            1,
+            2,
+            1,
+            1
+          ],
+          "mean": 1.2,
+          "median": 1,
+          "maximum": 2,
+          "mean_raw_changed": 30.0,
+          "mean_extracted_changed": 27.0
+        },
+        "sham": {
+          "n": 3,
+          "values": [
+            0,
+            0,
+            0
+          ],
+          "mean": 0.0,
+          "median": 0,
+          "maximum": 0,
+          "mean_raw_changed": 20.333333333333332,
+          "mean_extracted_changed": 17.0
+        },
+        "random": {
+          "n": 3,
+          "values": [
+            1,
+            0,
+            0
+          ],
+          "mean": 0.3333333333333333,
+          "median": 0,
+          "maximum": 1,
+          "mean_raw_changed": 25.0,
+          "mean_extracted_changed": 22.333333333333332
+        }
+      }
+    },
+    "unique_pass_tasks": {
+      "target": [
+        "BigCodeBench/119",
+        "BigCodeBench/183",
+        "BigCodeBench/194",
+        "BigCodeBench/490",
+        "BigCodeBench/630"
+      ],
+      "sham": [],
+      "random": [
+        "BigCodeBench/119"
+      ]
+    }
+  }
+}
