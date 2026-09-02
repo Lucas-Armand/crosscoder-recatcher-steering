@@ -1,0 +1,5 @@
+model,n,original_passes,original_rate_pct,v4_passes,v4_rate_pct,v4_minus_original_pp,label_agreement,agreement_pct,original_fail_to_v4_pass,original_pass_to_v4_fail
+deepseek_base,11400,4654,40.824561,4707,41.289474,0.464912,11227,98.482456,113,60
+deepseek_finetuned,11400,5176,45.403509,4834,42.403509,-3.000000,10838,95.070175,110,452
+codellama_base,11400,3169,27.798246,3039,26.657895,-1.140351,11096,97.333333,87,217
+codellama_merged,11400,3934,34.508772,271,2.377193,-32.131579,7651,67.114035,43,3706

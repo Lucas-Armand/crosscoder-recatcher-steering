@@ -1,0 +1,110 @@
+{
+  "model_summary": [
+    {
+      "model": "deepseek_base",
+      "n": 11400,
+      "original_passes": 4654,
+      "original_rate_pct": "40.824561",
+      "v4_passes": 4707,
+      "v4_rate_pct": "41.289474",
+      "v4_minus_original_pp": "0.464912",
+      "label_agreement": 11227,
+      "agreement_pct": "98.482456",
+      "original_fail_to_v4_pass": 113,
+      "original_pass_to_v4_fail": 60
+    },
+    {
+      "model": "deepseek_finetuned",
+      "n": 11400,
+      "original_passes": 5176,
+      "original_rate_pct": "45.403509",
+      "v4_passes": 4834,
+      "v4_rate_pct": "42.403509",
+      "v4_minus_original_pp": "-3.000000",
+      "label_agreement": 10838,
+      "agreement_pct": "95.070175",
+      "original_fail_to_v4_pass": 110,
+      "original_pass_to_v4_fail": 452
+    },
+    {
+      "model": "codellama_base",
+      "n": 11400,
+      "original_passes": 3169,
+      "original_rate_pct": "27.798246",
+      "v4_passes": 3039,
+      "v4_rate_pct": "26.657895",
+      "v4_minus_original_pp": "-1.140351",
+      "label_agreement": 11096,
+      "agreement_pct": "97.333333",
+      "original_fail_to_v4_pass": 87,
+      "original_pass_to_v4_fail": 217
+    },
+    {
+      "model": "codellama_merged",
+      "n": 11400,
+      "original_passes": 3934,
+      "original_rate_pct": "34.508772",
+      "v4_passes": 271,
+      "v4_rate_pct": "2.377193",
+      "v4_minus_original_pp": "-32.131579",
+      "label_agreement": 7651,
+      "agreement_pct": "67.114035",
+      "original_fail_to_v4_pass": 43,
+      "original_pass_to_v4_fail": 3706
+    }
+  ],
+  "pair_summary": [
+    {
+      "pair": "DeepSeek base--FT",
+      "evaluation": "Zenodo original labels",
+      "n": 11400,
+      "base_passes": 4654,
+      "variant_passes": 5176,
+      "delta_pp": "4.578947",
+      "published_table1_pp": "9.32",
+      "both_fail": 5384,
+      "improvement": 1362,
+      "regression": 840,
+      "both_pass": 3814
+    },
+    {
+      "pair": "DeepSeek base--FT",
+      "evaluation": "Extraction/evaluator v4",
+      "n": 11400,
+      "base_passes": 4707,
+      "variant_passes": 4834,
+      "delta_pp": "1.114035",
+      "published_table1_pp": "9.32",
+      "both_fail": 5557,
+      "improvement": 1136,
+      "regression": 1009,
+      "both_pass": 3698
+    },
+    {
+      "pair": "CodeLlama base--merged",
+      "evaluation": "Zenodo original labels",
+      "n": 11400,
+      "base_passes": 3169,
+      "variant_passes": 3934,
+      "delta_pp": "6.710526",
+      "published_table1_pp": "6.71",
+      "both_fail": 5395,
+      "improvement": 2836,
+      "regression": 2071,
+      "both_pass": 1098
+    },
+    {
+      "pair": "CodeLlama base--merged",
+      "evaluation": "Extraction/evaluator v4",
+      "n": 11400,
+      "base_passes": 3039,
+      "variant_passes": 271,
+      "delta_pp": "-24.280702",
+      "published_table1_pp": "6.71",
+      "both_fail": 8311,
+      "improvement": 50,
+      "regression": 2818,
+      "both_pass": 221
+    }
+  ]
+}

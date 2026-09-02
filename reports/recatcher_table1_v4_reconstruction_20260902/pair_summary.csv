@@ -1,0 +1,5 @@
+pair,evaluation,n,base_passes,variant_passes,delta_pp,published_table1_pp,both_fail,improvement,regression,both_pass
+DeepSeek base--FT,Zenodo original labels,11400,4654,5176,4.578947,9.32,5384,1362,840,3814
+DeepSeek base--FT,Extraction/evaluator v4,11400,4707,4834,1.114035,9.32,5557,1136,1009,3698
+CodeLlama base--merged,Zenodo original labels,11400,3169,3934,6.710526,6.71,5395,2836,2071,1098
+CodeLlama base--merged,Extraction/evaluator v4,11400,3039,271,-24.280702,6.71,8311,50,2818,221
