@@ -68,7 +68,11 @@ The difference cannot therefore be attributed primarily to generation length. It
 
 ## Generation configuration recorded in the archive
 
-The archived BigCodeBench configuration records sampling with temperature 0.1, top-k 10, top-p 0.95, and `max_length=256`. Therefore, the statement that these original BigCodeBench artifacts used a 2,048-token limit is not supported by the archived configuration and should not be used for this comparison.
+The archived BigCodeBench `config.json` files record sampling with temperature 0.1, top-k 10, top-p 0.95, and `max_length=256`. However, the public generator does not use that field: `max_length=MAX_LENGTH` is commented out, while the actual open-weight pipeline call uses `max_new_tokens=MAX_NEW_TOKENS`, whose constant is 1,024. Thus, the metadata says 256 while the effective open-weight generation limit is 1,024 new tokens.
+
+The archived outputs independently confirm that 256 was not the effective limit. Under the corresponding locally cached tokenizers, 2,184 DeepSeek-base, 1,399 DeepSeek-fine-tuned, 2,902 CodeLlama-base, and 6,178 CodeLlama-merged continuations exceed 256 tokens. Many terminate close to 1,024 tokens; the CodeLlama-merged median is approximately 1,020 tokens. Small counts slightly above 1,024 under retrospective tokenization can arise from tokenizer/version mismatch, particularly because the merged outputs were measured with the base CodeLlama tokenizer.
+
+The separate `MAX_TOKENS=2048` constant is used by the OpenAI generator, not by the DeepSeek and CodeLlama generation path audited here. Consequently, neither 256 nor 2,048 describes the effective continuation limit for these four open-weight artifacts; the supported value is 1,024 new tokens.
 
 ## Interpretation for the paper
 
