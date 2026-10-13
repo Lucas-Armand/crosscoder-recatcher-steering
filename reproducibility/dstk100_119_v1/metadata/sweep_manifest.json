@@ -1,0 +1,449 @@
+{
+  "experiment": "focused_subtype_alpha3",
+  "version": "canonical_v1",
+  "project": "dstk",
+  "cohort": {
+    "n": 119,
+    "deepseek": "119 taxonomy contamination improvements; 96 other improvements as controls",
+    "codellama": null
+  },
+  "generation": {
+    "seed_rule": "1000 + task_idx * 100",
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_new_tokens": 512,
+    "dtype": "nf4",
+    "backend": "paired_cached"
+  },
+  "intervention": {
+    "mode": "traditional continuous",
+    "token_scope": "last_token",
+    "layer": 16,
+    "magnitude": 3
+  },
+  "candidate_count": 38,
+  "candidates": [
+    {
+      "feature_id": 15821,
+      "orientation": "base_enriched",
+      "summary": "max",
+      "ev": -15.12584114074707,
+      "abs_ev": 15.12584114074707,
+      "source_cells": [
+        "paired_global"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 402,
+      "orientation": "base_enriched",
+      "summary": "max",
+      "ev": -15.018315315246582,
+      "abs_ev": 15.018315315246582,
+      "source_cells": [
+        "paired_global"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 1159,
+      "orientation": "base_enriched",
+      "summary": "max",
+      "ev": -14.99752426147461,
+      "abs_ev": 14.99752426147461,
+      "source_cells": [
+        "paired_global"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 2957,
+      "orientation": "base_enriched",
+      "summary": "max",
+      "ev": -14.872940063476562,
+      "abs_ev": 14.872940063476562,
+      "source_cells": [
+        "paired_local",
+        "paired_global"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 2168,
+      "orientation": "base_enriched",
+      "summary": "max",
+      "ev": -14.74695110321045,
+      "abs_ev": 14.74695110321045,
+      "source_cells": [
+        "paired_global"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 15961,
+      "orientation": "base_enriched",
+      "summary": "max",
+      "ev": -14.65955638885498,
+      "abs_ev": 14.65955638885498,
+      "source_cells": [
+        "paired_global"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 4810,
+      "orientation": "base_enriched",
+      "summary": "max",
+      "ev": -14.567147254943848,
+      "abs_ev": 14.567147254943848,
+      "source_cells": [
+        "paired_global"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 12308,
+      "orientation": "base_enriched",
+      "summary": "max",
+      "ev": -14.502245903015137,
+      "abs_ev": 14.502245903015137,
+      "source_cells": [
+        "paired_global"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 3826,
+      "orientation": "base_enriched",
+      "summary": "max",
+      "ev": -14.495306015014648,
+      "abs_ev": 14.495306015014648,
+      "source_cells": [
+        "paired_global"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 10168,
+      "orientation": "base_enriched",
+      "summary": "max",
+      "ev": -14.41431713104248,
+      "abs_ev": 14.41431713104248,
+      "source_cells": [
+        "paired_global"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 2468,
+      "orientation": "base_enriched",
+      "summary": "max",
+      "ev": -10.230315208435059,
+      "abs_ev": 10.230315208435059,
+      "source_cells": [
+        "paired_local"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 8661,
+      "orientation": "base_enriched",
+      "summary": "max",
+      "ev": -9.98310661315918,
+      "abs_ev": 9.98310661315918,
+      "source_cells": [
+        "paired_local"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 10736,
+      "orientation": "base_enriched",
+      "summary": "max",
+      "ev": -9.96263599395752,
+      "abs_ev": 9.96263599395752,
+      "source_cells": [
+        "paired_local"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 2621,
+      "orientation": "base_enriched",
+      "summary": "max",
+      "ev": -9.550331115722656,
+      "abs_ev": 9.550331115722656,
+      "source_cells": [
+        "paired_local"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 10539,
+      "orientation": "base_enriched",
+      "summary": "max",
+      "ev": -9.353615760803223,
+      "abs_ev": 9.353615760803223,
+      "source_cells": [
+        "paired_local"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 5819,
+      "orientation": "base_enriched",
+      "summary": "max",
+      "ev": -9.055305480957031,
+      "abs_ev": 9.055305480957031,
+      "source_cells": [
+        "paired_local"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 7736,
+      "orientation": "base_enriched",
+      "summary": "active_fraction",
+      "ev": -9.005413055419922,
+      "abs_ev": 9.005413055419922,
+      "source_cells": [
+        "paired_local"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 14295,
+      "orientation": "base_enriched",
+      "summary": "max",
+      "ev": -9.00395679473877,
+      "abs_ev": 9.00395679473877,
+      "source_cells": [
+        "paired_local"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 91,
+      "orientation": "base_enriched",
+      "summary": "active_fraction",
+      "ev": -8.943760871887207,
+      "abs_ev": 8.943760871887207,
+      "source_cells": [
+        "paired_local"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 1078,
+      "orientation": "specialized_enriched",
+      "summary": "max",
+      "ev": 8.370560646057129,
+      "abs_ev": 8.370560646057129,
+      "source_cells": [
+        "association_global"
+      ],
+      "alpha": 3
+    },
+    {
+      "feature_id": 13879,
+      "orientation": "specialized_enriched",
+      "summary": "max",
+      "ev": 8.186091423034668,
+      "abs_ev": 8.186091423034668,
+      "source_cells": [
+        "association_global"
+      ],
+      "alpha": 3
+    },
+    {
+      "feature_id": 6895,
+      "orientation": "specialized_enriched",
+      "summary": "max",
+      "ev": 8.109427452087402,
+      "abs_ev": 8.109427452087402,
+      "source_cells": [
+        "association_global"
+      ],
+      "alpha": 3
+    },
+    {
+      "feature_id": 9666,
+      "orientation": "base_enriched",
+      "summary": "active_fraction",
+      "ev": -7.3550286293029785,
+      "abs_ev": 7.3550286293029785,
+      "source_cells": [
+        "association_global",
+        "association_local"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 8840,
+      "orientation": "specialized_enriched",
+      "summary": "max",
+      "ev": 7.338894367218018,
+      "abs_ev": 7.338894367218018,
+      "source_cells": [
+        "association_global"
+      ],
+      "alpha": 3
+    },
+    {
+      "feature_id": 5635,
+      "orientation": "specialized_enriched",
+      "summary": "active_fraction",
+      "ev": 6.988863468170166,
+      "abs_ev": 6.988863468170166,
+      "source_cells": [
+        "association_global"
+      ],
+      "alpha": 3
+    },
+    {
+      "feature_id": 15733,
+      "orientation": "base_enriched",
+      "summary": "max",
+      "ev": -6.549657821655273,
+      "abs_ev": 6.549657821655273,
+      "source_cells": [
+        "association_global"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 8185,
+      "orientation": "base_enriched",
+      "summary": "max",
+      "ev": -6.521560192108154,
+      "abs_ev": 6.521560192108154,
+      "source_cells": [
+        "association_global"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 16205,
+      "orientation": "base_enriched",
+      "summary": "max",
+      "ev": -6.479681015014648,
+      "abs_ev": 6.479681015014648,
+      "source_cells": [
+        "association_global"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 11108,
+      "orientation": "base_enriched",
+      "summary": "max",
+      "ev": -6.3432512283325195,
+      "abs_ev": 6.3432512283325195,
+      "source_cells": [
+        "association_global"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 15272,
+      "orientation": "base_enriched",
+      "summary": "max",
+      "ev": -5.301759243011475,
+      "abs_ev": 5.301759243011475,
+      "source_cells": [
+        "association_local"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 3555,
+      "orientation": "base_enriched",
+      "summary": "max",
+      "ev": -4.896823883056641,
+      "abs_ev": 4.896823883056641,
+      "source_cells": [
+        "association_local"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 1206,
+      "orientation": "base_enriched",
+      "summary": "max",
+      "ev": -4.704894542694092,
+      "abs_ev": 4.704894542694092,
+      "source_cells": [
+        "association_local"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 5765,
+      "orientation": "base_enriched",
+      "summary": "max",
+      "ev": -4.557521820068359,
+      "abs_ev": 4.557521820068359,
+      "source_cells": [
+        "association_local"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 7804,
+      "orientation": "base_enriched",
+      "summary": "max",
+      "ev": -4.542409420013428,
+      "abs_ev": 4.542409420013428,
+      "source_cells": [
+        "association_local"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 7169,
+      "orientation": "base_enriched",
+      "summary": "max",
+      "ev": -4.510908126831055,
+      "abs_ev": 4.510908126831055,
+      "source_cells": [
+        "association_local"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 13240,
+      "orientation": "base_enriched",
+      "summary": "max",
+      "ev": -4.496149063110352,
+      "abs_ev": 4.496149063110352,
+      "source_cells": [
+        "association_local"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 10631,
+      "orientation": "base_enriched",
+      "summary": "max",
+      "ev": -4.470045566558838,
+      "abs_ev": 4.470045566558838,
+      "source_cells": [
+        "association_local"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 9013,
+      "orientation": "base_enriched",
+      "summary": "mean",
+      "ev": -4.33984375,
+      "abs_ev": 4.33984375,
+      "source_cells": [
+        "association_local"
+      ],
+      "alpha": -3
+    }
+  ],
+  "analysis_gate": "DeepSeek: original byte-exact tasks. CodeLlama: 46 original-v4-exact tasks; four documented nonreproductions excluded from primary analysis.",
+  "codellama_original_nonreproduced": []
+}

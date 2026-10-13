@@ -299,3 +299,18 @@ BigCodeBench regressions at direct alphas from `-0.5` through `-4`, with `+2` as
 a directionality control. Steering changed raw suffixes but never changed the
 exact evaluated-code prefix or rescued a task. See
 [`reports/steering_harmful_feature_7608/index.md`](reports/steering_harmful_feature_7608/index.md).
+
+## Canonical 119-task DeepSeek mechanistic protocol (2026-10-13)
+
+The current direct-intervention contamination study uses all **119** DeepSeek
+BigCodeBench contamination improvements, with **96** other improvements as
+screening comparisons. Its canonical package includes the frozen inputs/seeds,
+38-feature alpha-three sweep, top-five dose curves, three random-latent control
+curves over the same 119 tasks, official evaluation details, raw-output archive,
+checksums, and updated screening figures.
+
+Start with [the reproducibility guide](reproducibility/dstk100_119_v1/README.md)
+and [the versioned manifest](manifests/dstk100_119_v1.json). Figures are available
+as [SVG, PDF and PNG](presentation/figures/dstk100_119_v1/).
+The historical 80-task results and paper-v1 manifests remain preserved; the new
+canonical designation applies specifically to this DeepSeek case study.

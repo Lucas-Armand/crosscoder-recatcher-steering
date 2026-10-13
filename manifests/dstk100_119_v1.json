@@ -1,0 +1,7 @@
+{
+  "release_id": "dstk100_119_v1",
+  "status": "canonical_direct_protocol",
+  "manifest": "reproducibility/dstk100_119_v1/manifest.json",
+  "manifest_sha256": "415fc84290bf0bd668130dd1f6b8ba0815892821b04696826f775e1da5549310",
+  "historical_manifests_modified": false
+}

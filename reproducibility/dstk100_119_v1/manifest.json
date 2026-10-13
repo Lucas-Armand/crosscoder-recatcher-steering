@@ -1,0 +1,639 @@
+{
+  "release_id": "dstk100_119_v1",
+  "status": "canonical_direct_protocol",
+  "date": "2026-10-13",
+  "scope": "DeepSeek BigCodeBench contamination improvements: all 119 taxonomy cases; direct interventions.",
+  "supersedes_for_this_study": "80-task contamination subset; historical artifacts remain immutable.",
+  "code_base_commit": "243e77cfa9ded57bf10d3de9f807b15f71c2c390",
+  "models": {
+    "a": "deepseek-ai/deepseek-coder-6.7b-base",
+    "b": "JetBrains/deepseek-coder-6.7B-kexer"
+  },
+  "checkpoint": {
+    "path": "runs/crosscoder_deepseek_base_finetuned_layer16_same_text_topk100_v1/final.pt",
+    "sha256": "0ef533f96da94c1135889977f2174c245d8b5f7917e4d78ce5fea2dcf388a7d2",
+    "canonical_step": 10000,
+    "artifact_manifest": "manifests/dstk100_v1.json"
+  },
+  "cohort": {
+    "positives": 119,
+    "comparison": 96,
+    "transition_population": 215,
+    "category": "generated_test_import_contamination",
+    "taxonomy_validation": "Original exploratory classification; no new annotation validation in this release."
+  },
+  "screening": {
+    "project": "dstk",
+    "transition": "improvement",
+    "positive_subtype": "test_import_contamination",
+    "positives": 119,
+    "controls_same_transition": 96,
+    "metrics": [
+      "max",
+      "mean",
+      "active_fraction"
+    ],
+    "association": "specialized-source-text aggregate: positives minus same-transition subtype controls",
+    "paired": "(specialized-source-text minus base-source-text) per task: positives minus same-transition subtype controls",
+    "local_window": "\u00b110% around normalized first textual divergence in extraction-v4 candidate_code_repaired",
+    "permutations": 200,
+    "seed": 42,
+    "support": "max(3,10% positives); specialized-text activation for association, either-source activation for paired",
+    "cells": [
+      {
+        "cell": "association_global",
+        "positives": 119,
+        "controls": 96,
+        "top10": [
+          1078,
+          13879,
+          6895,
+          9666,
+          8840,
+          5635,
+          15733,
+          8185,
+          16205,
+          11108
+        ]
+      },
+      {
+        "cell": "association_local",
+        "positives": 119,
+        "controls": 96,
+        "top10": [
+          9666,
+          15272,
+          3555,
+          1206,
+          5765,
+          7804,
+          7169,
+          13240,
+          10631,
+          9013
+        ]
+      },
+      {
+        "cell": "paired_global",
+        "positives": 119,
+        "controls": 96,
+        "top10": [
+          15821,
+          402,
+          1159,
+          2957,
+          2168,
+          15961,
+          4810,
+          12308,
+          3826,
+          10168
+        ]
+      },
+      {
+        "cell": "paired_local",
+        "positives": 119,
+        "controls": 96,
+        "top10": [
+          2468,
+          8661,
+          10736,
+          2621,
+          10539,
+          5819,
+          7736,
+          14295,
+          91,
+          2957
+        ]
+      }
+    ],
+    "unique_candidates": 38,
+    "score_interpretation": "Not a z-score, p-value or multiplicity-corrected significance claim."
+  },
+  "generation": {
+    "seed_rule": "1000 + task_idx * 100",
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_new_tokens": 512,
+    "dtype": "nf4",
+    "backend": "paired_cached"
+  },
+  "intervention": {
+    "mode": "traditional continuous",
+    "token_scope": "last_token",
+    "layer": 16,
+    "magnitude": 3
+  },
+  "sweep": {
+    "candidates": [
+      {
+        "feature_id": 15821,
+        "orientation": "base_enriched",
+        "summary": "max",
+        "ev": -15.12584114074707,
+        "abs_ev": 15.12584114074707,
+        "source_cells": [
+          "paired_global"
+        ],
+        "alpha": -3
+      },
+      {
+        "feature_id": 402,
+        "orientation": "base_enriched",
+        "summary": "max",
+        "ev": -15.018315315246582,
+        "abs_ev": 15.018315315246582,
+        "source_cells": [
+          "paired_global"
+        ],
+        "alpha": -3
+      },
+      {
+        "feature_id": 1159,
+        "orientation": "base_enriched",
+        "summary": "max",
+        "ev": -14.99752426147461,
+        "abs_ev": 14.99752426147461,
+        "source_cells": [
+          "paired_global"
+        ],
+        "alpha": -3
+      },
+      {
+        "feature_id": 2957,
+        "orientation": "base_enriched",
+        "summary": "max",
+        "ev": -14.872940063476562,
+        "abs_ev": 14.872940063476562,
+        "source_cells": [
+          "paired_local",
+          "paired_global"
+        ],
+        "alpha": -3
+      },
+      {
+        "feature_id": 2168,
+        "orientation": "base_enriched",
+        "summary": "max",
+        "ev": -14.74695110321045,
+        "abs_ev": 14.74695110321045,
+        "source_cells": [
+          "paired_global"
+        ],
+        "alpha": -3
+      },
+      {
+        "feature_id": 15961,
+        "orientation": "base_enriched",
+        "summary": "max",
+        "ev": -14.65955638885498,
+        "abs_ev": 14.65955638885498,
+        "source_cells": [
+          "paired_global"
+        ],
+        "alpha": -3
+      },
+      {
+        "feature_id": 4810,
+        "orientation": "base_enriched",
+        "summary": "max",
+        "ev": -14.567147254943848,
+        "abs_ev": 14.567147254943848,
+        "source_cells": [
+          "paired_global"
+        ],
+        "alpha": -3
+      },
+      {
+        "feature_id": 12308,
+        "orientation": "base_enriched",
+        "summary": "max",
+        "ev": -14.502245903015137,
+        "abs_ev": 14.502245903015137,
+        "source_cells": [
+          "paired_global"
+        ],
+        "alpha": -3
+      },
+      {
+        "feature_id": 3826,
+        "orientation": "base_enriched",
+        "summary": "max",
+        "ev": -14.495306015014648,
+        "abs_ev": 14.495306015014648,
+        "source_cells": [
+          "paired_global"
+        ],
+        "alpha": -3
+      },
+      {
+        "feature_id": 10168,
+        "orientation": "base_enriched",
+        "summary": "max",
+        "ev": -14.41431713104248,
+        "abs_ev": 14.41431713104248,
+        "source_cells": [
+          "paired_global"
+        ],
+        "alpha": -3
+      },
+      {
+        "feature_id": 2468,
+        "orientation": "base_enriched",
+        "summary": "max",
+        "ev": -10.230315208435059,
+        "abs_ev": 10.230315208435059,
+        "source_cells": [
+          "paired_local"
+        ],
+        "alpha": -3
+      },
+      {
+        "feature_id": 8661,
+        "orientation": "base_enriched",
+        "summary": "max",
+        "ev": -9.98310661315918,
+        "abs_ev": 9.98310661315918,
+        "source_cells": [
+          "paired_local"
+        ],
+        "alpha": -3
+      },
+      {
+        "feature_id": 10736,
+        "orientation": "base_enriched",
+        "summary": "max",
+        "ev": -9.96263599395752,
+        "abs_ev": 9.96263599395752,
+        "source_cells": [
+          "paired_local"
+        ],
+        "alpha": -3
+      },
+      {
+        "feature_id": 2621,
+        "orientation": "base_enriched",
+        "summary": "max",
+        "ev": -9.550331115722656,
+        "abs_ev": 9.550331115722656,
+        "source_cells": [
+          "paired_local"
+        ],
+        "alpha": -3
+      },
+      {
+        "feature_id": 10539,
+        "orientation": "base_enriched",
+        "summary": "max",
+        "ev": -9.353615760803223,
+        "abs_ev": 9.353615760803223,
+        "source_cells": [
+          "paired_local"
+        ],
+        "alpha": -3
+      },
+      {
+        "feature_id": 5819,
+        "orientation": "base_enriched",
+        "summary": "max",
+        "ev": -9.055305480957031,
+        "abs_ev": 9.055305480957031,
+        "source_cells": [
+          "paired_local"
+        ],
+        "alpha": -3
+      },
+      {
+        "feature_id": 7736,
+        "orientation": "base_enriched",
+        "summary": "active_fraction",
+        "ev": -9.005413055419922,
+        "abs_ev": 9.005413055419922,
+        "source_cells": [
+          "paired_local"
+        ],
+        "alpha": -3
+      },
+      {
+        "feature_id": 14295,
+        "orientation": "base_enriched",
+        "summary": "max",
+        "ev": -9.00395679473877,
+        "abs_ev": 9.00395679473877,
+        "source_cells": [
+          "paired_local"
+        ],
+        "alpha": -3
+      },
+      {
+        "feature_id": 91,
+        "orientation": "base_enriched",
+        "summary": "active_fraction",
+        "ev": -8.943760871887207,
+        "abs_ev": 8.943760871887207,
+        "source_cells": [
+          "paired_local"
+        ],
+        "alpha": -3
+      },
+      {
+        "feature_id": 1078,
+        "orientation": "specialized_enriched",
+        "summary": "max",
+        "ev": 8.370560646057129,
+        "abs_ev": 8.370560646057129,
+        "source_cells": [
+          "association_global"
+        ],
+        "alpha": 3
+      },
+      {
+        "feature_id": 13879,
+        "orientation": "specialized_enriched",
+        "summary": "max",
+        "ev": 8.186091423034668,
+        "abs_ev": 8.186091423034668,
+        "source_cells": [
+          "association_global"
+        ],
+        "alpha": 3
+      },
+      {
+        "feature_id": 6895,
+        "orientation": "specialized_enriched",
+        "summary": "max",
+        "ev": 8.109427452087402,
+        "abs_ev": 8.109427452087402,
+        "source_cells": [
+          "association_global"
+        ],
+        "alpha": 3
+      },
+      {
+        "feature_id": 9666,
+        "orientation": "base_enriched",
+        "summary": "active_fraction",
+        "ev": -7.3550286293029785,
+        "abs_ev": 7.3550286293029785,
+        "source_cells": [
+          "association_global",
+          "association_local"
+        ],
+        "alpha": -3
+      },
+      {
+        "feature_id": 8840,
+        "orientation": "specialized_enriched",
+        "summary": "max",
+        "ev": 7.338894367218018,
+        "abs_ev": 7.338894367218018,
+        "source_cells": [
+          "association_global"
+        ],
+        "alpha": 3
+      },
+      {
+        "feature_id": 5635,
+        "orientation": "specialized_enriched",
+        "summary": "active_fraction",
+        "ev": 6.988863468170166,
+        "abs_ev": 6.988863468170166,
+        "source_cells": [
+          "association_global"
+        ],
+        "alpha": 3
+      },
+      {
+        "feature_id": 15733,
+        "orientation": "base_enriched",
+        "summary": "max",
+        "ev": -6.549657821655273,
+        "abs_ev": 6.549657821655273,
+        "source_cells": [
+          "association_global"
+        ],
+        "alpha": -3
+      },
+      {
+        "feature_id": 8185,
+        "orientation": "base_enriched",
+        "summary": "max",
+        "ev": -6.521560192108154,
+        "abs_ev": 6.521560192108154,
+        "source_cells": [
+          "association_global"
+        ],
+        "alpha": -3
+      },
+      {
+        "feature_id": 16205,
+        "orientation": "base_enriched",
+        "summary": "max",
+        "ev": -6.479681015014648,
+        "abs_ev": 6.479681015014648,
+        "source_cells": [
+          "association_global"
+        ],
+        "alpha": -3
+      },
+      {
+        "feature_id": 11108,
+        "orientation": "base_enriched",
+        "summary": "max",
+        "ev": -6.3432512283325195,
+        "abs_ev": 6.3432512283325195,
+        "source_cells": [
+          "association_global"
+        ],
+        "alpha": -3
+      },
+      {
+        "feature_id": 15272,
+        "orientation": "base_enriched",
+        "summary": "max",
+        "ev": -5.301759243011475,
+        "abs_ev": 5.301759243011475,
+        "source_cells": [
+          "association_local"
+        ],
+        "alpha": -3
+      },
+      {
+        "feature_id": 3555,
+        "orientation": "base_enriched",
+        "summary": "max",
+        "ev": -4.896823883056641,
+        "abs_ev": 4.896823883056641,
+        "source_cells": [
+          "association_local"
+        ],
+        "alpha": -3
+      },
+      {
+        "feature_id": 1206,
+        "orientation": "base_enriched",
+        "summary": "max",
+        "ev": -4.704894542694092,
+        "abs_ev": 4.704894542694092,
+        "source_cells": [
+          "association_local"
+        ],
+        "alpha": -3
+      },
+      {
+        "feature_id": 5765,
+        "orientation": "base_enriched",
+        "summary": "max",
+        "ev": -4.557521820068359,
+        "abs_ev": 4.557521820068359,
+        "source_cells": [
+          "association_local"
+        ],
+        "alpha": -3
+      },
+      {
+        "feature_id": 7804,
+        "orientation": "base_enriched",
+        "summary": "max",
+        "ev": -4.542409420013428,
+        "abs_ev": 4.542409420013428,
+        "source_cells": [
+          "association_local"
+        ],
+        "alpha": -3
+      },
+      {
+        "feature_id": 7169,
+        "orientation": "base_enriched",
+        "summary": "max",
+        "ev": -4.510908126831055,
+        "abs_ev": 4.510908126831055,
+        "source_cells": [
+          "association_local"
+        ],
+        "alpha": -3
+      },
+      {
+        "feature_id": 13240,
+        "orientation": "base_enriched",
+        "summary": "max",
+        "ev": -4.496149063110352,
+        "abs_ev": 4.496149063110352,
+        "source_cells": [
+          "association_local"
+        ],
+        "alpha": -3
+      },
+      {
+        "feature_id": 10631,
+        "orientation": "base_enriched",
+        "summary": "max",
+        "ev": -4.470045566558838,
+        "abs_ev": 4.470045566558838,
+        "source_cells": [
+          "association_local"
+        ],
+        "alpha": -3
+      },
+      {
+        "feature_id": 9013,
+        "orientation": "base_enriched",
+        "summary": "mean",
+        "ev": -4.33984375,
+        "abs_ev": 4.33984375,
+        "source_cells": [
+          "association_local"
+        ],
+        "alpha": -3
+      }
+    ],
+    "ranking": "official corrections descending, absolute E/V descending, feature ID ascending"
+  },
+  "selected_top5": [
+    {
+      "feature_id": 4810,
+      "alpha": -3.0,
+      "source_cells": [
+        "paired_global"
+      ],
+      "summary": "max",
+      "ev": -14.567147254943848,
+      "abs_ev": 14.567147254943848
+    },
+    {
+      "feature_id": 2468,
+      "alpha": -3.0,
+      "source_cells": [
+        "paired_local"
+      ],
+      "summary": "max",
+      "ev": -10.230315208435059,
+      "abs_ev": 10.230315208435059
+    },
+    {
+      "feature_id": 2621,
+      "alpha": -3.0,
+      "source_cells": [
+        "paired_local"
+      ],
+      "summary": "max",
+      "ev": -9.550331115722656,
+      "abs_ev": 9.550331115722656
+    },
+    {
+      "feature_id": 10539,
+      "alpha": -3.0,
+      "source_cells": [
+        "paired_local"
+      ],
+      "summary": "max",
+      "ev": -9.353615760803223,
+      "abs_ev": 9.353615760803223
+    },
+    {
+      "feature_id": 6895,
+      "alpha": 3.0,
+      "source_cells": [
+        "association_global"
+      ],
+      "summary": "max",
+      "ev": 8.109427452087402,
+      "abs_ev": 8.109427452087402
+    }
+  ],
+  "random_controls": {
+    "features": {
+      "15173": -1,
+      "6023": 1,
+      "605": 1
+    },
+    "selection": "Exact IDs and signs frozen in the 2026-09-01 prospective selection; no outcome-based resampling.",
+    "construction": "Reuse 80 archived tasks plus 39 new tasks per arm, with disjoint IDs and identical extraction.",
+    "magnitudes": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "evaluation": {
+    "extraction": "tools/code_extraction.py and tools/reprocess_outputs_minimal.py",
+    "harness": "tools/evaluate_bigcodebench_subset.py",
+    "bigcodebench_version": "0.1.5"
+  },
+  "external_activation_artifacts": "gs://data-intelligence-bucket/tests/recatcher_crosscoder_humaneval/crosscoder_deepseek_base_finetuned_layer16_sametext_topk100_10k_v1/",
+  "canonical_runs": [
+    "runs/dstk100_alpha0_repro119_v1",
+    "runs/dstk100_focused_subtype_alpha3_119_v1",
+    "runs/dstk100_focused_subtype_multialpha_top5_119_v1",
+    "runs/dstk100_random_controls_119_extension_v1"
+  ],
+  "limitations": [
+    "One generation seed per task; same-cohort exploratory selection and intervention.",
+    "Comparison with three frozen random latent directions, not a population-wide specificity test.",
+    "CodeLlama results remain the separately documented 50-task historical study."
+  ]
+}

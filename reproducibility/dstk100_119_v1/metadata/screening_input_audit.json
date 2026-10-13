@@ -1,0 +1,9 @@
+{
+  "transition_tasks": 215,
+  "base_code_exact_to_taxonomy": 215,
+  "finetuned_code_exact_to_taxonomy": 215,
+  "source_files": {
+    "bigcodebench__deepseek_base_repaired.jsonl": "7998673e69609094c8b447a5a56c0ac977a559f7621bb82d514b62526376a8b0",
+    "bigcodebench__deepseek_finetuned_repaired.jsonl": "89085778e85062a44cf05536e37149bfba7d770bc6763ab94dcc91d7205a2c8b"
+  }
+}

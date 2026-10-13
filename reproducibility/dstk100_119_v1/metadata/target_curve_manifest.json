@@ -1,0 +1,107 @@
+{
+  "experiment": "focused_subtype_multialpha_top5",
+  "version": "119_v1",
+  "project": "dstk",
+  "cohort": {
+    "n": 119,
+    "deepseek": "119 taxonomy contamination improvements; 96 other improvements as controls",
+    "codellama": null
+  },
+  "generation": {
+    "seed_rule": "1000 + task_idx * 100",
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_new_tokens": 512,
+    "dtype": "nf4",
+    "backend": "paired_cached"
+  },
+  "intervention": {
+    "mode": "traditional continuous",
+    "token_scope": "last_token",
+    "layer": 16,
+    "alpha3_reused_from": "runs/dstk100_focused_subtype_alpha3_119_v1",
+    "magnitudes_requested": [
+      1,
+      2,
+      4,
+      5
+    ],
+    "magnitudes_total": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "candidate_count": 5,
+  "candidates": [
+    {
+      "feature_id": 4810,
+      "orientation": "base_enriched",
+      "summary": "max",
+      "ev": -14.567147254943848,
+      "abs_ev": 14.567147254943848,
+      "source_cells": [
+        "paired_global"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 2468,
+      "orientation": "base_enriched",
+      "summary": "max",
+      "ev": -10.230315208435059,
+      "abs_ev": 10.230315208435059,
+      "source_cells": [
+        "paired_local"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 2621,
+      "orientation": "base_enriched",
+      "summary": "max",
+      "ev": -9.550331115722656,
+      "abs_ev": 9.550331115722656,
+      "source_cells": [
+        "paired_local"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 10539,
+      "orientation": "base_enriched",
+      "summary": "max",
+      "ev": -9.353615760803223,
+      "abs_ev": 9.353615760803223,
+      "source_cells": [
+        "paired_local"
+      ],
+      "alpha": -3
+    },
+    {
+      "feature_id": 6895,
+      "orientation": "specialized_enriched",
+      "summary": "max",
+      "ev": 8.109427452087402,
+      "abs_ev": 8.109427452087402,
+      "source_cells": [
+        "association_global"
+      ],
+      "alpha": 3
+    }
+  ],
+  "analysis_gate": "DeepSeek: original byte-exact tasks. CodeLlama: 46 original-v4-exact tasks; four documented nonreproductions excluded from primary analysis.",
+  "codellama_original_nonreproduced": [],
+  "execution": {
+    "gpu": "physical GPU 2 / CUDA_VISIBLE_DEVICES=1",
+    "sharing_existing_nemo_asr_service": true,
+    "target_model": "deepseek-ai/deepseek-coder-6.7b-base",
+    "target_side": "a",
+    "generation_backend": "paired_cached",
+    "tasks": 119,
+    "generation_workers": 2,
+    "worker2_assignment": "feature 6895, alpha +1,+2,+4,+5; disjoint outputs"
+  }
+}

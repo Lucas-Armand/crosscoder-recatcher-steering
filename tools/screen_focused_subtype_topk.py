@@ -45,11 +45,17 @@ def write(path,rs):
   w=csv.DictWriter(f,fs);w.writeheader();w.writerows([{"rank":i+1,**r} for i,r in enumerate(rs)])
 
 def main():
- ap=argparse.ArgumentParser();ap.add_argument("--project",choices=["dstk","codellama"],required=True);ap.add_argument("--device",default="cuda:0");ap.add_argument("--permutations",type=int,default=200);ap.add_argument("--seed",type=int,default=42);a=ap.parse_args()
+ ap=argparse.ArgumentParser();ap.add_argument("--project",choices=["dstk","codellama"],required=True);ap.add_argument("--device",default="cuda:0");ap.add_argument("--permutations",type=int,default=200);ap.add_argument("--seed",type=int,default=42)
+ ap.add_argument("--dstk-cohort", choices=["historical80", "contamination119"], default="historical80", help="Explicitly select the frozen historical subset or all taxonomy contamination improvements.")
+ ap.add_argument("--results-root", type=Path, default=Path("/tmp/crosscoder_postprocess_and_eval_v4/out/results_repaired"), help="Directory containing canonical extracted benchmark outputs.")
+ a=ap.parse_args()
  if a.project=="dstk":
   ckpt=Path("runs/crosscoder_deepseek_base_finetuned_layer16_same_text_topk100_v1/final.pt");root=Path("runs/same_text_activations/deepseek_base_finetuned_layer16_rms");ma,mb="deepseek_base","deepseek_finetuned";fa="bigcodebench__deepseek_base_repaired.jsonl";fb="bigcodebench__deepseek_finetuned_repaired.jsonl";out=Path("reports/focused_subtype_screening_dstk100_contamination_v1");transition="improvement";expected=(80,135)
   tax={r["task_id"]:r for r in csv.DictReader(open("reports/dstk100_transition_failure_analysis_v1/transition_failure_cases.csv"))};is_positive=lambda t:tax[t]["primary_failure_category"]=="generated_test_import_contamination" and t in semantic_tasks
-  semantic_tasks={json.loads(x)["task_id"] for x in open("runs/dstk100_continuous_f6404_f10168_f13801_v1/input.jsonl")}
+  semantic_tasks={json.loads(x)["task_id"] for x in open("runs/dstk100_continuous_f6404_f10168_f13801_v1/input.jsonl")} if a.dstk_cohort=="historical80" else set()
+  if a.dstk_cohort=="contamination119":
+   out=Path("reports/focused_subtype_screening_dstk100_contamination_119_v1");expected=(119,96)
+   is_positive=lambda t:tax[t]["primary_failure_category"]=="generated_test_import_contamination"
  else:
   ckpt=Path("runs/crosscoder_codellama_base_merged_layer16_same_text_topk100_v1/final.pt");root=Path("runs/same_text_activations/codellama_base_merged_layer16_rms");ma,mb="codellama_base","codellama_merged";fa="bigcodebench__codellama_base_repaired.jsonl";fb="bigcodebench__codellama_merged_repaired.jsonl";out=Path("reports/focused_subtype_screening_codellama_wrong_logic_v1");transition="regression";expected=(50,241)
   tax={r["task_id"]:r for r in csv.DictReader(open("reports/codellama_base_merged_topk100_v1_regression_taxonomy/regression_failure_cases.csv")) if r["benchmark"]=="bigcodebench"};is_positive=lambda t:tax[t]["primary_failure_category"]=="wrong_logic_or_other_runtime"
@@ -57,7 +63,7 @@ def main():
  labels={}
  for r in csv.DictReader(open("reports/paper_v1_v4_evaluation_labels.csv")):
   if r["benchmark"]=="bigcodebench" and r["model"] in (ma,mb):labels[(r["model"],r["task_id"])]=int(r["label"])
- rr=Path("/tmp/crosscoder_postprocess_and_eval_v4/out/results_repaired");code={}
+ rr=a.results_root;code={}
  for m,fn in ((ma,fa),(mb,fb)):
   for r in map(json.loads,open(rr/fn)):code[(m,r["task_id"])]=r.get("candidate_code_repaired") or r.get("extraction_generated_text") or r.get("raw_completion") or ""
  manifest=json.loads((root/"capture_manifest.json").read_text());idx={(m["task_id"],m["source_text"]):m for m in manifest if m["benchmark"]=="bigcodebench"}

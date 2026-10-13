@@ -1,0 +1,215 @@
+[
+  {
+    "feature_id": 15173,
+    "alpha": -1,
+    "n": 119,
+    "passed": 3,
+    "pass_tasks": [
+      "BigCodeBench/1115",
+      "BigCodeBench/937",
+      "BigCodeBench/949"
+    ],
+    "raw_changed": 18,
+    "evaluated_code_changed": 18
+  },
+  {
+    "feature_id": 15173,
+    "alpha": -2,
+    "n": 119,
+    "passed": 4,
+    "pass_tasks": [
+      "BigCodeBench/1115",
+      "BigCodeBench/496",
+      "BigCodeBench/937",
+      "BigCodeBench/949"
+    ],
+    "raw_changed": 27,
+    "evaluated_code_changed": 27
+  },
+  {
+    "feature_id": 15173,
+    "alpha": -3,
+    "n": 119,
+    "passed": 5,
+    "pass_tasks": [
+      "BigCodeBench/1115",
+      "BigCodeBench/496",
+      "BigCodeBench/937",
+      "BigCodeBench/940",
+      "BigCodeBench/949"
+    ],
+    "raw_changed": 34,
+    "evaluated_code_changed": 33
+  },
+  {
+    "feature_id": 15173,
+    "alpha": -4,
+    "n": 119,
+    "passed": 6,
+    "pass_tasks": [
+      "BigCodeBench/1115",
+      "BigCodeBench/435",
+      "BigCodeBench/496",
+      "BigCodeBench/685",
+      "BigCodeBench/937",
+      "BigCodeBench/949"
+    ],
+    "raw_changed": 41,
+    "evaluated_code_changed": 40
+  },
+  {
+    "feature_id": 15173,
+    "alpha": -5,
+    "n": 119,
+    "passed": 7,
+    "pass_tasks": [
+      "BigCodeBench/1115",
+      "BigCodeBench/435",
+      "BigCodeBench/496",
+      "BigCodeBench/634",
+      "BigCodeBench/685",
+      "BigCodeBench/937",
+      "BigCodeBench/949"
+    ],
+    "raw_changed": 47,
+    "evaluated_code_changed": 46
+  },
+  {
+    "feature_id": 6023,
+    "alpha": 1,
+    "n": 119,
+    "passed": 1,
+    "pass_tasks": [
+      "BigCodeBench/634"
+    ],
+    "raw_changed": 14,
+    "evaluated_code_changed": 14
+  },
+  {
+    "feature_id": 6023,
+    "alpha": 2,
+    "n": 119,
+    "passed": 2,
+    "pass_tasks": [
+      "BigCodeBench/634",
+      "BigCodeBench/949"
+    ],
+    "raw_changed": 29,
+    "evaluated_code_changed": 29
+  },
+  {
+    "feature_id": 6023,
+    "alpha": 3,
+    "n": 119,
+    "passed": 3,
+    "pass_tasks": [
+      "BigCodeBench/1115",
+      "BigCodeBench/634",
+      "BigCodeBench/949"
+    ],
+    "raw_changed": 30,
+    "evaluated_code_changed": 30
+  },
+  {
+    "feature_id": 6023,
+    "alpha": 4,
+    "n": 119,
+    "passed": 3,
+    "pass_tasks": [
+      "BigCodeBench/1115",
+      "BigCodeBench/634",
+      "BigCodeBench/949"
+    ],
+    "raw_changed": 37,
+    "evaluated_code_changed": 37
+  },
+  {
+    "feature_id": 6023,
+    "alpha": 5,
+    "n": 119,
+    "passed": 6,
+    "pass_tasks": [
+      "BigCodeBench/1",
+      "BigCodeBench/109",
+      "BigCodeBench/1115",
+      "BigCodeBench/188",
+      "BigCodeBench/634",
+      "BigCodeBench/949"
+    ],
+    "raw_changed": 40,
+    "evaluated_code_changed": 40
+  },
+  {
+    "feature_id": 605,
+    "alpha": 1,
+    "n": 119,
+    "passed": 1,
+    "pass_tasks": [
+      "BigCodeBench/949"
+    ],
+    "raw_changed": 18,
+    "evaluated_code_changed": 18
+  },
+  {
+    "feature_id": 605,
+    "alpha": 2,
+    "n": 119,
+    "passed": 4,
+    "pass_tasks": [
+      "BigCodeBench/277",
+      "BigCodeBench/685",
+      "BigCodeBench/7",
+      "BigCodeBench/949"
+    ],
+    "raw_changed": 29,
+    "evaluated_code_changed": 29
+  },
+  {
+    "feature_id": 605,
+    "alpha": 3,
+    "n": 119,
+    "passed": 6,
+    "pass_tasks": [
+      "BigCodeBench/1",
+      "BigCodeBench/316",
+      "BigCodeBench/685",
+      "BigCodeBench/7",
+      "BigCodeBench/940",
+      "BigCodeBench/949"
+    ],
+    "raw_changed": 32,
+    "evaluated_code_changed": 32
+  },
+  {
+    "feature_id": 605,
+    "alpha": 4,
+    "n": 119,
+    "passed": 6,
+    "pass_tasks": [
+      "BigCodeBench/1",
+      "BigCodeBench/277",
+      "BigCodeBench/685",
+      "BigCodeBench/7",
+      "BigCodeBench/940",
+      "BigCodeBench/949"
+    ],
+    "raw_changed": 39,
+    "evaluated_code_changed": 39
+  },
+  {
+    "feature_id": 605,
+    "alpha": 5,
+    "n": 119,
+    "passed": 6,
+    "pass_tasks": [
+      "BigCodeBench/1",
+      "BigCodeBench/277",
+      "BigCodeBench/685",
+      "BigCodeBench/7",
+      "BigCodeBench/940",
+      "BigCodeBench/949"
+    ],
+    "raw_changed": 48,
+    "evaluated_code_changed": 48
+  }
+]
