@@ -1,0 +1,665 @@
+{
+  "validated_nominations": 80,
+  "comparison_source": "Original cell CSVs and frozen screening_top10.json",
+  "marker_mapping": {
+    "max": "\\ast",
+    "mean": "\\circ",
+    "active_fraction": "\\bullet"
+  },
+  "counting_unit": "Nominations, including duplicate features across cells",
+  "models": {
+    "DeepSeek": {
+      "unique_features": 38,
+      "top10_summary_counts": {
+        "max": 35,
+        "mean": 1,
+        "active_fraction": 4
+      },
+      "top3_summary_counts": {
+        "max": 12,
+        "mean": 0,
+        "active_fraction": 0
+      },
+      "by_cell": {
+        "association_global": {
+          "summary_counts": {
+            "max": 8,
+            "active_fraction": 2
+          },
+          "nominations": [
+            {
+              "rank": 1,
+              "feature_id": 1078,
+              "summary": "max",
+              "ev": 8.370560646057129,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 2,
+              "feature_id": 13879,
+              "summary": "max",
+              "ev": 8.186091423034668,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 3,
+              "feature_id": 6895,
+              "summary": "max",
+              "ev": 8.109427452087402,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 4,
+              "feature_id": 9666,
+              "summary": "active_fraction",
+              "ev": -7.3550286293029785,
+              "repeated_across_cells": true
+            },
+            {
+              "rank": 5,
+              "feature_id": 8840,
+              "summary": "max",
+              "ev": 7.338894367218018,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 6,
+              "feature_id": 5635,
+              "summary": "active_fraction",
+              "ev": 6.988863468170166,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 7,
+              "feature_id": 15733,
+              "summary": "max",
+              "ev": -6.549657821655273,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 8,
+              "feature_id": 8185,
+              "summary": "max",
+              "ev": -6.521560192108154,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 9,
+              "feature_id": 16205,
+              "summary": "max",
+              "ev": -6.479681015014648,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 10,
+              "feature_id": 11108,
+              "summary": "max",
+              "ev": -6.3432512283325195,
+              "repeated_across_cells": false
+            }
+          ]
+        },
+        "association_local": {
+          "summary_counts": {
+            "max": 9,
+            "mean": 1
+          },
+          "nominations": [
+            {
+              "rank": 1,
+              "feature_id": 9666,
+              "summary": "max",
+              "ev": -6.2161078453063965,
+              "repeated_across_cells": true
+            },
+            {
+              "rank": 2,
+              "feature_id": 15272,
+              "summary": "max",
+              "ev": -5.301759243011475,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 3,
+              "feature_id": 3555,
+              "summary": "max",
+              "ev": -4.896823883056641,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 4,
+              "feature_id": 1206,
+              "summary": "max",
+              "ev": -4.704894542694092,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 5,
+              "feature_id": 5765,
+              "summary": "max",
+              "ev": -4.557521820068359,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 6,
+              "feature_id": 7804,
+              "summary": "max",
+              "ev": -4.542409420013428,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 7,
+              "feature_id": 7169,
+              "summary": "max",
+              "ev": -4.510908126831055,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 8,
+              "feature_id": 13240,
+              "summary": "max",
+              "ev": -4.496149063110352,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 9,
+              "feature_id": 10631,
+              "summary": "max",
+              "ev": -4.470045566558838,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 10,
+              "feature_id": 9013,
+              "summary": "mean",
+              "ev": -4.33984375,
+              "repeated_across_cells": false
+            }
+          ]
+        },
+        "paired_global": {
+          "summary_counts": {
+            "max": 10
+          },
+          "nominations": [
+            {
+              "rank": 1,
+              "feature_id": 15821,
+              "summary": "max",
+              "ev": -15.12584114074707,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 2,
+              "feature_id": 402,
+              "summary": "max",
+              "ev": -15.018315315246582,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 3,
+              "feature_id": 1159,
+              "summary": "max",
+              "ev": -14.99752426147461,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 4,
+              "feature_id": 2957,
+              "summary": "max",
+              "ev": -14.872940063476562,
+              "repeated_across_cells": true
+            },
+            {
+              "rank": 5,
+              "feature_id": 2168,
+              "summary": "max",
+              "ev": -14.74695110321045,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 6,
+              "feature_id": 15961,
+              "summary": "max",
+              "ev": -14.65955638885498,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 7,
+              "feature_id": 4810,
+              "summary": "max",
+              "ev": -14.567147254943848,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 8,
+              "feature_id": 12308,
+              "summary": "max",
+              "ev": -14.502245903015137,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 9,
+              "feature_id": 3826,
+              "summary": "max",
+              "ev": -14.495306015014648,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 10,
+              "feature_id": 10168,
+              "summary": "max",
+              "ev": -14.41431713104248,
+              "repeated_across_cells": false
+            }
+          ]
+        },
+        "paired_local": {
+          "summary_counts": {
+            "max": 8,
+            "active_fraction": 2
+          },
+          "nominations": [
+            {
+              "rank": 1,
+              "feature_id": 2468,
+              "summary": "max",
+              "ev": -10.230315208435059,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 2,
+              "feature_id": 8661,
+              "summary": "max",
+              "ev": -9.98310661315918,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 3,
+              "feature_id": 10736,
+              "summary": "max",
+              "ev": -9.96263599395752,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 4,
+              "feature_id": 2621,
+              "summary": "max",
+              "ev": -9.550331115722656,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 5,
+              "feature_id": 10539,
+              "summary": "max",
+              "ev": -9.353615760803223,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 6,
+              "feature_id": 5819,
+              "summary": "max",
+              "ev": -9.055305480957031,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 7,
+              "feature_id": 7736,
+              "summary": "active_fraction",
+              "ev": -9.005413055419922,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 8,
+              "feature_id": 14295,
+              "summary": "max",
+              "ev": -9.00395679473877,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 9,
+              "feature_id": 91,
+              "summary": "active_fraction",
+              "ev": -8.943760871887207,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 10,
+              "feature_id": 2957,
+              "summary": "max",
+              "ev": -8.909587860107422,
+              "repeated_across_cells": true
+            }
+          ]
+        }
+      }
+    },
+    "CodeLlama": {
+      "unique_features": 32,
+      "top10_summary_counts": {
+        "max": 0,
+        "mean": 16,
+        "active_fraction": 24
+      },
+      "top3_summary_counts": {
+        "max": 0,
+        "mean": 5,
+        "active_fraction": 7
+      },
+      "by_cell": {
+        "association_global": {
+          "summary_counts": {
+            "active_fraction": 9,
+            "mean": 1
+          },
+          "nominations": [
+            {
+              "rank": 1,
+              "feature_id": 7692,
+              "summary": "active_fraction",
+              "ev": 5.899150848388672,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 2,
+              "feature_id": 10818,
+              "summary": "active_fraction",
+              "ev": 5.897525310516357,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 3,
+              "feature_id": 5642,
+              "summary": "active_fraction",
+              "ev": 5.741393566131592,
+              "repeated_across_cells": true
+            },
+            {
+              "rank": 4,
+              "feature_id": 447,
+              "summary": "active_fraction",
+              "ev": 5.696426868438721,
+              "repeated_across_cells": true
+            },
+            {
+              "rank": 5,
+              "feature_id": 11596,
+              "summary": "active_fraction",
+              "ev": 5.609463691711426,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 6,
+              "feature_id": 1017,
+              "summary": "active_fraction",
+              "ev": 5.596478462219238,
+              "repeated_across_cells": true
+            },
+            {
+              "rank": 7,
+              "feature_id": 4634,
+              "summary": "active_fraction",
+              "ev": 5.551872730255127,
+              "repeated_across_cells": true
+            },
+            {
+              "rank": 8,
+              "feature_id": 7588,
+              "summary": "active_fraction",
+              "ev": 5.430356502532959,
+              "repeated_across_cells": true
+            },
+            {
+              "rank": 9,
+              "feature_id": 3442,
+              "summary": "active_fraction",
+              "ev": 5.418579578399658,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 10,
+              "feature_id": 8384,
+              "summary": "mean",
+              "ev": 5.3391876220703125,
+              "repeated_across_cells": false
+            }
+          ]
+        },
+        "association_local": {
+          "summary_counts": {
+            "mean": 4,
+            "active_fraction": 6
+          },
+          "nominations": [
+            {
+              "rank": 1,
+              "feature_id": 15559,
+              "summary": "mean",
+              "ev": 5.7771782875061035,
+              "repeated_across_cells": true
+            },
+            {
+              "rank": 2,
+              "feature_id": 3097,
+              "summary": "active_fraction",
+              "ev": 5.503204345703125,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 3,
+              "feature_id": 565,
+              "summary": "mean",
+              "ev": 5.419837951660156,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 4,
+              "feature_id": 4173,
+              "summary": "active_fraction",
+              "ev": 5.33861780166626,
+              "repeated_across_cells": true
+            },
+            {
+              "rank": 5,
+              "feature_id": 15890,
+              "summary": "active_fraction",
+              "ev": 5.302175998687744,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 6,
+              "feature_id": 414,
+              "summary": "active_fraction",
+              "ev": 5.106439113616943,
+              "repeated_across_cells": true
+            },
+            {
+              "rank": 7,
+              "feature_id": 4740,
+              "summary": "mean",
+              "ev": 4.962392807006836,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 8,
+              "feature_id": 13768,
+              "summary": "active_fraction",
+              "ev": 4.875020503997803,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 9,
+              "feature_id": 4309,
+              "summary": "mean",
+              "ev": 4.863219261169434,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 10,
+              "feature_id": 14969,
+              "summary": "active_fraction",
+              "ev": 4.860084056854248,
+              "repeated_across_cells": false
+            }
+          ]
+        },
+        "paired_global": {
+          "summary_counts": {
+            "active_fraction": 5,
+            "mean": 5
+          },
+          "nominations": [
+            {
+              "rank": 1,
+              "feature_id": 8875,
+              "summary": "active_fraction",
+              "ev": 5.505491733551025,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 2,
+              "feature_id": 7588,
+              "summary": "mean",
+              "ev": 5.40634298324585,
+              "repeated_across_cells": true
+            },
+            {
+              "rank": 3,
+              "feature_id": 12895,
+              "summary": "active_fraction",
+              "ev": 5.149071216583252,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 4,
+              "feature_id": 447,
+              "summary": "mean",
+              "ev": 5.031229019165039,
+              "repeated_across_cells": true
+            },
+            {
+              "rank": 5,
+              "feature_id": 4634,
+              "summary": "active_fraction",
+              "ev": 4.809014320373535,
+              "repeated_across_cells": true
+            },
+            {
+              "rank": 6,
+              "feature_id": 5862,
+              "summary": "active_fraction",
+              "ev": 4.788618087768555,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 7,
+              "feature_id": 3366,
+              "summary": "mean",
+              "ev": 4.779106140136719,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 8,
+              "feature_id": 7486,
+              "summary": "mean",
+              "ev": 4.63864803314209,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 9,
+              "feature_id": 1017,
+              "summary": "active_fraction",
+              "ev": 4.543024063110352,
+              "repeated_across_cells": true
+            },
+            {
+              "rank": 10,
+              "feature_id": 5642,
+              "summary": "mean",
+              "ev": 4.524827003479004,
+              "repeated_across_cells": true
+            }
+          ]
+        },
+        "paired_local": {
+          "summary_counts": {
+            "active_fraction": 4,
+            "mean": 6
+          },
+          "nominations": [
+            {
+              "rank": 1,
+              "feature_id": 4173,
+              "summary": "active_fraction",
+              "ev": 5.56643009185791,
+              "repeated_across_cells": true
+            },
+            {
+              "rank": 2,
+              "feature_id": 15559,
+              "summary": "mean",
+              "ev": 5.511094570159912,
+              "repeated_across_cells": true
+            },
+            {
+              "rank": 3,
+              "feature_id": 12623,
+              "summary": "mean",
+              "ev": 5.2378339767456055,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 4,
+              "feature_id": 15968,
+              "summary": "mean",
+              "ev": 4.994719505310059,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 5,
+              "feature_id": 8142,
+              "summary": "active_fraction",
+              "ev": 4.690555572509766,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 6,
+              "feature_id": 9419,
+              "summary": "active_fraction",
+              "ev": 4.690218448638916,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 7,
+              "feature_id": 13231,
+              "summary": "mean",
+              "ev": 4.6761040687561035,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 8,
+              "feature_id": 414,
+              "summary": "active_fraction",
+              "ev": 4.585378646850586,
+              "repeated_across_cells": true
+            },
+            {
+              "rank": 9,
+              "feature_id": 13151,
+              "summary": "mean",
+              "ev": -4.52857780456543,
+              "repeated_across_cells": false
+            },
+            {
+              "rank": 10,
+              "feature_id": 13172,
+              "summary": "mean",
+              "ev": -4.392996311187744,
+              "repeated_across_cells": false
+            }
+          ]
+        }
+      }
+    }
+  }
+}

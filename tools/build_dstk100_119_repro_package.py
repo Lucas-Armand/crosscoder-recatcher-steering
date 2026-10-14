@@ -213,6 +213,8 @@ def main():
                 screening_rows.append({'model': model, 'cell': cell, **row,
                                        'repeated_across_cells': count[row['feature_id']] > 1})
     write(PACKAGE / 'tables/screening_top10.json', screening_rows)
+    from export_crosscoder_screening_table import generate as export_screening_table
+    export_screening_table(ROOT)
     write(PACKAGE / 'tables/sweep.json', stats)
     write(PACKAGE / 'tables/target_curves.json', curves)
     write(PACKAGE / 'tables/random_curves.json', random)
@@ -297,7 +299,7 @@ def main():
     files += [p for p in FIGURES.iterdir() if p.is_file()]
     files.append(pointer)
     files += [ROOT / 'tools' / name for name in ('screen_focused_subtype_topk.py', 'run_dstk100_119_protocol.py',
-              'run_dstk100_random_controls_119_extension.py', 'build_dstk100_119_repro_package.py',
+              'run_dstk100_random_controls_119_extension.py', 'build_dstk100_119_repro_package.py', 'export_crosscoder_screening_table.py',
               'run_crosscoder_intervention.py', 'code_extraction.py', 'reprocess_outputs_minimal.py', 'evaluate_bigcodebench_subset.py')]
     write(PACKAGE / 'checksums.json', {str(p.relative_to(ROOT)): sha(p) for p in sorted(set(files))})
     print(json.dumps({k: summary[k] for k in ('n', 'sweep_features', 'sweep_feature_task_corrections', 'sweep_unique_corrected_tasks')}, indent=2))

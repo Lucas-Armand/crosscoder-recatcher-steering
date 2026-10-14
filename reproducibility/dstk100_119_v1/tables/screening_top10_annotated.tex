@@ -1,0 +1,38 @@
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{Top ten features in each screening cell. Entries report feature ID and signed E/V; ranking uses absolute E/V after selecting the strongest activation summary. Superscripts identify that summary: $\ast$ maximum activation, $\circ$ mean activation, and $\bullet$ active fraction. Bold IDs appear in more than one cell within the same model. Deduplicating 40 nominations yields 38 DeepSeek and 32 CodeLlama candidates.}
+\label{tab:crosscoder-screening-top10}
+\begin{tabular}{@{}rllll@{}}
+\toprule
+Rank & Association global & Association local & Paired global & Paired local \\
+\midrule
+\multicolumn{5}{@{}l}{\textit{DeepSeek-Coder: 119 focal improvements vs.\ 96 other improvements}} \\
+\addlinespace
+1 & 1078$^{\ast}$ ($+8.37$) & \textbf{9666}$^{\ast}$ ($-6.22$) & 15821$^{\ast}$ ($-15.13$) & 2468$^{\ast}$ ($-10.23$) \\
+2 & 13879$^{\ast}$ ($+8.19$) & 15272$^{\ast}$ ($-5.30$) & 402$^{\ast}$ ($-15.02$) & 8661$^{\ast}$ ($-9.98$) \\
+3 & 6895$^{\ast}$ ($+8.11$) & 3555$^{\ast}$ ($-4.90$) & 1159$^{\ast}$ ($-15.00$) & 10736$^{\ast}$ ($-9.96$) \\
+4 & \textbf{9666}$^{\bullet}$ ($-7.36$) & 1206$^{\ast}$ ($-4.70$) & \textbf{2957}$^{\ast}$ ($-14.87$) & 2621$^{\ast}$ ($-9.55$) \\
+5 & 8840$^{\ast}$ ($+7.34$) & 5765$^{\ast}$ ($-4.56$) & 2168$^{\ast}$ ($-14.75$) & 10539$^{\ast}$ ($-9.35$) \\
+6 & 5635$^{\bullet}$ ($+6.99$) & 7804$^{\ast}$ ($-4.54$) & 15961$^{\ast}$ ($-14.66$) & 5819$^{\ast}$ ($-9.06$) \\
+7 & 15733$^{\ast}$ ($-6.55$) & 7169$^{\ast}$ ($-4.51$) & 4810$^{\ast}$ ($-14.57$) & 7736$^{\bullet}$ ($-9.01$) \\
+8 & 8185$^{\ast}$ ($-6.52$) & 13240$^{\ast}$ ($-4.50$) & 12308$^{\ast}$ ($-14.50$) & 14295$^{\ast}$ ($-9.00$) \\
+9 & 16205$^{\ast}$ ($-6.48$) & 10631$^{\ast}$ ($-4.47$) & 3826$^{\ast}$ ($-14.50$) & 91$^{\bullet}$ ($-8.94$) \\
+10 & 11108$^{\ast}$ ($-6.34$) & 9013$^{\circ}$ ($-4.34$) & 10168$^{\ast}$ ($-14.41$) & \textbf{2957}$^{\ast}$ ($-8.91$) \\
+\midrule
+\multicolumn{5}{@{}l}{\textit{CodeLlama: 50 focal regressions vs.\ 241 other regressions}} \\
+\addlinespace
+1 & 7692$^{\bullet}$ ($+5.90$) & \textbf{15559}$^{\circ}$ ($+5.78$) & 8875$^{\bullet}$ ($+5.51$) & \textbf{4173}$^{\bullet}$ ($+5.57$) \\
+2 & 10818$^{\bullet}$ ($+5.90$) & 3097$^{\bullet}$ ($+5.50$) & \textbf{7588}$^{\circ}$ ($+5.41$) & \textbf{15559}$^{\circ}$ ($+5.51$) \\
+3 & \textbf{5642}$^{\bullet}$ ($+5.74$) & 565$^{\circ}$ ($+5.42$) & 12895$^{\bullet}$ ($+5.15$) & 12623$^{\circ}$ ($+5.24$) \\
+4 & \textbf{447}$^{\bullet}$ ($+5.70$) & \textbf{4173}$^{\bullet}$ ($+5.34$) & \textbf{447}$^{\circ}$ ($+5.03$) & 15968$^{\circ}$ ($+4.99$) \\
+5 & 11596$^{\bullet}$ ($+5.61$) & 15890$^{\bullet}$ ($+5.30$) & \textbf{4634}$^{\bullet}$ ($+4.81$) & 8142$^{\bullet}$ ($+4.69$) \\
+6 & \textbf{1017}$^{\bullet}$ ($+5.60$) & \textbf{414}$^{\bullet}$ ($+5.11$) & 5862$^{\bullet}$ ($+4.79$) & 9419$^{\bullet}$ ($+4.69$) \\
+7 & \textbf{4634}$^{\bullet}$ ($+5.55$) & 4740$^{\circ}$ ($+4.96$) & 3366$^{\circ}$ ($+4.78$) & 13231$^{\circ}$ ($+4.68$) \\
+8 & \textbf{7588}$^{\bullet}$ ($+5.43$) & 13768$^{\bullet}$ ($+4.88$) & 7486$^{\circ}$ ($+4.64$) & \textbf{414}$^{\bullet}$ ($+4.59$) \\
+9 & 3442$^{\bullet}$ ($+5.42$) & 4309$^{\circ}$ ($+4.86$) & \textbf{1017}$^{\bullet}$ ($+4.54$) & 13151$^{\circ}$ ($-4.53$) \\
+10 & 8384$^{\circ}$ ($+5.34$) & 14969$^{\bullet}$ ($+4.86$) & \textbf{5642}$^{\circ}$ ($+4.52$) & 13172$^{\circ}$ ($-4.39$) \\
+\bottomrule
+\end{tabular}
+\end{table*}
