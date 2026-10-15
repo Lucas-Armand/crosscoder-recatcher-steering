@@ -1,0 +1,18 @@
+{
+  "status": "validated",
+  "arms": 80,
+  "no_generation_executed": true,
+  "source_sha256": {
+    "reproducibility/dstk100_119_v1/tables/target_curves.json": "73022b0ab416a9dcef72f37aaf7da174a2ba4ba141b8aacce0e8bb6dd6018245",
+    "reproducibility/dstk100_119_v1/tables/random_curves.json": "907aafb5c4055777a98949f2b0b92ecb8d514d696e182e5014e7e1e53200c64f",
+    "reports/prospective_direct_controls_20260902/summary.json": "7df2091e6c4c29334c7ec86748fffde07aea154f15c7c13df927313c0e9d1f07",
+    "runs/prospective_direct_controls_20260901_codellama/ALPHA0_GATE.json": "d7d07057dd735b7ea5574ffbec8d152d3efc9f3b9806c4366d09f3ece34532cb"
+  },
+  "checks": [
+    "All 80 arms have expected model, feature, sign, dose and cohort size.",
+    "All correction counts equal distinct official pass task IDs.",
+    "CodeLlama selected alpha-three task outcomes match the canonical sweep.",
+    "Changed counts refer to extracted evaluated code, not raw output.",
+    "Only the current 119-task DeepSeek results are used; historical 80-task targets excluded."
+  ]
+}
