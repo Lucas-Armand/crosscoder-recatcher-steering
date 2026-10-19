@@ -1,0 +1,77 @@
+{
+  "first_activation_categories_merged": {
+    "newline_after_main_return": 16,
+    "other_newline": 18,
+    "inactive": 6,
+    "non_newline": 10
+  },
+  "pooled": [
+    {
+      "source": "codellama_base",
+      "category": "newline_after_main_return",
+      "tokens": 53,
+      "active_tokens": 48,
+      "mass": 160.3976752758026,
+      "mass_fraction": 0.13823269922889678,
+      "activation_rate": 0.9056603773584906,
+      "tasks_active": 44
+    },
+    {
+      "source": "codellama_base",
+      "category": "other_newline",
+      "tokens": 403,
+      "active_tokens": 127,
+      "mass": 719.0991805791855,
+      "mass_fraction": 0.6197285626105611,
+      "activation_rate": 0.315136476426799,
+      "tasks_active": 38
+    },
+    {
+      "source": "codellama_base",
+      "category": "non_newline",
+      "tokens": 5125,
+      "active_tokens": 77,
+      "mass": 280.84853398799896,
+      "mass_fraction": 0.24203873816054217,
+      "activation_rate": 0.015024390243902438,
+      "tasks_active": 30
+    },
+    {
+      "source": "codellama_merged",
+      "category": "newline_after_main_return",
+      "tokens": 51,
+      "active_tokens": 49,
+      "mass": 234.77386462688446,
+      "mass_fraction": 0.267398636882445,
+      "activation_rate": 0.9607843137254902,
+      "tasks_active": 33
+    },
+    {
+      "source": "codellama_merged",
+      "category": "other_newline",
+      "tokens": 327,
+      "active_tokens": 92,
+      "mass": 474.28235960006714,
+      "mass_fraction": 0.5401898403640489,
+      "activation_rate": 0.28134556574923547,
+      "tasks_active": 30
+    },
+    {
+      "source": "codellama_merged",
+      "category": "non_newline",
+      "tokens": 4320,
+      "active_tokens": 53,
+      "mass": 168.93577814102173,
+      "mass_fraction": 0.19241152275350615,
+      "activation_rate": 0.012268518518518519,
+      "tasks_active": 21
+    }
+  ],
+  "definition": "AST identifies task_func Return end lines, excluding nested functions; newline token span must cover the newline ending that statement. Other newline includes all other captured newline-containing tokens.",
+  "caveats": [
+    "A return may be conditional, not a final function exit; lexical AST category is not dynamic execution.",
+    "Pooled token rates are descriptive and tasks are not independent token replications.",
+    "Natural activations are shared same-text offline measurements; no prompt activations.",
+    "Error regions are provisional or runtime sites, not validated earliest semantic errors."
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "n": 50,
+  "error_region_relations": {
+    "same_token_or_within_region": 27,
+    "before": 13,
+    "not_observed_or_unmapped": 7,
+    "after": 3
+  },
+  "by_evidence": {
+    "omission_region": {
+      "same_token_or_within_region": 10,
+      "not_observed_or_unmapped": 4,
+      "before": 2
+    },
+    "probable_line": {
+      "before": 4,
+      "same_token_or_within_region": 4,
+      "not_observed_or_unmapped": 1
+    },
+    "probable_region": {
+      "same_token_or_within_region": 9
+    },
+    "runtime_execution_sites": {
+      "not_observed_or_unmapped": 2,
+      "before": 7,
+      "same_token_or_within_region": 4,
+      "after": 3
+    }
+  },
+  "by_outcome": {
+    "corrected": {
+      "same_token_or_within_region": 2
+    },
+    "changed_still_failing": {
+      "same_token_or_within_region": 15,
+      "before": 7,
+      "not_observed_or_unmapped": 2,
+      "after": 1
+    }
+  },
+  "divergence": {
+    "codellama_base": {
+      "after": 50
+    },
+    "codellama_merged": {
+      "after": 43,
+      "not_observed_or_unmapped": 6,
+      "same_token_or_within_region": 1
+    }
+  }
+}

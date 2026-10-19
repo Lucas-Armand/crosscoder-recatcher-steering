@@ -1,0 +1,458 @@
+[
+  {
+    "task_id": "BigCodeBench/183",
+    "version": "passing_base",
+    "discovery": true,
+    "checks": {
+      "uuid_header_assignment": true,
+      "no_double_serialization_pattern": true
+    },
+    "all_indicators_present": true
+  },
+  {
+    "task_id": "BigCodeBench/183",
+    "version": "failing_merged",
+    "discovery": true,
+    "checks": {
+      "uuid_header_assignment": false,
+      "no_double_serialization_pattern": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/183",
+    "version": "target_4309_neg5",
+    "discovery": true,
+    "checks": {
+      "uuid_header_assignment": true,
+      "no_double_serialization_pattern": true
+    },
+    "all_indicators_present": true
+  },
+  {
+    "task_id": "BigCodeBench/183",
+    "version": "codellama_shuffle1_neg5",
+    "discovery": true,
+    "checks": {
+      "uuid_header_assignment": false,
+      "no_double_serialization_pattern": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/183",
+    "version": "codellama_shuffle1_pos5",
+    "discovery": true,
+    "checks": {
+      "uuid_header_assignment": false,
+      "no_double_serialization_pattern": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/183",
+    "version": "codellama_shuffle2_neg5",
+    "discovery": true,
+    "checks": {
+      "uuid_header_assignment": false,
+      "no_double_serialization_pattern": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/183",
+    "version": "codellama_shuffle2_pos5",
+    "discovery": true,
+    "checks": {
+      "uuid_header_assignment": false,
+      "no_double_serialization_pattern": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/183",
+    "version": "codellama_shuffle3_neg5",
+    "discovery": true,
+    "checks": {
+      "uuid_header_assignment": false,
+      "no_double_serialization_pattern": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/183",
+    "version": "codellama_shuffle3_pos5",
+    "discovery": true,
+    "checks": {
+      "uuid_header_assignment": false,
+      "no_double_serialization_pattern": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/183",
+    "version": "random_latent_14260_-5",
+    "discovery": true,
+    "checks": {
+      "uuid_header_assignment": false,
+      "no_double_serialization_pattern": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/183",
+    "version": "random_latent_2947_+5",
+    "discovery": true,
+    "checks": {
+      "uuid_header_assignment": false,
+      "no_double_serialization_pattern": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/183",
+    "version": "random_latent_3698_+5",
+    "discovery": true,
+    "checks": {
+      "uuid_header_assignment": false,
+      "no_double_serialization_pattern": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/490",
+    "version": "passing_base",
+    "discovery": true,
+    "checks": {
+      "json_persistence_indicator": true
+    },
+    "all_indicators_present": true
+  },
+  {
+    "task_id": "BigCodeBench/490",
+    "version": "failing_merged",
+    "discovery": true,
+    "checks": {
+      "json_persistence_indicator": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/490",
+    "version": "target_4309_neg5",
+    "discovery": true,
+    "checks": {
+      "json_persistence_indicator": true
+    },
+    "all_indicators_present": true
+  },
+  {
+    "task_id": "BigCodeBench/490",
+    "version": "codellama_shuffle1_neg5",
+    "discovery": true,
+    "checks": {
+      "json_persistence_indicator": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/490",
+    "version": "codellama_shuffle1_pos5",
+    "discovery": true,
+    "checks": {
+      "json_persistence_indicator": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/490",
+    "version": "codellama_shuffle2_neg5",
+    "discovery": true,
+    "checks": {
+      "json_persistence_indicator": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/490",
+    "version": "codellama_shuffle2_pos5",
+    "discovery": true,
+    "checks": {
+      "json_persistence_indicator": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/490",
+    "version": "codellama_shuffle3_neg5",
+    "discovery": true,
+    "checks": {
+      "json_persistence_indicator": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/490",
+    "version": "codellama_shuffle3_pos5",
+    "discovery": true,
+    "checks": {
+      "json_persistence_indicator": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/490",
+    "version": "random_latent_14260_-5",
+    "discovery": true,
+    "checks": {
+      "json_persistence_indicator": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/490",
+    "version": "random_latent_2947_+5",
+    "discovery": true,
+    "checks": {
+      "json_persistence_indicator": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/490",
+    "version": "random_latent_3698_+5",
+    "discovery": true,
+    "checks": {
+      "json_persistence_indicator": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/206",
+    "version": "passing_base",
+    "discovery": false,
+    "checks": {
+      "json_persistence_indicator": true
+    },
+    "all_indicators_present": true
+  },
+  {
+    "task_id": "BigCodeBench/206",
+    "version": "failing_merged",
+    "discovery": false,
+    "checks": {
+      "json_persistence_indicator": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/206",
+    "version": "target_4309_neg5",
+    "discovery": false,
+    "checks": {
+      "json_persistence_indicator": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/206",
+    "version": "codellama_shuffle1_neg5",
+    "discovery": false,
+    "checks": {
+      "json_persistence_indicator": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/206",
+    "version": "codellama_shuffle1_pos5",
+    "discovery": false,
+    "checks": {
+      "json_persistence_indicator": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/206",
+    "version": "codellama_shuffle2_neg5",
+    "discovery": false,
+    "checks": {
+      "json_persistence_indicator": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/206",
+    "version": "codellama_shuffle2_pos5",
+    "discovery": false,
+    "checks": {
+      "json_persistence_indicator": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/206",
+    "version": "codellama_shuffle3_neg5",
+    "discovery": false,
+    "checks": {
+      "json_persistence_indicator": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/206",
+    "version": "codellama_shuffle3_pos5",
+    "discovery": false,
+    "checks": {
+      "json_persistence_indicator": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/206",
+    "version": "random_latent_14260_-5",
+    "discovery": false,
+    "checks": {
+      "json_persistence_indicator": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/206",
+    "version": "random_latent_2947_+5",
+    "discovery": false,
+    "checks": {
+      "json_persistence_indicator": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/206",
+    "version": "random_latent_3698_+5",
+    "discovery": false,
+    "checks": {
+      "json_persistence_indicator": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/630",
+    "version": "passing_base",
+    "discovery": false,
+    "checks": {
+      "json_persistence_indicator": true,
+      "records_orientation_indicator": true
+    },
+    "all_indicators_present": true
+  },
+  {
+    "task_id": "BigCodeBench/630",
+    "version": "failing_merged",
+    "discovery": false,
+    "checks": {
+      "json_persistence_indicator": true,
+      "records_orientation_indicator": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/630",
+    "version": "target_4309_neg5",
+    "discovery": false,
+    "checks": {
+      "json_persistence_indicator": false,
+      "records_orientation_indicator": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/630",
+    "version": "codellama_shuffle1_neg5",
+    "discovery": false,
+    "checks": {
+      "json_persistence_indicator": true,
+      "records_orientation_indicator": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/630",
+    "version": "codellama_shuffle1_pos5",
+    "discovery": false,
+    "checks": {
+      "json_persistence_indicator": true,
+      "records_orientation_indicator": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/630",
+    "version": "codellama_shuffle2_neg5",
+    "discovery": false,
+    "checks": {
+      "json_persistence_indicator": true,
+      "records_orientation_indicator": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/630",
+    "version": "codellama_shuffle2_pos5",
+    "discovery": false,
+    "checks": {
+      "json_persistence_indicator": true,
+      "records_orientation_indicator": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/630",
+    "version": "codellama_shuffle3_neg5",
+    "discovery": false,
+    "checks": {
+      "json_persistence_indicator": true,
+      "records_orientation_indicator": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/630",
+    "version": "codellama_shuffle3_pos5",
+    "discovery": false,
+    "checks": {
+      "json_persistence_indicator": true,
+      "records_orientation_indicator": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/630",
+    "version": "random_latent_14260_-5",
+    "discovery": false,
+    "checks": {
+      "json_persistence_indicator": true,
+      "records_orientation_indicator": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/630",
+    "version": "random_latent_2947_+5",
+    "discovery": false,
+    "checks": {
+      "json_persistence_indicator": true,
+      "records_orientation_indicator": false
+    },
+    "all_indicators_present": false
+  },
+  {
+    "task_id": "BigCodeBench/630",
+    "version": "random_latent_3698_+5",
+    "discovery": false,
+    "checks": {
+      "json_persistence_indicator": true,
+      "records_orientation_indicator": false
+    },
+    "all_indicators_present": false
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "task_arms": 350,
+  "changed_task_arms": 150,
+  "primary_comparison": "target -5 versus three shuffles -5",
+  "sensitivity": "three shuffles +5",
+  "new_generation": false,
+  "human_independent_annotation": false,
+  "criteria": "Uniform AST/diff and already recorded official-test evidence; no automatic coherent/beneficial semantic label.",
+  "caveats": [
+    "Source-dependent traceback strings can differ without changed behavior.",
+    "A change only outside task_func may still affect behavior via imports or global statements.",
+    "Fewer failures is not necessarily closer to the full intended specification.",
+    "Global suite failures are counted as all tests blocked, not as individually observed assertion failures."
+  ]
+}

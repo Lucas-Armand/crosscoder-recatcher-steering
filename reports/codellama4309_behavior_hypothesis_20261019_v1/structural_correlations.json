@@ -1,0 +1,110 @@
+[
+  {
+    "source": "codellama_base",
+    "metric": "mean_activation",
+    "variable": "newline_fraction",
+    "spearman": 0.2133260965138882
+  },
+  {
+    "source": "codellama_base",
+    "metric": "mean_activation",
+    "variable": "n_tokens",
+    "spearman": 0.12864703530226848
+  },
+  {
+    "source": "codellama_base",
+    "metric": "mean_activation",
+    "variable": "all_statements",
+    "spearman": 0.20259716144731274
+  },
+  {
+    "source": "codellama_base",
+    "metric": "max_activation",
+    "variable": "newline_fraction",
+    "spearman": 0.21560591739266258
+  },
+  {
+    "source": "codellama_base",
+    "metric": "max_activation",
+    "variable": "n_tokens",
+    "spearman": 0.43501153624994915
+  },
+  {
+    "source": "codellama_base",
+    "metric": "max_activation",
+    "variable": "all_statements",
+    "spearman": 0.41953314244808165
+  },
+  {
+    "source": "codellama_base",
+    "metric": "active_fraction",
+    "variable": "newline_fraction",
+    "spearman": 0.27983606122730725
+  },
+  {
+    "source": "codellama_base",
+    "metric": "active_fraction",
+    "variable": "n_tokens",
+    "spearman": -0.08392367617020702
+  },
+  {
+    "source": "codellama_base",
+    "metric": "active_fraction",
+    "variable": "all_statements",
+    "spearman": 0.1424418231008076
+  },
+  {
+    "source": "codellama_merged",
+    "metric": "mean_activation",
+    "variable": "newline_fraction",
+    "spearman": 0.3525528623639802
+  },
+  {
+    "source": "codellama_merged",
+    "metric": "mean_activation",
+    "variable": "n_tokens",
+    "spearman": 0.03333606055496127
+  },
+  {
+    "source": "codellama_merged",
+    "metric": "mean_activation",
+    "variable": "all_statements",
+    "spearman": 0.1662451679195367
+  },
+  {
+    "source": "codellama_merged",
+    "metric": "max_activation",
+    "variable": "newline_fraction",
+    "spearman": 0.2735375464676831
+  },
+  {
+    "source": "codellama_merged",
+    "metric": "max_activation",
+    "variable": "n_tokens",
+    "spearman": 0.3812591179851439
+  },
+  {
+    "source": "codellama_merged",
+    "metric": "max_activation",
+    "variable": "all_statements",
+    "spearman": 0.4417902490011619
+  },
+  {
+    "source": "codellama_merged",
+    "metric": "active_fraction",
+    "variable": "newline_fraction",
+    "spearman": 0.3922768845351809
+  },
+  {
+    "source": "codellama_merged",
+    "metric": "active_fraction",
+    "variable": "n_tokens",
+    "spearman": -0.0017390366641144123
+  },
+  {
+    "source": "codellama_merged",
+    "metric": "active_fraction",
+    "variable": "all_statements",
+    "spearman": 0.16850872659977176
+  }
+]

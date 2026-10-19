@@ -1,0 +1,704 @@
+{
+  "natural_counts": {
+    "all50": {
+      "codellama_base": {
+        "n": 50,
+        "return_only": 1,
+        "no_value_return": 3,
+        "may_fallthrough": 4,
+        "repeated_top_level_statement": 0
+      },
+      "codellama_merged": {
+        "n": 50,
+        "return_only": 7,
+        "no_value_return": 17,
+        "may_fallthrough": 23,
+        "repeated_top_level_statement": 1
+      }
+    },
+    "excluding_discovery48": {
+      "codellama_base": {
+        "n": 48,
+        "return_only": 1,
+        "no_value_return": 3,
+        "may_fallthrough": 4,
+        "repeated_top_level_statement": 0
+      },
+      "codellama_merged": {
+        "n": 48,
+        "return_only": 5,
+        "no_value_return": 17,
+        "may_fallthrough": 23,
+        "repeated_top_level_statement": 1
+      }
+    }
+  },
+  "associations": [
+    {
+      "scope": "all50",
+      "behavior": "new_return_only",
+      "metric": "mean_activation_delta",
+      "positives": 6,
+      "controls": 44,
+      "effect": 0.04819138238742721,
+      "null_sd": 0.06375374964215304,
+      "ev": 0.7558987927443217,
+      "nominal_permutation_p": 0.4427786106946527
+    },
+    {
+      "scope": "all50",
+      "behavior": "new_return_only",
+      "metric": "max_activation_delta",
+      "positives": 6,
+      "controls": 44,
+      "effect": -0.23179672884218627,
+      "null_sd": 2.0873744793695517,
+      "ev": -0.11104702636404547,
+      "nominal_permutation_p": 0.9140429785107447
+    },
+    {
+      "scope": "all50",
+      "behavior": "new_return_only",
+      "metric": "active_fraction_delta",
+      "positives": 6,
+      "controls": 44,
+      "effect": 0.01564104931221782,
+      "null_sd": 0.01182976901255772,
+      "ev": 1.3221770683446392,
+      "nominal_permutation_p": 0.1794102948525737
+    },
+    {
+      "scope": "all50",
+      "behavior": "new_return_only",
+      "metric": "newline_mean_activation_delta",
+      "positives": 6,
+      "controls": 44,
+      "effect": 0.8661724856179772,
+      "null_sd": 0.8389586300267953,
+      "ev": 1.0324376609491612,
+      "nominal_permutation_p": 0.2978510744627686
+    },
+    {
+      "scope": "all50",
+      "behavior": "merged_return_only",
+      "metric": "mean_activation_delta",
+      "positives": 7,
+      "controls": 43,
+      "effect": 0.023697473631670504,
+      "null_sd": 0.0598724427636502,
+      "ev": 0.3957993450378766,
+      "nominal_permutation_p": 0.6851574212893553
+    },
+    {
+      "scope": "all50",
+      "behavior": "merged_return_only",
+      "metric": "max_activation_delta",
+      "positives": 7,
+      "controls": 43,
+      "effect": -0.12179878462984695,
+      "null_sd": 1.9525623423840317,
+      "ev": -0.0623789479014194,
+      "nominal_permutation_p": 0.9575212393803099
+    },
+    {
+      "scope": "all50",
+      "behavior": "merged_return_only",
+      "metric": "active_fraction_delta",
+      "positives": 7,
+      "controls": 43,
+      "effect": 0.013473290533053715,
+      "null_sd": 0.011181251945235044,
+      "ev": 1.2049894411685658,
+      "nominal_permutation_p": 0.23488255872063968
+    },
+    {
+      "scope": "all50",
+      "behavior": "merged_return_only",
+      "metric": "newline_mean_activation_delta",
+      "positives": 7,
+      "controls": 43,
+      "effect": 0.4699254257239377,
+      "null_sd": 0.7785391273163395,
+      "ev": 0.6035989833212269,
+      "nominal_permutation_p": 0.5352323838080959
+    },
+    {
+      "scope": "all50",
+      "behavior": "new_no_value_return",
+      "metric": "mean_activation_delta",
+      "positives": 14,
+      "controls": 36,
+      "effect": 0.021283537755528138,
+      "null_sd": 0.047181486705514,
+      "ev": 0.4510993451387104,
+      "nominal_permutation_p": 0.6586706646676662
+    },
+    {
+      "scope": "all50",
+      "behavior": "new_no_value_return",
+      "metric": "max_activation_delta",
+      "positives": 14,
+      "controls": 36,
+      "effect": -0.8117042008846522,
+      "null_sd": 1.522479488741803,
+      "ev": -0.5331462307945148,
+      "nominal_permutation_p": 0.6016991504247876
+    },
+    {
+      "scope": "all50",
+      "behavior": "new_no_value_return",
+      "metric": "active_fraction_delta",
+      "positives": 14,
+      "controls": 36,
+      "effect": -0.01073344284429977,
+      "null_sd": 0.00882583569874629,
+      "ev": -1.2161389822636801,
+      "nominal_permutation_p": 0.22788605697151423
+    },
+    {
+      "scope": "all50",
+      "behavior": "new_no_value_return",
+      "metric": "newline_mean_activation_delta",
+      "positives": 14,
+      "controls": 36,
+      "effect": 0.4071898511241353,
+      "null_sd": 0.6125047053769227,
+      "ev": 0.6647946498199702,
+      "nominal_permutation_p": 0.49725137431284355
+    },
+    {
+      "scope": "all50",
+      "behavior": "new_repetition",
+      "metric": "mean_activation_delta",
+      "positives": 1,
+      "controls": 49,
+      "effect": null,
+      "ev": null
+    },
+    {
+      "scope": "all50",
+      "behavior": "new_repetition",
+      "metric": "max_activation_delta",
+      "positives": 1,
+      "controls": 49,
+      "effect": null,
+      "ev": null
+    },
+    {
+      "scope": "all50",
+      "behavior": "new_repetition",
+      "metric": "active_fraction_delta",
+      "positives": 1,
+      "controls": 49,
+      "effect": null,
+      "ev": null
+    },
+    {
+      "scope": "all50",
+      "behavior": "new_repetition",
+      "metric": "newline_mean_activation_delta",
+      "positives": 1,
+      "controls": 49,
+      "effect": null,
+      "ev": null
+    },
+    {
+      "scope": "all50",
+      "behavior": "shorter_main",
+      "metric": "mean_activation_delta",
+      "positives": 32,
+      "controls": 18,
+      "effect": 0.0012981336104631838,
+      "null_sd": 0.042829984803558874,
+      "ev": 0.03030899068531348,
+      "nominal_permutation_p": 0.9800099950024987
+    },
+    {
+      "scope": "all50",
+      "behavior": "shorter_main",
+      "metric": "max_activation_delta",
+      "positives": 32,
+      "controls": 18,
+      "effect": -1.906279164055983,
+      "null_sd": 1.3731759689347973,
+      "ev": -1.388226423402039,
+      "nominal_permutation_p": 0.16441779110444776
+    },
+    {
+      "scope": "all50",
+      "behavior": "shorter_main",
+      "metric": "active_fraction_delta",
+      "positives": 32,
+      "controls": 18,
+      "effect": -0.00738160627168242,
+      "null_sd": 0.008026642253065439,
+      "ev": -0.9196381299868355,
+      "nominal_permutation_p": 0.36931534232883556
+    },
+    {
+      "scope": "all50",
+      "behavior": "shorter_main",
+      "metric": "newline_mean_activation_delta",
+      "positives": 32,
+      "controls": 18,
+      "effect": 0.6233837321504123,
+      "null_sd": 0.5555950129910221,
+      "ev": 1.1220110288507676,
+      "nominal_permutation_p": 0.2673663168415792
+    },
+    {
+      "scope": "excluding_discovery48",
+      "behavior": "new_return_only",
+      "metric": "mean_activation_delta",
+      "positives": 4,
+      "controls": 44,
+      "effect": 0.0011675806335088882,
+      "null_sd": 0.07776992331268233,
+      "ev": 0.015013267131748413,
+      "nominal_permutation_p": 0.9855072463768116
+    },
+    {
+      "scope": "excluding_discovery48",
+      "behavior": "new_return_only",
+      "metric": "max_activation_delta",
+      "positives": 4,
+      "controls": 44,
+      "effect": -1.3387410911646755,
+      "null_sd": 2.5384297910099813,
+      "ev": -0.5273894499292108,
+      "nominal_permutation_p": 0.6306846576711644
+    },
+    {
+      "scope": "excluding_discovery48",
+      "behavior": "new_return_only",
+      "metric": "active_fraction_delta",
+      "positives": 4,
+      "controls": 44,
+      "effect": 0.012323188216838827,
+      "null_sd": 0.014647742311866004,
+      "ev": 0.8413029089715706,
+      "nominal_permutation_p": 0.4027986006996502
+    },
+    {
+      "scope": "excluding_discovery48",
+      "behavior": "new_return_only",
+      "metric": "newline_mean_activation_delta",
+      "positives": 4,
+      "controls": 44,
+      "effect": -0.09223755889318205,
+      "null_sd": 0.9779075131184287,
+      "ev": -0.09432135212771568,
+      "nominal_permutation_p": 0.9060469765117442
+    },
+    {
+      "scope": "excluding_discovery48",
+      "behavior": "merged_return_only",
+      "metric": "mean_activation_delta",
+      "positives": 5,
+      "controls": 43,
+      "effect": -0.022733003442543885,
+      "null_sd": 0.06986959026383775,
+      "ev": -0.32536334271749345,
+      "nominal_permutation_p": 0.736631684157921
+    },
+    {
+      "scope": "excluding_discovery48",
+      "behavior": "merged_return_only",
+      "metric": "max_activation_delta",
+      "positives": 5,
+      "controls": 43,
+      "effect": -0.9676606078480563,
+      "null_sd": 2.306864247773952,
+      "ev": -0.41947011350226476,
+      "nominal_permutation_p": 0.6991504247876063
+    },
+    {
+      "scope": "excluding_discovery48",
+      "behavior": "merged_return_only",
+      "metric": "active_fraction_delta",
+      "positives": 5,
+      "controls": 43,
+      "effect": 0.009948164242220326,
+      "null_sd": 0.0133359353011139,
+      "ev": 0.7459667445589208,
+      "nominal_permutation_p": 0.463768115942029
+    },
+    {
+      "scope": "excluding_discovery48",
+      "behavior": "merged_return_only",
+      "metric": "newline_mean_activation_delta",
+      "positives": 5,
+      "controls": 43,
+      "effect": -0.44004097837348316,
+      "null_sd": 0.8807688016651418,
+      "ev": -0.49961008784775474,
+      "nominal_permutation_p": 0.5787106446776612
+    },
+    {
+      "scope": "excluding_discovery48",
+      "behavior": "new_no_value_return",
+      "metric": "mean_activation_delta",
+      "positives": 14,
+      "controls": 34,
+      "effect": 0.02966091484848817,
+      "null_sd": 0.046918562657861304,
+      "ev": 0.6321786765886448,
+      "nominal_permutation_p": 0.5362318840579711
+    },
+    {
+      "scope": "excluding_discovery48",
+      "behavior": "new_no_value_return",
+      "metric": "max_activation_delta",
+      "positives": 14,
+      "controls": 34,
+      "effect": -0.706843587530761,
+      "null_sd": 1.5168310899801538,
+      "ev": -0.4660001975170547,
+      "nominal_permutation_p": 0.6601699150424788
+    },
+    {
+      "scope": "excluding_discovery48",
+      "behavior": "new_no_value_return",
+      "metric": "active_fraction_delta",
+      "positives": 14,
+      "controls": 34,
+      "effect": -0.00971023804494061,
+      "null_sd": 0.009072509629087212,
+      "ev": -1.0702923933868076,
+      "nominal_permutation_p": 0.2868565717141429
+    },
+    {
+      "scope": "excluding_discovery48",
+      "behavior": "new_no_value_return",
+      "metric": "newline_mean_activation_delta",
+      "positives": 14,
+      "controls": 34,
+      "effect": 0.5714877943406587,
+      "null_sd": 0.5914987795484702,
+      "ev": 0.9661690169114343,
+      "nominal_permutation_p": 0.34182908545727136
+    },
+    {
+      "scope": "excluding_discovery48",
+      "behavior": "new_repetition",
+      "metric": "mean_activation_delta",
+      "positives": 1,
+      "controls": 47,
+      "effect": null,
+      "ev": null
+    },
+    {
+      "scope": "excluding_discovery48",
+      "behavior": "new_repetition",
+      "metric": "max_activation_delta",
+      "positives": 1,
+      "controls": 47,
+      "effect": null,
+      "ev": null
+    },
+    {
+      "scope": "excluding_discovery48",
+      "behavior": "new_repetition",
+      "metric": "active_fraction_delta",
+      "positives": 1,
+      "controls": 47,
+      "effect": null,
+      "ev": null
+    },
+    {
+      "scope": "excluding_discovery48",
+      "behavior": "new_repetition",
+      "metric": "newline_mean_activation_delta",
+      "positives": 1,
+      "controls": 47,
+      "effect": null,
+      "ev": null
+    },
+    {
+      "scope": "excluding_discovery48",
+      "behavior": "shorter_main",
+      "metric": "mean_activation_delta",
+      "positives": 30,
+      "controls": 18,
+      "effect": -0.0077677791834705415,
+      "null_sd": 0.044574444885118567,
+      "ev": -0.1742653038863499,
+      "nominal_permutation_p": 0.8705647176411794
+    },
+    {
+      "scope": "excluding_discovery48",
+      "behavior": "shorter_main",
+      "metric": "max_activation_delta",
+      "positives": 30,
+      "controls": 18,
+      "effect": -2.086023704210917,
+      "null_sd": 1.4143637313331394,
+      "ev": -1.4748848955881313,
+      "nominal_permutation_p": 0.1454272863568216
+    },
+    {
+      "scope": "excluding_discovery48",
+      "behavior": "shorter_main",
+      "metric": "active_fraction_delta",
+      "positives": 30,
+      "controls": 18,
+      "effect": -0.008918754527903444,
+      "null_sd": 0.008392694782567382,
+      "ev": -1.0626806715798542,
+      "nominal_permutation_p": 0.2913543228385807
+    },
+    {
+      "scope": "excluding_discovery48",
+      "behavior": "shorter_main",
+      "metric": "newline_mean_activation_delta",
+      "positives": 30,
+      "controls": 18,
+      "effect": 0.4597414832976129,
+      "null_sd": 0.5524070124207161,
+      "ev": 0.8322513526447983,
+      "nominal_permutation_p": 0.42328835582208896
+    }
+  ],
+  "correlations": [
+    {
+      "source": "codellama_base",
+      "metric": "mean_activation",
+      "variable": "newline_fraction",
+      "spearman": 0.2133260965138882
+    },
+    {
+      "source": "codellama_base",
+      "metric": "mean_activation",
+      "variable": "n_tokens",
+      "spearman": 0.12864703530226848
+    },
+    {
+      "source": "codellama_base",
+      "metric": "mean_activation",
+      "variable": "all_statements",
+      "spearman": 0.20259716144731274
+    },
+    {
+      "source": "codellama_base",
+      "metric": "max_activation",
+      "variable": "newline_fraction",
+      "spearman": 0.21560591739266258
+    },
+    {
+      "source": "codellama_base",
+      "metric": "max_activation",
+      "variable": "n_tokens",
+      "spearman": 0.43501153624994915
+    },
+    {
+      "source": "codellama_base",
+      "metric": "max_activation",
+      "variable": "all_statements",
+      "spearman": 0.41953314244808165
+    },
+    {
+      "source": "codellama_base",
+      "metric": "active_fraction",
+      "variable": "newline_fraction",
+      "spearman": 0.27983606122730725
+    },
+    {
+      "source": "codellama_base",
+      "metric": "active_fraction",
+      "variable": "n_tokens",
+      "spearman": -0.08392367617020702
+    },
+    {
+      "source": "codellama_base",
+      "metric": "active_fraction",
+      "variable": "all_statements",
+      "spearman": 0.1424418231008076
+    },
+    {
+      "source": "codellama_merged",
+      "metric": "mean_activation",
+      "variable": "newline_fraction",
+      "spearman": 0.3525528623639802
+    },
+    {
+      "source": "codellama_merged",
+      "metric": "mean_activation",
+      "variable": "n_tokens",
+      "spearman": 0.03333606055496127
+    },
+    {
+      "source": "codellama_merged",
+      "metric": "mean_activation",
+      "variable": "all_statements",
+      "spearman": 0.1662451679195367
+    },
+    {
+      "source": "codellama_merged",
+      "metric": "max_activation",
+      "variable": "newline_fraction",
+      "spearman": 0.2735375464676831
+    },
+    {
+      "source": "codellama_merged",
+      "metric": "max_activation",
+      "variable": "n_tokens",
+      "spearman": 0.3812591179851439
+    },
+    {
+      "source": "codellama_merged",
+      "metric": "max_activation",
+      "variable": "all_statements",
+      "spearman": 0.4417902490011619
+    },
+    {
+      "source": "codellama_merged",
+      "metric": "active_fraction",
+      "variable": "newline_fraction",
+      "spearman": 0.3922768845351809
+    },
+    {
+      "source": "codellama_merged",
+      "metric": "active_fraction",
+      "variable": "n_tokens",
+      "spearman": -0.0017390366641144123
+    },
+    {
+      "source": "codellama_merged",
+      "metric": "active_fraction",
+      "variable": "all_statements",
+      "spearman": 0.16850872659977176
+    }
+  ],
+  "intervention_summary": [
+    {
+      "arm": "target_4309_neg5",
+      "kind": "target",
+      "n": 50,
+      "passes": 2,
+      "changed": 27,
+      "return_only_expansions": 3,
+      "value_return_additions": 0,
+      "return_only_to_empty_bodies": 1,
+      "statement_count_increases": 10,
+      "parse_failures": 0,
+      "discovery_cases_corrected": 2
+    },
+    {
+      "arm": "codellama_shuffle1_neg5",
+      "kind": "shuffle",
+      "n": 50,
+      "passes": 1,
+      "changed": 21,
+      "return_only_expansions": 0,
+      "value_return_additions": 2,
+      "return_only_to_empty_bodies": 0,
+      "statement_count_increases": 3,
+      "parse_failures": 1,
+      "discovery_cases_corrected": 0
+    },
+    {
+      "arm": "codellama_shuffle1_pos5",
+      "kind": "shuffle",
+      "n": 50,
+      "passes": 0,
+      "changed": 20,
+      "return_only_expansions": 0,
+      "value_return_additions": 1,
+      "return_only_to_empty_bodies": 0,
+      "statement_count_increases": 7,
+      "parse_failures": 2,
+      "discovery_cases_corrected": 0
+    },
+    {
+      "arm": "codellama_shuffle2_neg5",
+      "kind": "shuffle",
+      "n": 50,
+      "passes": 0,
+      "changed": 19,
+      "return_only_expansions": 0,
+      "value_return_additions": 0,
+      "return_only_to_empty_bodies": 0,
+      "statement_count_increases": 4,
+      "parse_failures": 0,
+      "discovery_cases_corrected": 0
+    },
+    {
+      "arm": "codellama_shuffle2_pos5",
+      "kind": "shuffle",
+      "n": 50,
+      "passes": 0,
+      "changed": 22,
+      "return_only_expansions": 0,
+      "value_return_additions": 1,
+      "return_only_to_empty_bodies": 0,
+      "statement_count_increases": 10,
+      "parse_failures": 0,
+      "discovery_cases_corrected": 0
+    },
+    {
+      "arm": "codellama_shuffle3_neg5",
+      "kind": "shuffle",
+      "n": 50,
+      "passes": 0,
+      "changed": 19,
+      "return_only_expansions": 0,
+      "value_return_additions": 1,
+      "return_only_to_empty_bodies": 0,
+      "statement_count_increases": 7,
+      "parse_failures": 0,
+      "discovery_cases_corrected": 0
+    },
+    {
+      "arm": "codellama_shuffle3_pos5",
+      "kind": "shuffle",
+      "n": 50,
+      "passes": 0,
+      "changed": 22,
+      "return_only_expansions": 0,
+      "value_return_additions": 0,
+      "return_only_to_empty_bodies": 0,
+      "statement_count_increases": 5,
+      "parse_failures": 0,
+      "discovery_cases_corrected": 0
+    },
+    {
+      "arm": "random_latent_14260_-5",
+      "kind": "random_latent",
+      "n": 50,
+      "passes": 1,
+      "changed": 21,
+      "return_only_expansions": 0,
+      "value_return_additions": 2,
+      "return_only_to_empty_bodies": 0,
+      "statement_count_increases": 7,
+      "parse_failures": 0,
+      "discovery_cases_corrected": 0
+    },
+    {
+      "arm": "random_latent_2947_+5",
+      "kind": "random_latent",
+      "n": 50,
+      "passes": 0,
+      "changed": 26,
+      "return_only_expansions": 0,
+      "value_return_additions": 2,
+      "return_only_to_empty_bodies": 0,
+      "statement_count_increases": 4,
+      "parse_failures": 1,
+      "discovery_cases_corrected": 0
+    },
+    {
+      "arm": "random_latent_3698_+5",
+      "kind": "random_latent",
+      "n": 50,
+      "passes": 0,
+      "changed": 20,
+      "return_only_expansions": 0,
+      "value_return_additions": 1,
+      "return_only_to_empty_bodies": 1,
+      "statement_count_increases": 8,
+      "parse_failures": 1,
+      "discovery_cases_corrected": 0
+    }
+  ]
+}

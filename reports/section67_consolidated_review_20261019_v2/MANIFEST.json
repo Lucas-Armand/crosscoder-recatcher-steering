@@ -1,0 +1,75 @@
+{
+  "output": "SECTION67_CONSOLIDATED_VISUAL_REVIEW_V2.pdf",
+  "pages": 31,
+  "original_preserved": true,
+  "new_inference": false,
+  "inputs": [
+    {
+      "path": "reports/section67_consolidated_review_20261019_v2/00_COVER_AND_GUIDE.pdf",
+      "pages": 2,
+      "sha256": "bd6911439c2fe6f91822e1c7c31ab0f1cd4f2dc1c8d795ab5741e588e03808ee"
+    },
+    {
+      "path": "reports/section67_semantic_temporal_20261019_v1/SECTION67_VISUAL_REVIEW.pdf",
+      "pages": 14,
+      "sha256": "91c2140b995071116514271e3cd9e73fad53b91fdf3d19e9898074a442935df3"
+    },
+    {
+      "path": "reports/section67_consolidated_review_20261019_v2/02_UPDATED_FINDINGS.pdf",
+      "pages": 5,
+      "sha256": "21ccea13287f959ff0d66c1b7fffd86fc0edb42149dcfe4b5b381434ed8bbf1b"
+    },
+    {
+      "path": "reports/codellama4309_behavior_hypothesis_20261019_v1/BEHAVIOR_HYPOTHESIS_REVIEW.pdf",
+      "pages": 3,
+      "sha256": "b36a28d5a05966906f3997924ab250c6ee825da25598b803ebba3a5f64d22db5"
+    },
+    {
+      "path": "reports/codellama4309_change_comparison_20261019_v1/01_target_shuffle_change_comparison.pdf",
+      "pages": 1,
+      "sha256": "2534929c3e42937892d32b0e295be7af1d9554937e109567ae44b7cc02a57480"
+    },
+    {
+      "path": "reports/codellama4309_temporal_return_visuals_20261019_v1/VISUAL_REVIEW.pdf",
+      "pages": 3,
+      "sha256": "239886ba24311320c9bc1bb2d006d26bd1dd75348b1fc546eab674c81812ba9f"
+    },
+    {
+      "path": "reports/section67_consolidated_review_20261019_v2/03_CODE_CASES.pdf",
+      "pages": 3,
+      "sha256": "34f48d66c4b245ea21f3bb1f8147185ef53fbf4f7d0da0354926f89c308bd8ed"
+    }
+  ],
+  "sections": [
+    {
+      "title": "Original visual review (preserved)",
+      "start": 3,
+      "end": 16
+    },
+    {
+      "title": "Updated findings and complete change tables",
+      "start": 17,
+      "end": 21
+    },
+    {
+      "title": "Exploratory behavior hypothesis figures",
+      "start": 22,
+      "end": 24
+    },
+    {
+      "title": "Uniform target / shuffle comparison",
+      "start": 25,
+      "end": 25
+    },
+    {
+      "title": "Temporal regions, return-newline statistics and eight examples",
+      "start": 26,
+      "end": 28
+    },
+    {
+      "title": "Code before / after and unchanged counterexamples",
+      "start": 29,
+      "end": 31
+    }
+  ]
+}

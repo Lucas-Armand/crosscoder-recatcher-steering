@@ -1,0 +1,20 @@
+{
+  "status": "exploratory hypothesis test; no new inference",
+  "discovery_tasks": [
+    "BigCodeBench/183",
+    "BigCodeBench/490"
+  ],
+  "definition_return_only": "Exactly one executable top-level main-body statement, which is Return; docstring ignored.",
+  "no_value_return": "No syntactic non-None return in the main body excluding nested definitions.",
+  "newline_token_id": 13,
+  "controls": "same frozen random latents and shuffle directions at magnitude5",
+  "multiple_testing": "40 exploratory contrasts; nominal permutation p values uncorrected; no significance claim",
+  "observational_unit": "generated text encoded in shared same-text latent, not two independent per-model latents",
+  "static_analysis_limitations": "Potential fallthrough/repetition/call indicators are syntax proxies, not semantic proofs.",
+  "source_sha256": {
+    "reports/codellama_base_merged_topk100_v1_regression_taxonomy/regression_failure_cases.csv": "1f2aa7230a2c160844c45a6ddb3f4781454d1dc22aa366db4ca2ad1548ad473b",
+    "reports/section67_semantic_temporal_20261019_v1/codellama_feature_activations.npz": "c5659e7f35d45a04750206f4f3ae076a587a082f1b4655070c2ee9293e6d7bb6",
+    "reports/section67_semantic_temporal_20261019_v1/natural_timing.csv": "de1d57ea80647b440679b30832144c2e4606bec403c6f3bdc4bc3899c0065d5d",
+    "runs/feature_stress_alpha0_20261015_v1/codellama/evaluations/bigcodebench__codellama_weak_alpha0_eval.json": "ef3a7238b73afa06318e6b7324cfebd6cb987a4c56848a51f81c607036bfc99e"
+  }
+}

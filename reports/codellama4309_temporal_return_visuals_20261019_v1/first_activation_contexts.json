@@ -1,0 +1,1512 @@
+{
+  "BigCodeBench/96": {
+    "first_category": "newline_after_main_return",
+    "first_index": 53,
+    "line": 38,
+    "activation": 2.235313653945923,
+    "column": 81,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 36,
+        "text": "    with open(csv_file, \"r\") as f:",
+        "first_active": false
+      },
+      {
+        "number": 37,
+        "text": "        data = f.read().split(csv_delimiter)",
+        "first_active": false
+      },
+      {
+        "number": 38,
+        "text": "        return [ (word, wordcount) for wordcount, word in Counter(data).items() ]",
+        "first_active": true
+      },
+      {
+        "number": 39,
+        "text": "        sorted(operator.itemgetter(1), operator.itemgetter(0))",
+        "first_active": false
+      }
+    ],
+    "return_lines": [
+      38
+    ]
+  },
+  "BigCodeBench/115": {
+    "first_category": "other_newline",
+    "first_index": 29,
+    "line": 32,
+    "activation": 13.331998825073242,
+    "column": 76,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 30,
+        "text": "    \"\"\"",
+        "first_active": false
+      },
+      {
+        "number": 31,
+        "text": "    if len(numbers) == 0:",
+        "first_active": false
+      },
+      {
+        "number": 32,
+        "text": "        raise ValueError('task_func() requires a non-empty list of numbers')",
+        "first_active": true
+      },
+      {
+        "number": 33,
+        "text": "    else:",
+        "first_active": false
+      }
+    ],
+    "return_lines": [
+      36
+    ]
+  },
+  "BigCodeBench/119": {
+    "first_category": "inactive",
+    "first_index": null,
+    "line": null,
+    "activation": null,
+    "column": null,
+    "token_span": null,
+    "lines": [
+      {
+        "number": 5,
+        "text": "def task_func():",
+        "first_active": false
+      },
+      {
+        "number": 6,
+        "text": "    \"\"\"",
+        "first_active": false
+      }
+    ],
+    "return_lines": []
+  },
+  "BigCodeBench/122": {
+    "first_category": "other_newline",
+    "first_index": 49,
+    "line": 31,
+    "activation": 1.8138518333435059,
+    "column": 47,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 29,
+        "text": "    my_list = np.array(my_list)",
+        "first_active": false
+      },
+      {
+        "number": 30,
+        "text": "    random_number = random.randint(0, 100)",
+        "first_active": false
+      },
+      {
+        "number": 31,
+        "text": "    my_list = np.append(my_list, random_number)",
+        "first_active": true
+      },
+      {
+        "number": 32,
+        "text": "    return np.array(my_list)",
+        "first_active": false
+      }
+    ],
+    "return_lines": [
+      32
+    ]
+  },
+  "BigCodeBench/149": {
+    "first_category": "newline_after_main_return",
+    "first_index": 57,
+    "line": 38,
+    "activation": 9.940896987915039,
+    "column": 9,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 36,
+        "text": "            {'Element': elements},",
+        "first_active": false
+      },
+      {
+        "number": 37,
+        "text": "            {'Count': np.array([len(element) for element in elements])}",
+        "first_active": false
+      },
+      {
+        "number": 38,
+        "text": "        )",
+        "first_active": true
+      },
+      {
+        "number": 39,
+        "text": "    else:",
+        "first_active": false
+      }
+    ],
+    "return_lines": [
+      38,
+      43
+    ]
+  },
+  "BigCodeBench/173": {
+    "first_category": "newline_after_main_return",
+    "first_index": 73,
+    "line": 33,
+    "activation": 1.8740099668502808,
+    "column": 13,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 31,
+        "text": "    for name in country_dict:",
+        "first_active": false
+      },
+      {
+        "number": 32,
+        "text": "        df.loc[name] = np.random.randint(100000000000, 1100000000000)",
+        "first_active": false
+      },
+      {
+        "number": 33,
+        "text": "    return df",
+        "first_active": true
+      }
+    ],
+    "return_lines": [
+      33
+    ]
+  },
+  "BigCodeBench/183": {
+    "first_category": "newline_after_main_return",
+    "first_index": 18,
+    "line": 24,
+    "activation": 4.5524702072143555,
+    "column": 53,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 22,
+        "text": "    True",
+        "first_active": false
+      },
+      {
+        "number": 23,
+        "text": "    \"\"\"",
+        "first_active": false
+      },
+      {
+        "number": 24,
+        "text": "    return HttpResponse(json.dumps(data), status=200)",
+        "first_active": true
+      }
+    ],
+    "return_lines": [
+      24
+    ]
+  },
+  "BigCodeBench/194": {
+    "first_category": "newline_after_main_return",
+    "first_index": 39,
+    "line": 34,
+    "activation": 2.6378421783447266,
+    "column": 22,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 32,
+        "text": "    data = np.random.randn(data_size)",
+        "first_active": false
+      },
+      {
+        "number": 33,
+        "text": "    color = np.random.randint(len(BAR_COLOR))",
+        "first_active": false
+      },
+      {
+        "number": 34,
+        "text": "    return data, color",
+        "first_active": true
+      }
+    ],
+    "return_lines": [
+      34
+    ]
+  },
+  "BigCodeBench/206": {
+    "first_category": "non_newline",
+    "first_index": 23,
+    "line": 38,
+    "activation": 9.1605224609375,
+    "column": 41,
+    "token_span": ")",
+    "lines": [
+      {
+        "number": 36,
+        "text": "    \"\"\"",
+        "first_active": false
+      },
+      {
+        "number": 37,
+        "text": "    if not os.path.exists(file_name):",
+        "first_active": false
+      },
+      {
+        "number": 38,
+        "text": "        raise FileNotFoundError(file_name)",
+        "first_active": true
+      },
+      {
+        "number": 39,
+        "text": "    with open(file_name, 'r', newline='') as csvfile:",
+        "first_active": false
+      }
+    ],
+    "return_lines": []
+  },
+  "BigCodeBench/240": {
+    "first_category": "newline_after_main_return",
+    "first_index": 49,
+    "line": 33,
+    "activation": 2.495074987411499,
+    "column": 15,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 31,
+        "text": "    for i in range(n_data_points):",
+        "first_active": false
+      },
+      {
+        "number": 32,
+        "text": "        data['Value'][i] = uniform(min_value, max_value)",
+        "first_active": false
+      },
+      {
+        "number": 33,
+        "text": "    return data",
+        "first_active": true
+      }
+    ],
+    "return_lines": [
+      33
+    ]
+  },
+  "BigCodeBench/275": {
+    "first_category": "other_newline",
+    "first_index": 21,
+    "line": 29,
+    "activation": 14.878888130187988,
+    "column": 52,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 27,
+        "text": "    \"\"\"",
+        "first_active": false
+      },
+      {
+        "number": 28,
+        "text": "    if n < 1:",
+        "first_active": false
+      },
+      {
+        "number": 29,
+        "text": "        raise ValueError(\"n must be greater than 1\")",
+        "first_active": true
+      },
+      {
+        "number": 30,
+        "text": "    else:",
+        "first_active": false
+      }
+    ],
+    "return_lines": [
+      31
+    ]
+  },
+  "BigCodeBench/339": {
+    "first_category": "newline_after_main_return",
+    "first_index": 58,
+    "line": 35,
+    "activation": 4.644383430480957,
+    "column": 99,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 33,
+        "text": "    if isinstance(req_data, dict):",
+        "first_active": false
+      },
+      {
+        "number": 34,
+        "text": "        if isinstance(secret_key, str):",
+        "first_active": false
+      },
+      {
+        "number": 35,
+        "text": "            return urllib.parse.urlencode(hmac.new(secret_key, 'sha256').update(req_data).digest())",
+        "first_active": true
+      },
+      {
+        "number": 36,
+        "text": "        else:",
+        "first_active": false
+      }
+    ],
+    "return_lines": [
+      35
+    ]
+  },
+  "BigCodeBench/357": {
+    "first_category": "inactive",
+    "first_index": null,
+    "line": null,
+    "activation": null,
+    "column": null,
+    "token_span": null,
+    "lines": [
+      {
+        "number": 5,
+        "text": "def task_func(x):",
+        "first_active": false
+      },
+      {
+        "number": 6,
+        "text": "    \"\"\"",
+        "first_active": false
+      }
+    ],
+    "return_lines": [
+      31
+    ]
+  },
+  "BigCodeBench/370": {
+    "first_category": "other_newline",
+    "first_index": 23,
+    "line": 44,
+    "activation": 1.1187392473220825,
+    "column": 54,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 42,
+        "text": "    \"\"\"",
+        "first_active": false
+      },
+      {
+        "number": 43,
+        "text": "    files = []",
+        "first_active": false
+      },
+      {
+        "number": 44,
+        "text": "    for file in glob.glob(directory_path + \"/*.json\"):",
+        "first_active": true
+      },
+      {
+        "number": 45,
+        "text": "        with open(file, \"r\") as file:",
+        "first_active": false
+      }
+    ],
+    "return_lines": [
+      51
+    ]
+  },
+  "BigCodeBench/371": {
+    "first_category": "newline_after_main_return",
+    "first_index": 17,
+    "line": 29,
+    "activation": 3.5961692333221436,
+    "column": 53,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 27,
+        "text": "    0",
+        "first_active": false
+      },
+      {
+        "number": 28,
+        "text": "    \"\"\"",
+        "first_active": false
+      },
+      {
+        "number": 29,
+        "text": "    return pd.DataFrame(MinMaxScaler(l).transform(l))",
+        "first_active": true
+      }
+    ],
+    "return_lines": [
+      29
+    ]
+  },
+  "BigCodeBench/398": {
+    "first_category": "non_newline",
+    "first_index": 1,
+    "line": 30,
+    "activation": 1.481843113899231,
+    "column": 3,
+    "token_span": " with",
+    "lines": [
+      {
+        "number": 28,
+        "text": "    False",
+        "first_active": false
+      },
+      {
+        "number": 29,
+        "text": "    \"\"\"",
+        "first_active": false
+      },
+      {
+        "number": 30,
+        "text": "    with open(file_path, 'r') as f:",
+        "first_active": true
+      },
+      {
+        "number": 31,
+        "text": "        data = json.load(f)",
+        "first_active": false
+      }
+    ],
+    "return_lines": [
+      33,
+      35
+    ]
+  },
+  "BigCodeBench/412": {
+    "first_category": "other_newline",
+    "first_index": 199,
+    "line": 45,
+    "activation": 4.087207794189453,
+    "column": 58,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 43,
+        "text": "        json_file_content_dict = json.dumps(json_file_content_dict)",
+        "first_active": false
+      },
+      {
+        "number": 44,
+        "text": "        with open(json_file) as json_file_handle:",
+        "first_active": false
+      },
+      {
+        "number": 45,
+        "text": "            json_file_handle.write(json_file_content_dict)",
+        "first_active": true
+      },
+      {
+        "number": 46,
+        "text": "        return json_file_content_dict",
+        "first_active": false
+      }
+    ],
+    "return_lines": [
+      46
+    ]
+  },
+  "BigCodeBench/423": {
+    "first_category": "other_newline",
+    "first_index": 31,
+    "line": 38,
+    "activation": 15.951911926269531,
+    "column": 31,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 36,
+        "text": "   # Check for file existence and validate threshold value.",
+        "first_active": false
+      },
+      {
+        "number": 37,
+        "text": "    if not os.path.exists(image_path):",
+        "first_active": false
+      },
+      {
+        "number": 38,
+        "text": "        raise FileNotFoundError",
+        "first_active": true
+      },
+      {
+        "number": 39,
+        "text": "    if not isinstance(threshold, int):",
+        "first_active": false
+      }
+    ],
+    "return_lines": [
+      55
+    ]
+  },
+  "BigCodeBench/430": {
+    "first_category": "inactive",
+    "first_index": null,
+    "line": null,
+    "activation": null,
+    "column": null,
+    "token_span": null,
+    "lines": [
+      {
+        "number": 5,
+        "text": "def task_func(df1, df2, column1=\"feature1\", column2=\"feature2\"):",
+        "first_active": false
+      },
+      {
+        "number": 6,
+        "text": "    \"\"\"Merge datasets, perform KMeans clustering, then return cluster labels and scatterplot.",
+        "first_active": false
+      }
+    ],
+    "return_lines": []
+  },
+  "BigCodeBench/431": {
+    "first_category": "inactive",
+    "first_index": null,
+    "line": null,
+    "activation": null,
+    "column": null,
+    "token_span": null,
+    "lines": [
+      {
+        "number": 5,
+        "text": "def task_func(image_file: str) -> np.ndarray:",
+        "first_active": false
+      },
+      {
+        "number": 6,
+        "text": "    \"\"\"",
+        "first_active": false
+      }
+    ],
+    "return_lines": []
+  },
+  "BigCodeBench/490": {
+    "first_category": "newline_after_main_return",
+    "first_index": 10,
+    "line": 28,
+    "activation": 3.3566339015960693,
+    "column": 29,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 26,
+        "text": "    'Emma'",
+        "first_active": false
+      },
+      {
+        "number": 27,
+        "text": "    \"\"\"",
+        "first_active": false
+      },
+      {
+        "number": 28,
+        "text": "    return xmltodict.parse(s)",
+        "first_active": true
+      }
+    ],
+    "return_lines": [
+      28
+    ]
+  },
+  "BigCodeBench/577": {
+    "first_category": "other_newline",
+    "first_index": 24,
+    "line": 34,
+    "activation": 2.008389949798584,
+    "column": 47,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 32,
+        "text": "    \"\"\"",
+        "first_active": false
+      },
+      {
+        "number": 33,
+        "text": "   # Get the directory's pathlib object",
+        "first_active": false
+      },
+      {
+        "number": 34,
+        "text": "    directory_pathlib = pathlib.Path(directory)",
+        "first_active": true
+      },
+      {
+        "number": 35,
+        "text": "",
+        "first_active": false
+      }
+    ],
+    "return_lines": []
+  },
+  "BigCodeBench/578": {
+    "first_category": "non_newline",
+    "first_index": 38,
+    "line": 34,
+    "activation": 4.069433212280273,
+    "column": 52,
+    "token_span": ")",
+    "lines": [
+      {
+        "number": 32,
+        "text": "    response = requests.get(URL + username)",
+        "first_active": false
+      },
+      {
+        "number": 33,
+        "text": "    if response.status_code != requests.codes.OK:",
+        "first_active": false
+      },
+      {
+        "number": 34,
+        "text": "        raise requests.exceptions.HTTPError(response)",
+        "first_active": true
+      },
+      {
+        "number": 35,
+        "text": "    result = response.json()",
+        "first_active": false
+      }
+    ],
+    "return_lines": [
+      39
+    ]
+  },
+  "BigCodeBench/603": {
+    "first_category": "other_newline",
+    "first_index": 26,
+    "line": 28,
+    "activation": 2.3597984313964844,
+    "column": 46,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 26,
+        "text": "    True",
+        "first_active": false
+      },
+      {
+        "number": 27,
+        "text": "    \"\"\"",
+        "first_active": false
+      },
+      {
+        "number": 28,
+        "text": "    matrix1 = np.array([[1, 2, 3], [4, 5, 6]])",
+        "first_active": true
+      },
+      {
+        "number": 29,
+        "text": "    matrix2 = np.array([[7, 8, 9], [10, 11, 12]])",
+        "first_active": false
+      }
+    ],
+    "return_lines": []
+  },
+  "BigCodeBench/604": {
+    "first_category": "other_newline",
+    "first_index": 22,
+    "line": 34,
+    "activation": 2.0182712078094482,
+    "column": 8,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 32,
+        "text": "    \"\"\"",
+        "first_active": false
+      },
+      {
+        "number": 33,
+        "text": "    logging.info(\"Attempting to compile file: %s\", filepath)",
+        "first_active": false
+      },
+      {
+        "number": 34,
+        "text": "    try:",
+        "first_active": true
+      },
+      {
+        "number": 35,
+        "text": "        subprocess.check_call([\"g++\", filepath], cwd=os.path.dirname(filepath))",
+        "first_active": false
+      }
+    ],
+    "return_lines": []
+  },
+  "BigCodeBench/629": {
+    "first_category": "other_newline",
+    "first_index": 36,
+    "line": 30,
+    "activation": 7.035579681396484,
+    "column": 28,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 28,
+        "text": "   # Create output directory if it does not exist.",
+        "first_active": false
+      },
+      {
+        "number": 29,
+        "text": "    if not os.path.exists(output_dir):",
+        "first_active": false
+      },
+      {
+        "number": 30,
+        "text": "        os.mkdir(output_dir)",
+        "first_active": true
+      },
+      {
+        "number": 31,
+        "text": "",
+        "first_active": false
+      }
+    ],
+    "return_lines": [
+      37
+    ]
+  },
+  "BigCodeBench/630": {
+    "first_category": "non_newline",
+    "first_index": 14,
+    "line": 30,
+    "activation": 1.663557529449463,
+    "column": 48,
+    "token_span": ")",
+    "lines": [
+      {
+        "number": 28,
+        "text": "    True",
+        "first_active": false
+      },
+      {
+        "number": 29,
+        "text": "    \"\"\"",
+        "first_active": false
+      },
+      {
+        "number": 30,
+        "text": "    filename = os.path.join(output_dir, filename)",
+        "first_active": true
+      },
+      {
+        "number": 31,
+        "text": "    df.to_json(filename)",
+        "first_active": false
+      }
+    ],
+    "return_lines": [
+      32
+    ]
+  },
+  "BigCodeBench/634": {
+    "first_category": "newline_after_main_return",
+    "first_index": 27,
+    "line": 34,
+    "activation": 4.054718971252441,
+    "column": 86,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 32,
+        "text": "    ModeResult(mode=array([1]), count=array([5]))",
+        "first_active": false
+      },
+      {
+        "number": 33,
+        "text": "    \"\"\"",
+        "first_active": false
+      },
+      {
+        "number": 34,
+        "text": "    return stats.mode(itertools.chain(input_list, input_list, input_list, input_list))",
+        "first_active": true
+      }
+    ],
+    "return_lines": [
+      34
+    ]
+  },
+  "BigCodeBench/670": {
+    "first_category": "other_newline",
+    "first_index": 24,
+    "line": 28,
+    "activation": 6.527333736419678,
+    "column": 20,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 26,
+        "text": "    for char in x:",
+        "first_active": false
+      },
+      {
+        "number": 27,
+        "text": "        if char not in w:",
+        "first_active": false
+      },
+      {
+        "number": 28,
+        "text": "            continue",
+        "first_active": true
+      },
+      {
+        "number": 29,
+        "text": "        else:",
+        "first_active": false
+      }
+    ],
+    "return_lines": []
+  },
+  "BigCodeBench/738": {
+    "first_category": "newline_after_main_return",
+    "first_index": 16,
+    "line": 22,
+    "activation": 3.3408966064453125,
+    "column": 39,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 20,
+        "text": "    2.5",
+        "first_active": false
+      },
+      {
+        "number": 21,
+        "text": "    \"\"\"",
+        "first_active": false
+      },
+      {
+        "number": 22,
+        "text": "    return np.sqrt(np.var(np.array(L)))",
+        "first_active": true
+      }
+    ],
+    "return_lines": [
+      22
+    ]
+  },
+  "BigCodeBench/743": {
+    "first_category": "non_newline",
+    "first_index": 56,
+    "line": 34,
+    "activation": 2.150529623031616,
+    "column": 31,
+    "token_span": "\"",
+    "lines": [
+      {
+        "number": 32,
+        "text": "    statistics = {}",
+        "first_active": false
+      },
+      {
+        "number": 33,
+        "text": "    for file in files:",
+        "first_active": false
+      },
+      {
+        "number": 34,
+        "text": "        if file.endswith(\".json\"):",
+        "first_active": true
+      },
+      {
+        "number": 35,
+        "text": "            with open(directory + \"/\" + file) as f:",
+        "first_active": false
+      }
+    ],
+    "return_lines": [
+      42
+    ]
+  },
+  "BigCodeBench/756": {
+    "first_category": "non_newline",
+    "first_index": 52,
+    "line": 33,
+    "activation": 1.78505277633667,
+    "column": 52,
+    "token_span": "')",
+    "lines": [
+      {
+        "number": 31,
+        "text": "    target_dir_path = Path(target_dir)",
+        "first_active": false
+      },
+      {
+        "number": 32,
+        "text": "    if not source_dir_path.exists():",
+        "first_active": false
+      },
+      {
+        "number": 33,
+        "text": "        raise ValueError('source_dir does not exist.')",
+        "first_active": true
+      },
+      {
+        "number": 34,
+        "text": "    if not target_dir_path.exists():",
+        "first_active": false
+      }
+    ],
+    "return_lines": []
+  },
+  "BigCodeBench/790": {
+    "first_category": "other_newline",
+    "first_index": 27,
+    "line": 42,
+    "activation": 16.665489196777344,
+    "column": 59,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 40,
+        "text": "    \"\"\"",
+        "first_active": false
+      },
+      {
+        "number": 41,
+        "text": "    if col1 not in df.columns:",
+        "first_active": false
+      },
+      {
+        "number": 42,
+        "text": "        raise ValueError(\"'col1' is not in the DataFrame.\")",
+        "first_active": true
+      }
+    ],
+    "return_lines": []
+  },
+  "BigCodeBench/823": {
+    "first_category": "other_newline",
+    "first_index": 83,
+    "line": 39,
+    "activation": 2.5602078437805176,
+    "column": 29,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 37,
+        "text": "    # Calculate the mean and standard deviation of the delay times.",
+        "first_active": false
+      },
+      {
+        "number": 38,
+        "text": "    mean = np.mean(delay_times)",
+        "first_active": false
+      },
+      {
+        "number": 39,
+        "text": "    std = np.std(delay_times)",
+        "first_active": true
+      },
+      {
+        "number": 40,
+        "text": "",
+        "first_active": false
+      }
+    ],
+    "return_lines": [
+      42
+    ]
+  },
+  "BigCodeBench/841": {
+    "first_category": "newline_after_main_return",
+    "first_index": 18,
+    "line": 38,
+    "activation": 9.371407508850098,
+    "column": 35,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 36,
+        "text": "    \"\"\"",
+        "first_active": false
+      },
+      {
+        "number": 37,
+        "text": "    if json_string is None:",
+        "first_active": false
+      },
+      {
+        "number": 38,
+        "text": "        return defaultdict(int, {})",
+        "first_active": true
+      },
+      {
+        "number": 39,
+        "text": "    if json_string is None or json_string is False:",
+        "first_active": false
+      }
+    ],
+    "return_lines": [
+      38,
+      40
+    ]
+  },
+  "BigCodeBench/846": {
+    "first_category": "newline_after_main_return",
+    "first_index": 38,
+    "line": 53,
+    "activation": 10.79712963104248,
+    "column": 93,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 51,
+        "text": "    \"\"\"",
+        "first_active": false
+      },
+      {
+        "number": 52,
+        "text": "    if len(obj_list) == 0:",
+        "first_active": false
+      },
+      {
+        "number": 53,
+        "text": "        return pd.DataFrame(columns=['attribute', 'count'], index=pd.Index([], name='index'))",
+        "first_active": true
+      },
+      {
+        "number": 54,
+        "text": "",
+        "first_active": false
+      }
+    ],
+    "return_lines": [
+      53,
+      56,
+      59,
+      62,
+      65,
+      68,
+      71,
+      74,
+      77,
+      80,
+      83,
+      86
+    ]
+  },
+  "BigCodeBench/858": {
+    "first_category": "inactive",
+    "first_index": null,
+    "line": null,
+    "activation": null,
+    "column": null,
+    "token_span": null,
+    "lines": [
+      {
+        "number": 6,
+        "text": "def task_func(n, seed=None):",
+        "first_active": false
+      },
+      {
+        "number": 7,
+        "text": "    \"\"\"",
+        "first_active": false
+      }
+    ],
+    "return_lines": []
+  },
+  "BigCodeBench/875": {
+    "first_category": "other_newline",
+    "first_index": 71,
+    "line": 51,
+    "activation": 5.864731311798096,
+    "column": 66,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 49,
+        "text": "    df = pd.DataFrame(data, columns=columns)",
+        "first_active": false
+      },
+      {
+        "number": 50,
+        "text": "    if fill_missing is True:",
+        "first_active": false
+      },
+      {
+        "number": 51,
+        "text": "        df = df.fillna(random.randint(num_range[0], num_range[1]))",
+        "first_active": true
+      },
+      {
+        "number": 52,
+        "text": "    return df",
+        "first_active": false
+      }
+    ],
+    "return_lines": [
+      52
+    ]
+  },
+  "BigCodeBench/878": {
+    "first_category": "non_newline",
+    "first_index": 37,
+    "line": 55,
+    "activation": 1.5441036224365234,
+    "column": 104,
+    "token_span": ".\")",
+    "lines": [
+      {
+        "number": 53,
+        "text": "    \"\"\"",
+        "first_active": false
+      },
+      {
+        "number": 54,
+        "text": "    if data is None or len(data) == 0:",
+        "first_active": false
+      },
+      {
+        "number": 55,
+        "text": "        raise ValueError(\"The input DataFrame is empty or the target column name is not in the DataFrame.\")",
+        "first_active": true
+      },
+      {
+        "number": 56,
+        "text": "    if target is None or target not in data:",
+        "first_active": false
+      }
+    ],
+    "return_lines": []
+  },
+  "BigCodeBench/926": {
+    "first_category": "other_newline",
+    "first_index": 93,
+    "line": 35,
+    "activation": 2.4634015560150146,
+    "column": 17,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 33,
+        "text": "    df = pd.DataFrame(cur.fetchall())",
+        "first_active": false
+      },
+      {
+        "number": 34,
+        "text": "    cur.execute(\"UPDATE %s SET %s = REPLACE(content, '\\n', '<br>')\" % (table_name, column_name))",
+        "first_active": false
+      },
+      {
+        "number": 35,
+        "text": "    conn.commit()",
+        "first_active": true
+      },
+      {
+        "number": 36,
+        "text": "    conn.close()",
+        "first_active": false
+      }
+    ],
+    "return_lines": [
+      37
+    ]
+  },
+  "BigCodeBench/931": {
+    "first_category": "newline_after_main_return",
+    "first_index": 9,
+    "line": 27,
+    "activation": 2.0685789585113525,
+    "column": 31,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 25,
+        "text": "    defaultdict(<class 'int'>, {'ab': 1, 'bc': 1, 'cd': 1})",
+        "first_active": false
+      },
+      {
+        "number": 26,
+        "text": "    \"\"\"",
+        "first_active": false
+      },
+      {
+        "number": 27,
+        "text": "    return defaultdict(int, {})",
+        "first_active": true
+      }
+    ],
+    "return_lines": [
+      27
+    ]
+  },
+  "BigCodeBench/939": {
+    "first_category": "other_newline",
+    "first_index": 14,
+    "line": 28,
+    "activation": 2.5245728492736816,
+    "column": 38,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 26,
+        "text": "    ['anotherFile1', 'anotherFile2']",
+        "first_active": false
+      },
+      {
+        "number": 27,
+        "text": "    \"\"\"",
+        "first_active": false
+      },
+      {
+        "number": 28,
+        "text": "    files = glob.glob(dir_path + '/*')",
+        "first_active": true
+      },
+      {
+        "number": 29,
+        "text": "    new_names = []",
+        "first_active": false
+      }
+    ],
+    "return_lines": [
+      33
+    ]
+  },
+  "BigCodeBench/954": {
+    "first_category": "non_newline",
+    "first_index": 22,
+    "line": 38,
+    "activation": 1.3981162309646606,
+    "column": 74,
+    "token_span": "')",
+    "lines": [
+      {
+        "number": 36,
+        "text": "    ['alice_charlie alice alice_charlie charlie alice_charlie dan alice']",
+        "first_active": false
+      },
+      {
+        "number": 37,
+        "text": "    \"\"\"",
+        "first_active": false
+      },
+      {
+        "number": 38,
+        "text": "    if n_sentences < 0: raise ValueError('n_sentences must not be negative')",
+        "first_active": true
+      },
+      {
+        "number": 39,
+        "text": "    if len(vocabulary) == 0: raise ValueError('vocabulary must not be empty')",
+        "first_active": false
+      }
+    ],
+    "return_lines": [
+      40
+    ]
+  },
+  "BigCodeBench/971": {
+    "first_category": "newline_after_main_return",
+    "first_index": 18,
+    "line": 45,
+    "activation": 6.137543678283691,
+    "column": 17,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 43,
+        "text": "    \"\"\"",
+        "first_active": false
+      },
+      {
+        "number": 44,
+        "text": "    if directory_path == \"\" or directory_path is None:",
+        "first_active": false
+      },
+      {
+        "number": 45,
+        "text": "        return []",
+        "first_active": true
+      },
+      {
+        "number": 46,
+        "text": "    else:",
+        "first_active": false
+      }
+    ],
+    "return_lines": [
+      45
+    ]
+  },
+  "BigCodeBench/983": {
+    "first_category": "non_newline",
+    "first_index": 13,
+    "line": 38,
+    "activation": 0.9492666125297546,
+    "column": 13,
+    "token_span": " Value",
+    "lines": [
+      {
+        "number": 36,
+        "text": "    \"\"\"",
+        "first_active": false
+      },
+      {
+        "number": 37,
+        "text": "    if len(df) == 0:",
+        "first_active": false
+      },
+      {
+        "number": 38,
+        "text": "        raise ValueError(\"The DataFrame is empty.\")",
+        "first_active": true
+      }
+    ],
+    "return_lines": []
+  },
+  "BigCodeBench/989": {
+    "first_category": "other_newline",
+    "first_index": 18,
+    "line": 41,
+    "activation": 14.958722114562988,
+    "column": 52,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 39,
+        "text": "    \"\"\"",
+        "first_active": false
+      },
+      {
+        "number": 40,
+        "text": "    if length < 0:",
+        "first_active": false
+      },
+      {
+        "number": 41,
+        "text": "        raise ValueError(\"Length must be positive.\")",
+        "first_active": true
+      },
+      {
+        "number": 42,
+        "text": "    if len(predicates) == 0:",
+        "first_active": false
+      }
+    ],
+    "return_lines": [
+      43
+    ]
+  },
+  "BigCodeBench/1062": {
+    "first_category": "non_newline",
+    "first_index": 217,
+    "line": 51,
+    "activation": 2.6165199279785156,
+    "column": 62,
+    "token_span": "))",
+    "lines": [
+      {
+        "number": 49,
+        "text": "        ax.set_yticklabels([i + j for i in range(3)] for j in range(5))",
+        "first_active": false
+      },
+      {
+        "number": 50,
+        "text": "        ax.set_xlim([i + j for i in range(3)] for j in range(5))",
+        "first_active": false
+      },
+      {
+        "number": 51,
+        "text": "        ax.set_ylim([i + j for i in range(3)] for j in range(5))",
+        "first_active": true
+      }
+    ],
+    "return_lines": []
+  },
+  "BigCodeBench/1063": {
+    "first_category": "other_newline",
+    "first_index": 26,
+    "line": 34,
+    "activation": 2.916384220123291,
+    "column": 63,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 32,
+        "text": "    'Explained Variance Ratio of Principal Components'",
+        "first_active": false
+      },
+      {
+        "number": 33,
+        "text": "    \"\"\"",
+        "first_active": false
+      },
+      {
+        "number": 34,
+        "text": "    arr = np.array([[i+j for i in range(3)] for j in range(5)])",
+        "first_active": true
+      }
+    ],
+    "return_lines": []
+  },
+  "BigCodeBench/1076": {
+    "first_category": "inactive",
+    "first_index": null,
+    "line": null,
+    "activation": null,
+    "column": null,
+    "token_span": null,
+    "lines": [
+      {
+        "number": 12,
+        "text": "def task_func(time_strings, target_tz):",
+        "first_active": false
+      },
+      {
+        "number": 13,
+        "text": "    \"\"\"",
+        "first_active": false
+      }
+    ],
+    "return_lines": []
+  },
+  "BigCodeBench/1092": {
+    "first_category": "newline_after_main_return",
+    "first_index": 91,
+    "line": 40,
+    "activation": 7.850467681884766,
+    "column": 41,
+    "token_span": "\n",
+    "lines": [
+      {
+        "number": 38,
+        "text": "                        dict = ast.literal_eval(string)",
+        "first_active": false
+      },
+      {
+        "number": 39,
+        "text": "                        if dict:",
+        "first_active": false
+      },
+      {
+        "number": 40,
+        "text": "                            return [dict]",
+        "first_active": true
+      },
+      {
+        "number": 41,
+        "text": "                    except Exception as e:",
+        "first_active": false
+      }
+    ],
+    "return_lines": [
+      40,
+      42,
+      44,
+      46
+    ]
+  }
+}

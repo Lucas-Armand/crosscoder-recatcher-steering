@@ -1,0 +1,13 @@
+{
+  "new_inference": false,
+  "source": "/home/lucas/crosscoder-recatcher-steering/reports/section67_semantic_temporal_20261019_v1",
+  "caveats": [
+    "Natural activations come from frozen jointly encoded source text, aligned to current extracted code.",
+    "Missing means inactive or not mapped; consult active flag to distinguish.",
+    "Strictly before is separate from same token/inside region.",
+    "Runtime execution sites are not generation-time root-cause locations.",
+    "Omissions have no unique first harmful token.",
+    "Static continuous steering does not demonstrate mediation by naturally active feature.",
+    "Textual divergence is not necessarily a semantic error; temporal precedence is necessary but not sufficient for mediation."
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "validated": true,
+  "source_texts": 100,
+  "paired_tasks": 50,
+  "non_discovery_tasks": 48,
+  "task_arm_observations": 500,
+  "new_generation": false,
+  "ast_expansion_cases_manually_inspected": true
+}
