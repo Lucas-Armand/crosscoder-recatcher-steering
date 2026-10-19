@@ -1,0 +1,8 @@
+{
+  "validated": true,
+  "natural_sequences": 338,
+  "steering_task_arms": 845,
+  "curve_records": 100,
+  "figures": 9,
+  "all_target_pass_and_changed_counts_match_published_curves": true
+}
