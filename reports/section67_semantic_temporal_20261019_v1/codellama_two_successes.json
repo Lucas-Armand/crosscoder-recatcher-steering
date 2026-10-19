@@ -1,0 +1,124 @@
+[
+  {
+    "task_id": "BigCodeBench/183",
+    "baseline_body": "    return HttpResponse(json.dumps(data), status=200)",
+    "steered_body": "    response = HttpResponse(data)\n    response['UUID'] = uuid.uuid4()\n    return response",
+    "passing_base_body": "    response = HttpResponse(content_type='application/json')\n    response.write(data)\n    response['UUID'] = str(uuid.uuid4())\n    return response",
+    "evaluator_failures": {
+      "test_case_1": "Traceback (most recent call last):\n  File \"__test__.py\", line 81, in test_case_1\nAssertionError: '\"{\\\\\"key\\\\\": \\\\\"value\\\\\"}\"' != '{\"key\": \"value\"}'\n- \"{\\\"key\\\": \\\"value\\\"}\"\n? - -    -   -      -  -\n+ {\"key\": \"value\"}\n\n",
+      "test_case_2": "Traceback (most recent call last):\n  File \"__test__.py\", line 88, in test_case_2\nAssertionError: '\"{}\"' != '{}'\n- \"{}\"\n? -  -\n+ {}\n\n",
+      "test_case_3": "Traceback (most recent call last):\n  File \"__test__.py\", line 95, in test_case_3\nAssertionError: '\"{\\\\\"users\\\\\": [{\\\\\"name\\\\\": \\\\\"John\\\\\", [53 chars]}]}\"' != '{\"users\": [{\"name\": \"John\", \"age\": 30}, {[23 chars]5}]}'\n- \"{\\\"users\\\": [{\\\"name\\\": \\\"John\\\", \\\"age\\\": 30}, {\\\"name\\\": \\\"Doe\\\", \\\"age\\\": 25}]}\"\n? - -      -     -     -   -     -   -    -         -     -   -    -   -    -        -\n+ {\"users\": [{\"name\": \"John\", \"age\": 30}, {\"name\": \"Doe\", \"age\": 25}]}\n\n",
+      "test_case_4": "Traceback (most recent call last):\n  File \"__test__.py\", line 101, in test_case_4\nAssertionError: '\"{\\\\\"description\\\\\": \\\\\"This is a sample [48 chars]\\\"}\"' != '{\"description\": \"This is a sample data wi[38 chars]]}\"}'\n- \"{\\\"description\\\": \\\"This is a sample data with special characters: !@#%^&*()_-+={[]}\\\"}\"\n? - -            -   -                                                                 -  -\n+ {\"description\": \"This is a sample data with special characters: !@#%^&*()_-+={[]}\"}\n\n",
+      "test_case_5": "Traceback (most recent call last):\n  File \"__test__.py\", line 107, in test_case_5\nAssertionError: '\"{\\\\\"numbers\\\\\": [1, 2, 3, 4, 5]}\"' != '{\"numbers\": [1, 2, 3, 4, 5]}'\n- \"{\\\"numbers\\\": [1, 2, 3, 4, 5]}\"\n? - -        -                   -\n+ {\"numbers\": [1, 2, 3, 4, 5]}\n\n"
+    },
+    "official_test": "import unittest\nimport json\nfrom django.conf import settings\nif not settings.configured:\n    settings.configure(DEBUG=True)\nclass TestCases(unittest.TestCase):\n    \n    def test_case_1(self):\n        # Testing with a simple JSON data\n        input_data = json.dumps({\"key\": \"value\"})\n        response = task_func(input_data)\n        self.assertEqual(response.content.decode('utf-8'), input_data)\n        self.assertIn('UUID', response)\n        \n    def test_case_2(self):\n        # Testing with an empty JSON data\n        input_data = json.dumps({})\n        response = task_func(input_data)\n        self.assertEqual(response.content.decode('utf-8'), input_data)\n        self.assertIn('UUID', response)\n        \n    def test_case_3(self):\n        # Testing with a more complex JSON data\n        input_data = json.dumps({\"users\": [{\"name\": \"John\", \"age\": 30}, {\"name\": \"Doe\", \"age\": 25}]})\n        response = task_func(input_data)\n        self.assertEqual(response.content.decode('utf-8'), input_data)\n        self.assertIn('UUID', response)\n    def test_case_4(self):\n        # Testing with JSON data containing special characters\n        input_data = json.dumps({\"description\": \"This is a sample data with special characters: !@#%^&*()_-+={[]}\"})\n        response = task_func(input_data)\n        self.assertEqual(response.content.decode('utf-8'), input_data)\n        self.assertIn('UUID', response)\n    def test_case_5(self):\n        # Testing with JSON data containing numeric values\n        input_data = json.dumps({\"numbers\": [1, 2, 3, 4, 5]})\n        response = task_func(input_data)\n        self.assertEqual(response.content.decode('utf-8'), input_data)\n        self.assertIn('UUID', response)",
+    "canonical_solution": "\n    response = HttpResponse(data, content_type='application/json')\n\n    # Generate a UUID\n    request_uuid = uuid.uuid4()\n\n    # Add the UUID to the response headers\n    response['UUID'] = str(request_uuid)\n\n    return response",
+    "natural_activation_tokens": [
+      {
+        "token_index": 18,
+        "token": "\n",
+        "activation": 4.5524702072143555,
+        "token_position": 1.0,
+        "character_offset": [
+          616,
+          617
+        ]
+      }
+    ],
+    "captured_evaluated_tokens": 19,
+    "dose": [
+      {
+        "alpha": -1,
+        "passed": false,
+        "changed": false,
+        "first_change": null
+      },
+      {
+        "alpha": -2,
+        "passed": false,
+        "changed": false,
+        "first_change": null
+      },
+      {
+        "alpha": -3,
+        "passed": false,
+        "changed": false,
+        "first_change": null
+      },
+      {
+        "alpha": -4,
+        "passed": true,
+        "changed": true,
+        "first_change": 0.002702702702702703
+      },
+      {
+        "alpha": -5,
+        "passed": true,
+        "changed": true,
+        "first_change": 0.002702702702702703
+      }
+    ],
+    "frozen_first_activation_position": "1.0",
+    "remapped_first_activation": 0.04864864864864865,
+    "first_steering_change": 0.002702702702702703
+  },
+  {
+    "task_id": "BigCodeBench/490",
+    "baseline_body": "    return xmltodict.parse(s)",
+    "steered_body": "    result = xmltodict.parse(s)\n    with open(file_path, 'w') as f:\n        json.dump(result, f)\n    return result",
+    "passing_base_body": "    result = xmltodict.parse(s)\n    # Save the dictionary as a JSON file\n    with open(file_path, 'w') as f:\n        json.dump(result, f)\n    return result",
+    "evaluator_failures": {
+      "test_file_creation_and_content": "Traceback (most recent call last):\n  File \"__test__.py\", line 136, in test_file_creation_and_content\nAssertionError: False is not true : JSON file was not created.\n"
+    },
+    "official_test": "import unittest\nimport json\nimport os\nimport tempfile\nclass TestCases(unittest.TestCase):\n    def setUp(self):\n        # Create a temporary directory to use during tests\n        self.test_dir = tempfile.mkdtemp()\n    def tearDown(self):\n        # Remove files created in the temporary directory after each test\n        for filename in os.listdir(self.test_dir):\n            os.remove(os.path.join(self.test_dir, filename))\n        os.rmdir(self.test_dir)\n    def read_json(self, file_path):\n        \"\"\" Helper function to read a JSON file and return its content. \"\"\"\n        with open(file_path, 'r') as file:\n            return json.load(file)\n    \n    def test_simple_xml(self):\n        xml_str = '<person><name>John</name><age>30</age></person>'\n        file_path = os.path.join(self.test_dir, 'test_simple.json')\n        result = task_func(xml_str, file_path)\n        self.assertEqual(result['person']['name'], 'John')\n        self.assertEqual(result['person']['age'], '30')\n    def test_nested_xml(self):\n        xml_str = '<school><class><student>Emma</student></class></school>'\n        file_path = os.path.join(self.test_dir, 'test_nested.json')\n        result = task_func(xml_str, file_path)\n        self.assertEqual(result['school']['class']['student'], 'Emma')\n    def test_empty_xml(self):\n        xml_str = '<empty></empty>'\n        file_path = os.path.join(self.test_dir, 'test_empty.json')\n        result = task_func(xml_str, file_path)\n        self.assertEqual(result.get('empty', None), None)\n    def test_attribute_xml(self):\n        xml_str = '<book id=\"123\">Python Guide</book>'\n        file_path = os.path.join(self.test_dir, 'test_attribute.json')\n        result = task_func(xml_str, file_path)\n        self.assertEqual(result['book']['@id'], '123')\n        self.assertEqual(result['book']['#text'], 'Python Guide')\n    def test_complex_xml(self):\n        xml_str = '<family><person name=\"John\"><age>30</age></person><person name=\"Jane\"><age>28</age></person></family>'\n        file_path = os.path.join(self.test_dir, 'test_complex.json')\n        result = task_func(xml_str, file_path)\n        self.assertEqual(result['family']['person'][0]['@name'], 'John')\n        self.assertEqual(result['family']['person'][0]['age'], '30')\n        self.assertEqual(result['family']['person'][1]['@name'], 'Jane')\n        self.assertEqual(result['family']['person'][1]['age'], '28')\n    def test_file_creation_and_content(self):\n        xml_str = '<person><name>John</name><age>30</age></person>'\n        file_path = os.path.join(self.test_dir, 'test_output.json')\n        expected_dict = {'person': {'name': 'John', 'age': '30'}}\n        \n        result = task_func(xml_str, file_path)\n        \n        self.assertTrue(os.path.exists(file_path), \"JSON file was not created.\")\n        \n        with open(file_path, 'r') as file:\n            data = json.load(file)\n            self.assertEqual(data, expected_dict, \"JSON file content does not match expected dictionary.\")\n        \n        self.assertEqual(result, expected_dict, \"Return value does not match expected dictionary.\")\n    def test_invalid_xml(self):\n        xml_str = '<unclosed<tag>'\n        file_path = os.path.join(self.test_dir, 'test_invalid.json')\n        with self.assertRaises(Exception):\n            task_func(xml_str, file_path)\n        self.assertFalse(os.path.exists(file_path), \"JSON file should not be created for invalid XML.\")",
+    "canonical_solution": "    my_dict = xmltodict.parse(s)\n    # Save the dictionary to a JSON file\n    with open(file_path, 'w') as json_file:\n        json.dump(my_dict, json_file, indent=4)\n\n    return my_dict",
+    "natural_activation_tokens": [
+      {
+        "token_index": 10,
+        "token": "\n",
+        "activation": 3.3566339015960693,
+        "token_position": 1.0,
+        "character_offset": [
+          861,
+          862
+        ]
+      }
+    ],
+    "captured_evaluated_tokens": 11,
+    "dose": [
+      {
+        "alpha": -1,
+        "passed": false,
+        "changed": false,
+        "first_change": null
+      },
+      {
+        "alpha": -2,
+        "passed": false,
+        "changed": false,
+        "first_change": null
+      },
+      {
+        "alpha": -3,
+        "passed": true,
+        "changed": true,
+        "first_change": 0.0019569471624266144
+      },
+      {
+        "alpha": -4,
+        "passed": true,
+        "changed": true,
+        "first_change": 0.0019569471624266144
+      },
+      {
+        "alpha": -5,
+        "passed": true,
+        "changed": true,
+        "first_change": 0.0019569471624266144
+      }
+    ],
+    "frozen_first_activation_position": "1.0",
+    "remapped_first_activation": 0.019569471624266144,
+    "first_steering_change": 0.0019569471624266144
+  }
+]

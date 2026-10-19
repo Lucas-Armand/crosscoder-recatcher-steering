@@ -14,7 +14,7 @@ Prepared 2026-10-19 for discussion. No manuscript or presentation was edited. Al
 
 ## Figures
 
-Each figure is available as PDF, PNG and editable SVG. `SECTION67_VISUAL_REVIEW.pdf` combines the nine figures.
+Each figure is available as PDF, PNG and editable SVG. `SECTION67_VISUAL_REVIEW.pdf` combines all fourteen figures, including the supplement below.
 
 1. **01_correctness_controls** — selected feature versus three pre-existing random CrossCoder latents and the three new negative shuffle directions. All curves include alpha-zero. Same percentage scale across models.
 2. **02_code_changes_controls** — same arms, but exact evaluated-code change instead of correctness. Comments and formatting count as text changes.
@@ -74,3 +74,29 @@ CUDA_VISIBLE_DEVICES=<available GPU UUID> .venv/bin/python tools/analyze_section
 Sources: canonical 119-task release; frozen original CodeLlama taxonomy and cohorts; completed dose-response release; the shuffle stress experiment and its +/-2,+/-4 extension. No artifact in the earlier runs was overwritten. No manuscript, slide deck or historical manifest was changed.
 
 Machine-readable data: `natural_timing.csv`, `steering_timing.csv`, `curves.csv`, per-source `*_token_statistics.csv`, `activation_contexts.json`, `steering_cases.json`, and the two `*_feature_activations.npz` archives. `ACTIVATION_CONTEXTS.md` lists strongest contexts from 15 distinct tasks per source, selected by activation strength. Context interpretation and error taxonomy are not independently blinded annotations.
+
+## Supplement: token clouds, task sets and localized CodeLlama errors
+
+10. **10_activation_token_clouds** — separate base/variant clouds, with font size increasing with summed feature activation. Tokens must occur actively in at least three tasks. `NEWLINE` and `SPACE×n` are visible aliases for structural tokens; they must not be interpreted as ordinary words. The underlying token IDs, weights and plotting choices are in `token_cloud_layout.json`. This is an activation-weighted display, not a correlation score or significance test.
+11. **11_task_overlap_negative** — at alpha-minus-five, the target's corrected tasks versus the union of the three negative shuffle arms. DeepSeek: target-only 7, intersection 7, shuffle-only 6. CodeLlama: target-only 2, intersection 0, shuffle-only 1. Circle areas are schematic, not area-proportional. Comparing the target to a union gives the controls three opportunities per task; it is not a single-arm pass-rate comparison.
+12. **12_task_overlap_both_signs** — same comparison, now pooling all six shuffle arms at magnitude five. DeepSeek: target-only 4, intersection 10, shuffle-only 7. CodeLlama: target-only 2, intersection 0, shuffle-only 1. The exact task IDs and per-control sets are in `task_overlap_sets.json`.
+13. **13_codellama_error_regions** — all 50 baseline failures, with evidence-tiered code regions. There are **16 cases with traceback-confirmed execution sites**, **18 provisional line/region localizations** and **16 omission regions**. An execution site is not proof of the earliest semantic cause. Assertion frames inside tests are never relabeled as generated-code error lines. Provisional annotations were proposed by the assistant after inspecting main-function bodies and recorded errors; they were not independently validated by a human. Omissions do not have a unique erroneous line, so the plotted regions remain intervals.
+14. **14_codellama_two_successes** — the complete set of feature-4309 successes at alpha-minus-five: /183 and /490, showing exact main-function bodies before and after intervention. Full outputs still have duplicate definitions. /183 avoids double JSON serialization and adds the required UUID header. /490 adds the required JSON file write. Both are short-return-to-multiple-statements changes, suggesting a structural/implementation-elaboration hypothesis rather than a demonstrated abstract logic-error concept.
+
+Detailed supporting artifacts:
+
+- `CODELLAMA_ERROR_LOCALIZATION.md`: all 50 inspected cases, solution line numbers, regions, failure evidence and passing-base main bodies.
+- `codellama_error_localization.json` / `.csv`: the same annotations in machine-readable form; no field claims that the first semantic error is proven.
+- `CODELLAMA_TWO_SUCCESSES.md` and `codellama_two_successes.json`: exact code bodies, official test assertions, dose outcomes and every naturally active token for /183 and /490.
+- `codellama_localization_benchmark_inputs.json`: official cached test/reference inputs used for inspection, not new generated solutions.
+
+Neither CodeLlama success is corrected by any of the three shuffles in either sign at magnitude five. The shuffled success is /119, which is also the success of the strongest pre-existing random latent at this magnitude. Thus the two selected-feature successes are not merely the same easily corrected task reached by these controls. This is still a small, exploratory within-cohort comparison, not a general specificity/significance guarantee.
+
+In the frozen CodeLlama source texts for /183 and /490, feature 4309 is naturally active only on the final newline of the main solution (19 and 11 captured evaluated tokens respectively). Those short source texts differ in length from the current alpha-zero re-extraction, which retains later duplicate functions. Report both coordinate systems: "100% of the frozen captured text" is not "100% of the longer alpha-zero output". Static steering starts before this naturally active token; these cases do not demonstrate an activation-gated mechanism.
+
+Regenerate the supplement from the repository root, without GPU or new inference:
+
+```bash
+.venv/bin/python tools/plot_section67_clouds_overlap_v1.py
+.venv/bin/python tools/localize_codellama_errors_v1.py
+```

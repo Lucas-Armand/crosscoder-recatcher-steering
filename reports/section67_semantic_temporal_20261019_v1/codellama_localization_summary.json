@@ -1,0 +1,13 @@
+{
+  "n": 50,
+  "evidence_tiers": {
+    "probable_region": 9,
+    "probable_line": 9,
+    "runtime_execution_sites": 16,
+    "omission_region": 16
+  },
+  "independently_human_validated": false,
+  "earliest_semantic_error_established": false,
+  "evaluator_mapping": "bigcodebench evaluates code + newline + test_code in __test__.py",
+  "baseline_eval_sha256": "ef3a7238b73afa06318e6b7324cfebd6cb987a4c56848a51f81c607036bfc99e"
+}

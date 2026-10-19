@@ -1,0 +1,442 @@
+{
+  "deepseek_base": [
+    {
+      "token_id": "185",
+      "token": "\n",
+      "display": "NEWLINE",
+      "activation_sum": 3853.055917263031,
+      "active_task_support": 118,
+      "displayed": true
+    },
+    {
+      "token_id": "1892",
+      "token": "import",
+      "display": "import",
+      "activation_sum": 3401.6060748696327,
+      "active_task_support": 116,
+      "displayed": true
+    },
+    {
+      "token_id": "2806",
+      "token": "test",
+      "display": "test",
+      "activation_sum": 911.0860316753387,
+      "active_task_support": 113,
+      "displayed": true
+    },
+    {
+      "token_id": "403",
+      "token": " un",
+      "display": "·un",
+      "activation_sum": 816.6465146541595,
+      "active_task_support": 94,
+      "displayed": true
+    },
+    {
+      "token_id": "3154",
+      "token": "from",
+      "display": "from",
+      "activation_sum": 614.6630088090897,
+      "active_task_support": 95,
+      "displayed": true
+    },
+    {
+      "token_id": "62",
+      "token": "_",
+      "display": "_",
+      "activation_sum": 575.0944061279297,
+      "active_task_support": 113,
+      "displayed": true
+    },
+    {
+      "token_id": "14",
+      "token": "/",
+      "display": "/",
+      "activation_sum": 538.5056366920471,
+      "active_task_support": 74,
+      "displayed": true
+    },
+    {
+      "token_id": "15491",
+      "token": " py",
+      "display": "·py",
+      "activation_sum": 416.5573196411133,
+      "active_task_support": 17,
+      "displayed": true
+    },
+    {
+      "token_id": "1659",
+      "token": " import",
+      "display": "·import",
+      "activation_sum": 401.1857541203499,
+      "active_task_support": 106,
+      "displayed": true
+    },
+    {
+      "token_id": "4016",
+      "token": "py",
+      "display": "py",
+      "activation_sum": 366.85221391916275,
+      "active_task_support": 81,
+      "displayed": true
+    },
+    {
+      "token_id": "23663",
+      "token": "tests",
+      "display": "tests",
+      "activation_sum": 357.2300350666046,
+      "active_task_support": 73,
+      "displayed": true
+    },
+    {
+      "token_id": "13",
+      "token": ".",
+      "display": ".",
+      "activation_sum": 261.21175196766853,
+      "active_task_support": 84,
+      "displayed": true
+    },
+    {
+      "token_id": "862",
+      "token": "itt",
+      "display": "itt",
+      "activation_sum": 134.22634375095367,
+      "active_task_support": 82,
+      "displayed": true
+    },
+    {
+      "token_id": "11500",
+      "token": "task",
+      "display": "task",
+      "activation_sum": 131.95513105392456,
+      "active_task_support": 75,
+      "displayed": true
+    },
+    {
+      "token_id": "7312",
+      "token": "func",
+      "display": "func",
+      "activation_sum": 99.76575094461441,
+      "active_task_support": 36,
+      "displayed": true
+    },
+    {
+      "token_id": "2",
+      "token": "#",
+      "display": "#",
+      "activation_sum": 96.03488636016846,
+      "active_task_support": 73,
+      "displayed": true
+    },
+    {
+      "token_id": "370",
+      "token": "est",
+      "display": "est",
+      "activation_sum": 61.66288959980011,
+      "active_task_support": 31,
+      "displayed": true
+    },
+    {
+      "token_id": "315",
+      "token": "   ",
+      "display": "SPACE×3",
+      "activation_sum": 52.924249053001404,
+      "active_task_support": 15,
+      "displayed": true
+    },
+    {
+      "token_id": "436",
+      "token": "       ",
+      "display": "SPACE×7",
+      "activation_sum": 50.82838594913483,
+      "active_task_support": 20,
+      "displayed": true
+    },
+    {
+      "token_id": "5256",
+      "token": " task",
+      "display": "·task",
+      "activation_sum": 48.1558655500412,
+      "active_task_support": 24,
+      "displayed": true
+    },
+    {
+      "token_id": "372",
+      "token": " as",
+      "display": "·as",
+      "activation_sum": 45.193960547447205,
+      "active_task_support": 11,
+      "displayed": true
+    },
+    {
+      "token_id": "1772",
+      "token": "):",
+      "display": "):",
+      "activation_sum": 40.267502427101135,
+      "active_task_support": 16,
+      "displayed": true
+    },
+    {
+      "token_id": "12490",
+      "token": " temp",
+      "display": "·temp",
+      "activation_sum": 35.859642028808594,
+      "active_task_support": 6,
+      "displayed": true
+    },
+    {
+      "token_id": "1781",
+      "token": " self",
+      "display": "·self",
+      "activation_sum": 30.06593143939972,
+      "active_task_support": 16,
+      "displayed": true
+    },
+    {
+      "token_id": "5634",
+      "token": "dir",
+      "display": "dir",
+      "activation_sum": 27.588162899017334,
+      "active_task_support": 3,
+      "displayed": true
+    },
+    {
+      "token_id": "405",
+      "token": " =",
+      "display": "·=",
+      "activation_sum": 22.110498905181885,
+      "active_task_support": 8,
+      "displayed": true
+    },
+    {
+      "token_id": "5609",
+      "token": "main",
+      "display": "main",
+      "activation_sum": 21.2210636138916,
+      "active_task_support": 5,
+      "displayed": true
+    },
+    {
+      "token_id": "1181",
+      "token": " num",
+      "display": "·num",
+      "activation_sum": 21.031895875930786,
+      "active_task_support": 9,
+      "displayed": true
+    },
+    {
+      "token_id": "281",
+      "token": "as",
+      "display": "as",
+      "activation_sum": 20.40669071674347,
+      "active_task_support": 8,
+      "displayed": true
+    },
+    {
+      "token_id": "7",
+      "token": "(",
+      "display": "(",
+      "activation_sum": 17.32073712348938,
+      "active_task_support": 8,
+      "displayed": true
+    },
+    {
+      "token_id": "2303",
+      "token": "util",
+      "display": "util",
+      "activation_sum": 13.337692618370056,
+      "active_task_support": 5,
+      "displayed": true
+    },
+    {
+      "token_id": "2915",
+      "token": "time",
+      "display": "time",
+      "activation_sum": 12.966895341873169,
+      "active_task_support": 3,
+      "displayed": true
+    },
+    {
+      "token_id": "67",
+      "token": "d",
+      "display": "d",
+      "activation_sum": 12.851496815681458,
+      "active_task_support": 7,
+      "displayed": true
+    },
+    {
+      "token_id": "467",
+      "token": " sh",
+      "display": "·sh",
+      "activation_sum": 11.424073576927185,
+      "active_task_support": 3,
+      "displayed": true
+    },
+    {
+      "token_id": "1171",
+      "token": " @",
+      "display": "·@",
+      "activation_sum": 10.969971656799316,
+      "active_task_support": 4,
+      "displayed": true
+    },
+    {
+      "token_id": "8",
+      "token": ")",
+      "display": ")",
+      "activation_sum": 9.987270951271057,
+      "active_task_support": 4,
+      "displayed": true
+    },
+    {
+      "token_id": "972",
+      "token": " def",
+      "display": "·def",
+      "activation_sum": 9.550948023796082,
+      "active_task_support": 6,
+      "displayed": true
+    },
+    {
+      "token_id": "22",
+      "token": "7",
+      "display": "7",
+      "activation_sum": 8.74501883983612,
+      "active_task_support": 3,
+      "displayed": true
+    },
+    {
+      "token_id": "3261",
+      "token": "path",
+      "display": "path",
+      "activation_sum": 7.650287866592407,
+      "active_task_support": 3,
+      "displayed": true
+    },
+    {
+      "token_id": "2800",
+      "token": "file",
+      "display": "file",
+      "activation_sum": 7.645305156707764,
+      "active_task_support": 3,
+      "displayed": true
+    }
+  ],
+  "deepseek_finetuned": [
+    {
+      "token_id": "2",
+      "token": "#",
+      "display": "#",
+      "activation_sum": 92.0089051425457,
+      "active_task_support": 61,
+      "displayed": true
+    },
+    {
+      "token_id": "185",
+      "token": "\n",
+      "display": "NEWLINE",
+      "activation_sum": 68.84952157735825,
+      "active_task_support": 28,
+      "displayed": true
+    },
+    {
+      "token_id": "62",
+      "token": "_",
+      "display": "_",
+      "activation_sum": 13.327364325523376,
+      "active_task_support": 8,
+      "displayed": true
+    }
+  ],
+  "codellama_base": [
+    {
+      "token_id": "13",
+      "token": "\n",
+      "display": "NEWLINE",
+      "activation_sum": 879.4968544244766,
+      "active_task_support": 50,
+      "displayed": true
+    },
+    {
+      "token_id": "1678",
+      "token": "  ",
+      "display": "SPACE×2",
+      "activation_sum": 64.30329298973083,
+      "active_task_support": 14,
+      "displayed": true
+    },
+    {
+      "token_id": "1495",
+      "token": "')",
+      "display": "')",
+      "activation_sum": 32.16314399242401,
+      "active_task_support": 8,
+      "displayed": true
+    },
+    {
+      "token_id": "23157",
+      "token": ".\")",
+      "display": ".\")",
+      "activation_sum": 21.49822998046875,
+      "active_task_support": 5,
+      "displayed": true
+    },
+    {
+      "token_id": "29897",
+      "token": ")",
+      "display": ")",
+      "activation_sum": 12.618863582611084,
+      "active_task_support": 4,
+      "displayed": true
+    }
+  ],
+  "codellama_merged": [
+    {
+      "token_id": "13",
+      "token": "\n",
+      "display": "NEWLINE",
+      "activation_sum": 709.0562131404877,
+      "active_task_support": 43,
+      "displayed": true
+    },
+    {
+      "token_id": "1678",
+      "token": "  ",
+      "display": "SPACE×2",
+      "activation_sum": 58.514076590538025,
+      "active_task_support": 9,
+      "displayed": true
+    },
+    {
+      "token_id": "29897",
+      "token": ")",
+      "display": ")",
+      "activation_sum": 14.893513202667236,
+      "active_task_support": 3,
+      "displayed": true
+    },
+    {
+      "token_id": "1683",
+      "token": "else",
+      "display": "else",
+      "activation_sum": 10.282581210136414,
+      "active_task_support": 3,
+      "displayed": true
+    },
+    {
+      "token_id": "23157",
+      "token": ".\")",
+      "display": ".\")",
+      "activation_sum": 7.870501756668091,
+      "active_task_support": 3,
+      "displayed": true
+    },
+    {
+      "token_id": "1495",
+      "token": "')",
+      "display": "')",
+      "activation_sum": 4.764994859695435,
+      "active_task_support": 3,
+      "displayed": true
+    }
+  ]
+}
