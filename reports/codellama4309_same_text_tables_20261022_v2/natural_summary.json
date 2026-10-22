@@ -1,0 +1,16 @@
+{
+  "codellama_base": {
+    "n": 50,
+    "active": 50,
+    "mean_task_mean_activation": 0.19969499321654438,
+    "median_first_position_active": 0.3147865853658537,
+    "first_after_main": 0
+  },
+  "codellama_merged": {
+    "n": 50,
+    "active": 44,
+    "mean_task_mean_activation": 0.19794386107474565,
+    "median_first_position_active": 0.5892689784442362,
+    "first_after_main": 0
+  }
+}

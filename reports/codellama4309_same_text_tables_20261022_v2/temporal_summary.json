@@ -1,0 +1,14 @@
+{
+  "n": 50,
+  "counts": {
+    "same_token_or_within_region": 27,
+    "before": 14,
+    "not_observed_or_unmapped": 6,
+    "after": 3
+  },
+  "manual_cases": [
+    "BigCodeBench/115",
+    "BigCodeBench/423"
+  ],
+  "other_48_relations_unchanged": true
+}

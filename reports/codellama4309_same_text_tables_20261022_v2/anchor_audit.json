@@ -1,0 +1,378 @@
+[
+  {
+    "task_id": "BigCodeBench/96",
+    "method": "exact_character_block",
+    "anchor_token": 16,
+    "frozen_code_sha256": "141e2e4bb706b0e0208a72b79784dc5025f8f4a3d5711e4bfb41fa4b16d39f5a",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/115",
+    "method": "manual_semantic_correspondence_on_frozen_text",
+    "anchor_token": 47,
+    "frozen_code_sha256": "0383e92920aac59a93886c77e9bf7ad7fd3bde374d4f7b0c043b878b7c9668e0",
+    "manual_detail": {
+      "statement": "result = {'mode': mode(numpy_array), 'entropy': entropy(numpy_array, base=2)}",
+      "start_char": 1192,
+      "end_char": 1269,
+      "start_token": 47,
+      "end_token": 71,
+      "rationale": "Manual identification on the frozen activation source: this assignment places scipy.stats.mode's ModeResult in the returned dictionary instead of the scalar expected by failing assertions. It corresponds to the re-extracted code's 'mode': mode(np.array(numbers)) entry. Anchor is the first visible token of the statement, consistent with line-based anchors; this is not a validated earliest semantic cause.",
+      "first_active_token": 29,
+      "active": true,
+      "relation": "before",
+      "first_position": 0.3815789473684211,
+      "region_start": 0.618421052631579,
+      "region_end": 0.9342105263157895
+    }
+  },
+  {
+    "task_id": "BigCodeBench/119",
+    "method": "exact_character_block",
+    "anchor_token": 29,
+    "frozen_code_sha256": "23c3486773dc09a2ce3a8b37f97277ad70dd591cd20ee8afebe31cc905a447e6",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/122",
+    "method": "exact_character_block",
+    "anchor_token": 1,
+    "frozen_code_sha256": "29dfbcbec9bc5cd87ae1095348991b93452a33d66e5605ec0ca28c79ba36ce9c",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/149",
+    "method": "exact_character_block",
+    "anchor_token": 63,
+    "frozen_code_sha256": "d173c5e8506d73fe064ce464d30aaf32d69220e8a303bbd6c379add0b0d22469",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/173",
+    "method": "exact_character_block",
+    "anchor_token": 1,
+    "frozen_code_sha256": "b613f7a2aaf2d6a56f156653fe5647adab342ac778c9ad8aef61987c1360ed09",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/183",
+    "method": "exact_character_block",
+    "anchor_token": 1,
+    "frozen_code_sha256": "605f03f7b703842a76d1d58d5c14ffd70e42d1ca6927fce00a39d7932133f3b3",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/194",
+    "method": "exact_character_block",
+    "anchor_token": 16,
+    "frozen_code_sha256": "d4e5a077c8bd2ad02df8d6f6cfa267765bcb98317a7deee582f029ae4601f1c7",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/206",
+    "method": "exact_character_block",
+    "anchor_token": 77,
+    "frozen_code_sha256": "1ba87843d5e352aba9b4b2e99b0aa4c0eaa8c10680a5882e46133466dad55bf7",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/240",
+    "method": "exact_character_block",
+    "anchor_token": 1,
+    "frozen_code_sha256": "153e5cab8140145f39c987ac07edc886021cd2cce801f1f827334f7860336c96",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/275",
+    "method": "exact_character_block",
+    "anchor_token": 27,
+    "frozen_code_sha256": "8c24466cca1d49d49b7b450a735749e02ace96f59e57706b9ff94b65ec86d202",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/339",
+    "method": "exact_character_block",
+    "anchor_token": 25,
+    "frozen_code_sha256": "3d8a8a531fe517a82f37a0a052b46eb6e88d94c125fa9c082daaf2156cf53d85",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/357",
+    "method": "exact_character_block",
+    "anchor_token": 1,
+    "frozen_code_sha256": "92731c3a0248cf851ba45ffc29401444af1534a1141289434493ec47972ed079",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/370",
+    "method": "exact_character_block",
+    "anchor_token": 62,
+    "frozen_code_sha256": "940d4747d32aeca573cc808952bafc4b845ae96bf9ab1c204750561b8b1ce4df",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/371",
+    "method": "exact_character_block",
+    "anchor_token": 1,
+    "frozen_code_sha256": "86634cb9323fd43189c3bfc9597286aa88342976c47ee66a0ac92c45f46afec0",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/398",
+    "method": "exact_character_block",
+    "anchor_token": 1,
+    "frozen_code_sha256": "7f7bdfee25af31b58bb3386c034af8ff823f6876a5382324f9db286966e7f1ba",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/412",
+    "method": "exact_character_block",
+    "anchor_token": 98,
+    "frozen_code_sha256": "83120be051da5ab92520ffbbaaa25c57fd661bac7e17ad1b7606bc07f4a2e4ad",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/423",
+    "method": "manual_semantic_correspondence_on_frozen_text",
+    "anchor_token": 146,
+    "frozen_code_sha256": "822c6c97af4309d4dfdb28d590dffa78749881d4ec9262b48a2498e244179d60",
+    "manual_detail": {
+      "statement": "image = cv2.threshold(image, threshold, cv2.THRESH_BINARY)",
+      "start_char": 1813,
+      "end_char": 1871,
+      "start_token": 146,
+      "end_token": 168,
+      "rationale": "Manual identification on the frozen activation source: this three-argument threshold call corresponds to the traceback-confirmed three-argument call in re-extracted code despite changed variable names. The fourth positional argument is missing. The old traceback confirms the corresponding re-extracted call, not a newly executed frozen-source traceback. Anchor is the first visible token of this statement.",
+      "first_active_token": 31,
+      "active": true,
+      "relation": "before",
+      "first_position": 0.12704918032786885,
+      "region_start": 0.5983606557377049,
+      "region_end": 0.6885245901639344
+    }
+  },
+  {
+    "task_id": "BigCodeBench/430",
+    "method": "exact_character_block",
+    "anchor_token": 1,
+    "frozen_code_sha256": "7ebf0d216d60daf8290f9b3e885eac7d9abf863cd3cdc66cf7357fce8b813ee5",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/431",
+    "method": "exact_character_block",
+    "anchor_token": 1,
+    "frozen_code_sha256": "22698864cd77e69089416882bbcaa681e962ac3e52da4a98625778cde9012607",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/490",
+    "method": "exact_character_block",
+    "anchor_token": 1,
+    "frozen_code_sha256": "08f03c5da343cceb46d2d6f726ddde4eed9a97d08dc49667ce76ebacb26aa4a5",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/577",
+    "method": "exact_character_block",
+    "anchor_token": 51,
+    "frozen_code_sha256": "f875f52df56e8f2ac41d1830d81d9130f43ba2a02e71ff305392f19c1e6674b1",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/578",
+    "method": "exact_character_block",
+    "anchor_token": 28,
+    "frozen_code_sha256": "04d6beef6eada4a79df666611ebbf8ca6a23184246cb78bc7687f120e5112ec7",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/603",
+    "method": "exact_character_block",
+    "anchor_token": 1,
+    "frozen_code_sha256": "1bb51750002d9f89ab41029ce195eb19b3bb3a7db773192049bb1f48bc54d296",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/604",
+    "method": "exact_character_block",
+    "anchor_token": 24,
+    "frozen_code_sha256": "d6b9061e4ff9a54f02de7a3febb6db03f39a338ffd4f607776ac4e380c102212",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/629",
+    "method": "exact_character_block",
+    "anchor_token": 58,
+    "frozen_code_sha256": "03d091c5c0d5d14c9c7f54f873d7f693f135716535e2fa969cf82e00d10494ad",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/630",
+    "method": "exact_character_block",
+    "anchor_token": 17,
+    "frozen_code_sha256": "bcf14349b076c166e43b50e0579d5eb203bd3158d423e6aeda93d0e2557a7c56",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/634",
+    "method": "exact_character_block",
+    "anchor_token": 1,
+    "frozen_code_sha256": "94e60ffddb28e426b3e545b6e0d06b482b480f85f62bdc67975e378ab52bf302",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/670",
+    "method": "exact_character_block",
+    "anchor_token": 1,
+    "frozen_code_sha256": "692e30b98529c29a709bb2045bddbaf5808b29d196c16700cb9f3a707ab5b0c7",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/738",
+    "method": "exact_character_block",
+    "anchor_token": 1,
+    "frozen_code_sha256": "abf38083f3e6c722da934bcbea018611d0f6e08d434258e4efbd5e7161c3a95f",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/743",
+    "method": "exact_character_block",
+    "anchor_token": 93,
+    "frozen_code_sha256": "311d93c4ef0f160f5b93c489851d9b1f0f1771e6968e29384e35c7ee7b276e52",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/756",
+    "method": "exact_character_block",
+    "anchor_token": 1,
+    "frozen_code_sha256": "24c688b9119b8136124c9da24fca66ed8d9935c58f77270d5bc92c08bc77a8b7",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/790",
+    "method": "exact_character_block",
+    "anchor_token": 1,
+    "frozen_code_sha256": "8592c5d99050398a6b349e69f6d39231393b9e4b53189a2d4f4df8a9e7cd0c1b",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/823",
+    "method": "exact_character_block",
+    "anchor_token": 30,
+    "frozen_code_sha256": "51684ab12f0aefb1e9d01d605c1d89bf33eb0f97cf5687365ec49ab3de439638",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/841",
+    "method": "exact_character_block",
+    "anchor_token": 21,
+    "frozen_code_sha256": "11b9b304405e187aac7fa9850c72dc3935c4792b7399842231eb6f03fe97f302",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/846",
+    "method": "exact_character_block",
+    "anchor_token": 1,
+    "frozen_code_sha256": "24cf88827f8c1c07c9e3eebeba81b238df1c18747426a1c8395dbd613e7547b3",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/858",
+    "method": "exact_character_block",
+    "anchor_token": 1,
+    "frozen_code_sha256": "8c851b014fab07b43fb4ed663149d348bdfbcf2ba1ece73d0cb285bd973c18e5",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/875",
+    "method": "exact_character_block",
+    "anchor_token": 1,
+    "frozen_code_sha256": "0f5aa559b6adf6300d8e20a92a7c868e7438bc2bfb7bb8f66278427620bbc1ab",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/878",
+    "method": "exact_character_block",
+    "anchor_token": 1,
+    "frozen_code_sha256": "690bdcd0ca4419a170ef86bd0b0e8a7cad6efff6ecdaf6187dbfdeb25214b733",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/926",
+    "method": "exact_character_block",
+    "anchor_token": 22,
+    "frozen_code_sha256": "35ad302e12daa5a99524bc365f17730a464ef39fe620b019f004f88383e1cc8d",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/931",
+    "method": "exact_character_block",
+    "anchor_token": 1,
+    "frozen_code_sha256": "0cfbd00867c92fe76cdb8539037ca841f41c5a3bd6952d7c0a8b8366126f9c3d",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/939",
+    "method": "exact_character_block",
+    "anchor_token": 1,
+    "frozen_code_sha256": "988b3fadf72488b1a59835db0d44a40a038580b87066e1283507bc094ed1f515",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/954",
+    "method": "exact_character_block",
+    "anchor_token": 69,
+    "frozen_code_sha256": "b75750ba268f6090007e29f08ff731d29fd0b333a711ea93519b549ac696f4d2",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/971",
+    "method": "exact_character_block",
+    "anchor_token": 50,
+    "frozen_code_sha256": "23a6d188fd40a15d98b5884e2e9adbd14a1826d75cbde7cc495a3976d524d6cb",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/983",
+    "method": "exact_character_block",
+    "anchor_token": 1,
+    "frozen_code_sha256": "b39a59b0c4cf9d6af429eaed811c1d5bd5c76db84c9a9bffb958b2420f26e422",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/989",
+    "method": "exact_character_block",
+    "anchor_token": 1,
+    "frozen_code_sha256": "0e8b970ca9904a704ba15d4db6102e90ed77ca63289d7179ad4cf42fccadafaa",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/1062",
+    "method": "exact_character_block",
+    "anchor_token": 12,
+    "frozen_code_sha256": "160e9388c401f5e70ff138b11dd900a6d68857751ec8122ce4de8d9fd72cde59",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/1063",
+    "method": "exact_character_block",
+    "anchor_token": 1,
+    "frozen_code_sha256": "90c6218a59a780ea3012f7bd45395b9dd60b572bc893ae168ca367f62eff58f7",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/1076",
+    "method": "exact_character_block",
+    "anchor_token": 1,
+    "frozen_code_sha256": "873f2e3555f49a2930c7fba57816d2de198925d3bfe0469f126e00fbc775e103",
+    "manual_detail": null
+  },
+  {
+    "task_id": "BigCodeBench/1092",
+    "method": "exact_character_block",
+    "anchor_token": 32,
+    "frozen_code_sha256": "d3d2a0ee2244460a0dcccc011dca4f2db6da530018ed624fdfb7438025ba44f0",
+    "manual_detail": null
+  }
+]

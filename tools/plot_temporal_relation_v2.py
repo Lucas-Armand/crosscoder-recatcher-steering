@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 REPORTS = ROOT / 'reports'
 OUT = REPORTS / 'overleaf_sections67_68_20261022_v1/crosscoder_case_studies/figures'
 ds = json.loads((REPORTS / 'deepseek4810_marker_followup_20261022_v1/natural_task_positions.json').read_text())
-cl = json.loads((REPORTS / 'codellama4309_temporal_precedence_20261019_v1/task_temporal_relations.json').read_text())
+cl = json.loads((REPORTS / 'codellama4309_same_text_tables_20261022_v2/task_temporal_relations.json').read_text())
 d = np.array([r['activation_minus_marker_tokens'] for r in ds])
 assert len(d) == 119 and d.max() == 1
 plt.rcParams.update({'font.size': 9, 'pdf.fonttype': 42, 'svg.fonttype': 'none'})
@@ -28,7 +28,7 @@ ax.text(.98, .95, 'n = 119\n1-token bins', transform=ax.transAxes, va='top', ha=
 ax.grid(axis='y', alpha=.15)
 keys = ['before', 'same_token_or_within_region', 'after', 'not_observed_or_unmapped']
 cc = [sum(r['relation'] == k for r in cl) for k in keys]
-assert cc == [13, 27, 3, 7]
+assert cc == [14, 27, 3, 6]
 bx.bar(range(4), cc, color=['#a84608', '#d67a16', '#efa454', '#f7cf9c'])
 bx.set_xticks(range(4), ['Before', 'Within', 'After', 'Unavailable'])
 bx.set_ylabel('Tasks')
@@ -40,5 +40,5 @@ bx.grid(axis='y', alpha=.15)
 fig.tight_layout(pad=1.3)
 OUT.mkdir(parents=True, exist_ok=True)
 for ext in ['png', 'pdf', 'svg']:
-    fig.savefig(OUT / f'temporal_relation_to_behavior_v2.{ext}', dpi=300, bbox_inches='tight', facecolor='white')
-print('Exported temporal_relation_to_behavior_v2: PNG, PDF, SVG')
+    fig.savefig(OUT / f'temporal_relation_to_behavior_v3.{ext}', dpi=300, bbox_inches='tight', facecolor='white')
+print('Exported temporal_relation_to_behavior_v3: PNG, PDF, SVG')

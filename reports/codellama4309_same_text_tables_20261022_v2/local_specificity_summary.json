@@ -1,0 +1,72 @@
+[
+  {
+    "metric": "encoder_contribution",
+    "n": 47,
+    "mean_local_minus_outside": 0.10644235412339402,
+    "local_more_positive": 28,
+    "bootstrap95": [
+      -0.02539212182553784,
+      0.2407603316584459
+    ]
+  },
+  {
+    "metric": "encoder_cosine",
+    "n": 47,
+    "mean_local_minus_outside": 0.0015904042659065593,
+    "local_more_positive": 28,
+    "bootstrap95": [
+      -0.0005635979269530536,
+      0.0037933909897691
+    ]
+  },
+  {
+    "metric": "decoder_cosine",
+    "n": 47,
+    "mean_local_minus_outside": 0.00033865089254440396,
+    "local_more_positive": 20,
+    "bootstrap95": [
+      -0.0033126342398989007,
+      0.003875488412874461
+    ]
+  },
+  {
+    "metric": "decoder_centered_cosine",
+    "n": 47,
+    "mean_local_minus_outside": 0.00033878560059148684,
+    "local_more_positive": 20,
+    "bootstrap95": [
+      -0.0033192451148117397,
+      0.0038814525319639023
+    ]
+  },
+  {
+    "metric": "decoder_common_cosine",
+    "n": 47,
+    "mean_local_minus_outside": 0.0007323538911430421,
+    "local_more_positive": 27,
+    "bootstrap95": [
+      -0.001241525278225239,
+      0.00258220540934984
+    ]
+  },
+  {
+    "metric": "decoder_base_reference_cosine",
+    "n": 47,
+    "mean_local_minus_outside": 0.0019071018578114994,
+    "local_more_positive": 30,
+    "bootstrap95": [
+      -8.277560739281156e-05,
+      0.004023638549546199
+    ]
+  },
+  {
+    "metric": "decoder_merged_reference_cosine",
+    "n": 47,
+    "mean_local_minus_outside": -0.0005982105012765568,
+    "local_more_positive": 23,
+    "bootstrap95": [
+      -0.0028410271432512983,
+      0.0015856851087043525
+    ]
+  }
+]

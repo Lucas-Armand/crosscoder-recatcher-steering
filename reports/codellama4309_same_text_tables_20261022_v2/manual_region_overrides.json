@@ -1,0 +1,10 @@
+{
+  "BigCodeBench/115": {
+    "frozen_statement": "result = {'mode': mode(numpy_array), 'entropy': entropy(numpy_array, base=2)}",
+    "rationale": "Manual identification on the frozen activation source: this assignment places scipy.stats.mode's ModeResult in the returned dictionary instead of the scalar expected by failing assertions. It corresponds to the re-extracted code's 'mode': mode(np.array(numbers)) entry. Anchor is the first visible token of the statement, consistent with line-based anchors; this is not a validated earliest semantic cause."
+  },
+  "BigCodeBench/423": {
+    "frozen_statement": "image = cv2.threshold(image, threshold, cv2.THRESH_BINARY)",
+    "rationale": "Manual identification on the frozen activation source: this three-argument threshold call corresponds to the traceback-confirmed three-argument call in re-extracted code despite changed variable names. The fourth positional argument is missing. The old traceback confirms the corresponding re-extracted call, not a newly executed frozen-source traceback. Anchor is the first visible token of this statement."
+  }
+}
