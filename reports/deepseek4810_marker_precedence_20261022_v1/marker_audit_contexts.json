@@ -1,0 +1,1192 @@
+[
+  {
+    "task_id": "BigCodeBench/1",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1297,
+    "first_nonwhitespace_char": 1298,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "ccurrence of each character in the string\n    char_counts = collections.Counter(random_string)\n\n    return char_counts\n\n#tests/test_task_func.py\nimport unittest\nfrom unittest.mock import patch\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    @patch('random.choice', side_ef",
+    "source_sha256": "c1fa895dfb9478dd15efcb519e5fa0509be45aa04c6a37c11508373eca634f8f"
+  },
+  {
+    "task_id": "BigCodeBench/1030",
+    "marker_kind": "task_func_import",
+    "regex_start_char": 1083,
+    "first_nonwhitespace_char": 1083,
+    "prefix_whitespace": "",
+    "marker_line": "from task_func import task_func",
+    "context": "= pd.DataFrame(combinations, columns=['Letter 1', 'Letter 2', 'Letter 3'])\n\n    return df\n\n#main.py\nimport pandas as pd\nfrom task_func import task_func\n\n# Generate the DataFrame\ndf = task_func()\n\n# Save the DataFrame to a CSV file\ndf.to_csv('output.csv', index=False)\n\n# Print the first 5 rows of the",
+    "source_sha256": "7f7f36d2f452a96d2ba8939f6d38fe5f17890d3d7011530c3854ffbe84e29ba3"
+  },
+  {
+    "task_id": "BigCodeBench/109",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 2643,
+    "first_nonwhitespace_char": 2644,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "\n    ax.set_xlabel('Item')\n    ax.set_ylabel('Count')\n    ax.set_title('Item Distribution by Location')\n\n    return ax\n\n#tests/test_task_func.py\nimport pandas as pd\nimport matplotlib.pyplot as plt\nfrom task_func import task_func\n",
+    "source_sha256": "7f4cf726faaa86a67938dd960e76043422c3d9ad0ca07c8040721872d938b8d6"
+  },
+  {
+    "task_id": "BigCodeBench/1097",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1651,
+    "first_nonwhitespace_char": 1652,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "ORDS])\n    # Remove punctuation\n    text = ''.join([char for char in text if char not in punctuation])\n    return text\n\n#tests/test_task_func.py\nimport unittest\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n        # Test case 1: URLs, predefin",
+    "source_sha256": "38168cd90bf41a17146e1eb85dff02ad369ba676d3b665928a797dcdd9318432"
+  },
+  {
+    "task_id": "BigCodeBench/110",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1558,
+    "first_nonwhitespace_char": 1559,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "('Sales', fontsize=14)\n\n    # Rotate x-axis tick labels\n    plt.setp(ax.get_xticklabels(), rotation=45)\n\n    return ax\n\n#tests/test_task_func.py\nimport unittest\nimport pandas as pd\nimport numpy as np\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n\n    def test_valid_input(se",
+    "source_sha256": "c190c45c2505f610726a7e97d809d33011acfd1ff064769206464dfce41cb76a"
+  },
+  {
+    "task_id": "BigCodeBench/1109",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 814,
+    "first_nonwhitespace_char": 815,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task.py",
+    "context": "le:\n        tokens = []\n        for line in file:\n            tokens.extend(word_tokenize(line))\n        return tokens\n\n#tests/test_task.py\nimport unittest\nfrom task import task_func\n\nclass TestTask(unittest.TestCase):\n    def test_task_func(self):\n        # Test with a simple text file\n        toke",
+    "source_sha256": "ecbded07b2729b07d5497ffcbd81b5341b71eab83ae7d4e411393a196adfeb7b"
+  },
+  {
+    "task_id": "BigCodeBench/1115",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1308,
+    "first_nonwhitespace_char": 1309,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task_func.py",
+    "context": "value):\n            emp_ids.append(key + ''.join(random.choice(ascii_uppercase) for i in range(5)))\n    return emp_ids\n\n#test_task_func.py\nimport unittest\nimport random\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n        random.seed(0)\n      ",
+    "source_sha256": "94be5f7abe8b60bc80e99020be70727474453d041c90605523514bae41044f00"
+  },
+  {
+    "task_id": "BigCodeBench/1119",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1253,
+    "first_nonwhitespace_char": 1254,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_1.py",
+    "context": "using SHA256\n    hashed_password = hashlib.sha256(mixed_password.encode()).hexdigest()\n    \n    return hashed_password\n\n#tests/test_task_1.py\nimport unittest\nimport task_1\n\nclass TestTask1(unittest.TestCase):\n    def test_task_1(self):\n        # Test that the function returns a string\n        result",
+    "source_sha256": "3ca37da83c537459c35dba6c9df8ccf01a017e8c6df3597dcafa9a7050be1afb"
+  },
+  {
+    "task_id": "BigCodeBench/122",
+    "marker_kind": "task_func_import",
+    "regex_start_char": 1154,
+    "first_nonwhitespace_char": 1154,
+    "prefix_whitespace": "",
+    "marker_line": "from task_func import task_func",
+    "context": "urn np.random.rand(sum(my_list))\n\n#task_func_test.py\nimport unittest\nfrom unittest.mock import patch\nimport numpy as np\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    @patch('random.randint', return_value=50)\n    def test_task_func(self, mock_randint):\n        my_list = ",
+    "source_sha256": "d7d5b592d28a31150a04e18e5f4e447c3a8f0079486efd39664d05c97d0982c6"
+  },
+  {
+    "task_id": "BigCodeBench/127",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 2023,
+    "first_nonwhitespace_char": 2024,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "   shutil.move(file, DEST_DIR)\n            num_moved += 1\n\n    # Return the number of files moved\n    return num_moved\n\n#tests/test_task_func.py\nimport os\nimport shutil\nimport glob\nimport hashlib\nimport unittest\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def setUp(se",
+    "source_sha256": "f10f08e3d9563f0e88eb28eaa543ec5aad05fd09703d49ea218f033b4d4993d4"
+  },
+  {
+    "task_id": "BigCodeBench/144",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1849,
+    "first_nonwhitespace_char": 1850,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "            # If the request fails, ignore and continue to the next IP address\n            pass\n\n    return active_ips\n\n#tests/test_task_func.py\nimport unittest\nimport ipaddress\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_valid_ip_range(self):\n        ip_rang",
+    "source_sha256": "da50b36d8b2467a70d1bbcab0ac2f6735b946b1c38df1a4b2eb102a9ff15c200"
+  },
+  {
+    "task_id": "BigCodeBench/166",
+    "marker_kind": "task_func_import",
+    "regex_start_char": 1991,
+    "first_nonwhitespace_char": 1991,
+    "prefix_whitespace": "",
+    "marker_line": "from task_func import task_func",
+    "context": "kday() not in [5, 6] and day not in country_holidays]\n\n    return business_days\n\n#main.py\nfrom datetime import datetime\nfrom task_func import task_func\n\n# Example usage\nstart_date = datetime(2023, 1, 1)\nend_date = datetime(2023, 12, 31)\ncountry = 'US'\n\nbusiness_days = task_func(start_date, end_date,",
+    "source_sha256": "7991b603498894888e6ba6c6b4562d8dc960fbed03abddb13bd7c9d57bcea7b3"
+  },
+  {
+    "task_id": "BigCodeBench/172",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1018,
+    "first_nonwhitespace_char": 1019,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "ne if the datetime is a weekend\n    if utc_datetime.weekday() >= 5:\n        return True\n    else:\n        return False\n\n#tests/test_task_func.py\nimport unittest\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_weekend(self):\n        json_data = '{\"utc_datetime\": \"",
+    "source_sha256": "cce011050756e7d1d639d0a46ef0fbe38158e36ff0dfc8324e12dec9a1b4aa91"
+  },
+  {
+    "task_id": "BigCodeBench/178",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1108,
+    "first_nonwhitespace_char": 1109,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "sponse\n    try:\n        ip = response['ip']\n    except KeyError:\n        return 'Invalid JSON received'\n\n    return ip\n\n#tests/test_task_func.py\nimport unittest\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_valid_ip_address(self):\n        ip_address = '{\"ip\": \"",
+    "source_sha256": "3dacf21094f13139e8eae3ca532dbf124ba5247047b0c513fca16550aa153df0"
+  },
+  {
+    "task_id": "BigCodeBench/18",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1753,
+    "first_nonwhitespace_char": 1754,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task_func.py",
+    "context": "   return split_files\n    except Exception as e:\n        print(f\"Error processing file {file}: {e}\")\n        return []\n\n#test_task_func.py\nimport unittest\nimport os\nimport csv\nimport glob\nimport random\nimport task_func\n\nclass TestTaskFunc(unittest.TestCase):\n\n    def setUp(self):\n        # Create a ",
+    "source_sha256": "31da9bbef560fb7bb85852453e851ded6371866b578e0fbffedf795a84c03d46"
+  },
+  {
+    "task_id": "BigCodeBench/188",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 2312,
+    "first_nonwhitespace_char": 2313,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": " marker to the map for the location\n        folium.Marker(location=[lat, lon], popup=name).add_to(map)\n\n    return map\n\n#tests/test_task_func.py\nimport unittest\nimport folium\nfrom geopy.geocoders import Photon\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_",
+    "source_sha256": "cb48ac3b5a261e0c5d2c0e9478438ca5d62776f8ec5a25c11c088268da9e0e67"
+  },
+  {
+    "task_id": "BigCodeBench/2",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1318,
+    "first_nonwhitespace_char": 1319,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "v in sorted(random_dict.items(), key=lambda item: statistics.mean(item[1]), reverse=True)}\n    \n    return sorted_dict\n\n#tests/test_task_func.py\nimport unittest\nimport random\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def setUp(self):\n        random.seed(42)\n\n    def",
+    "source_sha256": "60d2c5aeb00372a933010d7f10a9f1a0d147bdf6febf3ccd72c7362cb2687702"
+  },
+  {
+    "task_id": "BigCodeBench/203",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1821,
+    "first_nonwhitespace_char": 1822,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "      smtp.login(email_address, email_password)\n    smtp.sendmail(email_address, recipient, message)\n\n    return names\n\n#tests/test_task_func.py\nimport unittest\nfrom unittest.mock import MagicMock\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n ",
+    "source_sha256": "2f4ea03d4bb7ec9172618c7a87d11aa951004af0fcbe1c3de9c4c8b5c424396f"
+  },
+  {
+    "task_id": "BigCodeBench/204",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1205,
+    "first_nonwhitespace_char": 1206,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task_func.py",
+    "context": " the results as a dictionary\n    return {\"mean\": mean, \"median\": median, \"mode\": mode, \"std_dev\": std_dev, \"plot\": ax}\n\n#test_task_func.py\nimport unittest\nimport numpy as np\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n        # Test with a li",
+    "source_sha256": "31628c0bcc139ee838ee3fe87b3a08f6d2c18b46ae144d04b2162c20742c8860"
+  },
+  {
+    "task_id": "BigCodeBench/21",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1476,
+    "first_nonwhitespace_char": 1477,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "ary\n    return {\n        'OS': os_name,\n        'Architecture': arch,\n        'Memory Usage': f'{memory_usage}%'\n    }\n\n#tests/test_task_func.py\nimport unittest\nfrom unittest.mock import patch\n\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    @patch('platform.system')\n    ",
+    "source_sha256": "5dd9be1c637bb3fd6b68422d38db9888157cb07b34924ba64f80dc992ed66ae2"
+  },
+  {
+    "task_id": "BigCodeBench/22",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1297,
+    "first_nonwhitespace_char": 1298,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task_func.py",
+    "context": "r item in sublist if item is not None]\n    sample = choices(combined_list, k=K)\n    return collections.Counter(sample)\n\n#test_task_func.py\nimport unittest\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n        l1 = [1, 2, 3]\n        l2 = [4, 5, ",
+    "source_sha256": "d25ee736a9ce468b35eedeee5b239eba03b4ff9146b64670c9d007551cd5b05b"
+  },
+  {
+    "task_id": "BigCodeBench/236",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 2194,
+    "first_nonwhitespace_char": 2195,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": ")\n    \n    # Evaluate the accuracy of the model\n    accuracy = accuracy_score(y_test, y_pred)\n    \n    return accuracy\n\n#tests/test_task_func.py\nimport unittest\nimport pandas as pd\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n        # Create ",
+    "source_sha256": "0258d2876f605f7b72a3e891cefb3dd1cc252171608c2b840011f163c1d21718"
+  },
+  {
+    "task_id": "BigCodeBench/24",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1164,
+    "first_nonwhitespace_char": 1165,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_1.py",
+    "context": "'sha256', password.encode('utf-8'), salt, 100000)\n    return base64.b64encode(salt), base64.b64encode(hashed_password)\n\n#tests/test_task_1.py\nimport unittest\nimport task_1\n\nclass TestTask1(unittest.TestCase):\n    def test_task_1(self):\n        # Test case 1: Valid input\n        password = \"my_passwo",
+    "source_sha256": "e76c6bca218847b6edd9857367bb7d3f0f6060b5cdd2c1fa6e47a6c68327edb9"
+  },
+  {
+    "task_id": "BigCodeBench/25",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 937,
+    "first_nonwhitespace_char": 938,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task.py",
+    "context": "son_data.encode('utf-8'))\n    encoded_data = base64.b64encode(compressed_data).decode('utf-8')\n    return encoded_data\n\n#test_task.py\nimport unittest\nimport task\n\nclass TestTask(unittest.TestCase):\n    def test_task_func(self):\n        data_dict = {'key1': 'value1', 'key2': 'value2'}\n        encoded",
+    "source_sha256": "282cf75304729e661a1ff14d413bf73e0c05a8125bed41081bfe3a603e8a4024"
+  },
+  {
+    "task_id": "BigCodeBench/258",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1858,
+    "first_nonwhitespace_char": 1859,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task.py",
+    "context": "  # Encode the person's data as a JSON string\n    person_json_str = json.dumps(person)\n    \n    return person_json_str\n\n#tests/test_task.py\nimport json\nimport pytest\nfrom datetime import datetime\nfrom task import task_func\n",
+    "source_sha256": "b1f4766be5a78e326dec61e2012e1115d4d33ebc8379db10803674f2d646109f"
+  },
+  {
+    "task_id": "BigCodeBench/26",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1416,
+    "first_nonwhitespace_char": 1417,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "d message to base64\n    encrypted_message = base64.b64encode(encrypted_message)\n\n    return encrypted_message.decode()\n\n#tests/test_task_func.py\nimport unittest\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n        # Test with a simple message ",
+    "source_sha256": "635329315b487a4018cb0fd898ca93ab761fd7849f153aaa1c2af34803a686ac"
+  },
+  {
+    "task_id": "BigCodeBench/260",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1603,
+    "first_nonwhitespace_char": 1604,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task.py",
+    "context": "        # Increment the counter\n            count += 1\n\n    # Return the number of JSON files updated\n    return count\n\n#test_task.py\nimport unittest\nimport os\nimport json\nimport glob\nfrom task import task_func\n\nclass TestTask(unittest.TestCase):\n    def setUp(self):\n        # Create a temporary dir",
+    "source_sha256": "9c5af4d9547e16b711bf3bb5bbf156d9da688c472b1b6d930e9a38297bfeed3f"
+  },
+  {
+    "task_id": "BigCodeBench/268",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1209,
+    "first_nonwhitespace_char": 1210,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task_func.py",
+    "context": "r i in range(n_keys):\n        key = random.choice(LETTERS)\n        d[key] = list(range(1, n_values + 1))\n\n    return d\n\n#test_task_func.py\nimport unittest\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n        # Test with n_keys = 3 and n_values",
+    "source_sha256": "b77bd01fcfa77c23e8a0c7f1c5b543c3cb528d8a448ce598004a2cf8e84dd1f1"
+  },
+  {
+    "task_id": "BigCodeBench/27",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1362,
+    "first_nonwhitespace_char": 1363,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "son.dumps(data)\n    encoded_data = base64.b64encode(json_data.encode('ascii')).decode('ascii')\n    return encoded_data\n\n#tests/test_task_func.py\nimport unittest\nimport json\nimport base64\nfrom datetime import datetime\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def tes",
+    "source_sha256": "0bce7eb868d6ee6cadd9c1d2cf1e0a934bc33466253d413b7c9ac70360301ad8"
+  },
+  {
+    "task_id": "BigCodeBench/270",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 696,
+    "first_nonwhitespace_char": 697,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "    words = re.findall(r'\\w+', sentence)\n    return dict(Counter(words))\n\n#tests/test_task_func.py\nimport unittest\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n        # Test case 1\n        sentenc",
+    "source_sha256": "5ed55e37bf86b754bb6867de2c66caffe8c76150570d07d4f0ffa416016f8019"
+  },
+  {
+    "task_id": "BigCodeBench/275",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1020,
+    "first_nonwhitespace_char": 1021,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task_func.py",
+    "context": "e numpy to generate all possible combinations of two numbers\n    pairs = list(combinations(nums, 2))\n\n    return pairs\n\n#test_task_func.py\nimport unittest\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_valid_input(self):\n        # Test with valid input\n        s",
+    "source_sha256": "22b8e563c3a2986a8d67af50801e964114ab6555db1a06f9c2064049fc270add"
+  },
+  {
+    "task_id": "BigCodeBench/276",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1365,
+    "first_nonwhitespace_char": 1366,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": " plot of the distribution\n    ax = plt.hist(row_max, bins=bins)\n    \n    return skew, kurtosis, ax\n\n#task_func(matrix)\n\n#tests/test_task_func.py\nimport unittest\nimport numpy as np\nfrom scipy import stats\nimport matplotlib.pyplot as plt\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.Tes",
+    "source_sha256": "f7208286b51c931544ba0c4bfe8d6f0de0ee86abab0974140e7b7a3a1c679bdf"
+  },
+  {
+    "task_id": "BigCodeBench/277",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1208,
+    "first_nonwhitespace_char": 1209,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task_func.py",
+    "context": "2)\n        if dist < min_dist:\n            min_dist = dist\n            closest_pair = (p1, p2)\n    return closest_pair\n\n#test_task_func.py\nimport unittest\nfrom task_func import task_func\nimport random\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n        random.seed(0)\n      ",
+    "source_sha256": "0887d9ed064687d72564be7f39ae205647e8437fc3ea7407de74fafa6721a7f2"
+  },
+  {
+    "task_id": "BigCodeBench/279",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1173,
+    "first_nonwhitespace_char": 1174,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "unt the drawn cards\n    counter = Counter(deck[:x*5])\n    # Return the hands and the counter\n    return hands, counter\n\n#tests/test_task_func.py\nimport pytest\nfrom task_func import task_func\nfrom collections import Counter\n",
+    "source_sha256": "3bcc16a4f1c51711d368bd6fe7a1ad814c2c17d024cd5b6531423ca0b8bbeb39"
+  },
+  {
+    "task_id": "BigCodeBench/3",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1477,
+    "first_nonwhitespace_char": 1478,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "dict = {}\n    for letter, values in my_dict.items():\n        mean_dict[letter] = np.mean(values)\n\n    return mean_dict\n\n#tests/test_task_func.py\nimport pytest\nimport numpy as np\nfrom task_func import task_func\n",
+    "source_sha256": "ab0a563680426f597c8a79f9f0a9c63e4bafb32c9912128112ef94676e04a548"
+  },
+  {
+    "task_id": "BigCodeBench/30",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 2235,
+    "first_nonwhitespace_char": 2236,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "data[attribute]):\n            raise ValueError(f\"Invalid email format: {data[attribute]}\")\n\n    return data[attribute]\n\n#tests/test_task_func.py\nimport os\nimport pytest\nfrom task_func import task_func\n",
+    "source_sha256": "4da4ffaa32781bf56228b3338276ae60dfdf067494c7f5e50bc39ac91dd26cd1"
+  },
+  {
+    "task_id": "BigCodeBench/316",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 937,
+    "first_nonwhitespace_char": 938,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task.py",
+    "context": "ategory names and corresponding values\n    df = pd.DataFrame({'Category': CATEGORIES, 'Count': values})\n\n    return df\n\n#test_task.py\nimport unittest\nimport pandas as pd\nimport random\nfrom task import task_func\n\nclass TestTask(unittest.TestCase):\n    def test_task_func(self):\n        # Test that the",
+    "source_sha256": "5aae5d432a40262d161800461a1abb8f14e68628608ec12e373439790aa53b2f"
+  },
+  {
+    "task_id": "BigCodeBench/336",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1868,
+    "first_nonwhitespace_char": 1869,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "of matches\n            matches.append(Path(file_path).absolute())\n\n    # Return the list of matches\n    return matches\n\n#tests/test_task_func.py\nimport pytest\nimport os\nimport tempfile\nimport shutil\nfrom task_func import task_func\n\n\n@pytest.fixture\ndef temp_dir():\n    temp_dir = tempfile.mkdtemp()\n ",
+    "source_sha256": "f96f50c2bce0c8eef06182d93b7031b16ee7760392bb6fe7fb826461b4dd93b6"
+  },
+  {
+    "task_id": "BigCodeBench/347",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1445,
+    "first_nonwhitespace_char": 1446,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task.py",
+    "context": "ounts\n    except KeyError as e:\n        raise KeyError(f\"Column '{column}' does not exist in input DataFrame.\") from e\n\n#test_task.py\nimport unittest\nimport pandas as pd\nfrom task import task_func\n\nclass TestTask(unittest.TestCase):\n    def test_task_func(self):\n        # Test case 1: Valid input\n  ",
+    "source_sha256": "cfbcb94e2ee6c9e6db5adb9b822f1f9e0d013bd9e69faa6709f2b1c3ebb3769e"
+  },
+  {
+    "task_id": "BigCodeBench/349",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1513,
+    "first_nonwhitespace_char": 1514,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task_func.py",
+    "context": "(len(df))]\n    df['Revenue'] = df['Quantity Sold'] * random.randint(10, 100)\n\n    # Return the DataFrame\n    return df\n\n#test_task_func.py\nimport unittest\nimport pandas as pd\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n\n    def test_task_func(self):\n        # Test that th",
+    "source_sha256": "9737b9179256b1127b4689fd25b47c48451e038b2569ad836507b93a02719cb6"
+  },
+  {
+    "task_id": "BigCodeBench/358",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1317,
+    "first_nonwhitespace_char": 1318,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "list(itertools.combinations(number_list, r))\n    except json.JSONDecodeError:\n        raise Exception(\"Invalid JSON.\")\n\n#tests/test_task_func.py\nimport unittest\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_valid_json(self):\n        json_list = '{\"number_list\":",
+    "source_sha256": "00cb9f966ce5078bac0e89a76cf9fad5302ef2671e1e85773b49516ff0d61945"
+  },
+  {
+    "task_id": "BigCodeBench/361",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 2324,
+    "first_nonwhitespace_char": 2325,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task_func.py",
+    "context": "pt ValueError as e:\n        logging.error(f\"Sheet '{sheet_name}' not found in Excel file. Error: {e}\")\n        raise e\n\n#test_task_func.py\nimport unittest\nimport pandas as pd\nimport os\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def setUp(self):\n        # Create a tem",
+    "source_sha256": "99a5201f8c5ea0e48a8681b656bee298140ac9323939e90abe75678b6b0c5b4e"
+  },
+  {
+    "task_id": "BigCodeBench/364",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1283,
+    "first_nonwhitespace_char": 1284,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": ", y, test_size=0.2, random_state=42)\n\n    model = LinearRegression()\n    model.fit(X_train, y_train)\n\n    return model\n\n#tests/test_task_func.py\nimport unittest\nimport pandas as pd\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def setUp(self):\n        self.df = pd.DataF",
+    "source_sha256": "f6adf3748246f03888c21cf5f3483b030d91fd7a351f51b526f81bb7b7687f3d"
+  },
+  {
+    "task_id": "BigCodeBench/369",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1315,
+    "first_nonwhitespace_char": 1316,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "e = f\"Fit results: mu = {mean:.2f},  std = {std:.2f}\"\n    plt.title(title)\n\n    # Return the axes object\n    return ax\n\n#tests/test_task_func.py\nimport pytest\nimport numpy as np\nfrom task_func import task_func\n",
+    "source_sha256": "192b5a8dfda0f85e9baf010e0ccdf6eb9a534146af53acdb8a80b086e4425f08"
+  },
+  {
+    "task_id": "BigCodeBench/391",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1697,
+    "first_nonwhitespace_char": 1698,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "Return a tuple with a boolean indicating success or failure and a list of errors\n    return (len(errors) == 0, errors)\n\n#tests/test_task_func.py\nimport os\nimport tempfile\nimport unittest\nfrom unittest.mock import patch\n\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def ",
+    "source_sha256": "3d13ec0676698205ac0240036d44e4fdcaa405b778ce501c3bb02f6722f36367"
+  },
+  {
+    "task_id": "BigCodeBench/398",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 995,
+    "first_nonwhitespace_char": 996,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_1.py",
+    "context": "ll(isinstance(item, dict) for item in data)\n    except (FileNotFoundError, json.JSONDecodeError):\n        return False\n\n#tests/test_task_1.py\nimport unittest\nimport os\nimport tempfile\nimport json\nfrom task_1 import task_func\n\nclass TestTask1(unittest.TestCase):\n    def setUp(self):\n        self.temp",
+    "source_sha256": "56ed5142b542adb7c09e1020ce06b550c12ec427cbbc5940b9253a1864f578b1"
+  },
+  {
+    "task_id": "BigCodeBench/415",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1474,
+    "first_nonwhitespace_char": 1475,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "UnicodeString\"] = dataframe[\"UnicodeString\"].apply(lambda x: codecs.decode(x, \"unicode-escape\"))\n\n    return dataframe\n\n#tests/test_task_func.py\nimport pandas as pd\nimport pytest\nfrom task_func import task_func\n",
+    "source_sha256": "477037c27a3c2cd6bad735c268887a09938eb7e7723cd2ec7dab3eb13caf3175"
+  },
+  {
+    "task_id": "BigCodeBench/435",
+    "marker_kind": "task_func_import",
+    "regex_start_char": 1968,
+    "first_nonwhitespace_char": 1968,
+    "prefix_whitespace": "",
+    "marker_line": "from task_func import task_func",
+    "context": " Pandas DataFrame from the data dictionary\n    data_df = pd.DataFrame(data)\n\n    return data_df\n\n#main.py\nimport random\nfrom task_func import task_func\n\n# Set the seed for the random number generator\nrandom.seed(0)\n\n# Call the task_func function with the input data\ndf = task_func(\"John\", 30, \"A10B\",",
+    "source_sha256": "77fd4a57cac57bf56a10ba262c686e72a7e67f5abbe251c492cbb73a090cffc4"
+  },
+  {
+    "task_id": "BigCodeBench/453",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 970,
+    "first_nonwhitespace_char": 971,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "     s = ''.join(choice(string.ascii_letters) for _ in range(n))\n        if re.match(pattern, s):\n            return s\n\n#tests/test_task_func.py\nimport pytest\nimport re\nimport string\nfrom random import choice\nfrom task_func import task_func\n",
+    "source_sha256": "b3cfcb2d6a24707ed94bf4cd1f492863b0fcdad210583811ebf99983750c1809"
+  },
+  {
+    "task_id": "BigCodeBench/459",
+    "marker_kind": "task_func_import",
+    "regex_start_char": 1627,
+    "first_nonwhitespace_char": 1627,
+    "prefix_whitespace": "",
+    "marker_line": "from task_func import task_func",
+    "context": "rn timestamps\n\n#task_func_test.py\nimport unittest\nimport os\nimport subprocess\nimport time\nfrom datetime import datetime\nfrom task_func import task_func\n\n\nclass TestTaskFunc(unittest.TestCase):\n    def setUp(self):\n        self.script_dir = os.path.join(os.path.dirname(__file__), 'scripts')\n        s",
+    "source_sha256": "cf4679f2ba215f359291c48d70b0e0fb2b44c8b7f123cce50f82c67eb9a077e8"
+  },
+  {
+    "task_id": "BigCodeBench/464",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1414,
+    "first_nonwhitespace_char": 1415,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "f\"Object of type '{obj.__class__.__name__}' is not JSON serializable\")\n\n    return json.dumps(my_obj, default=default)\n\n#tests/test_task_func.py\nimport unittest\nfrom datetime import datetime\nfrom decimal import Decimal\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def t",
+    "source_sha256": "86156182b75b119c57d8c0543a12e941f099c30a6bb1666c5d1e28fc6231b828"
+  },
+  {
+    "task_id": "BigCodeBench/466",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1042,
+    "first_nonwhitespace_char": 1043,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_01.py",
+    "context": "         return obj.name\n            return super().default(obj)\n\n    return json.dumps(my_obj, cls=CustomJSONEncoder)\n\n#tests/test_task_01.py\nimport unittest\nfrom task_01 import task_func, Color\n\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_serialize_dict_with_enum(self):\n        my_obj = {",
+    "source_sha256": "e17f02a450b9192ec2ea44590c243460639528983bd274db7900da269f733f20"
+  },
+  {
+    "task_id": "BigCodeBench/475",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 2838,
+    "first_nonwhitespace_char": 2839,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "l('Frequency')\n\n    # Set the x-axis tick labels to the month names\n    ax.set_xticklabels(month_names)\n\n    return ax\n\n#tests/test_task_func.py\nimport unittest\nimport pandas as pd\nfrom task_func import task_func\n",
+    "source_sha256": "a49d42e6682f0b0ba38d99f4c4d438448dc164ce60607cd9ccfffb3767115990"
+  },
+  {
+    "task_id": "BigCodeBench/490",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1029,
+    "first_nonwhitespace_char": 1030,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "  # Save the dictionary as a JSON file\n    with open(file_path, 'w') as f:\n        json.dump(data, f)\n\n    return data\n\n#tests/test_task_func.py\nimport unittest\nimport os\nimport json\nimport xmltodict\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self)",
+    "source_sha256": "d44bcbcd1d2b4400d776e8b790fd925d1affb8b0e05d34d64d999f1dc5b99ceb"
+  },
+  {
+    "task_id": "BigCodeBench/496",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 2343,
+    "first_nonwhitespace_char": 2344,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "el(\"Temperature (°C)\")\n\n    # Set the title\n    ax.set_title(\"Temperature Trend\")\n\n    # Return the plot\n    return ax\n\n#tests/test_task_func.py\nimport unittest\nimport matplotlib.pyplot as plt\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n     ",
+    "source_sha256": "0ffd2a81aa8ac35fe1d8b718608be46dd1fc0486b1ac46664fe869488e06f56a"
+  },
+  {
+    "task_id": "BigCodeBench/497",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1622,
+    "first_nonwhitespace_char": 1623,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "   # Get the weekday name of the target date\n    weekday = calendar.day_name[local_date.weekday()]\n\n    return weekday\n\n#tests/test_task_func.py\nimport pytest\nfrom task_func import task_func\nfrom datetime import datetime, timedelta\n",
+    "source_sha256": "01ca433c54729101b5891e3848989e758d2a854a481dc379c775f4eee2825b60"
+  },
+  {
+    "task_id": "BigCodeBench/5",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 2128,
+    "first_nonwhitespace_char": 2129,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "     sd_dict[key] = math.sqrt(sum((x - sum(value) / len(value)) ** 2 for x in value) / len(value))\n\n    return sd_dict\n\n#tests/test_task_func.py\nimport pytest\nfrom task_func import task_func\n",
+    "source_sha256": "b097753d016d28537b7884a64dd29e341d0f27f85cbc9c9a4f2069837ec2cd9a"
+  },
+  {
+    "task_id": "BigCodeBench/508",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1365,
+    "first_nonwhitespace_char": 1366,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "hexdigest()\n        hash2 = hashlib.md5(f2.read()).hexdigest()\n\n    # Compare the MD5 hashes\n    return hash1 == hash2\n\n#tests/test_task_func.py\nimport unittest\nimport os\nimport tempfile\nimport shutil\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n\n    def setUp(self):\n     ",
+    "source_sha256": "a81c527a589d3e53d8e7bc1fc053d4958a5f6834be8cbf0ac4b98e0b1a5d7629"
+  },
+  {
+    "task_id": "BigCodeBench/548",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 925,
+    "first_nonwhitespace_char": 926,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "\n    compressed_string = zlib.compress(random_string.encode())\n    return base64.b64encode(compressed_string).decode()\n\n#tests/test_task_func.py\nimport unittest\nimport base64\nimport zlib\nimport random\nimport string\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_",
+    "source_sha256": "a2c95d87d23dbe797bd8be074f387e7890cda8e7d5cb1f3c75b0f8465494bba6"
+  },
+  {
+    "task_id": "BigCodeBench/561",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1122,
+    "first_nonwhitespace_char": 1123,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task_func.py",
+    "context": "  # Format the datetime object as a string in \"yyyy-mm-dd hh:mm:ss\" format\n    return dt.strftime('%Y-%m-%d %H:%M:%S')\n\n#test_task_func.py\nimport unittest\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n        # Test case 1: Convert from UTC to ",
+    "source_sha256": "d05aadc9b9402797a2b690dacfa4e6a578ceef42000404f84ca6508f92d89e0d"
+  },
+  {
+    "task_id": "BigCodeBench/576",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1164,
+    "first_nonwhitespace_char": 1165,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "n pd.Series(l).apply(lambda x: x[randint(0, n_groups):] + x[:randint(0, n_groups)])\n\n#task_func(['ABC', 'DEF', 'GHI'])\n\n#tests/test_task_func.py\nimport unittest\nimport pandas as pd\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n\n    def test_task_func(self):\n        # Test t",
+    "source_sha256": "d38327efaf623fe8a5998c963150dda298a01b90191ffe5bdb1a8d006871f548"
+  },
+  {
+    "task_id": "BigCodeBench/625",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1310,
+    "first_nonwhitespace_char": 1311,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task_func.py",
+    "context": "tion})\n\n    # Create a pandas DataFrame from the population data\n    df = pd.DataFrame(population_data)\n\n    return df\n\n#test_task_func.py\nimport unittest\nimport pandas as pd\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n        # Test that the",
+    "source_sha256": "da539ada7b5a42e11f74c068f24d0ea1637d3120983aa686860d1e4966b63f21"
+  },
+  {
+    "task_id": "BigCodeBench/626",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1440,
+    "first_nonwhitespace_char": 1441,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "yy-mm-dd hh:mm:ss\" format\n    converted_date = date_obj.strftime('%Y-%m%d %H:%M:%S')\n\n    return converted_date, to_tz\n\n#tests/test_task_func.py\nimport unittest\nfrom task_func import task_func\n\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n        date_str = '2023-06-15 12:00",
+    "source_sha256": "5b99794af4b3ee6fca9a8e05d5c98a0cc11bd7493210ae947f3fde5109840b48"
+  },
+  {
+    "task_id": "BigCodeBench/630",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 941,
+    "first_nonwhitespace_char": 942,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "r)\n    file_path = os.path.join(output_dir, filename)\n    df.to_json(file_path, orient='records')\n    return file_path\n\n#tests/test_task_func.py\nimport unittest\nimport pandas as pd\nimport os\nfrom task_func import task_func\n\n\nclass TestTaskFunc(unittest.TestCase):\n\n    def test_task_func(self):\n     ",
+    "source_sha256": "c420b5ab0f0f90712c73c6e618f473d664045427e44963cbc80289935a177a8e"
+  },
+  {
+    "task_id": "BigCodeBench/632",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1071,
+    "first_nonwhitespace_char": 1072,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "Write the DataFrame to the JSON Lines file\n    df.to_json(filepath, orient='records', lines=True)\n\n    return filepath\n\n#tests/test_task_func.py\nimport os\nimport pandas as pd\nimport time\nfrom task_func import task_func\n",
+    "source_sha256": "a9f2317dc07212b281b41c77c184a8f4ad2692ae1ae8440d5f9e48edc3011047"
+  },
+  {
+    "task_id": "BigCodeBench/634",
+    "marker_kind": "task_func_import",
+    "regex_start_char": 1174,
+    "first_nonwhitespace_char": 1174,
+    "prefix_whitespace": "",
+    "marker_line": "from task_func import task_func",
+    "context": "s.chain.from_iterable([input_list] * repetitions))\n    return stats.mode(flat_list)\n\n#task_func_test.py\nimport unittest\nfrom task_func import task_func\n\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n        # Test case 1: List with multiple repetitions\n        input_list = ['",
+    "source_sha256": "cd6e264e2bdda78506d7cae1d0e4a05dd77e95c84250c9bcd9248a91783ca2e2"
+  },
+  {
+    "task_id": "BigCodeBench/666",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1573,
+    "first_nonwhitespace_char": 1574,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task_func.py",
+    "context": "               max_subseq = ''.join(subseq)\n    # Return the subsequence with the highest weight\n    return max_subseq\n\n#test_task_func.py\nimport unittest\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n        # Test case 1: Simple case\n        ",
+    "source_sha256": "3a5736275684ca5d5705c0be837142388477db01f728a2eb0075657b2a4ae8f8"
+  },
+  {
+    "task_id": "BigCodeBench/668",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1093,
+    "first_nonwhitespace_char": 1094,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": ":\n            return subseq\n\n    # If no subsequence with positive values is found, return an empty list\n    return []\n\n#tests/test_task_func.py\nimport unittest\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n        self.assertEqual(task_func({'",
+    "source_sha256": "160f78d03066e98117cafaecfbe6203bd379f39bacaf2ec0b7b16ff740c6135e"
+  },
+  {
+    "task_id": "BigCodeBench/672",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 636,
+    "first_nonwhitespace_char": 637,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task.py",
+    "context": "nes.reverse()\n        f.seek(0)\n        f.truncate()\n        f.writelines(lines)\n        f.seek(0)\n    return filename\n\n#test_task.py\nimport unittest\nimport task\n\nclass TestTask(unittest.TestCase):\n    def test_task_func(self):\n        filename = 'test.csv'\n        with open(filename, 'w') as f:\n   ",
+    "source_sha256": "249b0848b79551638f03f1dcd6c33b711881f7151013eaffc030b2f4ca75038b"
+  },
+  {
+    "task_id": "BigCodeBench/68",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1025,
+    "first_nonwhitespace_char": 1026,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task_func.py",
+    "context": ".startswith(emp_prefix)]\n\n    # Draw a histogram of the age\n    ax = sns.histplot(data=df, x='Age')\n\n    return df, ax\n\n#test_task_func.py\nimport pandas as pd\nimport seaborn as sns\nimport pytest\nfrom task_func import task_func\n",
+    "source_sha256": "7154fe6888d935bd0cdb852cd6f84b21c369263c2e7f475db8d6eef836db95a7"
+  },
+  {
+    "task_id": "BigCodeBench/684",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1104,
+    "first_nonwhitespace_char": 1105,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "(columns=[col])\n    \n    # Add a new column 'IsEvenIndex'\n    df['IsEvenIndex'] = df.index % 2 == 0\n    \n    return df\n\n#tests/test_task_func.py\nimport unittest\nimport pandas as pd\nimport numpy as np\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def setUp(self):\n       ",
+    "source_sha256": "3ae4a930a4e865491f06c14d1044a0925d6a61207687c1e15882614fac39456c"
+  },
+  {
+    "task_id": "BigCodeBench/685",
+    "marker_kind": "task_func_import",
+    "regex_start_char": 639,
+    "first_nonwhitespace_char": 639,
+    "prefix_whitespace": "",
+    "marker_line": "from task_func import task_func",
+    "context": "    return Counter(chain.from_iterable(list_of_lists))\n\n#main.py\nfrom task_func import task_func\n",
+    "source_sha256": "3f885a83244a8b6108652f398b75b756b62e42920fb8674708b558a39596cbf6"
+  },
+  {
+    "task_id": "BigCodeBench/686",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1237,
+    "first_nonwhitespace_char": 1238,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task_func.py",
+    "context": "HotEncoder(sparse=False)\n    one_hot = encoder.fit_transform(np.array(merged_list).reshape(-1, 1))\n\n    return one_hot\n\n#test_task_func.py\nimport unittest\nimport numpy as np\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n        # Test case 1: E",
+    "source_sha256": "5e2b440b49c5724e5a751ed3af638fdf0159d5dbe12aeccb1a56ba1627e93e70"
+  },
+  {
+    "task_id": "BigCodeBench/687",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 840,
+    "first_nonwhitespace_char": 841,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task_func.py",
+    "context": ":\n        merged_list.extend(sublist)\n    mode_value, mode_count = mode(merged_list)\n    return mode_value, mode_count\n\n#test_task_func.py\nimport unittest\nimport numpy as np\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n        # Test case 1: B",
+    "source_sha256": "fcb7409a4ccb16de33ce588f903a1e1cde40eb3e62b16e683b24e45491f19aaa"
+  },
+  {
+    "task_id": "BigCodeBench/692",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 832,
+    "first_nonwhitespace_char": 833,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task_func.py",
+    "context": "    df = pd.DataFrame(tuples_list)\n    df = df.applymap(math.sin)\n    return df\n\n#test_task_func.py\nimport unittest\nimport pandas as pd\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n        # Test case 1: ",
+    "source_sha256": "02c2d7067fd326cfa5ab2931e17c8982b4040a058401acf114de67b1eecead15"
+  },
+  {
+    "task_id": "BigCodeBench/695",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 871,
+    "first_nonwhitespace_char": 872,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "ts)\n    transformed_data = pca.fit_transform(data)\n\n    return transformed_data\n\n#task_func(tuples_list, n_components)\n\n#tests/test_task_func.py\nimport unittest\nimport numpy as np\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n        # Test cas",
+    "source_sha256": "bf5d13dd33cd4fa8025c25979637aad3c87073d13b02fc68328fc72886a08a88"
+  },
+  {
+    "task_id": "BigCodeBench/7",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1525,
+    "first_nonwhitespace_char": 1526,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task.py",
+    "context": "e highest cumulative sales\n    top_product = max(sales.items(), key=operator.itemgetter(1))[0]\n\n    return top_product\n\n#test_task.py\nimport unittest\nfrom task import task_func\n\nclass TestTask(unittest.TestCase):\n    def test_task_func(self):\n        # Test case 1: Valid input\n        csv_file_path ",
+    "source_sha256": "fffcadfb009b5d5d2b9570edec5db2fe8b62150ec4a2913efaff4c6bdcb61a52"
+  },
+  {
+    "task_id": "BigCodeBench/700",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 998,
+    "first_nonwhitespace_char": 999,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task_func.py",
+    "context": "olumns=cols)\n\n    # Calculate the correlation matrix\n    correlation_matrix = df.corr()\n\n    return correlation_matrix\n\n#test_task_func.py\nimport unittest\nimport pandas as pd\nimport numpy as np\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n    ",
+    "source_sha256": "8ed5aaa841485d42b351b3cc8d33bb70857da0bfdce7a54627a4506e6ee6c8c5"
+  },
+  {
+    "task_id": "BigCodeBench/701",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 823,
+    "first_nonwhitespace_char": 824,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "]\n    y = df[target]\n    model = LinearRegression()\n    model.fit(X, y)\n    score = model.score(X, y)\n    return score\n\n#tests/test_task_func.py\nimport pytest\nimport pandas as pd\nfrom task_func import task_func\n",
+    "source_sha256": "59b6762acfe0f7c9913680a7f093ac8b79fa73efc71c338a5ade8ecccce29da2"
+  },
+  {
+    "task_id": "BigCodeBench/706",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1485,
+    "first_nonwhitespace_char": 1486,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "\n    \n    # Calculate the accuracy of the model\n    accuracy = accuracy_score(y_test, y_pred)\n    \n    return accuracy\n\n#tests/test_task_func.py\nimport unittest\nimport numpy as np\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n        # Generate",
+    "source_sha256": "33c3a178ff4568a1cd6096e6777e0a5ef54e4f49134ffbd7b95b662057429089"
+  },
+  {
+    "task_id": "BigCodeBench/708",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1150,
+    "first_nonwhitespace_char": 1151,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task.py",
+    "context": " csv.writer(csvfile)\n        writer.writerow(data.keys())\n        writer.writerow(data.values())\n\n    return file_path\n\n#tests/test_task.py\nimport unittest\nimport os\nimport base64\nimport json\nimport csv\nfrom task import task_func\n\nclass TestTask(unittest.TestCase):\n    def setUp(self):\n        self.",
+    "source_sha256": "46d84f31b6ba5167b15ea6e2d757e7faf08179e0da4b6c2ed8d995ac1d2214e6"
+  },
+  {
+    "task_id": "BigCodeBench/709",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1156,
+    "first_nonwhitespace_char": 1157,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "p text to a certain line length\n    wrapped_text = textwrap.fill(decoded_string, line_length)\n\n    return wrapped_text\n\n#tests/test_task_func.py\nimport unittest\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n        # Test case 1\n        raw_str",
+    "source_sha256": "1dfab783b6dca50fc86a86c92dc1ac5057e6eca27a79396c33def5c1dfc41840"
+  },
+  {
+    "task_id": "BigCodeBench/712",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 871,
+    "first_nonwhitespace_char": 872,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "ctory\n    result = 0\n    for file in files:\n        shutil.move(file, dest_dir)\n        result += 1\n\n    return result\n\n#tests/test_task_func.py\nimport os\nimport shutil\nimport glob\nimport pytest\nfrom task_func import task_func\n",
+    "source_sha256": "13e69fa6919b958622c8ca849727f223a392228f30dcff6b6b8aeca291ca91ef"
+  },
+  {
+    "task_id": "BigCodeBench/736",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 520,
+    "first_nonwhitespace_char": 521,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "st in L for item in sublist]\n    \n    # Calculate the mode\n    mode = stats.mode(flat_list)[0][0]\n    \n    return mode\n\n#tests/test_task_func.py\nimport unittest\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n        # Test case 1\n        L = [[1",
+    "source_sha256": "528ca89cc2a39efa8abe70380e9a26abb5a1288083925a0938183ad5e15ed6f2"
+  },
+  {
+    "task_id": "BigCodeBench/738",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 564,
+    "first_nonwhitespace_char": 565,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task_func.py",
+    "context": " np.array(L).flatten()\n    \n    # Calculate the interquartile range\n    iqr_value = iqr(arr)\n    \n    return iqr_value\n\n#test_task_func.py\nimport unittest\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n        # Test case 1: Empty list\n        s",
+    "source_sha256": "dfad0c4699a806b783ea7c803230a46f71e3867e951e23c1f1463275275d75bb"
+  },
+  {
+    "task_id": "BigCodeBench/743",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1207,
+    "first_nonwhitespace_char": 1208,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "ES:\n                        if key.startswith(prefix):\n                            stats[prefix] += 1\n    return stats\n\n#tests/test_task_func.py\nimport unittest\nimport os\nimport json\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def setUp(self):\n        self.test_dir = ",
+    "source_sha256": "e80ddcd020fbbf6148886a9e1c4a1f2f419891c7bdde1229c1ee427dbe3b2465"
+  },
+  {
+    "task_id": "BigCodeBench/752",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 2718,
+    "first_nonwhitespace_char": 2719,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task.py",
+    "context": "=random_state)\n\n    model = LinearRegression()\n    model.fit(X_train, y_train)\n\n    return model.score(X_test, y_test)\n\n#tests/test_task.py\nimport pytest\nimport pandas as pd\nimport numpy as np\nfrom task import task_func\n",
+    "source_sha256": "6d172f2892b279e1c07c3ce7e7f53825007d0bd7461736e6bb5f876fc7568c57"
+  },
+  {
+    "task_id": "BigCodeBench/753",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1045,
+    "first_nonwhitespace_char": 1046,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task_func.py",
+    "context": "s = [math.sqrt(x**2 + y**2) for x, y in points]\n    avg_distance = statistics.mean(distances)\n\n    return avg_distance\n\n#test_task_func.py\nimport unittest\nimport task_func\nimport math\nimport random\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n        # Test that the function",
+    "source_sha256": "5d81d05dd154f8266e5b5c98e7042a6887f2af5f68b07750b63f12153cb41bd2"
+  },
+  {
+    "task_id": "BigCodeBench/755",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1245,
+    "first_nonwhitespace_char": 1246,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task.py",
+    "context": "o the list\n        new_filenames.append(new_filename)\n\n    # Return the list of new filenames\n    return new_filenames\n\n#test_task.py\nimport unittest\nfrom task import task_func\n\nclass TestTask(unittest.TestCase):\n    def test_task_func(self):\n        # Test case 1: Empty directory\n        directory_",
+    "source_sha256": "9ee3828f7f1413e785c667167946b34d7d797a6e265ca6abe69cb494628df808"
+  },
+  {
+    "task_id": "BigCodeBench/762",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1818,
+    "first_nonwhitespace_char": 1819,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "n file_names:\n            zip_file.write(os.path.join(directory_name, file_name), file_name)\n\n    return zip_file_name\n\n#tests/test_task_func.py\nimport os\nimport unittest\nimport zipfile\n\nfrom task_func import task_func\n\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n        # ",
+    "source_sha256": "19e5f02114848fd5f0d63636a659fe47c5132fc0fd6777cd75ef72237632df05"
+  },
+  {
+    "task_id": "BigCodeBench/778",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 2962,
+    "first_nonwhitespace_char": 2963,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "rticles, key=itemgetter('category')):\n        grouped_articles[category].extend(articles)\n\n    return grouped_articles\n\n#tests/test_task_func.py\nimport pytest\nfrom task_func import task_func\n",
+    "source_sha256": "5e11640138432f2de545f8a17364d28f86aa2ed42287668abf4a4eee82c08bac"
+  },
+  {
+    "task_id": "BigCodeBench/783",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 807,
+    "first_nonwhitespace_char": 808,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "n(dest_dir, filename)\n            shutil.move(src_path, dest_path)\n            files_moved += 1\n    return files_moved\n\n#tests/test_task_func.py\nimport os\nimport shutil\nimport tempfile\nimport unittest\n\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def setUp(self):\n     ",
+    "source_sha256": "7a1cbf1b87b83b57128353d1bc6c8036f59f610b90e43da15f0ecf17419c8123"
+  },
+  {
+    "task_id": "BigCodeBench/787",
+    "marker_kind": "task_func_import",
+    "regex_start_char": 1798,
+    "first_nonwhitespace_char": 1798,
+    "prefix_whitespace": "",
+    "marker_line": "from task_func import task_func",
+    "context": "st]\n\n    # Return the maximum distance\n    return max(distances)\n\n#task_func_test.py\nimport unittest\nimport numpy as np\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_same_length(self):\n        array1 = np.array([2, 3, 4])\n        array2 = np.array([1, 5, 2])\n  ",
+    "source_sha256": "62d1940b1ed305cd56e866e0e57d4d942a4f0f36bf0078c4d72afd6efc3924f1"
+  },
+  {
+    "task_id": "BigCodeBench/790",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1842,
+    "first_nonwhitespace_char": 1843,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "# Find the N largest differences\n    indices = df.nlargest(N, 'diff')[['diff']].index.tolist()\n    \n    return indices\n\n#tests/test_task_func.py\nimport unittest\nimport pandas as pd\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n\n    def test_task_func(self):\n        # Test c",
+    "source_sha256": "52cc18131f4d8f403b7dde3cb89fbf7d50ba5d65c5c4f0145690a0e49f23d681"
+  },
+  {
+    "task_id": "BigCodeBench/797",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1159,
+    "first_nonwhitespace_char": 1160,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "   total_brackets = len([bracket for bracket_list in brackets for bracket in bracket_list])\n\n    return total_brackets\n\n#tests/test_task_func.py\nimport unittest\nimport pandas as pd\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n        # Test ca",
+    "source_sha256": "56f8913139ead37095d628c1ab2376fcaba69db5679cdc2495ae7969341ece91"
+  },
+  {
+    "task_id": "BigCodeBench/81",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1364,
+    "first_nonwhitespace_char": 1365,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "nse = requests.get(api_url)\n            return response.json()\n\n    api.add_resource(DataAPI, '/data')\n\n    return app\n\n#tests/test_task_func.py\nimport unittest\nfrom unittest.mock import patch\nfrom flask import Flask\nfrom flask_restful import Resource, Api\nimport requests\nfrom task_func import task_",
+    "source_sha256": "f728dc8f97cad8dbf059caf3b375f988f5821919a9439b39b195bcae5b7056f1"
+  },
+  {
+    "task_id": "BigCodeBench/820",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 844,
+    "first_nonwhitespace_char": 845,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task_func.py",
+    "context": "        word = ''.join(random.choice(LETTERS) for _ in range(word_length))\n        words.append(word)\n    return words\n\n#test_task_func.py\nimport unittest\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_valid_input(self):\n        words = task_func(5, 3)\n        s",
+    "source_sha256": "a064057206ede1c0cfca69cfef16fbad05ce4e6a43717e63768236c2731d41d1"
+  },
+  {
+    "task_id": "BigCodeBench/823",
+    "marker_kind": "test_class",
+    "regex_start_char": 1632,
+    "first_nonwhitespace_char": 1634,
+    "prefix_whitespace": "\n\n",
+    "marker_line": "class TestTaskFunc(unittest.TestCase):",
+    "context": "   # Return the mean and standard deviation\n    return mean, std\n\n#task_func_test.py\nimport unittest\nimport task_func\n\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n        # Test with default parameters\n        mean, std = task_func.task_func()\n        self.assertAlmostEqual",
+    "source_sha256": "ab637d581905841871ed794dc101c8f63d50f0a51ce38c63e2013c689c4b2792"
+  },
+  {
+    "task_id": "BigCodeBench/840",
+    "marker_kind": "task_func_import",
+    "regex_start_char": 1861,
+    "first_nonwhitespace_char": 1861,
+    "prefix_whitespace": "",
+    "marker_line": "from task_func import task_func",
+    "context": "from sklearn.metrics import confusion_matrix\nfrom sklearn.metrics import roc_curve, auc\nimport matplotlib.pyplot as plt\nfrom task_func import task_func\n",
+    "source_sha256": "72c60eebe3775256173ec76368f2bc103e52af680d58ffdba861365a8c40663b"
+  },
+  {
+    "task_id": "BigCodeBench/841",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1651,
+    "first_nonwhitespace_char": 1652,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task.py",
+    "context": "word_counts[word] += 1\n        return dict(word_counts)\n    except (json.JSONDecodeError, KeyError):\n        return {}\n\n#tests/test_task.py\nimport unittest\nfrom task import task_func\n\nclass TestTask(unittest.TestCase):\n    def test_valid_json(self):\n        json_input = '{\"text\": \"Hello world!\"}'\n  ",
+    "source_sha256": "3503d6235117f6e5f85390c6e0b9c188707813816c919e12b8095d5d0dee4627"
+  },
+  {
+    "task_id": "BigCodeBench/845",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 2111,
+    "first_nonwhitespace_char": 2112,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "Compute Levenshtein ratio\n    levenshtein_ratio = ratio(text1, text2)\n\n    return cosine_similarity, levenshtein_ratio\n\n#tests/test_task_func.py\nimport unittest\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_similar_texts(self):\n        text1 = \"Hello, World!\"\n ",
+    "source_sha256": "a2da77077b166305b758d99e505c181c1bc0982aa5c21024384b40c110448401"
+  },
+  {
+    "task_id": "BigCodeBench/858",
+    "marker_kind": "test_class",
+    "regex_start_char": 1997,
+    "first_nonwhitespace_char": 1999,
+    "prefix_whitespace": "\n\n",
+    "marker_line": "class TestTask1(unittest.TestCase):",
+    "context": "rn letter_counts\n\n#task_1/test_task_1.py\nimport unittest\nfrom task_1 import task_func\nfrom collections import Counter\n\n\nclass TestTask1(unittest.TestCase):\n    def test_task_func(self):\n        # Test with a fixed seed\n        expected_counts = Counter({'v': 48, 'b': 47, 'n': 46, 'r': 46, 'k': 46, '",
+    "source_sha256": "e8c0f6d737ac8b84a56a6f88a1f39b1aa84db5b2fb8d7a885f6a1b84004c8cf1"
+  },
+  {
+    "task_id": "BigCodeBench/863",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 929,
+    "first_nonwhitespace_char": 930,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task_func.py",
+    "context": "   sum_of_squares = np.sum(np.square(POSSIBLE_NUMBERS[:len(lst)]))\n        sums.append(sum_of_squares)\n    return sums\n\n#test_task_func.py\nimport unittest\nimport numpy as np\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n        # Test case 1: E",
+    "source_sha256": "825a55385eef043b9b0356e7813cd9f62de5bd2a8fca6032619222d2d507489a"
+  },
+  {
+    "task_id": "BigCodeBench/873",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 2529,
+    "first_nonwhitespace_char": 2530,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "ow = row + (None,) * (len(headers) - len(row))\n            writer.writerow(row)\n\n    return os.path.abspath(file_path)\n\n#tests/test_task_func.py\nimport os\nimport csv\nimport pytest\nfrom task_func import task_func\n",
+    "source_sha256": "4f5947be576dec23286b114a3906f6722ace05f50d4d7389c8f24cef79521827"
+  },
+  {
+    "task_id": "BigCodeBench/874",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1432,
+    "first_nonwhitespace_char": 1433,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "uclidean(points[0], points[1])]\n    return [distance.euclidean(a, b) for a, b in zip_longest(points[:-1], points[1:])]\n\n#tests/test_task_func.py\nimport unittest\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n\n    def test_empty_list(self):\n        self.assertEqual(task_func(",
+    "source_sha256": "035e2003288268ea727aa62ef11b2a7d2e770425bc974109c3d10d481fe643df"
+  },
+  {
+    "task_id": "BigCodeBench/88",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1586,
+    "first_nonwhitespace_char": 1587,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task_func.py",
+    "context": "Sales'])\n    ax.set_xlabel('Date')\n    ax.set_ylabel('Sales')\n    ax.set_title('Sales over time')\n\n    return data, ax\n\n#test_task_func.py\nimport unittest\nimport pandas as pd\nfrom datetime import datetime\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(",
+    "source_sha256": "ca9852d6371bc9e019b74bc74364c991b95761a925df1259cc516fe7c3a46300"
+  },
+  {
+    "task_id": "BigCodeBench/900",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1684,
+    "first_nonwhitespace_char": 1685,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task.py",
+    "context": "in(),\n                'std': df[key].std()\n            }\n        else:\n            stats[key] = None\n\n    return stats\n\n#test_task.py\nimport unittest\nfrom task import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_valid_input(self):\n        # Test with valid input\n        data = [{'x",
+    "source_sha256": "355929c192620bdbc6179465e73bee19603f89831776d0eee364b6d1020053fb"
+  },
+  {
+    "task_id": "BigCodeBench/905",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1797,
+    "first_nonwhitespace_char": 1798,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task_func.py",
+    "context": "e_path, 'r') as file:\n            reader = csv.reader(file)\n            data[filename] = list(reader)\n\n    return data\n\n#test_task_func.py\nimport unittest\nimport os\nimport shutil\nimport tempfile\nimport csv\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def setUp(self):\n ",
+    "source_sha256": "e9f4136ee2dbe42e8784dc97a3551d1e8da8ddddb3258d0991ca8dab06d97055"
+  },
+  {
+    "task_id": "BigCodeBench/909",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1473,
+    "first_nonwhitespace_char": 1474,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "ies)\n    df = pd.DataFrame(list(itertools.product(letters, categories)), columns=['Letter', 'Category'])\n    return df\n\n#tests/test_task_func.py\nimport unittest\nimport pandas as pd\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n        # Test wi",
+    "source_sha256": "6cdfe4ce1c47853cd8bbd8f84ef9a8ef6396475e673cc3d9c3c43f9812ff7395"
+  },
+  {
+    "task_id": "BigCodeBench/91",
+    "marker_kind": "task_func_import",
+    "regex_start_char": 1454,
+    "first_nonwhitespace_char": 1454,
+    "prefix_whitespace": "",
+    "marker_line": "from task_func import task_func",
+    "context": "itle(\"Linear Regression\")\n\n    return (slope, intercept, r_value, p_value, std_err), ax\n\n#task_1.py\nimport pandas as pd\nfrom task_func import task_func\n\ndata = pd.read_csv(\"data.csv\")\nresult, ax = task_func(data, \"Column1\", \"Column2\")\n",
+    "source_sha256": "7e6bf45b4b03a796b920e85f48aad0370432215a5f2876ca9a92a069e1076447"
+  },
+  {
+    "task_id": "BigCodeBench/910",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 2511,
+    "first_nonwhitespace_char": 2512,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "   ax.set_xlabel('Letters')\n    ax.set_ylabel('Frequency')\n    ax.set_title('Frequency of Letters')\n    \n    return ax\n\n#tests/test_task_func.py\nimport unittest\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_tas",
+    "source_sha256": "bc19c966361c69e954f1e3d443581dc9b7ffda8546fe1a47c8747540d0b39489"
+  },
+  {
+    "task_id": "BigCodeBench/930",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1139,
+    "first_nonwhitespace_char": 1140,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "    else:\n            i = random.randint(0, len(word) - 2)\n            pairs.append(word[i:i+2])\n    \n    return pairs\n\n#tests/test_task_func.py\nimport unittest\nimport random\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_valid_input(self):\n        random.seed(0",
+    "source_sha256": "df71b5713d99d180e8b07dea2a17a3fd0c6721971f9c44ed4bce9486bf1b067d"
+  },
+  {
+    "task_id": "BigCodeBench/931",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1276,
+    "first_nonwhitespace_char": 1277,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "in range(len(sanitized_word) - 1):\n        two_letter_counts[sanitized_word[i:i+2]] += 1\n\n    return two_letter_counts\n\n#tests/test_task_func.py\nimport unittest\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n        self.assertEqual(task_func('a",
+    "source_sha256": "7343573f964160efd7b4d17bdc08c8b494f5a66d07b3541c547f3ac4bbef07f9"
+  },
+  {
+    "task_id": "BigCodeBench/932",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1584,
+    "first_nonwhitespace_char": 1585,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task_func.py",
+    "context": "  pair_counts = Counter(pairs)\n    most_common_pair = pair_counts.most_common(1)[0]\n    \n    return [most_common_pair]\n\n#test_task_func.py\nimport unittest\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_empty_string(self):\n        self.assertEqual(task_func(\"\"), ",
+    "source_sha256": "d3f50cac23e161c680b127a637da2897b8a19c6b3e5c4c5a74f6cf401683b73d"
+  },
+  {
+    "task_id": "BigCodeBench/933",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1229,
+    "first_nonwhitespace_char": 1230,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "d_list = tuple(word_list)\n    word_list = [word_list]\n    word_list.append(wordninja.split(word))\n    return word_list\n\n#tests/test_task_func.py\nimport unittest\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n        self.assertEqual(task_func('a",
+    "source_sha256": "f215c4612d786bc5f57f662daa24c22ab45267c468660cdb3d6c163b7babe22a"
+  },
+  {
+    "task_id": "BigCodeBench/937",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1035,
+    "first_nonwhitespace_char": 1036,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task.py",
+    "context": " Count the frequency of each character in the input string\n    char_counts = Counter(input_str)\n    return char_counts\n\n#test_task.py\nimport unittest\nfrom task import task_func\n\nclass TestTask(unittest.TestCase):\n    def test_task_func(self):\n        # Test case 1: Basic test\n        input_str = \"He",
+    "source_sha256": "dc8616c45a7bc13946aa761d142a3c659388598330071cabf5541519be885284"
+  },
+  {
+    "task_id": "BigCodeBench/940",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 936,
+    "first_nonwhitespace_char": 937,
+    "prefix_whitespace": "\n",
+    "marker_line": "#test_task_func.py",
+    "context": "d_tokenize(input_str)\n\n    # Count the frequency of each word\n    word_counts = Counter(words)\n\n    return word_counts\n\n#test_task_func.py\nimport unittest\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n        # Test case 1: Basic case\n        i",
+    "source_sha256": "979ce7895539bea9250aacac5bd13bc8c2fb812cc3160a4f3f069225c7b3d10d"
+  },
+  {
+    "task_id": "BigCodeBench/949",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1044,
+    "first_nonwhitespace_char": 1045,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task.py",
+    "context": "e:\n        np.random.seed(seed)\n    matrix = np.random.rand(rows, columns)\n    df = pd.DataFrame(matrix)\n    return df\n\n#tests/test_task.py\nimport pytest\nimport pandas as pd\nfrom task import task_func\n",
+    "source_sha256": "713f0f3db65f7f71c4b1dd755a0741f9eeb90abdf3f4217c4f7ee235b14c0c81"
+  },
+  {
+    "task_id": "BigCodeBench/97",
+    "marker_kind": "test_file_comment",
+    "regex_start_char": 1321,
+    "first_nonwhitespace_char": 1322,
+    "prefix_whitespace": "\n",
+    "marker_line": "#tests/test_task_func.py",
+    "context": "duct\n    logarithms = [math.log(product) for product in products]\n\n    # Sum the logarithms\n    return sum(logarithms)\n\n#tests/test_task_func.py\nimport unittest\nimport math\nfrom task_func import task_func\n\nclass TestTaskFunc(unittest.TestCase):\n    def test_task_func(self):\n        # Test with a lis",
+    "source_sha256": "acde2ca380ea416d4188bd32038893c26f692b1e4a34ef87661ab97ae8717e51"
+  }
+]

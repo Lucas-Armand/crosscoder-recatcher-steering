@@ -1,0 +1,737 @@
+[
+  {
+    "source_text": "codellama_base",
+    "scope": "all",
+    "metric": "encoder_contribution",
+    "n_tasks": 50,
+    "base_mean": -0.9172566397488118,
+    "merged_mean": -0.3910095064342022,
+    "mean_delta": 0.5262471333146095,
+    "merged_lower": 6,
+    "merged_higher": 44,
+    "delta_bootstrap95": [
+      0.4013094684965909,
+      0.6479621000178157
+    ]
+  },
+  {
+    "source_text": "codellama_base",
+    "scope": "all",
+    "metric": "encoder_cosine",
+    "n_tasks": 50,
+    "base_mean": -0.01477507491450524,
+    "merged_mean": -0.006679757048259489,
+    "mean_delta": 0.00809531786624575,
+    "merged_lower": 7,
+    "merged_higher": 43,
+    "delta_bootstrap95": [
+      0.006063227363061741,
+      0.010080922306180582
+    ]
+  },
+  {
+    "source_text": "codellama_base",
+    "scope": "all",
+    "metric": "decoder_cosine",
+    "n_tasks": 50,
+    "base_mean": 0.04892292723059654,
+    "merged_mean": 0.06040604993700981,
+    "mean_delta": 0.011483122706413268,
+    "merged_lower": 7,
+    "merged_higher": 43,
+    "delta_bootstrap95": [
+      0.00901588600128889,
+      0.013939551344141364
+    ]
+  },
+  {
+    "source_text": "codellama_base",
+    "scope": "all",
+    "metric": "decoder_centered_cosine",
+    "n_tasks": 50,
+    "base_mean": 0.04877724498510361,
+    "merged_mean": 0.06005425877869129,
+    "mean_delta": 0.011277013793587684,
+    "merged_lower": 8,
+    "merged_higher": 42,
+    "delta_bootstrap95": [
+      0.00880449184589088,
+      0.013737906334921716
+    ]
+  },
+  {
+    "source_text": "codellama_base",
+    "scope": "all",
+    "metric": "decoder_common_cosine",
+    "n_tasks": 50,
+    "base_mean": 0.0618572548776865,
+    "merged_mean": 0.04848402485251427,
+    "mean_delta": -0.013373230025172234,
+    "merged_lower": 50,
+    "merged_higher": 0,
+    "delta_bootstrap95": [
+      -0.014597430270165204,
+      -0.012142087204381825
+    ]
+  },
+  {
+    "source_text": "codellama_base",
+    "scope": "all",
+    "metric": "decoder_base_reference_cosine",
+    "n_tasks": 50,
+    "base_mean": 0.04892292723059654,
+    "merged_mean": 0.026246387399733066,
+    "mean_delta": -0.022676539830863474,
+    "merged_lower": 50,
+    "merged_higher": 0,
+    "delta_bootstrap95": [
+      -0.024092475827317685,
+      -0.021384884921368214
+    ]
+  },
+  {
+    "source_text": "codellama_base",
+    "scope": "all",
+    "metric": "decoder_merged_reference_cosine",
+    "n_tasks": 50,
+    "base_mean": 0.06163064032793045,
+    "merged_mean": 0.06040604993700981,
+    "mean_delta": -0.001224590390920639,
+    "merged_lower": 32,
+    "merged_higher": 18,
+    "delta_bootstrap95": [
+      -0.0026076822709292175,
+      0.00021719816327094878
+    ]
+  },
+  {
+    "source_text": "codellama_base",
+    "scope": "main_end_pm10tokens",
+    "metric": "encoder_contribution",
+    "n_tasks": 50,
+    "base_mean": -0.6348112401831895,
+    "merged_mean": -0.02199819702655077,
+    "mean_delta": 0.6128130431566388,
+    "merged_lower": 13,
+    "merged_higher": 37,
+    "delta_bootstrap95": [
+      0.4036908327564597,
+      0.8194879428239072
+    ]
+  },
+  {
+    "source_text": "codellama_base",
+    "scope": "main_end_pm10tokens",
+    "metric": "encoder_cosine",
+    "n_tasks": 50,
+    "base_mean": -0.010225514527846827,
+    "merged_mean": -0.0003757901641074568,
+    "mean_delta": 0.00984972436373937,
+    "merged_lower": 13,
+    "merged_higher": 37,
+    "delta_bootstrap95": [
+      0.006455289818655729,
+      0.013218328193408522
+    ]
+  },
+  {
+    "source_text": "codellama_base",
+    "scope": "main_end_pm10tokens",
+    "metric": "decoder_cosine",
+    "n_tasks": 50,
+    "base_mean": 0.06012956079095602,
+    "merged_mean": 0.07271557249128818,
+    "mean_delta": 0.012586011700332165,
+    "merged_lower": 14,
+    "merged_higher": 36,
+    "delta_bootstrap95": [
+      0.007955011885613204,
+      0.01703919891174882
+    ]
+  },
+  {
+    "source_text": "codellama_base",
+    "scope": "main_end_pm10tokens",
+    "metric": "decoder_centered_cosine",
+    "n_tasks": 50,
+    "base_mean": 0.06000380046665668,
+    "merged_mean": 0.0723935430496931,
+    "mean_delta": 0.012389742583036423,
+    "merged_lower": 14,
+    "merged_higher": 36,
+    "delta_bootstrap95": [
+      0.007750471001490951,
+      0.01685283982940018
+    ]
+  },
+  {
+    "source_text": "codellama_base",
+    "scope": "main_end_pm10tokens",
+    "metric": "decoder_common_cosine",
+    "n_tasks": 50,
+    "base_mean": 0.07857960626482964,
+    "merged_mean": 0.05737073570489883,
+    "mean_delta": -0.0212088705599308,
+    "merged_lower": 50,
+    "merged_higher": 0,
+    "delta_bootstrap95": [
+      -0.023920429755002262,
+      -0.01870292296819389
+    ]
+  },
+  {
+    "source_text": "codellama_base",
+    "scope": "main_end_pm10tokens",
+    "metric": "decoder_base_reference_cosine",
+    "n_tasks": 50,
+    "base_mean": 0.06012956079095602,
+    "merged_mean": 0.029819522111210972,
+    "mean_delta": -0.03031003867974505,
+    "merged_lower": 50,
+    "merged_higher": 0,
+    "delta_bootstrap95": [
+      -0.03325010659650434,
+      -0.02760924733040156
+    ]
+  },
+  {
+    "source_text": "codellama_base",
+    "scope": "main_end_pm10tokens",
+    "metric": "decoder_merged_reference_cosine",
+    "n_tasks": 50,
+    "base_mean": 0.08031080991029739,
+    "merged_mean": 0.07271557249128818,
+    "mean_delta": -0.007595237419009209,
+    "merged_lower": 38,
+    "merged_higher": 12,
+    "delta_bootstrap95": [
+      -0.010564666774123908,
+      -0.004545490957796574
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "all",
+    "metric": "encoder_contribution",
+    "n_tasks": 50,
+    "base_mean": -0.9993963995575905,
+    "merged_mean": -0.42800854217261075,
+    "mean_delta": 0.5713878573849798,
+    "merged_lower": 2,
+    "merged_higher": 48,
+    "delta_bootstrap95": [
+      0.4501812510890886,
+      0.7006524182315915
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "all",
+    "metric": "encoder_cosine",
+    "n_tasks": 50,
+    "base_mean": -0.016098182581481525,
+    "merged_mean": -0.007311834130669013,
+    "mean_delta": 0.008786348450812512,
+    "merged_lower": 4,
+    "merged_higher": 46,
+    "delta_bootstrap95": [
+      0.006795310035668081,
+      0.010923647664254531
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "all",
+    "metric": "decoder_cosine",
+    "n_tasks": 50,
+    "base_mean": 0.045935850720852614,
+    "merged_mean": 0.05826702579855919,
+    "mean_delta": 0.012331175077706575,
+    "merged_lower": 4,
+    "merged_higher": 46,
+    "delta_bootstrap95": [
+      0.009761324316263198,
+      0.014907063975930213
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "all",
+    "metric": "decoder_centered_cosine",
+    "n_tasks": 50,
+    "base_mean": 0.04578590050339699,
+    "merged_mean": 0.05791252348572016,
+    "mean_delta": 0.012126622982323169,
+    "merged_lower": 5,
+    "merged_higher": 45,
+    "delta_bootstrap95": [
+      0.009552579330280423,
+      0.014707130674272775
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "all",
+    "metric": "decoder_common_cosine",
+    "n_tasks": 50,
+    "base_mean": 0.05708079535514116,
+    "merged_mean": 0.04807497777044773,
+    "mean_delta": -0.009005817584693432,
+    "merged_lower": 47,
+    "merged_higher": 3,
+    "delta_bootstrap95": [
+      -0.010746937029995024,
+      -0.007359328391030431
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "all",
+    "metric": "decoder_base_reference_cosine",
+    "n_tasks": 50,
+    "base_mean": 0.045935850720852614,
+    "merged_mean": 0.02765434789005667,
+    "mean_delta": -0.018281502830795944,
+    "merged_lower": 50,
+    "merged_higher": 0,
+    "delta_bootstrap95": [
+      -0.020122420011670326,
+      -0.01655348866852001
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "all",
+    "metric": "decoder_merged_reference_cosine",
+    "n_tasks": 50,
+    "base_mean": 0.056081052720546726,
+    "merged_mean": 0.05826702579855919,
+    "mean_delta": 0.0021859730780124666,
+    "merged_lower": 15,
+    "merged_higher": 35,
+    "delta_bootstrap95": [
+      0.0003843422345817089,
+      0.003922798112034797
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "before_error_10tokens",
+    "metric": "encoder_contribution",
+    "n_tasks": 48,
+    "base_mean": -0.7906585917808115,
+    "merged_mean": -0.21005154385541877,
+    "mean_delta": 0.5806070479253927,
+    "merged_lower": 12,
+    "merged_higher": 36,
+    "delta_bootstrap95": [
+      0.38251510233094455,
+      0.7726997947863613
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "before_error_10tokens",
+    "metric": "encoder_cosine",
+    "n_tasks": 48,
+    "base_mean": -0.01273587810768125,
+    "merged_mean": -0.0035883678544147792,
+    "mean_delta": 0.00914751025326647,
+    "merged_lower": 14,
+    "merged_higher": 34,
+    "delta_bootstrap95": [
+      0.00587848680256684,
+      0.012303555744529147
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "before_error_10tokens",
+    "metric": "decoder_cosine",
+    "n_tasks": 48,
+    "base_mean": 0.06762201420497149,
+    "merged_mean": 0.07995094483097394,
+    "mean_delta": 0.012328930626002451,
+    "merged_lower": 12,
+    "merged_higher": 36,
+    "delta_bootstrap95": [
+      0.007555184296991986,
+      0.01700898272586831
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "before_error_10tokens",
+    "metric": "decoder_centered_cosine",
+    "n_tasks": 48,
+    "base_mean": 0.06750470182547967,
+    "merged_mean": 0.07964636897668242,
+    "mean_delta": 0.012141667151202759,
+    "merged_lower": 12,
+    "merged_higher": 36,
+    "delta_bootstrap95": [
+      0.007359921282234913,
+      0.016833945546143994
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "before_error_10tokens",
+    "metric": "decoder_common_cosine",
+    "n_tasks": 48,
+    "base_mean": 0.08324859120572607,
+    "merged_mean": 0.06865124831286569,
+    "mean_delta": -0.014597342892860373,
+    "merged_lower": 44,
+    "merged_higher": 4,
+    "delta_bootstrap95": [
+      -0.017733738897368314,
+      -0.01149957333885444
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "before_error_10tokens",
+    "metric": "decoder_base_reference_cosine",
+    "n_tasks": 48,
+    "base_mean": 0.06762201420497149,
+    "merged_mean": 0.04274509688063214,
+    "mean_delta": -0.02487691732433935,
+    "merged_lower": 48,
+    "merged_higher": 0,
+    "delta_bootstrap95": [
+      -0.0284357624797849,
+      -0.0215303861865929
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "before_error_10tokens",
+    "metric": "decoder_merged_reference_cosine",
+    "n_tasks": 48,
+    "base_mean": 0.08116293209604919,
+    "merged_mean": 0.07995094483097394,
+    "mean_delta": -0.0012119872650752466,
+    "merged_lower": 24,
+    "merged_higher": 24,
+    "delta_bootstrap95": [
+      -0.003971067398864155,
+      0.0016298676064858812
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "error_and_next10tokens",
+    "metric": "encoder_contribution",
+    "n_tasks": 48,
+    "base_mean": -1.2376179862767458,
+    "merged_mean": -0.5835583095128337,
+    "mean_delta": 0.6540596767639121,
+    "merged_lower": 5,
+    "merged_higher": 43,
+    "delta_bootstrap95": [
+      0.4600727679634777,
+      0.8343278059115012
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "error_and_next10tokens",
+    "metric": "encoder_cosine",
+    "n_tasks": 48,
+    "base_mean": -0.01993544518093889,
+    "merged_mean": -0.00996915461109893,
+    "mean_delta": 0.00996629056983996,
+    "merged_lower": 6,
+    "merged_higher": 42,
+    "delta_bootstrap95": [
+      0.0067272322588451065,
+      0.013001389043089753
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "error_and_next10tokens",
+    "metric": "decoder_cosine",
+    "n_tasks": 48,
+    "base_mean": 0.041475033989020936,
+    "merged_mean": 0.05287180910818279,
+    "mean_delta": 0.011396775119161854,
+    "merged_lower": 8,
+    "merged_higher": 40,
+    "delta_bootstrap95": [
+      0.007379029941512271,
+      0.0156901404436212
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "error_and_next10tokens",
+    "metric": "decoder_centered_cosine",
+    "n_tasks": 48,
+    "base_mean": 0.04131688098035132,
+    "merged_mean": 0.0525041005651777,
+    "mean_delta": 0.01118721958482638,
+    "merged_lower": 8,
+    "merged_higher": 40,
+    "delta_bootstrap95": [
+      0.007159954401625631,
+      0.015490249214538685
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "error_and_next10tokens",
+    "metric": "decoder_common_cosine",
+    "n_tasks": 48,
+    "base_mean": 0.05202691982655475,
+    "merged_mean": 0.04343849824120601,
+    "mean_delta": -0.008588421585348746,
+    "merged_lower": 41,
+    "merged_higher": 7,
+    "delta_bootstrap95": [
+      -0.011041171804148082,
+      -0.006278878175847544
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "error_and_next10tokens",
+    "metric": "decoder_base_reference_cosine",
+    "n_tasks": 48,
+    "base_mean": 0.041475033989020936,
+    "merged_mean": 0.024763076415789936,
+    "mean_delta": -0.016711957573231,
+    "merged_lower": 48,
+    "merged_higher": 0,
+    "delta_bootstrap95": [
+      -0.019321023404821364,
+      -0.014291014979729273
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "error_and_next10tokens",
+    "metric": "decoder_merged_reference_cosine",
+    "n_tasks": 48,
+    "base_mean": 0.05150939784167955,
+    "merged_mean": 0.05287180910818279,
+    "mean_delta": 0.0013624112665032346,
+    "merged_lower": 22,
+    "merged_higher": 26,
+    "delta_bootstrap95": [
+      -0.0008915831655031069,
+      0.003579476175946183
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "error_pm10tokens",
+    "metric": "encoder_contribution",
+    "n_tasks": 48,
+    "base_mean": -1.1253787005941074,
+    "merged_mean": -0.503667576587759,
+    "mean_delta": 0.6217111240063483,
+    "merged_lower": 4,
+    "merged_higher": 44,
+    "delta_bootstrap95": [
+      0.4680570664155918,
+      0.771877881581895
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "error_pm10tokens",
+    "metric": "encoder_cosine",
+    "n_tasks": 48,
+    "base_mean": -0.01812750242728119,
+    "merged_mean": -0.00860434372225427,
+    "mean_delta": 0.00952315870502692,
+    "merged_lower": 6,
+    "merged_higher": 42,
+    "delta_bootstrap95": [
+      0.0069458503424054165,
+      0.012032357670856676
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "error_pm10tokens",
+    "metric": "decoder_cosine",
+    "n_tasks": 48,
+    "base_mean": 0.0459949984603251,
+    "merged_mean": 0.05799780630817016,
+    "mean_delta": 0.012002807847845057,
+    "merged_lower": 8,
+    "merged_higher": 40,
+    "delta_bootstrap95": [
+      0.008533617414650507,
+      0.015539606694558939
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "error_pm10tokens",
+    "metric": "decoder_centered_cosine",
+    "n_tasks": 48,
+    "base_mean": 0.045844086135427155,
+    "merged_mean": 0.057641666770602264,
+    "mean_delta": 0.011797580635175109,
+    "merged_lower": 8,
+    "merged_higher": 40,
+    "delta_bootstrap95": [
+      0.008321444175089709,
+      0.015342126134783021
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "error_pm10tokens",
+    "metric": "decoder_common_cosine",
+    "n_tasks": 48,
+    "base_mean": 0.05702965163315336,
+    "merged_mean": 0.048516644475360714,
+    "mean_delta": -0.008513007157792648,
+    "merged_lower": 45,
+    "merged_higher": 3,
+    "delta_bootstrap95": [
+      -0.010769942191351826,
+      -0.006382720754481852
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "error_pm10tokens",
+    "metric": "decoder_base_reference_cosine",
+    "n_tasks": 48,
+    "base_mean": 0.0459949984603251,
+    "merged_mean": 0.02871292962421042,
+    "mean_delta": -0.01728206883611468,
+    "merged_lower": 48,
+    "merged_higher": 0,
+    "delta_bootstrap95": [
+      -0.019751211593635767,
+      -0.01510474931249822
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "error_pm10tokens",
+    "metric": "decoder_merged_reference_cosine",
+    "n_tasks": 48,
+    "base_mean": 0.05593049766806265,
+    "merged_mean": 0.05799780630817016,
+    "mean_delta": 0.0020673086401075125,
+    "merged_lower": 19,
+    "merged_higher": 29,
+    "delta_bootstrap95": [
+      -5.62108044202129e-05,
+      0.00406275200851572
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "main_end_pm10tokens",
+    "metric": "encoder_contribution",
+    "n_tasks": 50,
+    "base_mean": -0.7861691392958164,
+    "merged_mean": -0.18783863805234433,
+    "mean_delta": 0.5983305012434721,
+    "merged_lower": 9,
+    "merged_higher": 41,
+    "delta_bootstrap95": [
+      0.40216200815699993,
+      0.7886115118339656
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "main_end_pm10tokens",
+    "metric": "encoder_cosine",
+    "n_tasks": 50,
+    "base_mean": -0.01266354872379452,
+    "merged_mean": -0.003208935533184558,
+    "mean_delta": 0.009454613190609962,
+    "merged_lower": 9,
+    "merged_higher": 41,
+    "delta_bootstrap95": [
+      0.006233992986541125,
+      0.01251975971629144
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "main_end_pm10tokens",
+    "metric": "decoder_cosine",
+    "n_tasks": 50,
+    "base_mean": 0.0501270970585756,
+    "merged_mean": 0.0637298322468996,
+    "mean_delta": 0.013602735188324005,
+    "merged_lower": 8,
+    "merged_higher": 42,
+    "delta_bootstrap95": [
+      0.009277866397518665,
+      0.017508114223659502
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "main_end_pm10tokens",
+    "metric": "decoder_centered_cosine",
+    "n_tasks": 50,
+    "base_mean": 0.04998634420800954,
+    "merged_mean": 0.06338981930166483,
+    "mean_delta": 0.013403475093655288,
+    "merged_lower": 8,
+    "merged_higher": 42,
+    "delta_bootstrap95": [
+      0.009069933088496327,
+      0.0173155936676776
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "main_end_pm10tokens",
+    "metric": "decoder_common_cosine",
+    "n_tasks": 50,
+    "base_mean": 0.06353397639468313,
+    "merged_mean": 0.05089455528184771,
+    "mean_delta": -0.012639421112835407,
+    "merged_lower": 42,
+    "merged_higher": 8,
+    "delta_bootstrap95": [
+      -0.015946648048236967,
+      -0.00952393238246441
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "main_end_pm10tokens",
+    "metric": "decoder_base_reference_cosine",
+    "n_tasks": 50,
+    "base_mean": 0.0501270970585756,
+    "merged_mean": 0.027230795002542437,
+    "mean_delta": -0.022896302056033165,
+    "merged_lower": 49,
+    "merged_higher": 1,
+    "delta_bootstrap95": [
+      -0.02615201447607251,
+      -0.01975432409212226
+    ]
+  },
+  {
+    "source_text": "codellama_merged",
+    "scope": "main_end_pm10tokens",
+    "metric": "decoder_merged_reference_cosine",
+    "n_tasks": 50,
+    "base_mean": 0.06342316888272763,
+    "merged_mean": 0.0637298322468996,
+    "mean_delta": 0.00030666336417198184,
+    "merged_lower": 27,
+    "merged_higher": 23,
+    "delta_bootstrap95": [
+      -0.0028287916919216513,
+      0.00349226539209485
+    ]
+  }
+]

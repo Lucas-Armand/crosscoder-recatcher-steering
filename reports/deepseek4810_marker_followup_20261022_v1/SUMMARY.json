@@ -1,0 +1,28 @@
+{
+  "n": 119,
+  "sign_definition": "activation minus visible marker; negative = before, positive = after",
+  "token_quantiles": {
+    "0": -268.0,
+    "0.1": -111.39999999999999,
+    "0.25": -14.0,
+    "0.5": 0.0,
+    "0.75": 1.0,
+    "0.9": 1.0,
+    "1": 1.0
+  },
+  "within_1_token": 77,
+  "within_5_tokens": 82,
+  "within_10_tokens": 86,
+  "comment_line_relations": {
+    "inside_visible_line": 71,
+    "before_line": 36
+  },
+  "marker_types": {
+    "comment": 107,
+    "import": 10,
+    "class": 2
+  },
+  "task_func_import_present": 96,
+  "feature_before_task_func_import_token": 96,
+  "new_inference": false
+}

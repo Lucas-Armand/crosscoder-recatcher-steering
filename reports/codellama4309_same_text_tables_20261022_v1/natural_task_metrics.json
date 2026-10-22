@@ -1,0 +1,802 @@
+[
+  {
+    "task_id": "BigCodeBench/96",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.04859568551182747,
+    "first_position": 1.0,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/115",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.30280742049217224,
+    "first_position": 0.19753086419753085,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/119",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.11640886217355728,
+    "first_position": 0.3291139240506329,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/122",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.05878797918558121,
+    "first_position": 1.0,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/149",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.11992832273244858,
+    "first_position": 0.55,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/173",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.018682513386011124,
+    "first_position": 1.0,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/183",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.08871278166770935,
+    "first_position": 1.0,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/194",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.07746186852455139,
+    "first_position": 1.0,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/206",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.45059970021247864,
+    "first_position": 0.27586206896551724,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/240",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.07581887394189835,
+    "first_position": 0.8490566037735849,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/275",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.37045910954475403,
+    "first_position": 0.5333333333333333,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/339",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.17607702314853668,
+    "first_position": 0.2604166666666667,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/357",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.310879111289978,
+    "first_position": 0.4406779661016949,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/370",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.26584675908088684,
+    "first_position": 0.1984732824427481,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/371",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.06773405522108078,
+    "first_position": 0.5689655172413793,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/398",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.30947035551071167,
+    "first_position": 0.23880597014925373,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/412",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.044326432049274445,
+    "first_position": 0.8108108108108109,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/423",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.17182815074920654,
+    "first_position": 0.18433179723502305,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/430",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.009441939182579517,
+    "first_position": 0.5740740740740741,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/431",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.32131558656692505,
+    "first_position": 0.2706766917293233,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/490",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.18662968277931213,
+    "first_position": 0.5084745762711864,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/577",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.12108037620782852,
+    "first_position": 0.11494252873563218,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/578",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.37196704745292664,
+    "first_position": 0.23863636363636365,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/603",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.06634889543056488,
+    "first_position": 1.0,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/604",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.96854168176651,
+    "first_position": 0.17592592592592593,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/629",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.30512768030166626,
+    "first_position": 0.26881720430107525,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/630",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.2384750247001648,
+    "first_position": 0.3787878787878788,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/634",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.08959818631410599,
+    "first_position": 1.0,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/670",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.045879364013671875,
+    "first_position": 0.9361702127659575,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/738",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.3100661635398865,
+    "first_position": 1.0,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/743",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.11796224862337112,
+    "first_position": 0.0390625,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/756",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.34699442982673645,
+    "first_position": 0.1986754966887417,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/790",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.14669246971607208,
+    "first_position": 0.25609756097560976,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/823",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.07466381788253784,
+    "first_position": 0.922077922077922,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/841",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.09891637414693832,
+    "first_position": 0.8270676691729323,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/846",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.1627976894378662,
+    "first_position": 0.11764705882352941,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/858",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.16506843268871307,
+    "first_position": 0.3125,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/875",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.5933460593223572,
+    "first_position": 0.1048951048951049,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/878",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.12094473093748093,
+    "first_position": 0.2222222222222222,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/926",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.11248888075351715,
+    "first_position": 0.8472222222222222,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/931",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.10871118307113647,
+    "first_position": 0.050505050505050504,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/939",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.05922939255833626,
+    "first_position": 0.14871794871794872,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/954",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.10684163123369217,
+    "first_position": 0.16455696202531644,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/971",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.29869672656059265,
+    "first_position": 0.07441860465116279,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/983",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.4826003313064575,
+    "first_position": 0.08333333333333333,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/989",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.40692055225372314,
+    "first_position": 0.07142857142857142,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/1062",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.09631408751010895,
+    "first_position": 0.3170731707317073,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/1063",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.04455289989709854,
+    "first_position": 0.5408163265306123,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/1076",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.012501060962677002,
+    "first_position": 1.0,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/1092",
+    "source_text": "codellama_base",
+    "active": true,
+    "mean_activation": 0.31961002945899963,
+    "first_position": 0.20610687022900764,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/96",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.030206941068172455,
+    "first_position": 0.726027397260274,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/115",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.30765387415885925,
+    "first_position": 0.3815789473684211,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/119",
+    "source_text": "codellama_merged",
+    "active": false,
+    "mean_activation": 0.0,
+    "first_position": null,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/122",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.06724783033132553,
+    "first_position": 0.8166666666666667,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/149",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.10143772512674332,
+    "first_position": 0.5876288659793815,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/173",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.02532445825636387,
+    "first_position": 1.0,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/183",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.2396036982536316,
+    "first_position": 1.0,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/194",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.0659460574388504,
+    "first_position": 1.0,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/206",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.3112506568431854,
+    "first_position": 0.16083916083916083,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/240",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.04990150034427643,
+    "first_position": 1.0,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/275",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.489576518535614,
+    "first_position": 0.4883720930232558,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/339",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.18931497633457184,
+    "first_position": 0.7435897435897436,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/357",
+    "source_text": "codellama_merged",
+    "active": false,
+    "mean_activation": 0.0,
+    "first_position": null,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/370",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.12415159493684769,
+    "first_position": 0.24731182795698925,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/371",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.1997871845960617,
+    "first_position": 1.0,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/398",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.2961723208427429,
+    "first_position": 0.01818181818181818,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/412",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.03444020450115204,
+    "first_position": 0.9521531100478469,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/423",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.16416917741298676,
+    "first_position": 0.12704918032786885,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/430",
+    "source_text": "codellama_merged",
+    "active": false,
+    "mean_activation": 0.0,
+    "first_position": null,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/431",
+    "source_text": "codellama_merged",
+    "active": false,
+    "mean_activation": 0.0,
+    "first_position": null,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/490",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.30514854192733765,
+    "first_position": 1.0,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/577",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.03778286278247833,
+    "first_position": 0.23076923076923078,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/578",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.4907597005367279,
+    "first_position": 0.42696629213483145,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/603",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.04139997065067291,
+    "first_position": 0.4642857142857143,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/604",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.9918481111526489,
+    "first_position": 0.2018348623853211,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/629",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.28808337450027466,
+    "first_position": 0.4235294117647059,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/630",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.18780262768268585,
+    "first_position": 0.4827586206896552,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/634",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.14481139183044434,
+    "first_position": 1.0,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/670",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.16166594624519348,
+    "first_position": 0.08571428571428572,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/738",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.19652332365512848,
+    "first_position": 1.0,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/743",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.09339296817779541,
+    "first_position": 0.4444444444444444,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/756",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.4407927989959717,
+    "first_position": 0.6582278481012658,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/790",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.5951960682868958,
+    "first_position": 1.0,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/823",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.043286994099617004,
+    "first_position": 0.7980769230769231,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/841",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.3158424198627472,
+    "first_position": 0.4186046511627907,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/846",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.2667735517024994,
+    "first_position": 0.07916666666666666,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/858",
+    "source_text": "codellama_merged",
+    "active": false,
+    "mean_activation": 0.0,
+    "first_position": null,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/875",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.15313279628753662,
+    "first_position": 0.9466666666666667,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/878",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.12431415915489197,
+    "first_position": 0.07613168724279835,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/926",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.06387529522180557,
+    "first_position": 0.9029126213592233,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/931",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.20685788989067078,
+    "first_position": 1.0,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/939",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.16092488169670105,
+    "first_position": 0.20588235294117646,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/954",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.15868304669857025,
+    "first_position": 0.24175824175824176,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/971",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.07362859696149826,
+    "first_position": 0.15517241379310345,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/983",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.7879922389984131,
+    "first_position": 0.5909090909090909,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/989",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.3343777358531952,
+    "first_position": 0.35294117647058826,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/1062",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.011947579681873322,
+    "first_position": 0.9954128440366973,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/1063",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.10801423341035843,
+    "first_position": 1.0,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/1076",
+    "source_text": "codellama_merged",
+    "active": false,
+    "mean_activation": 0.0,
+    "first_position": null,
+    "first_after_main": false
+  },
+  {
+    "task_id": "BigCodeBench/1092",
+    "source_text": "codellama_merged",
+    "active": true,
+    "mean_activation": 0.41614922881126404,
+    "first_position": 0.7222222222222222,
+    "first_after_main": false
+  }
+]

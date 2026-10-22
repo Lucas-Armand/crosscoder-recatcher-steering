@@ -1,0 +1,26 @@
+{
+  "deepseek_base": {
+    "n": 119,
+    "first_stages": {
+      "after_main_end": 89,
+      "at_or_before_main_end": 30
+    },
+    "mass_at_or_before_main_end": 69.90262550115585,
+    "mass_after_main_end": 13844.105212688446,
+    "any_active_after_main": 119,
+    "multiple_main_definitions": 0
+  },
+  "deepseek_finetuned": {
+    "n": 119,
+    "first_stages": {
+      "after_main_end": 49,
+      "inactive": 44,
+      "at_or_before_main_end": 26
+    },
+    "mass_at_or_before_main_end": 53.5978325009346,
+    "mass_after_main_end": 188.61003103852272,
+    "any_active_after_main": 71,
+    "multiple_main_definitions": 0
+  },
+  "method": "AST first task_func end line (including trailing newline). Before-main-end includes any captured helpers/imports before task_func. Later redefinitions are not the first main function. Frozen offline shared-latent measurements; no prompt, no new inference."
+}

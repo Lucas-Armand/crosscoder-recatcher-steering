@@ -1,0 +1,142 @@
+[
+  {
+    "n_tasks": 119,
+    "mean_delta": -0.31814723502173875,
+    "median_delta": -0.3182154094471651,
+    "ft_greater_tasks": 13,
+    "ft_lower_tasks": 106,
+    "mean_delta_bootstrap95": [
+      -0.3636434080749381,
+      -0.2725530011663201
+    ],
+    "metric": "encoder_contribution",
+    "definition": "(FT-base) within marker +/-10 tokens minus (FT-base) outside that window in the same program",
+    "outside_mean_delta": 0.02134469707553608
+  },
+  {
+    "n_tasks": 119,
+    "mean_delta": -0.004883724708846544,
+    "median_delta": -0.004797631514290928,
+    "ft_greater_tasks": 14,
+    "ft_lower_tasks": 105,
+    "mean_delta_bootstrap95": [
+      -0.0056513863476147196,
+      -0.004107410998041459
+    ],
+    "metric": "encoder_cosine",
+    "definition": "(FT-base) within marker +/-10 tokens minus (FT-base) outside that window in the same program",
+    "outside_mean_delta": 0.0001058371304023718
+  },
+  {
+    "n_tasks": 119,
+    "mean_delta": -0.007996269861887933,
+    "median_delta": -0.008590526122511334,
+    "ft_greater_tasks": 8,
+    "ft_lower_tasks": 111,
+    "mean_delta_bootstrap95": [
+      -0.008831813454939885,
+      -0.007123110152207183
+    ],
+    "metric": "decoder_cosine",
+    "definition": "(FT-base) within marker +/-10 tokens minus (FT-base) outside that window in the same program",
+    "outside_mean_delta": -0.0008853793127221719
+  },
+  {
+    "n_tasks": 119,
+    "mean_delta": -0.007995312004932368,
+    "median_delta": -0.008585903640699695,
+    "ft_greater_tasks": 9,
+    "ft_lower_tasks": 110,
+    "mean_delta_bootstrap95": [
+      -0.008831801108310368,
+      -0.007120247338172028
+    ],
+    "metric": "decoder_centered_cosine",
+    "definition": "(FT-base) within marker +/-10 tokens minus (FT-base) outside that window in the same program",
+    "outside_mean_delta": -0.0009418789940706511
+  },
+  {
+    "n_tasks": 119,
+    "mean_delta": -0.007162607307733671,
+    "median_delta": -0.007110837340245352,
+    "ft_greater_tasks": 5,
+    "ft_lower_tasks": 114,
+    "mean_delta_bootstrap95": [
+      -0.00779662487672876,
+      -0.00653270562990408
+    ],
+    "metric": "encoder_common_cosine",
+    "definition": "(FT-base) within marker +/-10 tokens minus (FT-base) outside that window in the same program",
+    "outside_mean_delta": -0.003272358766850868
+  },
+  {
+    "n_tasks": 119,
+    "mean_delta": -0.006745960335154843,
+    "median_delta": -0.007346792654557662,
+    "ft_greater_tasks": 9,
+    "ft_lower_tasks": 110,
+    "mean_delta_bootstrap95": [
+      -0.007685411293503764,
+      -0.005850004566624373
+    ],
+    "metric": "decoder_common_cosine",
+    "definition": "(FT-base) within marker +/-10 tokens minus (FT-base) outside that window in the same program",
+    "outside_mean_delta": -0.005782820356108212
+  },
+  {
+    "n_tasks": 119,
+    "mean_delta": -0.006560170910961964,
+    "median_delta": -0.006512881874009899,
+    "ft_greater_tasks": 4,
+    "ft_lower_tasks": 115,
+    "mean_delta_bootstrap95": [
+      -0.007180823079586882,
+      -0.005950475977455122
+    ],
+    "metric": "encoder_base_reference_cosine",
+    "definition": "(FT-base) within marker +/-10 tokens minus (FT-base) outside that window in the same program",
+    "outside_mean_delta": 0.000820757507933065
+  },
+  {
+    "n_tasks": 119,
+    "mean_delta": -0.00671317403927711,
+    "median_delta": -0.006732256709491642,
+    "ft_greater_tasks": 5,
+    "ft_lower_tasks": 114,
+    "mean_delta_bootstrap95": [
+      -0.0073236492315847486,
+      -0.006115673091238463
+    ],
+    "metric": "encoder_ft_reference_cosine",
+    "definition": "(FT-base) within marker +/-10 tokens minus (FT-base) outside that window in the same program",
+    "outside_mean_delta": -0.006884911752201997
+  },
+  {
+    "n_tasks": 119,
+    "mean_delta": -0.009321084102751558,
+    "median_delta": -0.009929310489336356,
+    "ft_greater_tasks": 7,
+    "ft_lower_tasks": 112,
+    "mean_delta_bootstrap95": [
+      -0.010221958019761673,
+      -0.008427444258917293
+    ],
+    "metric": "decoder_base_reference_cosine",
+    "definition": "(FT-base) within marker +/-10 tokens minus (FT-base) outside that window in the same program",
+    "outside_mean_delta": -0.0070719831968167925
+  },
+  {
+    "n_tasks": 119,
+    "mean_delta": -0.004057450332856746,
+    "median_delta": -0.004711197156172533,
+    "ft_greater_tasks": 27,
+    "ft_lower_tasks": 92,
+    "mean_delta_bootstrap95": [
+      -0.005002807523356157,
+      -0.003123702591202546
+    ],
+    "metric": "decoder_ft_reference_cosine",
+    "definition": "(FT-base) within marker +/-10 tokens minus (FT-base) outside that window in the same program",
+    "outside_mean_delta": -0.004396460180102509
+  }
+]

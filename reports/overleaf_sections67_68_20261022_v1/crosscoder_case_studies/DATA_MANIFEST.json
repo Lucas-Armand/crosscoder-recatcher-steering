@@ -1,0 +1,52 @@
+{
+  "new_inference": false,
+  "source_files": [
+    {
+      "path": "reports/section67_semantic_temporal_20261019_v1/curves.csv",
+      "sha256": "a9468513e4c5fca3c9f934a42da49c1dddf923eeb1a3f83803c3ab219e716981"
+    },
+    {
+      "path": "reports/section67_semantic_temporal_20261019_v1/natural_timing.csv",
+      "sha256": "de1d57ea80647b440679b30832144c2e4606bec403c6f3bdc4bc3899c0065d5d"
+    },
+    {
+      "path": "reports/section67_semantic_temporal_20261019_v1/deepseek_base_token_statistics.csv",
+      "sha256": "5d4bc6e3f6be39658bd3f53a3621dfc3393e3a361a2bdcd7ed458df3b2516638"
+    },
+    {
+      "path": "reports/deepseek4810_marker_followup_20261022_v1/SUMMARY.json",
+      "sha256": "65c35c1377fde84af55a9088167759392a4f2f3551ce2760f1a865706883d8c7"
+    },
+    {
+      "path": "reports/deepseek4810_marker_components_20261022_v1/SUMMARY.json",
+      "sha256": "22084b3b2f4f75149f1455e4277c9efcb634a798fbc5c5ac39dd802518a8f857"
+    },
+    {
+      "path": "reports/deepseek4810_same_text_branches_20261022_v1/paired_summary.json",
+      "sha256": "964d8126d5d9b4b7b9f599a2a4e77854f107bf48d170c8560509370c694dbc12"
+    },
+    {
+      "path": "reports/codellama4309_same_text_tables_20261022_v1/paired_summary.json",
+      "sha256": "891f99628ecd5046d28966df02e7083e9d5779ca632c4cb6c174131e3d380df6"
+    },
+    {
+      "path": "reports/section67_semantic_temporal_20261019_v1/steering_cases.json",
+      "sha256": "49e3298f39faea54b0c4b047d7187d9756ed51092d5eeeeb457581753f7048d1"
+    },
+    {
+      "path": "reports/codellama4309_change_comparison_20261019_v1/task_arm_comparison.json",
+      "sha256": "3860f91821c65d5a14e1623e495b9741cd9eb514dec872ef0a29ceb048656dc6"
+    }
+  ],
+  "primary_control_sign": "negative, matching both targets",
+  "paired_tasks": {
+    "deepseek": 119,
+    "codellama": 48
+  },
+  "excluded_codellama_error_anchors": [
+    "BigCodeBench/115",
+    "BigCodeBench/423"
+  ],
+  "natural_text": "frozen evaluated capture source",
+  "intervention_comparison": "matched current extraction of alpha0 and steering arm"
+}

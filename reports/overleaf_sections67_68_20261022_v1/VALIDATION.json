@@ -1,0 +1,10 @@
+{
+  "validated": true,
+  "new_inference": false,
+  "curves_checked": true,
+  "semantic_counts_checked": true,
+  "latex_references_resolved": true,
+  "no_overfull_boxes": true,
+  "unrelated_manuscript_or_slide_changes": false,
+  "scope": "Derived analysis and two new manuscript subsections only"
+}

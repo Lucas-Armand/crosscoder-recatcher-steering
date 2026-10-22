@@ -1,0 +1,16 @@
+\begin{table}[t]
+\centering\small
+\caption{Same-text encoder contributions within $\pm10$ tokens of the selected anchor. Both models replay the identical weak-model text: base-generated for DeepSeek, merged-generated for CodeLlama. These are terms of one joint encoder preactivation, not independent sparse activations.}
+\label{tab:case-same-text}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+ & \multicolumn{2}{c}{Mean encoder contribution} & \\
+\cmidrule(lr){2-3}
+Model / feature & Base model & Updated model & Updated lower \\
+\midrule
+DeepSeek / 4810 & 0.928 & 0.631 & 103/119 \\
+CodeLlama / 4309 & -1.125 & -0.504 & 4/48 \\
+\bottomrule
+\end{tabular}
+\end{table}

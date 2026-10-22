@@ -1,0 +1,31 @@
+{
+  "n": 119,
+  "counts": {
+    "after": 71,
+    "before": 42,
+    "same_token": 6
+  },
+  "percentages": {
+    "after": 59.66386554621849,
+    "before": 35.294117647058826,
+    "same_token": 5.042016806722689
+  },
+  "median_lead_pp": -0.2212389380530977,
+  "within_1pp": 72,
+  "within_5pp": 88,
+  "within_10pp": 99,
+  "strict_before_definition": "First active token index < heuristic marker token index; same token is not antecedent to its own emission.",
+  "first_nonwhitespace_sensitivity": {
+    "same_token": 33,
+    "before": 48,
+    "after": 38
+  },
+  "marker_kinds": {
+    "test_file_comment": 107,
+    "task_func_import": 10,
+    "test_class": 2
+  },
+  "regex": "(?im)^\\s*(?:#\\s*tests?[/\\\\]|#\\s*test_task|from\\s+task_func\\s+import|class\\s+Test\\w*\\s*\\()",
+  "source_csv_sha256": "de1d57ea80647b440679b30832144c2e4606bec403c6f3bdc4bc3899c0065d5d",
+  "new_inference": false
+}

@@ -1,0 +1,134 @@
+{
+  "frozen": {
+    "n": 119,
+    "coverage": {
+      "comments_only": 107,
+      "import_only": 96,
+      "class_only": 93,
+      "comments_plus_import": 117,
+      "comments_plus_class": 113,
+      "full": 119
+    },
+    "component_coverage": {
+      "test_path_comment": 73,
+      "test_task_comment": 34,
+      "task_func_import": 96,
+      "test_class": 93
+    },
+    "unique_to_component": {
+      "test_path_comment": [
+        "BigCodeBench/258",
+        "BigCodeBench/752",
+        "BigCodeBench/949"
+      ],
+      "test_task_comment": [],
+      "task_func_import": [
+        "BigCodeBench/91",
+        "BigCodeBench/166",
+        "BigCodeBench/435",
+        "BigCodeBench/685",
+        "BigCodeBench/840",
+        "BigCodeBench/1030"
+      ],
+      "test_class": [
+        "BigCodeBench/823",
+        "BigCodeBench/858"
+      ]
+    },
+    "without_comment_cases": [
+      "BigCodeBench/91",
+      "BigCodeBench/122",
+      "BigCodeBench/166",
+      "BigCodeBench/435",
+      "BigCodeBench/459",
+      "BigCodeBench/634",
+      "BigCodeBench/685",
+      "BigCodeBench/787",
+      "BigCodeBench/823",
+      "BigCodeBench/840",
+      "BigCodeBench/858",
+      "BigCodeBench/1030"
+    ],
+    "noncomment_earlier_than_comment": [],
+    "noncomment_first_cases": [
+      "BigCodeBench/91",
+      "BigCodeBench/122",
+      "BigCodeBench/166",
+      "BigCodeBench/435",
+      "BigCodeBench/459",
+      "BigCodeBench/634",
+      "BigCodeBench/685",
+      "BigCodeBench/787",
+      "BigCodeBench/823",
+      "BigCodeBench/840",
+      "BigCodeBench/858",
+      "BigCodeBench/1030"
+    ]
+  },
+  "current_alpha0": {
+    "n": 119,
+    "coverage": {
+      "comments_only": 108,
+      "import_only": 96,
+      "class_only": 94,
+      "comments_plus_import": 117,
+      "comments_plus_class": 114,
+      "full": 119
+    },
+    "component_coverage": {
+      "test_path_comment": 73,
+      "test_task_comment": 35,
+      "task_func_import": 96,
+      "test_class": 94
+    },
+    "unique_to_component": {
+      "test_path_comment": [
+        "BigCodeBench/258",
+        "BigCodeBench/752",
+        "BigCodeBench/949"
+      ],
+      "test_task_comment": [],
+      "task_func_import": [
+        "BigCodeBench/91",
+        "BigCodeBench/166",
+        "BigCodeBench/435",
+        "BigCodeBench/840",
+        "BigCodeBench/1030"
+      ],
+      "test_class": [
+        "BigCodeBench/823",
+        "BigCodeBench/858"
+      ]
+    },
+    "without_comment_cases": [
+      "BigCodeBench/91",
+      "BigCodeBench/122",
+      "BigCodeBench/166",
+      "BigCodeBench/435",
+      "BigCodeBench/459",
+      "BigCodeBench/634",
+      "BigCodeBench/787",
+      "BigCodeBench/823",
+      "BigCodeBench/840",
+      "BigCodeBench/858",
+      "BigCodeBench/1030"
+    ],
+    "noncomment_earlier_than_comment": [
+      "BigCodeBench/685"
+    ],
+    "noncomment_first_cases": [
+      "BigCodeBench/91",
+      "BigCodeBench/122",
+      "BigCodeBench/166",
+      "BigCodeBench/435",
+      "BigCodeBench/459",
+      "BigCodeBench/634",
+      "BigCodeBench/685",
+      "BigCodeBench/787",
+      "BigCodeBench/823",
+      "BigCodeBench/840",
+      "BigCodeBench/858",
+      "BigCodeBench/1030"
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+arm,kind,n,changed,passed,main_body_ast_changed,main_body_ast_unchanged,syntax_invalid,body_removed,value_return_lost,value_return_added,return_only_expanded,repetition_increased,conditions_changed,fewer_failing_tests,more_failing_tests,same_failing_test_count,fewer_failing_but_not_passed,test_count_unknown
+target4309_neg5,target,50,27,2,24,3,0,2,6,0,3,2,7,4,4,42,2,0
+codellama_shuffle1_neg5,shuffle,50,21,1,17,4,1,0,0,2,0,0,8,3,5,42,2,0
+codellama_shuffle1_pos5,shuffle,50,20,0,17,3,2,0,3,1,0,3,9,0,7,43,0,0
+codellama_shuffle2_neg5,shuffle,50,19,0,14,5,0,0,1,0,0,3,6,3,3,44,3,0
+codellama_shuffle2_pos5,shuffle,50,22,0,21,1,0,1,4,1,0,4,6,2,3,45,2,0
+codellama_shuffle3_neg5,shuffle,50,19,0,17,2,0,0,1,1,0,4,7,2,3,45,2,0
+codellama_shuffle3_pos5,shuffle,50,22,0,17,5,0,0,1,0,0,2,6,2,2,46,2,0

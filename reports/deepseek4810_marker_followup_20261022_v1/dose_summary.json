@@ -1,0 +1,207 @@
+[
+  {
+    "alpha": -1,
+    "n": 119,
+    "changed": 25,
+    "passed": 5,
+    "by_group": {
+      "all": {
+        "n": 119,
+        "comment_before": 108,
+        "comment_removed": 8,
+        "comment_retained": 100,
+        "all_markers_removed": 8,
+        "task_func_import_before": 96,
+        "task_func_import_removed": 7,
+        "main_ast_changed": 8,
+        "main_ast_unavailable": 0
+      },
+      "changed": {
+        "n": 25,
+        "comment_before": 24,
+        "comment_removed": 8,
+        "comment_retained": 16,
+        "all_markers_removed": 8,
+        "task_func_import_before": 20,
+        "task_func_import_removed": 7,
+        "main_ast_changed": 8,
+        "main_ast_unavailable": 0
+      },
+      "passed": {
+        "n": 5,
+        "comment_before": 4,
+        "comment_removed": 4,
+        "comment_retained": 0,
+        "all_markers_removed": 5,
+        "task_func_import_before": 2,
+        "task_func_import_removed": 2,
+        "main_ast_changed": 2,
+        "main_ast_unavailable": 0
+      }
+    }
+  },
+  {
+    "alpha": -2,
+    "n": 119,
+    "changed": 38,
+    "passed": 8,
+    "by_group": {
+      "all": {
+        "n": 119,
+        "comment_before": 108,
+        "comment_removed": 13,
+        "comment_retained": 95,
+        "all_markers_removed": 14,
+        "task_func_import_before": 96,
+        "task_func_import_removed": 12,
+        "main_ast_changed": 12,
+        "main_ast_unavailable": 0
+      },
+      "changed": {
+        "n": 38,
+        "comment_before": 35,
+        "comment_removed": 13,
+        "comment_retained": 22,
+        "all_markers_removed": 14,
+        "task_func_import_before": 30,
+        "task_func_import_removed": 12,
+        "main_ast_changed": 12,
+        "main_ast_unavailable": 0
+      },
+      "passed": {
+        "n": 8,
+        "comment_before": 8,
+        "comment_removed": 8,
+        "comment_retained": 0,
+        "all_markers_removed": 8,
+        "task_func_import_before": 4,
+        "task_func_import_removed": 4,
+        "main_ast_changed": 3,
+        "main_ast_unavailable": 0
+      }
+    }
+  },
+  {
+    "alpha": -3,
+    "n": 119,
+    "changed": 48,
+    "passed": 12,
+    "by_group": {
+      "all": {
+        "n": 119,
+        "comment_before": 108,
+        "comment_removed": 17,
+        "comment_retained": 91,
+        "all_markers_removed": 19,
+        "task_func_import_before": 96,
+        "task_func_import_removed": 17,
+        "main_ast_changed": 14,
+        "main_ast_unavailable": 0
+      },
+      "changed": {
+        "n": 48,
+        "comment_before": 46,
+        "comment_removed": 17,
+        "comment_retained": 29,
+        "all_markers_removed": 19,
+        "task_func_import_before": 38,
+        "task_func_import_removed": 17,
+        "main_ast_changed": 14,
+        "main_ast_unavailable": 0
+      },
+      "passed": {
+        "n": 12,
+        "comment_before": 10,
+        "comment_removed": 10,
+        "comment_retained": 0,
+        "all_markers_removed": 12,
+        "task_func_import_before": 7,
+        "task_func_import_removed": 7,
+        "main_ast_changed": 4,
+        "main_ast_unavailable": 0
+      }
+    }
+  },
+  {
+    "alpha": -4,
+    "n": 119,
+    "changed": 54,
+    "passed": 12,
+    "by_group": {
+      "all": {
+        "n": 119,
+        "comment_before": 108,
+        "comment_removed": 19,
+        "comment_retained": 89,
+        "all_markers_removed": 22,
+        "task_func_import_before": 96,
+        "task_func_import_removed": 21,
+        "main_ast_changed": 18,
+        "main_ast_unavailable": 0
+      },
+      "changed": {
+        "n": 54,
+        "comment_before": 50,
+        "comment_removed": 19,
+        "comment_retained": 31,
+        "all_markers_removed": 22,
+        "task_func_import_before": 44,
+        "task_func_import_removed": 21,
+        "main_ast_changed": 18,
+        "main_ast_unavailable": 0
+      },
+      "passed": {
+        "n": 12,
+        "comment_before": 10,
+        "comment_removed": 10,
+        "comment_retained": 0,
+        "all_markers_removed": 12,
+        "task_func_import_before": 8,
+        "task_func_import_removed": 8,
+        "main_ast_changed": 5,
+        "main_ast_unavailable": 0
+      }
+    }
+  },
+  {
+    "alpha": -5,
+    "n": 119,
+    "changed": 57,
+    "passed": 14,
+    "by_group": {
+      "all": {
+        "n": 119,
+        "comment_before": 108,
+        "comment_removed": 19,
+        "comment_retained": 89,
+        "all_markers_removed": 23,
+        "task_func_import_before": 96,
+        "task_func_import_removed": 20,
+        "main_ast_changed": 17,
+        "main_ast_unavailable": 0
+      },
+      "changed": {
+        "n": 57,
+        "comment_before": 52,
+        "comment_removed": 19,
+        "comment_retained": 33,
+        "all_markers_removed": 23,
+        "task_func_import_before": 47,
+        "task_func_import_removed": 20,
+        "main_ast_changed": 17,
+        "main_ast_unavailable": 0
+      },
+      "passed": {
+        "n": 14,
+        "comment_before": 11,
+        "comment_removed": 11,
+        "comment_retained": 0,
+        "all_markers_removed": 14,
+        "task_func_import_before": 10,
+        "task_func_import_removed": 10,
+        "main_ast_changed": 6,
+        "main_ast_unavailable": 0
+      }
+    }
+  }
+]

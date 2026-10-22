@@ -1,0 +1,142 @@
+[
+  {
+    "task_id": "BigCodeBench/3",
+    "baseline_failure": {
+      "ALL": "No module named 'task_func'"
+    },
+    "missing_module": "task_func",
+    "matching_import_line": "from task_func import task_func",
+    "activation_minus_matching_import_tokens": -21,
+    "note": "Earliest textual import matching the recorded missing-module error; not a full runtime-trace localization. Natural positions refer to frozen source."
+  },
+  {
+    "task_id": "BigCodeBench/7",
+    "baseline_failure": {
+      "ALL": "No module named 'task'"
+    },
+    "missing_module": "task",
+    "matching_import_line": "from task import task_func",
+    "activation_minus_matching_import_tokens": -12,
+    "note": "Earliest textual import matching the recorded missing-module error; not a full runtime-trace localization. Natural positions refer to frozen source."
+  },
+  {
+    "task_id": "BigCodeBench/166",
+    "baseline_failure": {
+      "ALL": "No module named 'task_func'"
+    },
+    "missing_module": "task_func",
+    "matching_import_line": "from task_func import task_func",
+    "activation_minus_matching_import_tokens": -29,
+    "note": "Earliest textual import matching the recorded missing-module error; not a full runtime-trace localization. Natural positions refer to frozen source."
+  },
+  {
+    "task_id": "BigCodeBench/277",
+    "baseline_failure": {
+      "ALL": "No module named 'task_func'"
+    },
+    "missing_module": "task_func",
+    "matching_import_line": "from task_func import task_func",
+    "activation_minus_matching_import_tokens": -13,
+    "note": "Earliest textual import matching the recorded missing-module error; not a full runtime-trace localization. Natural positions refer to frozen source."
+  },
+  {
+    "task_id": "BigCodeBench/349",
+    "baseline_failure": {
+      "ALL": "No module named 'task_func'"
+    },
+    "missing_module": "task_func",
+    "matching_import_line": "from task_func import task_func",
+    "activation_minus_matching_import_tokens": -21,
+    "note": "Earliest textual import matching the recorded missing-module error; not a full runtime-trace localization. Natural positions refer to frozen source."
+  },
+  {
+    "task_id": "BigCodeBench/459",
+    "baseline_failure": {
+      "ALL": "No module named 'task_func'"
+    },
+    "missing_module": "task_func",
+    "matching_import_line": "from task_func import task_func",
+    "activation_minus_matching_import_tokens": -29,
+    "note": "Earliest textual import matching the recorded missing-module error; not a full runtime-trace localization. Natural positions refer to frozen source."
+  },
+  {
+    "task_id": "BigCodeBench/666",
+    "baseline_failure": {
+      "ALL": "No module named 'task_func'"
+    },
+    "missing_module": "task_func",
+    "matching_import_line": "from task_func import task_func",
+    "activation_minus_matching_import_tokens": -13,
+    "note": "Earliest textual import matching the recorded missing-module error; not a full runtime-trace localization. Natural positions refer to frozen source."
+  },
+  {
+    "task_id": "BigCodeBench/685",
+    "baseline_failure": {
+      "ALL": "No module named 'task_func'"
+    },
+    "missing_module": "task_func",
+    "matching_import_line": "from task_func import task_func",
+    "activation_minus_matching_import_tokens": -4,
+    "note": "Earliest textual import matching the recorded missing-module error; not a full runtime-trace localization. Natural positions refer to frozen source."
+  },
+  {
+    "task_id": "BigCodeBench/695",
+    "baseline_failure": {
+      "ALL": "No module named 'task_func'"
+    },
+    "missing_module": "task_func",
+    "matching_import_line": "from task_func import task_func",
+    "activation_minus_matching_import_tokens": -22,
+    "note": "Earliest textual import matching the recorded missing-module error; not a full runtime-trace localization. Natural positions refer to frozen source."
+  },
+  {
+    "task_id": "BigCodeBench/823",
+    "baseline_failure": {
+      "ALL": "No module named 'task_func'"
+    },
+    "missing_module": "task_func",
+    "matching_import_line": "import task_func",
+    "activation_minus_matching_import_tokens": -14,
+    "note": "Earliest textual import matching the recorded missing-module error; not a full runtime-trace localization. Natural positions refer to frozen source."
+  },
+  {
+    "task_id": "BigCodeBench/937",
+    "baseline_failure": {
+      "ALL": "No module named 'task'"
+    },
+    "missing_module": "task",
+    "matching_import_line": "from task import task_func",
+    "activation_minus_matching_import_tokens": -11,
+    "note": "Earliest textual import matching the recorded missing-module error; not a full runtime-trace localization. Natural positions refer to frozen source."
+  },
+  {
+    "task_id": "BigCodeBench/940",
+    "baseline_failure": {
+      "ALL": "No module named 'task_func'"
+    },
+    "missing_module": "task_func",
+    "matching_import_line": "from task_func import task_func",
+    "activation_minus_matching_import_tokens": -13,
+    "note": "Earliest textual import matching the recorded missing-module error; not a full runtime-trace localization. Natural positions refer to frozen source."
+  },
+  {
+    "task_id": "BigCodeBench/949",
+    "baseline_failure": {
+      "ALL": "No module named 'task'"
+    },
+    "missing_module": "task",
+    "matching_import_line": "from task import task_func",
+    "activation_minus_matching_import_tokens": -20,
+    "note": "Earliest textual import matching the recorded missing-module error; not a full runtime-trace localization. Natural positions refer to frozen source."
+  },
+  {
+    "task_id": "BigCodeBench/1115",
+    "baseline_failure": {
+      "ALL": "No module named 'task_func'"
+    },
+    "missing_module": "task_func",
+    "matching_import_line": "from task_func import task_func",
+    "activation_minus_matching_import_tokens": -16,
+    "note": "Earliest textual import matching the recorded missing-module error; not a full runtime-trace localization. Natural positions refer to frozen source."
+  }
+]

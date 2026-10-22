@@ -1,0 +1,1083 @@
+task_id,marker_kind,marker_line,first_activation_token,marker_first_token,marker_line_end_token,activation_minus_marker_tokens,activation_minus_marker_pp,activation_vs_line,first_activation_span,activation_context,feature_before_task_func_import_token,activation_minus_task_func_import_tokens
+BigCodeBench/1,comment,#tests/test_task_func.py,110,110,120,0,0.0,inside_visible_line,#," the string
+    char_counts = collections.Counter(random_string)
+
+    return char_counts
+
+#tests/test_task_func.py
+import unittest
+from unittest.mock import patch
+from task_func imp",True,-25
+BigCodeBench/1030,import,from task_func import task_func,108,119,127,-11,-6.043956043956044,before_line,main,"pd.DataFrame(combinations, columns=['Letter 1', 'Letter 2', 'Letter 3'])
+
+    return df
+
+#main.py
+import pandas as pd
+from task_func import task_func
+
+# Generate the DataFrame
+df = tas",True,-11
+BigCodeBench/109,comment,#tests/test_task_func.py,383,383,393,0,0.0,inside_visible_line,#," ax.set_ylabel('Count')
+    ax.set_title('Item Distribution by Location')
+
+    return ax
+
+#tests/test_task_func.py
+import pandas as pd
+import matplotlib.pyplot as plt
+from task_func",True,-29
+BigCodeBench/1097,comment,#tests/test_task_func.py,96,95,105,1,0.3968253968253968,inside_visible_line,tests,"
+    text = ''.join([char for char in text if char not in punctuation])
+    return text
+
+#tests/test_task_func.py
+import unittest
+from task_func import task_func
+
+class TestTaskFunc(uni",True,-15
+BigCodeBench/110,comment,#tests/test_task_func.py,15,259,269,-244,-48.22134387351779,before_line,       ,"    if not isinstance(df, pd.DataFrame):
+        raise ValueError(""Input 'df' is not a pandas DataFrame."")
+    if 'Date' not in df.columns",True,-273
+BigCodeBench/1109,comment,#tests/test_task.py,45,45,53,0,0.0,inside_visible_line,#,"  for line in file:
+            tokens.extend(word_tokenize(line))
+        return tokens
+
+#tests/test_task.py
+import unittest
+from task import task_func
+
+class TestTask(unittest.Tes",,
+BigCodeBench/1115,comment,#test_task_func.py,75,74,82,1,0.3333333333333333,inside_visible_line,test,"end(key + ''.join(random.choice(ascii_uppercase) for i in range(5)))
+    return emp_ids
+
+#test_task_func.py
+import unittest
+import random
+from task_func import task_func
+
+class TestTas",True,-16
+BigCodeBench/1119,comment,#tests/test_task_1.py,122,122,132,0,0.0,inside_visible_line,#,"rd = hashlib.sha256(mixed_password.encode()).hexdigest()
+    
+    return hashed_password
+
+#tests/test_task_1.py
+import unittest
+import task_1
+
+class TestTask1(unittest.TestCase):
+  ",,
+BigCodeBench/122,import,from task_func import task_func,36,65,73,-29,-14.215686274509803,before_line,#,"    my_list.append(random.randint(0, 100))
+    return np.random.rand(sum(my_list))
+
+#task_func_test.py
+import unittest
+from unittest.mock import patch
+import numpy as np
+from ",True,-29
+BigCodeBench/127,comment,#tests/test_task_func.py,199,246,256,-47,-9.270216962524655,before_line,IF," If the hash matches SPECIFIC_HASH, move the file to DEST_DIR
+        if file_hash == SPECIFIC_HASH:
+            shutil.move(file, DEST_DIR)
+            num_moved += 1
+
+    # Return ",True,-77
+BigCodeBench/144,comment,#tests/test_task_func.py,189,223,233,-34,-8.076009501187649,before_line,except,"se.status_code == 200:
+                active_ips.append(str(ip))
+        except requests.exceptions.RequestException:
+            # If the request fails, ignore and continue to the next",True,-54
+BigCodeBench/166,import,from task_func import task_func,203,232,240,-29,-9.385113268608414,before_line,],"c holidays
+    business_days = [day for day in business_days if day.weekday() not in [5, 6] and day not in country_holidays]
+
+    return business_days
+
+#main.py
+from datetime import",True,-29
+BigCodeBench/172,comment,#tests/test_task_func.py,142,142,152,0,0.0,inside_visible_line,#,"d
+    if utc_datetime.weekday() >= 5:
+        return True
+    else:
+        return False
+
+#tests/test_task_func.py
+import unittest
+from task_func import task_func
+
+class TestTaskFun",True,-16
+BigCodeBench/178,comment,#tests/test_task_func.py,122,124,134,-2,-0.5494505494505495,before_line,"
+"," response['ip']
+    except KeyError:
+        return 'Invalid JSON received'
+
+    return ip
+
+#tests/test_task_func.py
+import unittest
+from task_func import task_func
+
+class TestTaskF",True,-18
+BigCodeBench/18,comment,#test_task_func.py,84,265,273,-181,-36.34538152610442,before_line,       ,"e shell 'split' command
+        split_files = glob.glob(file.replace('.csv', '_split_*'))
+        if not split_files:
+            subprocess.run(['split', '-l', '100000', file])
+         ",,
+BigCodeBench/188,comment,#tests/test_task_func.py,87,241,251,-154,-41.734417344173444,before_line,.,"=""geoapiExercises"")
+
+    # Iterate over the input dictionary
+    for name, location in dic.items():
+        # Check if the location is a string address
+        if isinstance(locatio",True,-186
+BigCodeBench/2,comment,#tests/test_task_func.py,125,131,141,-6,-2.1201413427561837,before_line, return,"ed(random_dict.items(), key=lambda item: statistics.mean(item[1]), reverse=True)}
+    
+    return sorted_dict
+
+#tests/test_task_func.py
+import unittest
+import random
+from task_func import",True,-25
+BigCodeBench/203,comment,#tests/test_task_func.py,164,165,175,-1,-0.24813895781637718,before_line,"
+","s, email_password)
+    smtp.sendmail(email_address, recipient, message)
+
+    return names
+
+#tests/test_task_func.py
+import unittest
+from unittest.mock import MagicMock
+from task_fun",True,-27
+BigCodeBench/204,comment,#test_task_func.py,185,184,192,1,0.20242914979757085,inside_visible_line,test,"  return {""mean"": mean, ""median"": median, ""mode"": mode, ""std_dev"": std_dev, ""plot"": ax}
+
+#test_task_func.py
+import unittest
+import numpy as np
+from task_func import task_func
+
+class Te",True,-19
+BigCodeBench/21,comment,#tests/test_task_func.py,36,92,102,-56,-14.659685863874346,before_line,virtual,"_name = platform.system()
+    arch = platform.architecture()[0]
+    memory_usage = psutil.virtual_memory().percent
+
+    # Return system details in a dictionary
+    return {
+        'OS': ",True,-82
+BigCodeBench/22,comment,#test_task_func.py,60,59,67,1,0.24509803921568626,inside_visible_line,test,"t None]
+    sample = choices(combined_list, k=K)
+    return collections.Counter(sample)
+
+#test_task_func.py
+import unittest
+from task_func import task_func
+
+class TestTaskFunc(unittest",True,-13
+BigCodeBench/236,comment,#tests/test_task_func.py,244,246,256,-2,-0.4357298474945534,before_line,"
+","curacy of the model
+    accuracy = accuracy_score(y_test, y_pred)
+    
+    return accuracy
+
+#tests/test_task_func.py
+import unittest
+import pandas as pd
+from task_func import task_f",True,-25
+BigCodeBench/24,comment,#tests/test_task_1.py,101,112,122,-11,-3.741496598639456,before_line,6,"a256', password.encode('utf-8'), salt, 100000)
+    return base64.b64encode(salt), base64.b64encode(hashed_password)
+
+#tests/test_task_1.py
+import unittest
+import task_1
+
+class TestT",,
+BigCodeBench/25,comment,#test_task.py,71,70,76,1,0.5649717514124294,inside_visible_line,test,"ncoded_data = base64.b64encode(compressed_data).decode('utf-8')
+    return encoded_data
+
+#test_task.py
+import unittest
+import task
+
+class TestTask(unittest.TestCase):
+    def test_task",,
+BigCodeBench/258,comment,#tests/test_task.py,110,109,117,1,0.7352941176470589,inside_visible_line,tests," a JSON string
+    person_json_str = json.dumps(person)
+    
+    return person_json_str
+
+#tests/test_task.py
+import json
+import pytest
+from datetime import datetime
+from task import tas",,
+BigCodeBench/26,comment,#tests/test_task_func.py,143,142,152,1,0.3436426116838488,inside_visible_line,tests,"ed_message = base64.b64encode(encrypted_message)
+
+    return encrypted_message.decode()
+
+#tests/test_task_func.py
+import unittest
+from task_func import task_func
+
+class TestTaskFunc(uni",True,-15
+BigCodeBench/260,comment,#test_task.py,224,225,231,-1,-0.1953125,before_line,"
+","er
+            count += 1
+
+    # Return the number of JSON files updated
+    return count
+
+#test_task.py
+import unittest
+import os
+import json
+import glob
+from task import task_func",,
+BigCodeBench/268,comment,#test_task_func.py,77,76,84,1,0.273972602739726,inside_visible_line,test,"ey = random.choice(LETTERS)
+        d[key] = list(range(1, n_values + 1))
+
+    return d
+
+#test_task_func.py
+import unittest
+from task_func import task_func
+
+class TestTaskFunc(unittest",True,-13
+BigCodeBench/27,comment,#tests/test_task_func.py,71,71,81,0,0.0,inside_visible_line,#,"ta = base64.b64encode(json_data.encode('ascii')).decode('ascii')
+    return encoded_data
+
+#tests/test_task_func.py
+import unittest
+import json
+import base64
+from datetime import dat",True,-29
+BigCodeBench/270,comment,#tests/test_task_func.py,27,26,36,1,0.5813953488372093,inside_visible_line,tests,"    words = re.findall(r'\w+', sentence)
+    return dict(Counter(words))
+
+#tests/test_task_func.py
+import unittest
+from task_func import task_func
+
+class TestTaskFunc(uni",True,-15
+BigCodeBench/275,comment,#test_task_func.py,94,93,101,1,0.36363636363636365,inside_visible_line,test,"e combinations of two numbers
+    pairs = list(combinations(nums, 2))
+
+    return pairs
+
+#test_task_func.py
+import unittest
+from task_func import task_func
+
+class TestTaskFunc(unittest",True,-13
+BigCodeBench/276,comment,#tests/test_task_func.py,160,169,179,-9,-1.8480492813141685,before_line,#,"he distribution
+    ax = plt.hist(row_max, bins=bins)
+    
+    return skew, kurtosis, ax
+
+#task_func(matrix)
+
+#tests/test_task_func.py
+import unittest
+import numpy as np
+from scipy ",True,-49
+BigCodeBench/277,comment,#test_task_func.py,139,138,146,1,0.2638522427440633,inside_visible_line,test,"            min_dist = dist
+            closest_pair = (p1, p2)
+    return closest_pair
+
+#test_task_func.py
+import unittest
+from task_func import task_func
+import random
+
+class TestTas",True,-13
+BigCodeBench/279,comment,#tests/test_task_func.py,111,110,120,1,0.7194244604316546,inside_visible_line,tests," = Counter(deck[:x*5])
+    # Return the hands and the counter
+    return hands, counter
+
+#tests/test_task_func.py
+import pytest
+from task_func import task_func
+from collections import C",True,-14
+BigCodeBench/3,comment,#tests/test_task_func.py,135,135,145,0,0.0,inside_visible_line,#,"es in my_dict.items():
+        mean_dict[letter] = np.mean(values)
+
+    return mean_dict
+
+#tests/test_task_func.py
+import pytest
+import numpy as np
+from task_func import task_func
+",True,-21
+BigCodeBench/30,comment,#tests/test_task_func.py,35,182,192,-147,-70.67307692307692,before_line, with,"th.exists(file_path):
+        raise ValueError(f""File '{file_path}' does not exist."")
+
+    with open(file_path, 'r') as f:
+        data = json.load(f)
+
+    try:
+        validate(data, I",True,-165
+BigCodeBench/316,comment,#test_task.py,89,91,97,-2,-0.5449591280653951,before_line,"
+","ing values
+    df = pd.DataFrame({'Category': CATEGORIES, 'Count': values})
+
+    return df
+
+#test_task.py
+import unittest
+import pandas as pd
+import random
+from task import task_fun",,
+BigCodeBench/336,comment,#tests/test_task_func.py,36,237,247,-201,-63.40694006309148,before_line,os,"search
+    file_paths = []
+    for ext in extensions:
+        file_paths.extend(glob.glob(os.path.join(directory, ext)))
+
+    # Create a list to store the matches
+    matches = []
+
+ ",True,-227
+BigCodeBench/347,comment,#test_task.py,113,141,147,-28,-5.622489959839357,before_line, as,"hes).value_counts()
+
+        # Return the counts
+        return counts
+    except KeyError as e:
+        raise KeyError(f""Column '{column}' does not exist in input DataFrame."") from e",,
+BigCodeBench/349,comment,#test_task_func.py,156,156,164,0,0.0,inside_visible_line,#," df['Quantity Sold'] * random.randint(10, 100)
+
+    # Return the DataFrame
+    return df
+
+#test_task_func.py
+import unittest
+import pandas as pd
+from task_func import task_func
+
+cla",True,-21
+BigCodeBench/358,comment,#tests/test_task_func.py,112,112,122,0,0.0,inside_visible_line,#,"mber_list, r))
+    except json.JSONDecodeError:
+        raise Exception(""Invalid JSON."")
+
+#tests/test_task_func.py
+import unittest
+from task_func import task_func
+
+class TestTaskFun",True,-16
+BigCodeBench/361,comment,#test_task_func.py,174,223,231,-49,-9.702970297029703,before_line,e,"rror as e:
+        logging.error(f""Excel file not found at {excel_file_location}. Error: {e}"")
+        raise e
+    except ValueError as e:
+        logging.error(f""Sheet '{sheet_name",True,-73
+BigCodeBench/364,comment,#tests/test_task_func.py,124,124,134,0,0.0,inside_visible_line,#,"te=42)
+
+    model = LinearRegression()
+    model.fit(X_train, y_train)
+
+    return model
+
+#tests/test_task_func.py
+import unittest
+import pandas as pd
+from task_func import task_fun",True,-23
+BigCodeBench/369,comment,#tests/test_task_func.py,212,211,221,1,0.4166666666666667,inside_visible_line,tests,"2f},  std = {std:.2f}""
+    plt.title(title)
+
+    # Return the axes object
+    return ax
+
+#tests/test_task_func.py
+import pytest
+import numpy as np
+from task_func import task_func
+",True,-20
+BigCodeBench/391,comment,#tests/test_task_func.py,181,181,191,0,0.0,inside_visible_line,#,"indicating success or failure and a list of errors
+    return (len(errors) == 0, errors)
+
+#tests/test_task_func.py
+import os
+import tempfile
+import unittest
+from unittest.mock impor",True,-33
+BigCodeBench/398,comment,#tests/test_task_1.py,11,74,84,-63,-19.32515337423313,before_line,",","    try:
+        with open(file_path, 'r') as f:
+            data = json.load(f)
+            return isinstance(data, list) and ",,
+BigCodeBench/415,comment,#tests/test_task_func.py,109,109,119,0,0.0,inside_visible_line,#,"nicodeString""].apply(lambda x: codecs.decode(x, ""unicode-escape""))
+
+    return dataframe
+
+#tests/test_task_func.py
+import pandas as pd
+import pytest
+from task_func import task_func
+",True,-22
+BigCodeBench/435,import,from task_func import task_func,238,246,254,-8,-2.4390243902439024,before_line,#," DataFrame from the data dictionary
+    data_df = pd.DataFrame(data)
+
+    return data_df
+
+#main.py
+import random
+from task_func import task_func
+
+# Set the seed for the random numbe",True,-8
+BigCodeBench/453,comment,#tests/test_task_func.py,48,47,57,1,1.2345679012345678,inside_visible_line,tests,"ascii_letters) for _ in range(n))
+        if re.match(pattern, s):
+            return s
+
+#tests/test_task_func.py
+import pytest
+import re
+import string
+from random import choice
+from ta",True,-25
+BigCodeBench/459,import,from task_func import task_func,181,210,218,-29,-5.858585858585859,before_line,#," %H:%M:%S'))
+
+        if delay > 0:
+            time.sleep(delay)
+
+    return timestamps
+
+#task_func_test.py
+import unittest
+import os
+import subprocess
+import time
+from datetime im",True,-29
+BigCodeBench/464,comment,#tests/test_task_func.py,88,88,98,0,0.0,inside_visible_line,#,"__.__name__}' is not JSON serializable"")
+
+    return json.dumps(my_obj, default=default)
+
+#tests/test_task_func.py
+import unittest
+from datetime import datetime
+from decimal import ",True,-27
+BigCodeBench/466,comment,#tests/test_task_01.py,72,71,82,1,0.33112582781456956,inside_visible_line,tests,"      return super().default(obj)
+
+    return json.dumps(my_obj, cls=CustomJSONEncoder)
+
+#tests/test_task_01.py
+import unittest
+from task_01 import task_func, Color
+
+
+class TestTaskFunc",,
+BigCodeBench/475,comment,#tests/test_task_func.py,423,424,434,-1,-0.21978021978021978,before_line,"
+"," x-axis tick labels to the month names
+    ax.set_xticklabels(month_names)
+
+    return ax
+
+#tests/test_task_func.py
+import unittest
+import pandas as pd
+from task_func import task_fu",True,-24
+BigCodeBench/490,comment,#tests/test_task_func.py,64,65,75,-1,-0.2898550724637681,before_line,"
+","JSON file
+    with open(file_path, 'w') as f:
+        json.dump(data, f)
+
+    return data
+
+#tests/test_task_func.py
+import unittest
+import os
+import json
+import xmltodict
+from task_",True,-29
+BigCodeBench/496,comment,#tests/test_task_func.py,320,320,330,0,0.0,inside_visible_line,#,"Set the title
+    ax.set_title(""Temperature Trend"")
+
+    # Return the plot
+    return ax
+
+#tests/test_task_func.py
+import unittest
+import matplotlib.pyplot as plt
+from task_func imp",True,-27
+BigCodeBench/497,comment,#tests/test_task_func.py,39,211,221,-172,-70.78189300411523,before_line,"
+","st is a non-negative integer
+    if not isinstance(days_in_past, int) or days_in_past < 0:
+        raise ValueError(""days_in_past must be a non-negative integer"")
+
+    # Get the cur",True,-187
+BigCodeBench/5,comment,#tests/test_task_func.py,150,149,159,1,0.5813953488372093,inside_visible_line,tests,"um((x - sum(value) / len(value)) ** 2 for x in value) / len(value))
+
+    return sd_dict
+
+#tests/test_task_func.py
+import pytest
+from task_func import task_func
+",True,-14
+BigCodeBench/508,comment,#tests/test_task_func.py,155,154,164,1,0.19569471624266144,inside_visible_line,tests,"hlib.md5(f2.read()).hexdigest()
+
+    # Compare the MD5 hashes
+    return hash1 == hash2
+
+#tests/test_task_func.py
+import unittest
+import os
+import tempfile
+import shutil
+from task_func ",True,-26
+BigCodeBench/548,comment,#tests/test_task_func.py,74,73,83,1,0.4166666666666667,inside_visible_line,tests,"ompress(random_string.encode())
+    return base64.b64encode(compressed_string).decode()
+
+#tests/test_task_func.py
+import unittest
+import base64
+import zlib
+import random
+import string
+f",True,-30
+BigCodeBench/561,comment,#test_task_func.py,53,183,191,-130,-27.77777777777778,before_line,time,"onvert the datetime object from the input timezone to UTC
+    dt = dt.replace(tzinfo=pytz.timezone(from_tz))
+    dt = dt.astimezone(pytz.UTC)
+
+    # Convert the datetime object from UT",True,-144
+BigCodeBench/576,comment,#tests/test_task_func.py,81,81,91,0,0.0,inside_visible_line,#," x[randint(0, n_groups):] + x[:randint(0, n_groups)])
+
+#task_func(['ABC', 'DEF', 'GHI'])
+
+#tests/test_task_func.py
+import unittest
+import pandas as pd
+from task_func import task_fun",True,-23
+BigCodeBench/625,comment,#test_task_func.py,191,191,199,0,0.0,inside_visible_line,#,"DataFrame from the population data
+    df = pd.DataFrame(population_data)
+
+    return df
+
+#test_task_func.py
+import unittest
+import pandas as pd
+from task_func import task_func
+
+cla",True,-21
+BigCodeBench/626,comment,#tests/test_task_func.py,45,210,220,-165,-39.95157384987893,before_line,time,"rse(date_str)
+
+    # Convert the datetime object to the given timezone
+    from_tz = pytz.timezone(from_tz)
+    date_obj = date_obj.replace(tzinfo=from_tz)
+
+    # Choose a random timez",True,-181
+BigCodeBench/630,comment,#tests/test_task_func.py,69,69,79,0,0.0,inside_visible_line,#,"n(output_dir, filename)
+    df.to_json(file_path, orient='records')
+    return file_path
+
+#tests/test_task_func.py
+import unittest
+import pandas as pd
+import os
+from task_func impor",True,-26
+BigCodeBench/632,comment,#tests/test_task_func.py,99,153,163,-54,-29.18918918918919,before_line,_,"
+
+    # Construct the full path for the JSON Lines file
+    filepath = os.path.join(OUTPUT_DIR, f'{timestamp}_{filename}')
+
+    # Write the DataFrame to the JSON Lines file
+    df.t",True,-78
+BigCodeBench/634,import,from task_func import task_func,38,52,60,-14,-6.965174129353234,before_line,#,"rtools.chain.from_iterable([input_list] * repetitions))
+    return stats.mode(flat_list)
+
+#task_func_test.py
+import unittest
+from task_func import task_func
+
+
+class TestTaskFunc(uni",True,-14
+BigCodeBench/666,comment,#test_task_func.py,192,191,199,1,0.2702702702702703,inside_visible_line,test,"join(subseq)
+    # Return the subsequence with the highest weight
+    return max_subseq
+
+#test_task_func.py
+import unittest
+from task_func import task_func
+
+class TestTaskFunc(unittest",True,-13
+BigCodeBench/668,comment,#tests/test_task_func.py,130,163,173,-33,-6.832298136645963,before_line, in,"nimum total length
+    for subseq in subsequences:
+        if all(x[letter] > 0 for letter in subseq):
+            return subseq
+
+    # If no subsequence with positive values is found",True,-49
+BigCodeBench/672,comment,#test_task.py,5,67,73,-62,-25.726141078838175,before_line,",","    with open(filename, 'r') as f:
+        lines = f.readlines()
+        lines.reverse()
+        f.seek(0)
+      ",,
+BigCodeBench/68,comment,#test_task_func.py,98,104,112,-6,-4.285714285714286,before_line, return,"p_prefix)]
+
+    # Draw a histogram of the age
+    ax = sns.histplot(data=df, x='Age')
+
+    return df, ax
+
+#test_task_func.py
+import pandas as pd
+import seaborn as sns
+import pytest
+from t",True,-34
+BigCodeBench/684,comment,#tests/test_task_func.py,58,58,68,0,0.0,inside_visible_line,#," a new column 'IsEvenIndex'
+    df['IsEvenIndex'] = df.index % 2 == 0
+    
+    return df
+
+#tests/test_task_func.py
+import unittest
+import pandas as pd
+import numpy as np
+from task_f",True,-29
+BigCodeBench/685,import,from task_func import task_func,21,25,33,-4,-12.121212121212121,before_line,main,"    return Counter(chain.from_iterable(list_of_lists))
+
+#main.py
+from task_func import task_func
+",True,-4
+BigCodeBench/686,comment,#test_task_func.py,107,106,114,1,0.24449877750611246,inside_visible_line,test,"e_hot = encoder.fit_transform(np.array(merged_list).reshape(-1, 1))
+
+    return one_hot
+
+#test_task_func.py
+import unittest
+import numpy as np
+from task_func import task_func
+
+class Te",True,-19
+BigCodeBench/687,comment,#test_task_func.py,59,58,66,1,0.2915451895043732,inside_visible_line,test,"blist)
+    mode_value, mode_count = mode(merged_list)
+    return mode_value, mode_count
+
+#test_task_func.py
+import unittest
+import numpy as np
+from task_func import task_func
+
+class Te",True,-19
+BigCodeBench/692,comment,#test_task_func.py,34,34,42,0,0.0,inside_visible_line,#,"    df = pd.DataFrame(tuples_list)
+    df = df.applymap(math.sin)
+    return df
+
+#test_task_func.py
+import unittest
+import pandas as pd
+from task_func import task_func
+
+cla",True,-21
+BigCodeBench/695,comment,#tests/test_task_func.py,96,96,106,0,0.0,inside_visible_line,#,".fit_transform(data)
+
+    return transformed_data
+
+#task_func(tuples_list, n_components)
+
+#tests/test_task_func.py
+import unittest
+import numpy as np
+from task_func import task_func",True,-22
+BigCodeBench/7,comment,#test_task.py,182,182,188,0,0.0,inside_visible_line,#," top_product = max(sales.items(), key=operator.itemgetter(1))[0]
+
+    return top_product
+
+#test_task.py
+import unittest
+from task import task_func
+
+class TestTask(unittest.TestCase)",,
+BigCodeBench/700,comment,#test_task_func.py,59,58,66,1,0.2028397565922921,inside_visible_line,test,"he correlation matrix
+    correlation_matrix = df.corr()
+
+    return correlation_matrix
+
+#test_task_func.py
+import unittest
+import pandas as pd
+import numpy as np
+from task_func import",True,-26
+BigCodeBench/701,comment,#tests/test_task_func.py,54,54,64,0,0.0,inside_visible_line,#," = LinearRegression()
+    model.fit(X, y)
+    score = model.score(X, y)
+    return score
+
+#tests/test_task_func.py
+import pytest
+import pandas as pd
+from task_func import task_func
+",True,-22
+BigCodeBench/706,comment,#tests/test_task_func.py,194,196,206,-2,-0.49261083743842365,before_line,"
+","curacy of the model
+    accuracy = accuracy_score(y_test, y_pred)
+    
+    return accuracy
+
+#tests/test_task_func.py
+import unittest
+import numpy as np
+from task_func import task_fu",True,-24
+BigCodeBench/708,comment,#tests/test_task.py,153,154,162,-1,-0.2070393374741201,before_line,"
+","writer.writerow(data.keys())
+        writer.writerow(data.values())
+
+    return file_path
+
+#tests/test_task.py
+import unittest
+import os
+import base64
+import json
+import csv
+from ta",,
+BigCodeBench/709,comment,#tests/test_task_func.py,159,159,169,0,0.0,inside_visible_line,#,"h
+    wrapped_text = textwrap.fill(decoded_string, line_length)
+
+    return wrapped_text
+
+#tests/test_task_func.py
+import unittest
+from task_func import task_func
+
+class TestTaskFun",True,-16
+BigCodeBench/712,comment,#tests/test_task_func.py,88,88,98,0,0.0,inside_visible_line,#,"ile in files:
+        shutil.move(file, dest_dir)
+        result += 1
+
+    return result
+
+#tests/test_task_func.py
+import os
+import shutil
+import glob
+import pytest
+from task_func i",True,-25
+BigCodeBench/736,comment,#tests/test_task_func.py,59,58,68,1,0.5102040816326531,inside_visible_line,tests,"  
+    # Calculate the mode
+    mode = stats.mode(flat_list)[0][0]
+    
+    return mode
+
+#tests/test_task_func.py
+import unittest
+from task_func import task_func
+
+class TestTaskFunc(uni",True,-15
+BigCodeBench/738,comment,#test_task_func.py,65,64,72,1,0.20040080160320642,inside_visible_line,test," # Calculate the interquartile range
+    iqr_value = iqr(arr)
+    
+    return iqr_value
+
+#test_task_func.py
+import unittest
+from task_func import task_func
+
+class TestTaskFunc(unittest",True,-13
+BigCodeBench/743,comment,#tests/test_task_func.py,114,113,123,1,0.21321961620469082,inside_visible_line,tests,"key.startswith(prefix):
+                            stats[prefix] += 1
+    return stats
+
+#tests/test_task_func.py
+import unittest
+import os
+import json
+from task_func import task_func
+
+",True,-21
+BigCodeBench/752,comment,#tests/test_task.py,15,283,291,-268,-85.07936507936508,before_line,       ,"    if not isinstance(data, pd.DataFrame):
+        raise ValueError(""data must be a pandas DataFrame"")
+    if data.empty:
+        raise Valu",,
+BigCodeBench/753,comment,#test_task_func.py,159,158,166,1,0.3115264797507788,inside_visible_line,test," x, y in points]
+    avg_distance = statistics.mean(distances)
+
+    return avg_distance
+
+#test_task_func.py
+import unittest
+import task_func
+import math
+import random
+
+class TestTaskFu",,
+BigCodeBench/755,comment,#test_task.py,204,204,210,0,0.0,inside_visible_line,#,"es.append(new_filename)
+
+    # Return the list of new filenames
+    return new_filenames
+
+#test_task.py
+import unittest
+from task import task_func
+
+class TestTask(unittest.TestCase)",,
+BigCodeBench/762,comment,#tests/test_task_func.py,70,178,188,-108,-21.176470588235293,before_line, as,"_names:
+        with open(os.path.join(directory_name, file_name), 'w', encoding=encoding) as file:
+            file.write(content)
+
+    # Zip the directory
+    zip_file_name = f""{dir",True,-132
+BigCodeBench/778,comment,#tests/test_task_func.py,180,181,191,-1,-0.49019607843137253,before_line,"
+","gory')):
+        grouped_articles[category].extend(articles)
+
+    return grouped_articles
+
+#tests/test_task_func.py
+import pytest
+from task_func import task_func
+",True,-16
+BigCodeBench/783,comment,#tests/test_task_func.py,58,100,110,-42,-10.447761194029852,before_line,path,"nsion):
+            src_path = os.path.join(src_dir, filename)
+            dest_path = os.path.join(dest_dir, filename)
+            shutil.move(src_path, dest_path)
+            files_m",True,-70
+BigCodeBench/787,import,from task_func import task_func,165,185,193,-20,-4.878048780487805,before_line,#,"ation in combinations_list]
+
+    # Return the maximum distance
+    return max(distances)
+
+#task_func_test.py
+import unittest
+import numpy as np
+from task_func import task_func
+
+clas",True,-20
+BigCodeBench/790,comment,#tests/test_task_func.py,186,185,195,1,0.21367521367521367,inside_visible_line,tests,"s
+    indices = df.nlargest(N, 'diff')[['diff']].index.tolist()
+    
+    return indices
+
+#tests/test_task_func.py
+import unittest
+import pandas as pd
+from task_func import task_func
+
+cl",True,-22
+BigCodeBench/797,comment,#tests/test_task_func.py,14,139,149,-125,-41.80602006688963,before_line,"
+","    if not isinstance(df, pd.DataFrame):
+        raise TypeError(""Input must be a pandas DataFrame"")
+
+    # Use a regular expressio",True,-148
+BigCodeBench/81,comment,#tests/test_task_func.py,83,83,93,0,0.0,inside_visible_line,#,"          return response.json()
+
+    api.add_resource(DataAPI, '/data')
+
+    return app
+
+#tests/test_task_func.py
+import unittest
+from unittest.mock import patch
+from flask import ",True,-47
+BigCodeBench/820,comment,#test_task_func.py,88,88,96,0,0.0,inside_visible_line,#,"choice(LETTERS) for _ in range(word_length))
+        words.append(word)
+    return words
+
+#test_task_func.py
+import unittest
+from task_func import task_func
+
+class TestTaskFunc(unit",True,-14
+BigCodeBench/823,class,class TestTaskFunc(unittest.TestCase):,192,213,224,-21,-4.646017699115045,before_line,#," std = np.std(delays)
+
+    # Return the mean and standard deviation
+    return mean, std
+
+#task_func_test.py
+import unittest
+import task_func
+
+
+class TestTaskFunc(unittest.TestCase)",,
+BigCodeBench/840,import,from task_func import task_func,133,266,274,-133,-48.54014598540146,before_line,#," the DataFrame to a CSV file
+    df.to_csv(file_path, index=False)
+
+    return file_path
+
+#src/main.py
+import os
+import sys
+import logging
+import argparse
+import pandas as pd
+import",True,-133
+BigCodeBench/841,comment,#tests/test_task.py,106,106,114,0,0.0,inside_visible_line,#," return dict(word_counts)
+    except (json.JSONDecodeError, KeyError):
+        return {}
+
+#tests/test_task.py
+import unittest
+from task import task_func
+
+class TestTask(unittest.Tes",,
+BigCodeBench/845,comment,#tests/test_task_func.py,268,267,277,1,0.20242914979757085,inside_visible_line,tests,"evenshtein_ratio = ratio(text1, text2)
+
+    return cosine_similarity, levenshtein_ratio
+
+#tests/test_task_func.py
+import unittest
+from task_func import task_func
+
+class TestTaskFunc(uni",True,-15
+BigCodeBench/858,class,class TestTask1(unittest.TestCase):,80,115,126,-35,-8.13953488372093,before_line,#,"ccurrences of each letter
+    letter_counts = Counter(letters)
+
+    return letter_counts
+
+#task_1/test_task_1.py
+import unittest
+from task_1 import task_func
+from collections import",,
+BigCodeBench/863,comment,#test_task_func.py,96,95,103,1,0.20242914979757085,inside_visible_line,test,"quare(POSSIBLE_NUMBERS[:len(lst)]))
+        sums.append(sum_of_squares)
+    return sums
+
+#test_task_func.py
+import unittest
+import numpy as np
+from task_func import task_func
+
+class Te",True,-19
+BigCodeBench/873,comment,#tests/test_task_func.py,8,210,220,-202,-84.16666666666667,before_line,"
+","    if file_path is None:
+        raise ValueError(""file_path cannot be None"")
+
+    # Create the directory if it doe",True,-224
+BigCodeBench/874,comment,#tests/test_task_func.py,78,77,87,1,0.4424778761061947,inside_visible_line,tests,"
+    return [distance.euclidean(a, b) for a, b in zip_longest(points[:-1], points[1:])]
+
+#tests/test_task_func.py
+import unittest
+from task_func import task_func
+
+class TestTaskFunc(uni",True,-15
+BigCodeBench/88,comment,#test_task_func.py,193,193,201,0,0.0,inside_visible_line,#,"te')
+    ax.set_ylabel('Sales')
+    ax.set_title('Sales over time')
+
+    return data, ax
+
+#test_task_func.py
+import unittest
+import pandas as pd
+from datetime import datetime
+from t",True,-26
+BigCodeBench/900,comment,#test_task.py,205,205,211,0,0.0,inside_visible_line,#,"f[key].std()
+            }
+        else:
+            stats[key] = None
+
+    return stats
+
+#test_task.py
+import unittest
+from task import task_func
+
+class TestTaskFunc(unittest.TestC",,
+BigCodeBench/905,comment,#test_task_func.py,196,196,204,0,0.0,inside_visible_line,#,"    reader = csv.reader(file)
+            data[filename] = list(reader)
+
+    return data
+
+#test_task_func.py
+import unittest
+import os
+import shutil
+import tempfile
+import csv
+from ",True,-29
+BigCodeBench/909,comment,#tests/test_task_func.py,45,44,54,1,0.3076923076923077,inside_visible_line,tests,"(itertools.product(letters, categories)), columns=['Letter', 'Category'])
+    return df
+
+#tests/test_task_func.py
+import unittest
+import pandas as pd
+from task_func import task_func
+
+cl",True,-22
+BigCodeBench/91,import,from task_func import task_func,187,201,209,-14,-5.761316872427984,before_line,#,"title(""Linear Regression"")
+
+    return (slope, intercept, r_value, p_value, std_err), ax
+
+#task_1.py
+import pandas as pd
+from task_func import task_func
+
+data = pd.read_csv(""data.cs",True,-14
+BigCodeBench/910,comment,#tests/test_task_func.py,290,289,299,1,0.1976284584980237,inside_visible_line,tests," ax.set_ylabel('Frequency')
+    ax.set_title('Frequency of Letters')
+    
+    return ax
+
+#tests/test_task_func.py
+import unittest
+import numpy as np
+import matplotlib.pyplot as plt
+from",True,-32
+BigCodeBench/930,comment,#tests/test_task_func.py,110,110,120,0,0.0,inside_visible_line,#,"om.randint(0, len(word) - 2)
+            pairs.append(word[i:i+2])
+    
+    return pairs
+
+#tests/test_task_func.py
+import unittest
+import random
+from task_func import task_func
+
+cla",True,-19
+BigCodeBench/931,comment,#tests/test_task_func.py,157,156,166,1,0.3424657534246575,inside_visible_line,tests,"1):
+        two_letter_counts[sanitized_word[i:i+2]] += 1
+
+    return two_letter_counts
+
+#tests/test_task_func.py
+import unittest
+from task_func import task_func
+
+class TestTaskFunc(uni",True,-15
+BigCodeBench/932,comment,#test_task_func.py,189,188,196,1,0.1953125,inside_visible_line,test,"    most_common_pair = pair_counts.most_common(1)[0]
+    
+    return [most_common_pair]
+
+#test_task_func.py
+import unittest
+from task_func import task_func
+
+class TestTaskFunc(unittest",True,-13
+BigCodeBench/933,comment,#tests/test_task_func.py,101,100,110,1,0.2857142857142857,inside_visible_line,tests,"ord_list = [word_list]
+    word_list.append(wordninja.split(word))
+    return word_list
+
+#tests/test_task_func.py
+import unittest
+from task_func import task_func
+
+class TestTaskFunc(uni",True,-15
+BigCodeBench/937,comment,#test_task.py,104,103,109,1,0.38910505836575876,inside_visible_line,test,"aracter in the input string
+    char_counts = Counter(input_str)
+    return char_counts
+
+#test_task.py
+import unittest
+from task import task_func
+
+class TestTask(unittest.TestCase):
+  ",,
+BigCodeBench/940,comment,#test_task_func.py,99,98,106,1,0.44052863436123346,inside_visible_line,test,"unt the frequency of each word
+    word_counts = Counter(words)
+
+    return word_counts
+
+#test_task_func.py
+import unittest
+from task_func import task_func
+
+class TestTaskFunc(unittest",True,-13
+BigCodeBench/949,comment,#tests/test_task.py,49,49,57,0,0.0,inside_visible_line,#,")
+    matrix = np.random.rand(rows, columns)
+    df = pd.DataFrame(matrix)
+    return df
+
+#tests/test_task.py
+import pytest
+import pandas as pd
+from task import task_func
+",,
+BigCodeBench/97,comment,#tests/test_task_func.py,134,133,143,1,0.19607843137254902,inside_visible_line,tests,"(product) for product in products]
+
+    # Sum the logarithms
+    return sum(logarithms)
+
+#tests/test_task_func.py
+import unittest
+import math
+from task_func import task_func
+
+class Test",True,-18
