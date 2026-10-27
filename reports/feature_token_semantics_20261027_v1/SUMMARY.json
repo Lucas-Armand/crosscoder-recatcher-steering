@@ -1,0 +1,49 @@
+{
+  "n_tasks": 50,
+  "active_newline_occurrences": 141,
+  "active_newline_line_categories": {
+    "Return statement": 49,
+    "Raise statement": 28,
+    "Block header": 15,
+    "Assignment": 14,
+    "Other line": 23,
+    "Blank line": 12
+  },
+  "fraction_active_newlines_after_return": 0.3475177304964539,
+  "token_census": [
+    {
+      "category": "Return-ending newline",
+      "total": 51,
+      "active": 49
+    },
+    {
+      "category": "Other newline",
+      "total": 327,
+      "active": 92
+    },
+    {
+      "category": "Non-newline",
+      "total": 4320,
+      "active": 53
+    }
+  ],
+  "definitions": [
+    "Each active captured newline token is assigned once to the physical line it ends.",
+    "Return statements use AST end lines inside task_func, excluding nested function definitions.",
+    "Return may be conditional: this does not imply the last return of the function.",
+    "Other categories use lexical blank/comment/header checks, then AST Raise/Assign end lines.",
+    "Clouds use up to 40 token IDs active in at least 3 tasks, sized by square root of activation mass.",
+    "Pooled token counts are descriptive, not independent statistical replications."
+  ],
+  "new_inference": false,
+  "deepseek_base": {
+    "total_activation_mass": 13914.007841974497,
+    "newline_activation_mass": 3853.055917263031,
+    "newline_mass_fraction": 0.2769191997750272
+  },
+  "codellama_merged": {
+    "total_activation_mass": 877.9919875264168,
+    "newline_activation_mass": 709.0562131404877,
+    "newline_mass_fraction": 0.8075884782708838
+  }
+}

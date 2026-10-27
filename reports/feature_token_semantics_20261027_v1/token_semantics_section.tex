@@ -1,0 +1,14 @@
+\subsubsection{Tokens and semantic interpretation.}
+
+Inspecting activating tokens and their surrounding text helps formulate semantic interpretations of sparse features~\cite{bricken2023monosemanticity}. We apply this approach to the original failing programs in each focal cohort: 119 DeepSeek base outputs for feature 4810 and 50 CodeLlama merged outputs for feature 4309. Figure~\ref{fig:case-token-contexts} summarizes their activating-token profiles. The clouds are weighted by summed positive activation, rather than measuring frequency-controlled token associations.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{emse-submission/crosscoder_case_studies/figures/token_clouds_and_line_contexts.png}
+\caption{Activating-token evidence for the selected features. (a--b) Token clouds for DeepSeek 4810 on base-generated text and CodeLlama 4309 on merged-generated text. Font size increases with the square root of summed activation mass within each feature; displayed token IDs require activation in at least three tasks. \texttt{NEWLINE} and \texttt{SPACE} are visible aliases. (c) Types of physical line ending at each of the 141 active CodeLlama newline tokens. (d) Proportion of available tokens with positive activation in each category. Return-ending newlines are identified from AST return-statement end lines inside \texttt{task\_func}; a return can be conditional and need not be the function's last return. Panels (c--d) pool token occurrences across the 50 tasks, not independent task-level observations.}
+\label{fig:case-token-contexts}
+\end{figure*}
+
+For DeepSeek, prominent tokens include \texttt{import}, \texttt{from}, \texttt{test}, filename fragments, and newlines. This lexical profile is consistent with test-like or illustrative code continuation, rather than uniquely identifying invalid imports. CodeLlama has a different profile: newline tokens account for 80.8\% of feature 4309's activation mass. Examining the lines ending at these active newlines reveals 49 return statements (34.8\%), 28 \texttt{raise} statements (19.9\%), 15 block headers, 14 assignments, 12 blank lines, and 23 other lines, including calls and \texttt{continue} statements. Thus, active newlines do not occur exclusively after returns.
+
+The complementary conditional comparison nevertheless shows a preference for return boundaries: 49/51 return-ending newlines activate the feature (96.1\%), compared with 92/327 other newlines (28.1\%) and 53/4,320 non-newline tokens (1.2\%). This pattern is compatible with a structural boundary feature rather than an error detector. Indeed, 48/53 return-ending newlines also activate it in the passing base programs. These descriptive token profiles inform semantic hypotheses; they do not establish a unique meaning or causal mechanism.

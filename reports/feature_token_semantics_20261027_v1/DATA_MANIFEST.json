@@ -1,0 +1,21 @@
+{
+  "new_inference": false,
+  "sources": [
+    {
+      "path": "reports/codellama_base_merged_topk100_v1_regression_taxonomy/regression_failure_cases.csv",
+      "sha256": "1f2aa7230a2c160844c45a6ddb3f4781454d1dc22aa366db4ca2ad1548ad473b"
+    },
+    {
+      "path": "reports/section67_semantic_temporal_20261019_v1/codellama_feature_activations.npz",
+      "sha256": "c5659e7f35d45a04750206f4f3ae076a587a082f1b4655070c2ee9293e6d7bb6"
+    },
+    {
+      "path": "reports/section67_semantic_temporal_20261019_v1/deepseek_base_token_statistics.csv",
+      "sha256": "5d4bc6e3f6be39658bd3f53a3621dfc3393e3a361a2bdcd7ed458df3b2516638"
+    },
+    {
+      "path": "reports/section67_semantic_temporal_20261019_v1/codellama_merged_token_statistics.csv",
+      "sha256": "ee94dba9067cd0a72a825019ec5f9bc170e0f376bb31a9dc23fe55332afbb4af"
+    }
+  ]
+}
