@@ -1,0 +1,26 @@
+{
+  "focal_sources": {
+    "deepseek": "119 original failing base programs",
+    "codellama": "50 original failing merged programs"
+  },
+  "active_newline_occurrences": 141,
+  "active_newline_line_categories": {
+    "Return statement": 49,
+    "Raise statement": 28,
+    "Block header": 15,
+    "Assignment": 14,
+    "Other line": 23,
+    "Blank line": 12
+  },
+  "newline_activation_mass_fraction": 0.8075884782708838,
+  "chart_denominator": "141 positive-activation newline occurrences, pooled across the fixed 50-task merged cohort",
+  "cloud_support": "at least three tasks; up to 40 strongest token IDs; independent within-feature font scaling",
+  "includes_passing_base_comparison": false,
+  "includes_conditional_activation_rate_chart": false,
+  "new_inference": false,
+  "caveats": [
+    "Return end lines are AST-derived and may correspond to conditional returns, not the final return.",
+    "Block headers and blank lines are lexical contexts, not executed statements.",
+    "Pooled occurrences are descriptive; repeated occurrences within a task are not independent observations."
+  ]
+}

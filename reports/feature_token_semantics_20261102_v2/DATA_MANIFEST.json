@@ -1,0 +1,25 @@
+{
+  "new_inference": false,
+  "sources": [
+    {
+      "path": "reports/feature_token_semantics_20261027_v1/SUMMARY.json",
+      "sha256": "fe5c7ecda4e603f78c2126aa898d1516968771b50a3328480c31c378a8a7c38e"
+    },
+    {
+      "path": "reports/feature_token_semantics_20261027_v1/active_newline_contexts.json",
+      "sha256": "1dced56f7c39f8c6f20f81febf424adac59d7d021e0f8fa0fe49b3579f702193"
+    },
+    {
+      "path": "reports/section67_semantic_temporal_20261019_v1/natural_timing.csv",
+      "sha256": "de1d57ea80647b440679b30832144c2e4606bec403c6f3bdc4bc3899c0065d5d"
+    },
+    {
+      "path": "reports/section67_semantic_temporal_20261019_v1/deepseek_base_token_statistics.csv",
+      "sha256": "5d4bc6e3f6be39658bd3f53a3621dfc3393e3a361a2bdcd7ed458df3b2516638"
+    },
+    {
+      "path": "reports/section67_semantic_temporal_20261019_v1/codellama_merged_token_statistics.csv",
+      "sha256": "ee94dba9067cd0a72a825019ec5f9bc170e0f376bb31a9dc23fe55332afbb4af"
+    }
+  ]
+}

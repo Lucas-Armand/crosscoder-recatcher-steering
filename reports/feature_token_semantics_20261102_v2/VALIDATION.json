@@ -1,0 +1,9 @@
+{
+  "validated": true,
+  "cohorts_checked": true,
+  "newline_counts_match_previous_analysis": true,
+  "one_bar_denominator": 141,
+  "deepseek_color": "#7654cf",
+  "codellama_palette": "orange only",
+  "new_inference": false
+}
